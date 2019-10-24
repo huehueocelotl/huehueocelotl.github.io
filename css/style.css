@@ -89,8 +89,8 @@ h2 {
     max-width: 150px;
     font-family: courier;
     font-size: 12px;
-		background-color: #222222;
-		border-radius: 10px 10px;
+		/* background-color: #222222; */
+		/* border-radius: 10px 10px; */
 		padding: 5px 20px;
 		color: #dddddd;}
 
@@ -242,7 +242,7 @@ footer p {
 
 #postamble p {
 		margin: 0px;
-		text-align: center;
+		text-align: right;
 }
 
 /******************************************************************************/
