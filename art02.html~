@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Dummy Post Title</title>
-<!-- 2019-11-19 Tue 20:34 -->
+<!-- 2020-03-18 Wed 23:58 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Huehueocelotl" />
@@ -64,8 +64,8 @@ for the JavaScript code in this tag.
 <div id="content">
 <h1 class="title">Dummy Post Title</h1>
 <div class="post-details">
-<div class="post-author">Posted by: Huehueocelotl</div>
-<div class="post-date"><time>[2019-10-24 Thu]</time> </div>
+<div class="post-author">Posted by: Lobo</div>
+<div class="post-date"><time>[2020-03-18 Wed]</time> </div>
 <a href=index.html> <b>Inicio</b> </a>  
 </div>
 
@@ -81,7 +81,7 @@ Text just after title
 Text after subtitle or section 
 </p>
 
-<iframe src="../2019/enero_2019.html" width="20%" height="300"></iframe>
+<iframe src="../basemap_1.html" width="20%" height="300"></iframe>
 
 <p>
 Text after some horrible html.
