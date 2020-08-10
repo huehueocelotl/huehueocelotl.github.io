@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-10 Mon 11:43 -->
+<!-- 2020-08-10 Mon 11:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Our Git Hub Work Flow for Collaboration</title>
+<title>Our Git Hub Work FLow for Collaboration</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Huehueocelotl" />
 <link rel="stylesheet"
@@ -63,7 +63,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Our Git Hub Work Flow for Collaboration</h1>
+<h1 class="title">Our Git Hub Work FLow for Collaboration</h1>
 <div class="post-details">
 <div class="post-author">Posted by: Huehueocelotl</div>
 <div class="post-date"><time>[2020-08-04 Tue]</time> </div>
@@ -72,7 +72,7 @@ for the JavaScript code in this tag.
 
 <p>
 Collaborative work is very fun and it can lead to huge improvement in different projects from different subjects in life.
-It is well proven that two heads are better than one. So it is important to make the collaborative process easy and
+It is well proven that two heads are better than one. So it is important to make the collaborative process to be easy and
 efficient.
 </p>
 
@@ -87,14 +87,14 @@ joint projects, specifically programming ones.
 </p>
 
 <p>
-Then, whenever you want to collaborate on an existing project you can follow the following steps:
+Then, whenever you you want to collaborate on an existing project you can follow the follwing steps:
 </p>
 
 <div id="outline-container-orgcd704c3" class="outline-2">
 <h2 id="orgcd704c3">Fork the repo</h2>
 <div class="outline-text-2" id="text-orgcd704c3">
 <p>
-Once you have identified the <code>Project</code> Repository of your collaborator, you click on the <code>fork</code> button.
+Once you have identified the <code>Project</code> Repository of your collaborator, you click on the <code>fork</code> buttton.
 This will copy the repository that you manage in your git account.
 This step needs no terminal interaction. All is done via the browser.
 </p>
