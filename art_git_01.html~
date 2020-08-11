@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-11 Tue 13:23 -->
+<!-- 2020-08-11 Tue 13:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Our GitHub Work Flow for Collaboration</title>
@@ -94,7 +94,7 @@ command line anymore, you may be wondering what the collaborative workflow looks
 
 <p>
 Here we present a very short summary of steps the Huehueocelotl takes in order to cooperate in
-joint projects,  programming codes and so on
+joint projects,  programming codes and so on.
 </p>
 
 <div id="outline-container-org8e33e25" class="outline-2">
@@ -115,7 +115,7 @@ Now you can clone your new repository <code>Project</code> to your computer. Thi
 names <code>Project</code> which is usually referred as the local repository. 
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">git clone http://github.com/your_username/Project.git
+<pre class="src src-bash">git clone http://github.com/your_username/Project.git
 </pre>
 </div>
 </div>
