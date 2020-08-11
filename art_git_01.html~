@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-11 Tue 13:08 -->
+<!-- 2020-08-11 Tue 13:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Our GitHub Work Flow for Collaboration</title>
@@ -63,23 +63,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Our GitHub Work Flow for Collaboration
-<br />
-<span class="subtitle">Posted by: Huehueocelotl</span>
-</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org8e33e25">Step 1. Fork the repo</a></li>
-<li><a href="#orgcfc93ae">Step 2. Clone the repo</a></li>
-<li><a href="#orgfc71140">Step 3. Remote upstream for Sync</a></li>
-<li><a href="#orge40ef44">Step 4. Branching</a></li>
-<li><a href="#org9471fb2">Step 5. Pull request</a></li>
-<li><a href="#orgdbfd0c9">Step 6. Cleaning branches</a></li>
-</ul>
-</div>
-</div>
+<h1 class="title">Our GitHub Work Flow for Collaboration</h1>
 <div class="post-details"> 
 <div class="post-author">Posted by: Huehueocelotl</div> 
 <div class="post-date"><time>[2020-08-04 Tue]</time> </div> 
