@@ -99,12 +99,14 @@ h2 {
 .title {
 		background-color: #222222;
 		/* border-radius: 10px 10px; */
-		padding: 10px 20px;
+		font-family: Times;
+		padding: 10px auto;
+		color: #FF9900;
 }
 
 .title h1 {
 		line-height: 40px;
-		padding: 10px 0;
+		padding: 10px 20px;
 }
 
 
