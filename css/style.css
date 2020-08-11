@@ -1,11 +1,11 @@
 /* /\******************************************************************************\/ */
 a {
-    color: #737373;
+    color: #525252;
 }
 
 a:visited {
-		color: #edd207;
-}
+		/* color: #edd207; */
+		color: #FF9900;}
 
 code {
     font-weight: bold;
@@ -24,7 +24,7 @@ code {
 
 body {
     background: #DEFFFF;
-    color: #737373;
+    color: #525252;
     /* background: #DDF0F0; */
     /* color: #ffd9b3; */
     /* background: #2F4F4F; */
