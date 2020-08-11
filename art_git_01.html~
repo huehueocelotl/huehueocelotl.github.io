@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-11 Tue 12:08 -->
+<!-- 2020-08-11 Tue 12:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Our GitHub Work Flow for Collaboration</title>
@@ -64,6 +64,19 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Our GitHub Work Flow for Collaboration</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org8e33e25">Step 1. Fork the repo</a></li>
+<li><a href="#orgcfc93ae">Step 2. Clone the repo</a></li>
+<li><a href="#orgfc71140">Step 3. Remote upstream for Sync</a></li>
+<li><a href="#orge40ef44">Step 4. Branching</a></li>
+<li><a href="#org9471fb2">Step 5. Pull request</a></li>
+<li><a href="#orgdbfd0c9">Step 6. Cleaning branches</a></li>
+</ul>
+</div>
+</div>
 <div class="post-details">
 <div class="post-author">Posted by: Huehueocelotl</div>
 <div class="post-date"><time>[2020-08-04 Tue]</time> </div>
@@ -71,9 +84,15 @@ for the JavaScript code in this tag.
 </div>
 
 <p>
-Collaborative work is very fun and it can lead to huge improvement in different projects from different subjects in life.
+Collaborative work is very fun and it can lead to huge and fast improvement in a the projects' develpment.
 It is well proven that two heads are better than one. So it is important to make the collaborative process easy and
 efficient.
+</p>
+
+<p>
+GitHub is one of the most popular and used code hosting platfroms for version controll and collaboration.
+You can get started without any coding or programming knowledge by simply creating and account and then you can use your
+favourite browser to start yoru own projects and collaborate in others' ppls projects too.
 </p>
 
 <p>
@@ -82,17 +101,18 @@ reading it first <a href="https://docs.github.com/en/github/collaborating-with-i
 </p>
 
 <p>
-Here we present a very short summary of steps we in Huehueocelotl take in order to cooperate in
-joint projects, specifically programming ones. 
+Once the jargon <i>repositories, branches, commits, and Pull Requests</i> is in your veins and your are not affraid of the
+command line anymore, you may be wondering what the collaborative workflow looks like.
 </p>
 
 <p>
-Then, whenever you want to collaborate on an existing project you can follow the following steps:
+Here we present a very short summary of steps The Huehueocelotl takes in order to cooperate in
+joint projects, programming programming codes and so on
 </p>
 
-<div id="outline-container-orgcd704c3" class="outline-2">
-<h2 id="orgcd704c3"><span class="section-number-2">1</span> Fork the repo</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-org8e33e25" class="outline-2">
+<h2 id="org8e33e25">Step 1. Fork the repo</h2>
+<div class="outline-text-2" id="text-org8e33e25">
 <p>
 Once you have identified the <code>Project</code> Repository of your collaborator, you click on the <code>fork</code> button.
 This will copy the repository that you manage in your git account.
@@ -100,30 +120,30 @@ This step needs no terminal interaction. All is done via the browser.
 </p>
 </div>
 </div>
-<div id="outline-container-orgac84900" class="outline-2">
-<h2 id="orgac84900"><span class="section-number-2">2</span> Clone the repo</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orgcfc93ae" class="outline-2">
+<h2 id="orgcfc93ae">Step 2. Clone the repo</h2>
+<div class="outline-text-2" id="text-orgcfc93ae">
 <p>
 Now you can clone your new repository <code>Project</code> to your computer. This will create a folder in your computer
 names <code>Project</code> which is usually referred as the local repository. 
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">git clone http://github.com/your_username/Project.git
+<pre class="src src-shell">git clone http://github.com/your_username/Project.git
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org97f30e8" class="outline-2">
-<h2 id="org97f30e8"><span class="section-number-2">3</span> Remote upstream for Sync</h2>
+<div id="outline-container-orgfc71140" class="outline-2">
+<h2 id="orgfc71140">Step 3. Remote upstream for Sync</h2>
 </div>
-<div id="outline-container-org837ea58" class="outline-2">
-<h2 id="org837ea58"><span class="section-number-2">4</span> Branching</h2>
+<div id="outline-container-orge40ef44" class="outline-2">
+<h2 id="orge40ef44">Step 4. Branching</h2>
 </div>
-<div id="outline-container-org39ff788" class="outline-2">
-<h2 id="org39ff788"><span class="section-number-2">5</span> Pull request</h2>
+<div id="outline-container-org9471fb2" class="outline-2">
+<h2 id="org9471fb2">Step 5. Pull request</h2>
 </div>
-<div id="outline-container-org1363181" class="outline-2">
-<h2 id="org1363181"><span class="section-number-2">6</span> Cleaning branches</h2>
+<div id="outline-container-orgdbfd0c9" class="outline-2">
+<h2 id="orgdbfd0c9">Step 6. Cleaning branches</h2>
 </div>
 </div>
 <div id="postamble" class="status">

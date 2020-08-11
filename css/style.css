@@ -157,50 +157,50 @@ nav:before {
 }
 */
 
-/* Toggle TOC when hovered. */
-#table-of-contents ul {
-		display: none;
-}
+/* /\* Toggle TOC when hovered. *\/ */
+/* #table-of-contents ul { */
+/* 		display: none; */
+/* } */
 
-#table-of-contents:hover ul {
-		display: block;
-}
+/* #table-of-contents:hover ul { */
+/* 		display: block; */
+/* } */
 
 
-/* Indent sublists. */
-#table-of-contents ul   {
-		text-align: left;
-		padding: 0;
-}
-#table-of-contents ul li ul   {
-		padding: 0 0 0 2em;
-}
+/* /\* Indent sublists. *\/ */
+/* #table-of-contents ul   { */
+/* 		text-align: left; */
+/* 		padding: 0; */
+/* } */
+/* #table-of-contents ul li ul   { */
+/* 		padding: 0 0 0 2em; */
+/* } */
 
-/* Remove list dot. */
-#table-of-contents ul li  {
-		display: block;
-}
+/* /\* Remove list dot. *\/ */
+/* #table-of-contents ul li  { */
+/* 		display: block; */
+/* } */
 
-/* Remove deeply nested TOC, mostly for power-apps */
-#table-of-contents ul li ul li ul li ul li  {
-		display: none;
-}
+/* /\* Remove deeply nested TOC, mostly for power-apps *\/ */
+/* #table-of-contents ul li ul li ul li ul li  { */
+/* 		display: none; */
+/* } */
 
-#table-of-contents a {
-		color: #08C;
-		text-decoration: none;
-		white-space: nowrap;
-}
+/* #table-of-contents a { */
+/* 		color: #08C; */
+/* 		text-decoration: none; */
+/* 		white-space: nowrap; */
+/* } */
 
-#table-of-contents a:hover {
-		color: #dddddd;
-}
+/* #table-of-contents a:hover { */
+/* 		color: #dddddd; */
+/* } */
 
-/* Org uses a <h2> for "Table of Contents". */
-#table-of-contents h2 {
-		font-size: 16px;
-		margin: 0;
-}
+/* /\* Org uses a <h2> for "Table of Contents". *\/ */
+/* #table-of-contents h2 { */
+/* 		font-size: 16px; */
+/* 		margin: 0; */
+/* } */
 
 /******************************************************************************/
 #preamble {
