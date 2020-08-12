@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-12 Wed 16:21 -->
+<!-- 2020-08-12 Wed 16:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Our GitHub Work Flow for Collaboration</title>
@@ -71,19 +71,19 @@ for the JavaScript code in this tag.
 </div>
 
 <p>
-Collaborative work is very fun and it can lead to huge and fast improvements in a projects' development.
+Collaborative work is very fun and it can lead to huge and fast improvements in a project's development.
 It is well proven that two heads are better than one. So it is important to make the collaborative process easy and
 efficient.
 </p>
 
 <p>
-GitHub is one of the most popular and used code hosting platforms for version controls and collaboration.
+GitHub is one of the most popular and used code hosting platforms for version control and collaboration.
 You can get started without any coding or programming knowledge by simply creating and account. Then you can use your
 favourite browser to start your own projects and to collaborate in others' people projects too.
 </p>
 
 <p>
-There are many tutorials and manuals out there starting from the git hub documentation and we definitely recommend 
+There are many tutorials and manuals out there starting from the github documentation and we definitely recommend 
 reading it first <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/working-with-forks">here</a>.
 </p>
 
@@ -93,8 +93,8 @@ command line anymore, you may be wondering what the collaborative workflow looks
 </p>
 
 <p>
-Here we present a very short summary of steps the <b>Huehueocelotl</b> takes in order to cooperate in
-joint projects,  programming codes and so on.
+Here we present a very short summary of steps that <b>Huehueocelotl</b> takes in order to cooperate in
+joint projects,  programming codes and more.
 </p>
 
 <div id="outline-container-org8e33e25" class="outline-2">
@@ -108,7 +108,7 @@ joint projects,  programming codes and so on.
 
 
 <p>
-Once you have identified the <code>Project</code> Repository of your collaborator, you click on the <code>fork</code> button.
+Once you have identified the <code>Project</code> repository of your collaborator, you click on the <code>fork</code> button.
 This will copy the repository  in your github account that you created.
 This step needs no terminal interaction, all is done via the browser.
 </p>
@@ -138,7 +138,7 @@ named <code>Project</code> which will be usually referred as the local repositor
 <div class="outline-text-2" id="text-orgfc71140">
 <p>
 Up to now, what we have is just a copy of someone's else repository with a local folder in our computer. We can add, commit and push 
-to our copy just as any other project we own. But we don't want to be an island. We want to be able to pull and keep updated with the
+to our fork just as any other project we own. But we don't want to be an island. We want to be able to pull and keep updated with the
 changes the owner (and other  collaborators) are making to the original repository. 
 </p>
 
@@ -162,10 +162,10 @@ You can also type <code>git remote -v</code> to have a list of all configured re
 <p>
 It is in a <code>branch</code> where the collaboration process happens. If you want to fix, improve, rewrite some part of the projects,
 it is recommended to create a branch, and within the branch you can carry on the usual  <i><b>add, commit and push</b></i> process. We will assume
-that the name the branch you are working with is called <code>features</code>. Recall that in order to create this branch you type
+that the name of the branch you are working in is <code>features</code>. Recall that in order to create this branch you type
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">git remote add upstream  http://github.com/owner_username/Project.git
+<pre class="src src-bash">git checkout -b features
 </pre>
 </div>
 
@@ -177,7 +177,7 @@ merging problems later when we want to submit changes.
 </p>
 
 <p>
-If your <code>feature</code> fix is done and you want to tell the owner of the original repo to implement this into the 
+If your work in the branch <code>feature</code>  is done and you want to tell the owner of the original repo to implement these changes into the 
 original master branch, then you are ready to ask for a pull request.
 </p>
 </div>
@@ -186,8 +186,8 @@ original master branch, then you are ready to ask for a pull request.
 <h2 id="org9471fb2">Step 5. Pull request</h2>
 <div class="outline-text-2" id="text-org9471fb2">
 <p>
-Here again, no need for the command line. Github makes it all easy: go
-to your github account, in the repository <code>Project</code> and select the-
+Here again, there is no need for the command line. Github makes it all easy: go
+to your github account, then to the repository <code>Project</code> and select the
 branch <code>features</code>. Then you fill see a button that looks like this one
 </p>
 
@@ -199,7 +199,7 @@ branch <code>features</code>. Then you fill see a button that looks like this on
 
 <p>
 This will compare and check if your changes produce no conflict with any other collaboration made and will send a notification via email to the owner of the
-branch. The owner can then check your changes and decide to accept them and to merge them to the master branch.
+branch. The owner can then check revise the changes and decide to accept them and to merge your changes into the master branch.
 </p>
 </div>
 </div>
@@ -220,7 +220,7 @@ git push --delete origin feature
 
 
 <p>
-You can keep your forked updated by typing regularly 
+You can keep your fork updated by typing regularly 
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">git pull upstream master
