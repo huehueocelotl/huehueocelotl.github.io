@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-12 Wed 00:35 -->
+<!-- 2020-08-12 Wed 15:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Our GitHub Work Flow for Collaboration</title>
@@ -109,8 +109,8 @@ joint projects,  programming codes and so on.
 
 <p>
 Once you have identified the <code>Project</code> Repository of your collaborator, you click on the <code>fork</code> button.
-This will copy the repository that you manage in your git account.
-This step needs no terminal interaction. All is done via the browser.
+This will copy the repository  in your github account that you created.
+This step needs no terminal interaction, all is done via the browser.
 </p>
 </div>
 </div>
@@ -120,26 +120,99 @@ This step needs no terminal interaction. All is done via the browser.
 <h2 id="orgcfc93ae">Step 2. Clone the repo</h2>
 <div class="outline-text-2" id="text-orgcfc93ae">
 <p>
-Now you can clone your new repository <code>Project</code> to your computer. This will create a folder in your computer
-names <code>Project</code> which is usually referred as the local repository. 
+Now you can treat your forked repository as any other of your own. You can clone your new forked repository <code>Project</code> to your computer. 
+In your working directory you can type from the terminal
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">git clone http://github.com/your_username/Project.git
 </pre>
 </div>
+<p>
+This will create a folder in your computer
+named <code>Project</code> which will be usually referred as the local repository.
+</p>
 </div>
 </div>
 <div id="outline-container-orgfc71140" class="outline-2">
 <h2 id="orgfc71140">Step 3. Remote upstream for Sync</h2>
+<div class="outline-text-2" id="text-orgfc71140">
+<p>
+Up to now, what we have is just a copy of someone's else repository with a local folder in our computer. We can add, commit and push 
+to our copy just as any other project we own. But we don't want to be an island. We want to be able to pull and keep updated with the
+changes the owner (and other  collaborators) are making to the original repository. 
+</p>
+
+<p>
+We need to set up the remote upstream. One can see that <code>origin</code> points at our copied repository. We will defined an <code>upstream</code> 
+pointing to the owner's repository, <code>owner_username</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git remote add upstream  http://github.com/owner_username/Project.git
+</pre>
+</div>
+
+<p>
+You can also type <code>git remote -v</code> to have a list of all configured remote repository for your fork.
+</p>
+</div>
 </div>
 <div id="outline-container-orge40ef44" class="outline-2">
 <h2 id="orge40ef44">Step 4. Branching</h2>
+<div class="outline-text-2" id="text-orge40ef44">
+<p>
+It is in a <code>branch</code> where the collaboration process happens. If you want to fix, improve, rewrite some part of the projects,
+it is recommended to create a branch, and within the branch you can carry on the usual  <i><b>add, commit and push</b></i> process. We will assume
+that the name the branch you are working with is called <code>features</code>. Recall that in order to create this branch you type
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git remote add upstream  http://github.com/owner_username/Project.git
+</pre>
+</div>
+
+
+<p>
+There are many difficulties one can face here. It may happen that changes are implemented while we are working in our
+branch. We have to always pull from our upstream (that points to the owner repo) to be  up-to-date and avoid 
+merging problems later when we want to submit changes.
+</p>
+
+<p>
+If your <code>feature</code> fix is done and you want to tell the owner of the original repo to implement this into the 
+original master branch, then you are ready to ask for a pull request.
+</p>
+</div>
 </div>
 <div id="outline-container-org9471fb2" class="outline-2">
 <h2 id="org9471fb2">Step 5. Pull request</h2>
+<div class="outline-text-2" id="text-org9471fb2">
+<p>
+Here again, no need for the command line. Github makes it all easy: go to your github account - repository - branch - features
+And you fill see a button like this
+</p>
+
+
+<div class="figure">
+<p><img src="./art_git_01_img02.png" alt="art_git_01_img02.png" />
+</p>
 </div>
-<div id="outline-container-orgdbfd0c9" class="outline-2">
-<h2 id="orgdbfd0c9">Step 6. Cleaning branches</h2>
+</div>
+</div>
+
+<div id="outline-container-orgac313e8" class="outline-2">
+<h2 id="orgac313e8">Step 6. Cleansing branches</h2>
+<div class="outline-text-2" id="text-orgac313e8">
+<p>
+After a successful pull request, you can perform the following four steps cleansing procedure: pull, delete, push and push deletion:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">git pull upstream master
+git branch -d feature
+git push origin master
+git push --delete origin feature
+</pre>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
