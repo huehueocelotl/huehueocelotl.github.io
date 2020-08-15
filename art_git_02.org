@@ -1,0 +1,56 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:nil
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Programming in the Linux Terminal (aka Bash)
+#+DATE: <2019-10-25 Fri>
+#+AUTHOR: Huehueocelotl
+#+EMAIL: Huehueocelotl@gmail.com
+
+#+begin_export html
+<div class="post-details"> 
+<div class="post-author">Posted by: Huehueocelotl</div> 
+<div class="post-date"><time>[2020-08-16 Sun]</time> </div> 
+<a href=index.html> <b style="color:#FF9900">Home</b> </a> 
+</div>
+#+end_export
+* Why to bother with the terminal?
+
+  If you are an ordinary computer user and you find yourself asking this question, it is very likely that you are suspecting that you are not using your personal computer in its full capacity.
+  A  popular saying when discussing about technology reads: /nowadays personal computers and laptops as powerful and even more than the computers used to send the man to the moon/.
+  But it is not rare to find people with different jobs struggling to create a report in a monthly basis of their job's results. Even more, I strongly believe that there are so many bad
+  decisions taken every day on a basis of a poorly done copy and paste.
+
+  If you take a look at your computer and your favourite operating system, you can notice that it is the computer the one giving commands to users. The users are overwhelmed with messages like
+  /click here/, or /i will save this file somewhere you don't have to ask where/ or the annoying /click on X to close but I won't close but minimise the window/. Yes, believe it or not, even wen we try to 
+  tell our computer to close a window, it is very likely that the computer refuses and treat you as a fool.
+
+  In order to retake the control, after some googling you will eventually find out that some operator systems have something called *the terminal*, the interpreter you are looking for to 
+  /tell the computer what to do!/. 
+
+  We will go into the history of computers another time. Here we will only mention that regardless of the operator system you are using, you should find your way to your terminal. Here we are using
+  the Unix-like system Linux and our terminal is Bash. 
+
+  At the end of the journey, you will have recovered enough freedom that you will be able to exploit your computer's operating system power in a higher level.
+* The VERY Basics
+This is a quick list of the commands you should be 100% comfortable with. We summarised them in a table with a small description. Once
+you are able to understand where is your working directory, how to create files and folders, what are the permissions and once you have used the magical grep 
+to find a needle in a haystack then you will be ready for the next section.
+| Command | Description                                | example |   |   |
+|---------+--------------------------------------------+---------+---+---|
+| ls      | list of Files/Folders in current directory | ls -hal |   |   |
+| pwd     | print the working directory                |         |   |   |
+| cd      |                                            |         |   |   |
+| echo    |                                            |         |   |   |
+| less    |                                            |         |   |   |
+| more    |                                            |         |   |   |
+| cat     |                                            |         |   |   |
+| C-a     | Ctr + a                                    |         |   |   |
+| wc      |                                            |         |   |   |
+| \       |                                            |         |   |   |
+| >       |                                            |         |   |   |
+| >>      |                                            |         |   |   |
+| sed     |                                            |         |   |   |
+| grep    |                                            |         |   |   |
+|         |                                            |         |   |   |
