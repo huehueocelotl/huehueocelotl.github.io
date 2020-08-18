@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-08-19 Wed 00:12 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programming in the Linux Terminal (aka Bash)</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huehueocelotl" />
+<link rel="stylesheet"
+                  href="./css/style.css" type="text/css"/>
+	 <script type="text/javascript" async
+	 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async>
+	 </script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Programming in the Linux Terminal (aka Bash)</h1>
+<div class="post-details"> 
+<div class="post-author">Posted by: Huehueocelotl</div> 
+<div class="post-date"><time>[2020-08-16 Sun]</time> </div> 
+<a href=index.html> <b style="color:#FF9900">Home</b> </a> 
+</div>
+<div id="outline-container-org753706b" class="outline-2">
+<h2 id="org753706b">Why to bother with the terminal?</h2>
+<div class="outline-text-2" id="text-org753706b">
+<p>
+If you are an ordinary computer user and you find yourself asking this question, it is very likely that you are suspecting that you are not using your personal computer in its full capacity.
+A  popular saying when discussing about technology reads: <i>nowadays personal computers and laptops as powerful and even more than the computers used to send the man to the moon</i>.
+But it is not rare to find people with different jobs struggling to create a report in a monthly basis of their job's results. Even more, I strongly believe that there are so many bad
+decisions taken every day on a basis of a poorly done copy and paste.
+</p>
+
+<p>
+If you take a look at your computer and your favourite operating system, you can notice that it is the computer the one giving commands to users. The users are overwhelmed with messages like
+<i>click here</i>, or <i>i will save this file somewhere you don't have to ask where</i> or the annoying <i>click on X to close but I won't close but minimise the window</i>. Yes, believe it or not, even wen we try to 
+tell our computer to close a window, it is very likely that the computer refuses and treat you as a fool.
+</p>
+
+<p>
+In order to retake the control, after some googling you will eventually find out that some operator systems have something called <b>the terminal</b>, the interpreter you are looking for to 
+<i>tell the computer what to do!</i>. 
+</p>
+
+<p>
+We will go into the history of computers another time. Here we will only mention that regardless of the operator system you are using, you should find your way to your terminal. Here we are using
+the Unix-like system Linux and our terminal is Bash. 
+</p>
+
+<p>
+At the end of the journey, you will have recovered enough freedom that you will be able to exploit your computer's operating system power in a higher level.
+</p>
+</div>
+</div>
+<div id="outline-container-orge615565" class="outline-2">
+<h2 id="orge615565">The VERY Basics</h2>
+<div class="outline-text-2" id="text-orge615565">
+<p>
+This is a quick list of the commands you should be 100% comfortable with. We summarised them in a table with a small description. Once
+you are able to understand where is your working directory, how to create files and folders, what are the permissions and once you have used the magical grep 
+to find a needle in a haystack then you will be ready for the next section.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">example</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ls</td>
+<td class="org-left">list of Files/Folders in current directory</td>
+<td class="org-left">ls -hal</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">pwd</td>
+<td class="org-left">print the working directory</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">cd</td>
+<td class="org-left">change of (current) directory</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">echo</td>
+<td class="org-left">display a line of text</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">less</td>
+<td class="org-left">less is not more (text viewer)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">more</td>
+<td class="org-left">more is less (text viewer)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">cat</td>
+<td class="org-left">concatenate</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">C-a</td>
+<td class="org-left">Ctr + a    like in emacs</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">wc</td>
+<td class="org-left">a word counter (or lines or characters&#x2026;)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">\</td>
+<td class="org-left">escape for a resserved character</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&gt;</td>
+<td class="org-left">apend in the las line</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&gt;&gt;</td>
+<td class="org-left">apend in in a new line</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">sed</td>
+<td class="org-left">powerful search and change</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">grep</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author"> © Huehueocelotl </p>
+
+ <p class="email"><a href="mailto:Huehueocelotl@gmail.com">Huehueocelotl@gmail.com</a></p>
+
+<p class="validation"><a href="https://www.gnu.org/licenses/gpl-3.0.en.html">Licence</a></p>
+<p class="creator"><small>Generated by <a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.1 (<a href="https://orgmode.org">Org</a> mode 9.3.6)</small></p>
+</div>
+</body>
+</html>
