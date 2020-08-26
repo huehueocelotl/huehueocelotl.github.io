@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-26 Wed 19:14 -->
+<!-- 2020-08-26 Wed 19:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -331,13 +331,34 @@ user_ONE_three
 
 
 <ul class="org-ul">
-<li>Now we can use <i>grep</i> to see if the word <i>one</i> occurs in your file new<sub>file.txt</sub></li>
+<li>Now you can use <i>grep</i> to see if the word <i>one</i> occurs in your file new<sub>file.txt</sub></li>
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-nillangnilswitchesnilflags">nilbody
+<pre class="src src-shell">grep one new_file.txt
 </pre>
 </div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">one</td>
+</tr>
+
+<tr>
+<td class="org-left">user<sub>one</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">user<sub>one</sub><sub>two</sub></td>
+</tr>
+</tbody>
+</table>
 
 
 <ul class="org-ul">
@@ -349,6 +370,27 @@ user_ONE_three
 </pre>
 </div>
 
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">1:one</td>
+</tr>
+
+<tr>
+<td class="org-left">5:user<sub>one</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">6:user<sub>one</sub><sub>two</sub></td>
+</tr>
+</tbody>
+</table>
+
 <ul class="org-ul">
 <li>You can use <i>grep -v</i> you get the lines where the word does not occurs</li>
 </ul>
@@ -356,6 +398,31 @@ user_ONE_three
 <pre class="src src-shell">grep -v one new_file.txt
 </pre>
 </div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">two</td>
+</tr>
+
+<tr>
+<td class="org-left">huehueocelotl</td>
+</tr>
+
+<tr>
+<td class="org-left">123user</td>
+</tr>
+
+<tr>
+<td class="org-left">user<sub>ONE</sub><sub>three</sub></td>
+</tr>
+</tbody>
+</table>
 
 <ul class="org-ul">
 <li>You can use <i>grep -c</i> you get the number of lines the word occurs</li>
@@ -365,6 +432,11 @@ user_ONE_three
 </pre>
 </div>
 
+<pre class="example">
+3
+</pre>
+
+
 <ul class="org-ul">
 <li>You can use <i>grep -i</i> to ignore case</li>
 </ul>
@@ -372,6 +444,31 @@ user_ONE_three
 <pre class="src src-shell">grep -i oNe new_file.txt
 </pre>
 </div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">one</td>
+</tr>
+
+<tr>
+<td class="org-left">user<sub>one</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">user<sub>one</sub><sub>two</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">user<sub>ONE</sub><sub>three</sub></td>
+</tr>
+</tbody>
+</table>
 
 
 <ul class="org-ul">
@@ -382,6 +479,11 @@ user_ONE_three
 </pre>
 </div>
 
+<pre class="example">
+one
+</pre>
+
+
 <ul class="org-ul">
 <li>You can use <i>grep -A3</i> to look for a word plus additional number of lines</li>
 </ul>
@@ -390,6 +492,31 @@ user_ONE_three
 </pre>
 </div>
 
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">huehueocelotl</td>
+</tr>
+
+<tr>
+<td class="org-left">123user</td>
+</tr>
+
+<tr>
+<td class="org-left">user<sub>one</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">user<sub>one</sub><sub>two</sub></td>
+</tr>
+</tbody>
+</table>
+
 <ul class="org-ul">
 <li>You can use <i>grep -l</i> to print the file names of files with a word</li>
 </ul>
@@ -397,6 +524,10 @@ user_ONE_three
 <pre class="src src-shell">grep -l one new_file.txt
 </pre>
 </div>
+
+<pre class="example">
+new_file.txt
+</pre>
 </div>
 </div>
 </div>
