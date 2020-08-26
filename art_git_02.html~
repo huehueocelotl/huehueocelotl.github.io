@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-26 Wed 19:14 -->
+<!-- 2020-08-19 Wed 00:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -117,12 +117,18 @@ to find a needle in a haystack then you will be ready for the next section.
 <col  class="org-left" />
 
 <col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
 <th scope="col" class="org-left">Command</th>
 <th scope="col" class="org-left">Description</th>
 <th scope="col" class="org-left">example</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
 </tr>
 </thead>
 <tbody>
@@ -130,71 +136,47 @@ to find a needle in a haystack then you will be ready for the next section.
 <td class="org-left">ls</td>
 <td class="org-left">list of Files/Folders in current directory</td>
 <td class="org-left">ls -hal</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">pwd</td>
 <td class="org-left">print the working directory</td>
-<td class="org-left">pwd</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">cd</td>
 <td class="org-left">change of (current) directory</td>
-<td class="org-left">cd ../</td>
-</tr>
-
-<tr>
-<td class="org-left">cp</td>
-<td class="org-left">copy</td>
-<td class="org-left">cp file /path_to_directory</td>
-</tr>
-
-<tr>
-<td class="org-left">mv</td>
-<td class="org-left">move</td>
-<td class="org-left">mv /old_file_path /new_file_path</td>
-</tr>
-
-<tr>
-<td class="org-left">rm</td>
-<td class="org-left">remove (files and with option -r directories)</td>
-<td class="org-left">rm -rf</td>
-</tr>
-
-<tr>
-<td class="org-left">mkdir</td>
-<td class="org-left">create a folder/directory</td>
-<td class="org-left">mkdir new_dir</td>
-</tr>
-
-<tr>
-<td class="org-left">touch</td>
-<td class="org-left">change file timestamps</td>
-<td class="org-left">touch *</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">echo</td>
 <td class="org-left">display a line of text</td>
-<td class="org-left">echo $HOME</td>
-</tr>
-
-<tr>
-<td class="org-left">&vert;</td>
-<td class="org-left">pipeline</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">less</td>
 <td class="org-left">less is not more (text viewer)</td>
-<td class="org-left">ls -l &vert; less</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">more</td>
 <td class="org-left">more is less (text viewer)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
@@ -202,17 +184,15 @@ to find a needle in a haystack then you will be ready for the next section.
 <td class="org-left">cat</td>
 <td class="org-left">concatenate</td>
 <td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">C-e</td>
-<td class="org-left">Ctrl + e    like in emacs go to the end of the line</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">C-a</td>
-<td class="org-left">Ctrl + a    like in emacs go to the begining of the line</td>
+<td class="org-left">Ctr + a    like in emacs</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
@@ -220,11 +200,15 @@ to find a needle in a haystack then you will be ready for the next section.
 <td class="org-left">wc</td>
 <td class="org-left">a word counter (or lines or characters&#x2026;)</td>
 <td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">\</td>
-<td class="org-left">escape for a reserved character</td>
+<td class="org-left">escape for a resserved character</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
@@ -232,11 +216,15 @@ to find a needle in a haystack then you will be ready for the next section.
 <td class="org-left">&gt;</td>
 <td class="org-left">apend in the las line</td>
 <td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">&gt;&gt;</td>
 <td class="org-left">apend in in a new line</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
@@ -244,159 +232,27 @@ to find a needle in a haystack then you will be ready for the next section.
 <td class="org-left">sed</td>
 <td class="org-left">powerful search and change</td>
 <td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">tail</td>
-<td class="org-left">output the last part of the file</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-left">head</td>
-<td class="org-left">output the first part of the file</td>
+<td class="org-left">grep</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-left">tee</td>
-<td class="org-left">read form standard input and write to standard output</td>
-<td class="org-left">wc -l file1.txt &vert; tee file2.txt</td>
-</tr>
-
-<tr>
-<td class="org-left">find</td>
-<td class="org-left">search for files in a directory</td>
 <td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">tr</td>
-<td class="org-left">a translator (see example)</td>
-<td class="org-left">echo sometext &vert;   tr [:lower:] [:upper:]</td>
-</tr>
-
-<tr>
-<td class="org-left">cut</td>
-<td class="org-left">remove sections from each line of files</td>
 <td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">paste</td>
-<td class="org-left">merge lines of files</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div id="outline-container-org1cbb1c3" class="outline-2">
-<h2 id="org1cbb1c3">TAR: Compress and eXtract and view List tarball.</h2>
-<div class="outline-text-2" id="text-org1cbb1c3">
-<p>
-  The <b>tar</b> command is according to the manual <i>an archiving</i> utility. It is used to store several files in a single file and to manipulate
-them. 
-</p>
-</div>
-</div>
-<div id="outline-container-orgfd3471e" class="outline-2">
-<h2 id="orgfd3471e">grep, sed and awk</h2>
-<div class="outline-text-2" id="text-orgfd3471e">
-<p>
-This is where the fun begins. 
-</p>
-
-<p>
-Lets start by creating a text file directly fromt the command line. If there is a command it is not in the list that we are using here, please
-recall you can always use your friend <i>man</i> or <i>apropos</i> in order to find out more deteails.
-</p>
-
-<p>
-Lets create a small text file using cat. Provide the following lines and when you are done
-type ctrl-d, whichis the signal for End of File (EOF):
-</p>
-
-<div class="org-src-container">
-<pre class="src src-shell">cat &gt; new_file.txt
-one
-two
-huehueocelotl
-123user
-user_one
-user_one_two
-user_ONE_three
-</pre>
-</div>
-
-
-<ul class="org-ul">
-<li>Now we can use <i>grep</i> to see if the word <i>one</i> occurs in your file new<sub>file.txt</sub></li>
-</ul>
-
-<div class="org-src-container">
-<pre class="src src-nillangnilswitchesnilflags">nilbody
-</pre>
-</div>
-
-
-<ul class="org-ul">
-<li>You can use <i>grep -n</i> to additionally show the line where the word appears</li>
-</ul>
-
-<div class="org-src-container">
-<pre class="src src-shell">grep -n one new_file.txt
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>You can use <i>grep -v</i> you get the lines where the word does not occurs</li>
-</ul>
-<div class="org-src-container">
-<pre class="src src-shell">grep -v one new_file.txt
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>You can use <i>grep -c</i> you get the number of lines the word occurs</li>
-</ul>
-<div class="org-src-container">
-<pre class="src src-shell">grep -c one new_file.txt
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>You can use <i>grep -i</i> to ignore case</li>
-</ul>
-<div class="org-src-container">
-<pre class="src src-shell">grep -i oNe new_file.txt
-</pre>
-</div>
-
-
-<ul class="org-ul">
-<li>You can use <i>grep -x</i> to look for an exact match</li>
-</ul>
-<div class="org-src-container">
-<pre class="src src-shell">grep -x one new_file.txt
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>You can use <i>grep -A3</i> to look for a word plus additional number of lines</li>
-</ul>
-<div class="org-src-container">
-<pre class="src src-shell">grep -A3 huehueocelotl new_file.txt
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>You can use <i>grep -l</i> to print the file names of files with a word</li>
-</ul>
-<div class="org-src-container">
-<pre class="src src-shell">grep -l one new_file.txt
-</pre>
-</div>
 </div>
 </div>
 </div>
