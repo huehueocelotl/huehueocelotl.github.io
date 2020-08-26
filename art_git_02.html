@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-26 Wed 19:50 -->
+<!-- 2020-08-26 Wed 19:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -414,16 +414,29 @@ user_ONE_three
 </ul>
 <div class="org-src-container">
 <pre class="src src-bash">grep -x one new_file.txt
-&gt;<span style="color: #74af68;">#</span><span style="color: #74af68;">+end_src</span>
-
-<span style="color: #74af68;">#</span><span style="color: #74af68;">+RESULTS:</span>
-: one
-
-+ You can use /grep -A3/ to look for a word plus additional number of lines
-<span style="color: #74af68;">#</span><span style="color: #74af68;">+begin_src bash :results output :exports both</span>
-grep -A3 huehueocelotl new_file.txt
 </pre>
 </div>
+
+<pre class="example">
+one
+</pre>
+
+
+<ul class="org-ul">
+<li>You can use <i>grep -A3</i> to look for a word plus additional number of lines</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-bash">grep -A3 huehueocelotl new_file.txt
+</pre>
+</div>
+
+<pre class="example">
+huehueocelotl
+123user
+user_one
+user_one_two
+</pre>
+
 
 <ul class="org-ul">
 <li>You can use <i>grep -l</i> to print the file names of files with a word</li>
