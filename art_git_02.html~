@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-26 Wed 19:24 -->
+<!-- 2020-08-26 Wed 19:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -326,6 +326,7 @@ huehueocelotl
 user_one
 user_one_two
 user_ONE_three
+&lt;&lt; EOF
 </pre>
 </div>
 
@@ -339,26 +340,12 @@ user_ONE_three
 </pre>
 </div>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<pre class="example">
+one
+user_one
+user_one_two
+</pre>
 
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">one</td>
-</tr>
-
-<tr>
-<td class="org-left">user<sub>one</sub></td>
-</tr>
-
-<tr>
-<td class="org-left">user<sub>one</sub><sub>two</sub></td>
-</tr>
-</tbody>
-</table>
 
 
 <ul class="org-ul">
@@ -370,26 +357,12 @@ user_ONE_three
 </pre>
 </div>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<pre class="example">
+1:one
+5:user_one
+6:user_one_two
+</pre>
 
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">1:one</td>
-</tr>
-
-<tr>
-<td class="org-left">5:user<sub>one</sub></td>
-</tr>
-
-<tr>
-<td class="org-left">6:user<sub>one</sub><sub>two</sub></td>
-</tr>
-</tbody>
-</table>
 
 <ul class="org-ul">
 <li>You can use <i>grep -v</i> you get the lines where the word does not occurs</li>
@@ -399,30 +372,14 @@ user_ONE_three
 </pre>
 </div>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<pre class="example">
+two
+huehueocelotl
+123user
+user_ONE_three
+&lt;&lt; EOF
+</pre>
 
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">two</td>
-</tr>
-
-<tr>
-<td class="org-left">huehueocelotl</td>
-</tr>
-
-<tr>
-<td class="org-left">123user</td>
-</tr>
-
-<tr>
-<td class="org-left">user<sub>ONE</sub><sub>three</sub></td>
-</tr>
-</tbody>
-</table>
 
 <ul class="org-ul">
 <li>You can use <i>grep -c</i> you get the number of lines the word occurs</li>
@@ -445,30 +402,13 @@ user_ONE_three
 </pre>
 </div>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<pre class="example">
+one
+user_one
+user_one_two
+user_ONE_three
+</pre>
 
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">one</td>
-</tr>
-
-<tr>
-<td class="org-left">user<sub>one</sub></td>
-</tr>
-
-<tr>
-<td class="org-left">user<sub>one</sub><sub>two</sub></td>
-</tr>
-
-<tr>
-<td class="org-left">user<sub>ONE</sub><sub>three</sub></td>
-</tr>
-</tbody>
-</table>
 
 
 <ul class="org-ul">
@@ -492,30 +432,13 @@ one
 </pre>
 </div>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<pre class="example">
+huehueocelotl
+123user
+user_one
+user_one_two
+</pre>
 
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">huehueocelotl</td>
-</tr>
-
-<tr>
-<td class="org-left">123user</td>
-</tr>
-
-<tr>
-<td class="org-left">user<sub>one</sub></td>
-</tr>
-
-<tr>
-<td class="org-left">user<sub>one</sub><sub>two</sub></td>
-</tr>
-</tbody>
-</table>
 
 <ul class="org-ul">
 <li>You can use <i>grep -l</i> to print the file names of files with a word</li>
