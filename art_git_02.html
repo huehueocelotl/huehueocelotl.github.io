@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-26 Wed 19:53 -->
+<!-- 2020-08-26 Wed 20:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -328,12 +328,12 @@ user_one_two
 user_ONE_three
 </pre>
 </div>
+</div>
 
 
-<ul class="org-ul">
-<li>Now you can use <i>grep</i> to see if the word <i>one</i> occurs in your file new_file.txt</li>
-</ul>
-
+<div id="outline-container-org1d758bd" class="outline-3">
+<h3 id="org1d758bd">Now you can use <i>grep</i> to see if the word <i>one</i> occurs in your file new_file.txt</h3>
+<div class="outline-text-3" id="text-org1d758bd">
 <div class="org-src-container">
 <pre class="src src-bash">grep one new_file.txt
 </pre>
@@ -344,13 +344,13 @@ one
 user_one
 user_one_two
 </pre>
+</div>
+</div>
 
 
-
-<ul class="org-ul">
-<li>You can use <i>grep -n</i> to additionally show the line where the word appears</li>
-</ul>
-
+<div id="outline-container-orga4bbeb8" class="outline-3">
+<h3 id="orga4bbeb8">You can use <i>grep -n</i> to additionally show the line where the word appears</h3>
+<div class="outline-text-3" id="text-orga4bbeb8">
 <div class="org-src-container">
 <pre class="src src-bash">grep -n one new_file.txt
 </pre>
@@ -361,11 +361,12 @@ user_one_two
 5:user_one
 6:user_one_two
 </pre>
+</div>
+</div>
 
-
-<ul class="org-ul">
-<li>You can use <i>grep -v</i> you get the lines where the word does not occurs</li>
-</ul>
+<div id="outline-container-org0382308" class="outline-3">
+<h3 id="org0382308">You can use <i>grep -v</i> you get the lines where the word does not occurs</h3>
+<div class="outline-text-3" id="text-org0382308">
 <div class="org-src-container">
 <pre class="src src-bash">grep -v one new_file.txt
 </pre>
@@ -377,11 +378,12 @@ huehueocelotl
 123user
 user_ONE_three
 </pre>
+</div>
+</div>
 
-
-<ul class="org-ul">
-<li>You can use <i>grep -c</i> you get the number of lines the word occurs</li>
-</ul>
+<div id="outline-container-org0ea44a2" class="outline-3">
+<h3 id="org0ea44a2">You can use <i>grep -c</i> you get the number of lines the word occurs</h3>
+<div class="outline-text-3" id="text-org0ea44a2">
 <div class="org-src-container">
 <pre class="src src-bash">grep -c one new_file.txt
 </pre>
@@ -390,11 +392,12 @@ user_ONE_three
 <pre class="example">
 3
 </pre>
+</div>
+</div>
 
-
-<ul class="org-ul">
-<li>You can use <i>grep -i</i> to ignore case</li>
-</ul>
+<div id="outline-container-orgea467a9" class="outline-3">
+<h3 id="orgea467a9">You can use <i>grep -i</i> to ignore case</h3>
+<div class="outline-text-3" id="text-orgea467a9">
 <div class="org-src-container">
 <pre class="src src-bash">grep -i oNe new_file.txt
 </pre>
@@ -406,12 +409,13 @@ user_one
 user_one_two
 user_ONE_three
 </pre>
+</div>
+</div>
 
 
-
-<ul class="org-ul">
-<li>You can use <i>grep -x</i> to look for an exact match</li>
-</ul>
+<div id="outline-container-orgf0e7f82" class="outline-3">
+<h3 id="orgf0e7f82">You can use <i>grep -x</i> to look for an exact match</h3>
+<div class="outline-text-3" id="text-orgf0e7f82">
 <div class="org-src-container">
 <pre class="src src-bash">grep -x one new_file.txt
 </pre>
@@ -420,11 +424,12 @@ user_ONE_three
 <pre class="example">
 one
 </pre>
+</div>
+</div>
 
-
-<ul class="org-ul">
-<li>You can use <i>grep -A3</i> to look for a word plus additional number of lines</li>
-</ul>
+<div id="outline-container-org989ec84" class="outline-3">
+<h3 id="org989ec84">You can use <i>grep -A3</i> to look for a word plus additional number of lines</h3>
+<div class="outline-text-3" id="text-org989ec84">
 <div class="org-src-container">
 <pre class="src src-bash">grep -A3 huehueocelotl new_file.txt
 </pre>
@@ -436,11 +441,12 @@ huehueocelotl
 user_one
 user_one_two
 </pre>
+</div>
+</div>
 
-
-<ul class="org-ul">
-<li>You can use <i>grep -l</i> to print the file names of files with a word</li>
-</ul>
+<div id="outline-container-org8f4dc5d" class="outline-3">
+<h3 id="org8f4dc5d">You can use <i>grep -l</i> to print the file names of files with a word</h3>
+<div class="outline-text-3" id="text-org8f4dc5d">
 <div class="org-src-container">
 <pre class="src src-bash">grep -l one new_file.txt
 </pre>
@@ -449,6 +455,7 @@ user_one_two
 <pre class="example">
 new_file.txt
 </pre>
+</div>
 </div>
 </div>
 </div>
