@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-26 Wed 20:07 -->
+<!-- 2020-08-26 Wed 20:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -230,7 +230,7 @@ to find a needle in a haystack then you will be ready for the next section.
 
 <tr>
 <td class="org-left">&gt;</td>
-<td class="org-left">apend in the las line</td>
+<td class="org-left">apend in the last line</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
@@ -444,15 +444,18 @@ user_one_two
 </div>
 </div>
 
-<div id="outline-container-org8f4dc5d" class="outline-3">
-<h3 id="org8f4dc5d">You can use <i>grep -l</i> to print the file names of files with a word</h3>
-<div class="outline-text-3" id="text-org8f4dc5d">
+<div id="outline-container-org7f9cc96" class="outline-3">
+<h3 id="org7f9cc96">You can use <i>grep -lr</i> to print the file names of files containing a word including directories</h3>
+<div class="outline-text-3" id="text-org7f9cc96">
 <div class="org-src-container">
-<pre class="src src-bash">grep -l one new_file.txt
+<pre class="src src-bash">grep -lr user_one *
 </pre>
 </div>
 
 <pre class="example">
+art_git_02.html
+art_git_02.html~
+art_git_02.org
 new_file.txt
 </pre>
 </div>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-26 Wed 20:23 -->
+<!-- 2020-08-29 Sat 23:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -364,6 +364,20 @@ user_one_two
 </div>
 </div>
 
+<div id="outline-container-org0ea44a2" class="outline-3">
+<h3 id="org0ea44a2">You can use <i>grep -c</i> you get the number of lines the word occurs</h3>
+<div class="outline-text-3" id="text-org0ea44a2">
+<div class="org-src-container">
+<pre class="src src-bash">grep -c one new_file.txt
+</pre>
+</div>
+
+<pre class="example">
+3
+</pre>
+</div>
+</div>
+
 <div id="outline-container-org0382308" class="outline-3">
 <h3 id="org0382308">You can use <i>grep -v</i> you get the lines where the word does not occurs</h3>
 <div class="outline-text-3" id="text-org0382308">
@@ -377,20 +391,6 @@ two
 huehueocelotl
 123user
 user_ONE_three
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org0ea44a2" class="outline-3">
-<h3 id="org0ea44a2">You can use <i>grep -c</i> you get the number of lines the word occurs</h3>
-<div class="outline-text-3" id="text-org0ea44a2">
-<div class="org-src-container">
-<pre class="src src-bash">grep -c one new_file.txt
-</pre>
-</div>
-
-<pre class="example">
-3
 </pre>
 </div>
 </div>
@@ -427,6 +427,22 @@ one
 </div>
 </div>
 
+<div id="outline-container-org2b904d7" class="outline-3">
+<h3 id="org2b904d7">You can use <i>grep -o</i> to look only the matched parts of the matching line</h3>
+<div class="outline-text-3" id="text-org2b904d7">
+<div class="org-src-container">
+<pre class="src src-bash">grep -o one new_file.txt
+</pre>
+</div>
+
+<pre class="example">
+one
+one
+one
+</pre>
+</div>
+</div>
+
 <div id="outline-container-org989ec84" class="outline-3">
 <h3 id="org989ec84">You can use <i>grep -A3</i> to look for a word plus additional number of lines</h3>
 <div class="outline-text-3" id="text-org989ec84">
@@ -456,6 +472,7 @@ user_one_two
 art_git_02.html
 art_git_02.html~
 art_git_02.org
+art_git_02.org~
 new_file.txt
 </pre>
 </div>
