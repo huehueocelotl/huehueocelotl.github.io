@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-05 Sat 19:59 -->
+<!-- 2020-09-05 Sat 20:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -329,107 +329,132 @@ user_one_two
 user_ONE_three
 </pre>
 </div>
-</div>
 
 
-<div id="outline-container-org1d758bd" class="outline-3">
-<h3 id="org1d758bd">Now you can use <i>grep</i> to see if the word <i>one</i> occurs in your file new_file.txt</h3>
-<div class="outline-text-3" id="text-org1d758bd">
+<p>
+Now you can use <i>grep</i> to see if the word <i>one</i> occurs in your file new_file.txt
+</p>
+
 <div class="org-src-container">
 <pre class="src src-bash">grep one new_file.txt
 </pre>
 </div>
-</div>
-</div>
 
-<div id="outline-container-orga4bbeb8" class="outline-3">
-<h3 id="orga4bbeb8">You can use <i>grep -n</i> to additionally show the line where the word appears</h3>
-<div class="outline-text-3" id="text-orga4bbeb8">
+<pre class="example">
+one
+user_one
+user_one_two
+</pre>
+
+
+<p>
+You can use <i>grep -n</i> to additionally show the line where the word appears
+</p>
+
 <div class="org-src-container">
 <pre class="src src-bash">grep -n one new_file.txt
 </pre>
 </div>
-</div>
-</div>
 
-<div id="outline-container-org0ea44a2" class="outline-3">
-<h3 id="org0ea44a2">You can use <i>grep -c</i> you get the number of lines the word occurs</h3>
-<div class="outline-text-3" id="text-org0ea44a2">
+<pre class="example">
+1:one
+5:user_one
+6:user_one_two
+</pre>
+
+
+<p>
+You can use <i>grep -c</i> you get the number of lines the word occurs
+</p>
 <div class="org-src-container">
 <pre class="src src-bash">grep -c one new_file.txt
 </pre>
 </div>
-</div>
-</div>
 
-<div id="outline-container-org0382308" class="outline-3">
-<h3 id="org0382308">You can use <i>grep -v</i> you get the lines where the word does not occurs</h3>
-<div class="outline-text-3" id="text-org0382308">
+<pre class="example">
+3
+</pre>
+
+
+<p>
+You can use <i>grep -v</i> you get the lines where the word does not occurs
+</p>
 <div class="org-src-container">
 <pre class="src src-bash">grep -v one new_file.txt
 </pre>
 </div>
 
 <pre class="example">
-Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
-Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
-
-We use UNIX-like operators systems and because Linux is not Unix we use Linux.
-Please learn linux and the linux terminal in any linux distribution.
+two
+huehueocelotl
+123user
+user_ONE_three
 </pre>
-</div>
-</div>
 
-<div id="outline-container-orgea467a9" class="outline-3">
-<h3 id="orgea467a9">You can use <i>grep -i</i> to ignore case</h3>
-<div class="outline-text-3" id="text-orgea467a9">
+
+<p>
+You can use <i>grep -i</i> to ignore case 
+</p>
 <div class="org-src-container">
 <pre class="src src-bash">grep -i oNe new_file.txt
 </pre>
 </div>
-</div>
-</div>
 
-<div id="outline-container-orgf0e7f82" class="outline-3">
-<h3 id="orgf0e7f82">You can use <i>grep -x</i> to look for an exact match</h3>
-<div class="outline-text-3" id="text-orgf0e7f82">
+<pre class="example">
+one
+user_one
+user_one_two
+user_ONE_three
+</pre>
+
+
+<p>
+You can use <i>grep -x</i> to look for an exact match
+</p>
 <div class="org-src-container">
 <pre class="src src-bash">grep -x one new_file.txt
 </pre>
 </div>
-</div>
-</div>
 
-<div id="outline-container-org2b904d7" class="outline-3">
-<h3 id="org2b904d7">You can use <i>grep -o</i> to look only the matched parts of the matching line</h3>
-<div class="outline-text-3" id="text-org2b904d7">
+<pre class="example">
+one
+</pre>
+
+
+<p>
+You can use <i>grep -o</i> to look only the matched parts of the matching line
+</p>
 <div class="org-src-container">
 <pre class="src src-bash">grep -o one new_file.txt
 </pre>
 </div>
-</div>
-</div>
 
-<div id="outline-container-org04f2722" class="outline-3">
-<h3 id="org04f2722">You can use <i>grep -A 3</i> to look for a word plus additional number of lines</h3>
-<div class="outline-text-3" id="text-org04f2722">
+<pre class="example">
+one
+one
+one
+</pre>
+
+
+<p>
+You can use <i>grep -A 3</i> to look for a word plus additional number of lines
+</p>
 <div class="org-src-container">
 <pre class="src src-bash">grep -A 3 huehueocelotl new_file.txt
 </pre>
 </div>
 
 <pre class="example">
-Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
-Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
-
-We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+huehueocelotl
+123user
+user_one
+user_one_two
 </pre>
-</div>
-</div>
 
-<div id="outline-container-org7f9cc96" class="outline-3">
-<h3 id="org7f9cc96">You can use <i>grep -lr</i> to print the file names of files containing a word including directories</h3>
-<div class="outline-text-3" id="text-org7f9cc96">
+
+<p>
+You can use <i>grep -lr</i> to print the file names of files containing a word including directories
+</p>
 <div class="org-src-container">
 <pre class="src src-bash">grep -lr user_one *
 </pre>
@@ -440,8 +465,8 @@ art_git_02.html
 art_git_02.html~
 art_git_02.org
 art_git_02.org~
+new_file.txt
 </pre>
-</div>
 </div>
 </div>
 
@@ -484,11 +509,13 @@ It will search for a text pattern  in  the file and replace it with another:
 </div>
 
 <pre class="example">
-Linux is a fantastic website. In huehueocelotl we use linux.
-Linux has Mexican roots and its name means the "Wise Old Jaguar".
-
-We use UNIX-like operators systems and because Linux is not Unix we use Linux.
-Please learn linux and the linux terminal in any linux distribution.
+one
+two
+huehueocelotl
+123user
+user_one
+user_one_two
+user_ONE_three
 </pre>
 
 
@@ -506,11 +533,13 @@ Also note that the command is case-sensitive:
 </div>
 
 <pre class="example">
-Huehueocelotl is a fantastic website. In linux we use linux.
-Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
-
-We use UNIX-like operators systems and because Linux is not Unix we use Linux.
-Please learn linux and the linux terminal in any linux distribution.
+one
+two
+linux
+123user
+user_one
+user_one_two
+user_ONE_three
 </pre>
 
 
@@ -524,11 +553,13 @@ If we want the change to be done in all occurrences in the file we use the optio
 </div>
 
 <pre class="example">
-Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
-Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
-
-We use UNIX-like operators systems and because Huehueocelotl is not Unix we use Huehueocelotl.
-Please learn linux and the linux terminal in any linux distribution.
+one
+two
+huehueocelotl
+123user
+user_one
+user_one_two
+user_ONE_three
 </pre>
 
 
@@ -542,11 +573,13 @@ We can also specify to perform the changes only on the second occurrence of the 
 </div>
 
 <pre class="example">
-Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
-Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
-
-We use UNIX-like operators systems and because Linux is not Unix we use Linux.
-Please learn linux and the Huehueocelotl terminal in any linux distribution.
+one
+two
+huehueocelotl
+123user
+user_one
+user_one_two
+user_ONE_three
 </pre>
 
 
@@ -561,11 +594,13 @@ Sed can also change all occurrences of a patter from the n-th occurrence:
 </div>
 
 <pre class="example">
-Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
-Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
-
-We use UNIX-like operators systems and because Linux is not Unix we use Linux.
-Please learn linux and the Huehueocelotl terminal in any Huehueocelotl distribution.
+one
+two
+huehueocelotl
+123user
+user_one
+user_one_two
+user_ONE_three
 </pre>
 
 
@@ -579,11 +614,13 @@ You can also be very specific and change a string in just one line
 </div>
 
 <pre class="example">
-Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
-HuEhuEocElotl has MExican roots and its namE mEans thE "WisE Old Jaguar".
-
-We use UNIX-like operators systems and because Linux is not Unix we use Linux.
-Please learn linux and the linux terminal in any linux distribution.
+one
+two
+huehueocelotl
+123user
+user_one
+user_one_two
+user_ONE_three
 </pre>
 </div>
 </div>
