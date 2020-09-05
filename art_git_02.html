@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-05 Sat 21:08 -->
+<!-- 2020-09-05 Sat 21:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -527,6 +527,23 @@ Also note that the command is case-sensitive:
 <pre class="example">
 Huehueocelotl is a fantastic website. In linux we use linux.
 Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+Please learn linux and the linux terminal in any linux distribution.
+</pre>
+
+
+<p>
+The option <i>I</i> at the very end makes sed to ignore cases
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">sed <span style="color: #e67128;">'s/huehueocelotl/linux/I'</span> sed_file.txt
+</pre>
+</div>
+
+<pre class="example">
+linux is a fantastic website. In huehueocelotl we use linux.
+linux has Mexican roots and its name means the "Wise Old Jaguar".
 
 We use UNIX-like operators systems and because Linux is not Unix we use Linux.
 Please learn linux and the linux terminal in any linux distribution.

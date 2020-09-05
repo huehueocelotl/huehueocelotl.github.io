@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-05 Sat 20:22 -->
+<!-- 2020-09-05 Sat 21:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -340,6 +340,13 @@ Now you can use <i>grep</i> to see if the word <i>one</i> occurs in your file ne
 </pre>
 </div>
 
+<pre class="example">
+one
+user_one
+user_one_two
+</pre>
+
+
 <p>
 You can use <i>grep -n</i> to additionally show the line where the word appears
 </p>
@@ -349,6 +356,13 @@ You can use <i>grep -n</i> to additionally show the line where the word appears
 </pre>
 </div>
 
+<pre class="example">
+1:one
+5:user_one
+6:user_one_two
+</pre>
+
+
 <p>
 You can use <i>grep -c</i> you get the number of lines the word occurs
 </p>
@@ -356,6 +370,11 @@ You can use <i>grep -c</i> you get the number of lines the word occurs
 <pre class="src src-bash">grep -c one grep_file.txt
 </pre>
 </div>
+
+<pre class="example">
+3
+</pre>
+
 
 <p>
 You can use <i>grep -v</i> you get the lines where the word does not occurs
@@ -365,6 +384,14 @@ You can use <i>grep -v</i> you get the lines where the word does not occurs
 </pre>
 </div>
 
+<pre class="example">
+two
+huehueocelotl
+123user
+user_ONE_three
+</pre>
+
+
 <p>
 You can use <i>grep -i</i> to ignore case 
 </p>
@@ -372,6 +399,14 @@ You can use <i>grep -i</i> to ignore case
 <pre class="src src-bash">grep -i oNe grep_file.txt
 </pre>
 </div>
+
+<pre class="example">
+one
+user_one
+user_one_two
+user_ONE_three
+</pre>
+
 
 <p>
 You can use <i>grep -x</i> to look for an exact match
@@ -381,6 +416,11 @@ You can use <i>grep -x</i> to look for an exact match
 </pre>
 </div>
 
+<pre class="example">
+one
+</pre>
+
+
 <p>
 You can use <i>grep -o</i> to look only the matched parts of the matching line
 </p>
@@ -388,6 +428,13 @@ You can use <i>grep -o</i> to look only the matched parts of the matching line
 <pre class="src src-bash">grep -o one grep_file.txt
 </pre>
 </div>
+
+<pre class="example">
+one
+one
+one
+</pre>
+
 
 <p>
 You can use <i>grep -A 3</i> to look for a word plus additional number of lines
@@ -397,6 +444,14 @@ You can use <i>grep -A 3</i> to look for a word plus additional number of lines
 </pre>
 </div>
 
+<pre class="example">
+huehueocelotl
+123user
+user_one
+user_one_two
+</pre>
+
+
 <p>
 You can use <i>grep -lr</i> to print the file names of files containing a word including directories
 </p>
@@ -404,15 +459,10 @@ You can use <i>grep -lr</i> to print the file names of files containing a word i
 <pre class="src src-bash">grep -lr user_one *
 </pre>
 </div>
+</div>
+</div>
 
-<pre class="example">
-art_git_02.html
-art_git_02.html~
-art_git_02.org
-art_git_02.org~
-</pre>
-</div>
-</div>
+
 
 <div id="outline-container-org1a30c8d" class="outline-2">
 <h2 id="org1a30c8d">Sed</h2>
@@ -452,6 +502,15 @@ It will search for a text pattern  in  the file and replace it with another:
 </pre>
 </div>
 
+<pre class="example">
+Linux is a fantastic website. In huehueocelotl we use linux.
+Linux has Mexican roots and its name means the "Wise Old Jaguar".
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+Please learn linux and the linux terminal in any linux distribution.
+</pre>
+
+
 <p>
 In the output we note that the change occurred in the last line of text.
 </p>
@@ -465,6 +524,15 @@ Also note that the command is case-sensitive:
 </pre>
 </div>
 
+<pre class="example">
+Huehueocelotl is a fantastic website. In linux we use linux.
+Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+Please learn linux and the linux terminal in any linux distribution.
+</pre>
+
+
 <p>
 By default sed replaces the first occurrence of the given pattern in every line.
 If we want the change to be done in all occurrences in the file we use the option <i>global</i>.
@@ -474,6 +542,16 @@ If we want the change to be done in all occurrences in the file we use the optio
 </pre>
 </div>
 
+<pre class="example">
+Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
+Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
+
+We use UNIX-like operators systems and because Huehueocelotl is not Unix we use Huehueocelotl.
+Please learn linux and the linux terminal in any linux distribution.
+</pre>
+
+
+
 <p>
 We can also specify to perform the changes only on the second occurrence of the pattern in each line:
 </p>
@@ -481,6 +559,16 @@ We can also specify to perform the changes only on the second occurrence of the 
 <pre class="src src-bash">sed <span style="color: #e67128;">'s/linux/Huehueocelotl/2'</span> sed_file.txt
 </pre>
 </div>
+
+<pre class="example">
+Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
+Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+Please learn linux and the Huehueocelotl terminal in any linux distribution.
+</pre>
+
+
 
 <p>
 Sed can also change all occurrences of a patter from the n-th occurrence:
@@ -491,6 +579,16 @@ Sed can also change all occurrences of a patter from the n-th occurrence:
 </pre>
 </div>
 
+<pre class="example">
+Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
+Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+Please learn linux and the Huehueocelotl terminal in any Huehueocelotl distribution.
+</pre>
+
+
+
 <p>
 You can also be very specific and change a string in just one line
 </p>
@@ -498,6 +596,14 @@ You can also be very specific and change a string in just one line
 <pre class="src src-bash">sed <span style="color: #e67128;">'2 s/e/E/g'</span> sed_file.txt
 </pre>
 </div>
+
+<pre class="example">
+Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
+HuEhuEocElotl has MExican roots and its namE mEans thE "WisE Old Jaguar".
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+Please learn linux and the linux terminal in any linux distribution.
+</pre>
 </div>
 </div>
 </div>
