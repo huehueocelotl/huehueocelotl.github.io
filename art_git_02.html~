@@ -438,7 +438,6 @@ We use UNIX-like operators systems and because Linux is not Unix we use Linux.
 <pre class="example">
 art_git_02.html
 art_git_02.html~
-#art_git_02.org#
 art_git_02.org
 art_git_02.org~
 </pre>
