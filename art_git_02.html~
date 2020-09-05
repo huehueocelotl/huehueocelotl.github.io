@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-29 Sat 23:29 -->
+<!-- 2020-09-05 Sat 19:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -300,21 +300,22 @@ them.
 </p>
 </div>
 </div>
-<div id="outline-container-orgfd3471e" class="outline-2">
-<h2 id="orgfd3471e">grep, sed and awk</h2>
-<div class="outline-text-2" id="text-orgfd3471e">
+<div id="outline-container-orgbc96428" class="outline-2">
+<h2 id="orgbc96428">grep</h2>
+<div class="outline-text-2" id="text-orgbc96428">
 <p>
-This is where the fun begins. 
+This is where the fun begins. Its name stands from Globally search for a Regular Expression and Print matching lines, and it is one
+of the oldest command command-line utilities.
 </p>
 
 <p>
-Lets start by creating a text file directly fromt the command line. If there is a command it is not in the list that we are using here, please
-recall you can always use your friend <i>man</i> or <i>apropos</i> in order to find out more deteails.
+Lets start by creating a text file directly from the command line. If there is a command it is not in the list that we are using here, please
+recall you can always use your friend <i>man</i> or <i>apropos</i> in order to find out more details.
 </p>
 
 <p>
 Lets create a small text file using cat. Provide the following lines and when you are done
-type ctrl-d, whichis the signal for End of File (EOF):
+type ctrl-d, which is the signal for End of File (EOF):
 </p>
 
 <div class="org-src-container">
@@ -338,15 +339,8 @@ user_ONE_three
 <pre class="src src-bash">grep one new_file.txt
 </pre>
 </div>
-
-<pre class="example">
-one
-user_one
-user_one_two
-</pre>
 </div>
 </div>
-
 
 <div id="outline-container-orga4bbeb8" class="outline-3">
 <h3 id="orga4bbeb8">You can use <i>grep -n</i> to additionally show the line where the word appears</h3>
@@ -355,12 +349,6 @@ user_one_two
 <pre class="src src-bash">grep -n one new_file.txt
 </pre>
 </div>
-
-<pre class="example">
-1:one
-5:user_one
-6:user_one_two
-</pre>
 </div>
 </div>
 
@@ -371,10 +359,6 @@ user_one_two
 <pre class="src src-bash">grep -c one new_file.txt
 </pre>
 </div>
-
-<pre class="example">
-3
-</pre>
 </div>
 </div>
 
@@ -387,10 +371,11 @@ user_one_two
 </div>
 
 <pre class="example">
-two
-huehueocelotl
-123user
-user_ONE_three
+Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
+Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+Please learn linux and the linux terminal in any linux distribution.
 </pre>
 </div>
 </div>
@@ -402,16 +387,8 @@ user_ONE_three
 <pre class="src src-bash">grep -i oNe new_file.txt
 </pre>
 </div>
-
-<pre class="example">
-one
-user_one
-user_one_two
-user_ONE_three
-</pre>
 </div>
 </div>
-
 
 <div id="outline-container-orgf0e7f82" class="outline-3">
 <h3 id="orgf0e7f82">You can use <i>grep -x</i> to look for an exact match</h3>
@@ -420,10 +397,6 @@ user_ONE_three
 <pre class="src src-bash">grep -x one new_file.txt
 </pre>
 </div>
-
-<pre class="example">
-one
-</pre>
 </div>
 </div>
 
@@ -434,28 +407,22 @@ one
 <pre class="src src-bash">grep -o one new_file.txt
 </pre>
 </div>
-
-<pre class="example">
-one
-one
-one
-</pre>
 </div>
 </div>
 
-<div id="outline-container-org989ec84" class="outline-3">
-<h3 id="org989ec84">You can use <i>grep -A3</i> to look for a word plus additional number of lines</h3>
-<div class="outline-text-3" id="text-org989ec84">
+<div id="outline-container-org04f2722" class="outline-3">
+<h3 id="org04f2722">You can use <i>grep -A 3</i> to look for a word plus additional number of lines</h3>
+<div class="outline-text-3" id="text-org04f2722">
 <div class="org-src-container">
-<pre class="src src-bash">grep -A3 huehueocelotl new_file.txt
+<pre class="src src-bash">grep -A 3 huehueocelotl new_file.txt
 </pre>
 </div>
 
 <pre class="example">
-huehueocelotl
-123user
-user_one
-user_one_two
+Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
+Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
 </pre>
 </div>
 </div>
@@ -471,9 +438,153 @@ user_one_two
 <pre class="example">
 art_git_02.html
 art_git_02.html~
+#art_git_02.org#
 art_git_02.org
 art_git_02.org~
-new_file.txt
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1a30c8d" class="outline-2">
+<h2 id="org1a30c8d">Sed</h2>
+<div class="outline-text-2" id="text-org1a30c8d">
+<p>
+This is a Stream Editor. What? Yes, you can modify a text file on the fly! No need to waste you time
+by opening a text editor to  click search and replace or things like that anymore.
+</p>
+
+<p>
+Lets work with the following sample text file. Again recall that at the end you have to give
+the EOF signal by typing ctl-d.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">cat &gt; new_file.txt
+Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
+Huehueocelotl has Mexican roots and its name means the <span style="color: #e67128;">"Wise Old Jaguar"</span>.
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+Please learn linux and the linux terminal<span style="color: #ffad29; font-weight: bold;"> in</span> any linux distribution.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf633041" class="outline-3">
+<h3 id="orgf633041">Search and replace</h3>
+<div class="outline-text-3" id="text-orgf633041">
+<p>
+This examples illustrates the basic usage of the sed command.  
+It will search for a text pattern  in  the file and replace it with another:
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-bash">sed <span style="color: #e67128;">'s/Huehueocelotl/Linux/'</span> new_file.txt
+</pre>
+</div>
+
+<pre class="example">
+Linux is a fantastic website. In huehueocelotl we use linux.
+Linux has Mexican roots and its name means the "Wise Old Jaguar".
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+Please learn linux and the linux terminal in any linux distribution.
+</pre>
+
+
+<p>
+In the output we note that the change occurred in the last line of text.
+</p>
+
+<p>
+Also note that the command is case-sensitive:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">sed <span style="color: #e67128;">'s/huehueocelotl/linux/'</span> new_file.txt
+</pre>
+</div>
+
+<pre class="example">
+Huehueocelotl is a fantastic website. In linux we use linux.
+Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+Please learn linux and the linux terminal in any linux distribution.
+</pre>
+
+
+<p>
+By default sed replaces the first occurrence of the given pattern in every line.
+If we want the change to be done in all occurrences in the file we use the option <i>global</i>.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">sed <span style="color: #e67128;">'s/Linux/Huehueocelotl/g'</span> new_file.txt
+</pre>
+</div>
+
+<pre class="example">
+Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
+Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
+
+We use UNIX-like operators systems and because Huehueocelotl is not Unix we use Huehueocelotl.
+Please learn linux and the linux terminal in any linux distribution.
+</pre>
+
+
+
+<p>
+We can also specify to perform the changes only on the second occurrence of the pattern in each line:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">sed <span style="color: #e67128;">'s/linux/Huehueocelotl/2'</span> new_file.txt
+</pre>
+</div>
+
+<pre class="example">
+Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
+Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+Please learn linux and the Huehueocelotl terminal in any linux distribution.
+</pre>
+
+
+
+<p>
+Sed can also change all occurrences of a patter from the n-th occurrence:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">sed <span style="color: #e67128;">'s/linux/Huehueocelotl/2g'</span> new_file.txt
+</pre>
+</div>
+
+<pre class="example">
+Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
+Huehueocelotl has Mexican roots and its name means the "Wise Old Jaguar".
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+Please learn linux and the Huehueocelotl terminal in any Huehueocelotl distribution.
+</pre>
+
+
+
+<p>
+You can also be very specific and change a string in just one line
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">sed <span style="color: #e67128;">'2 s/e/E/g'</span> new_file.txt
+</pre>
+</div>
+
+<pre class="example">
+Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
+HuEhuEocElotl has MExican roots and its namE mEans thE "WisE Old Jaguar".
+
+We use UNIX-like operators systems and because Linux is not Unix we use Linux.
+Please learn linux and the linux terminal in any linux distribution.
 </pre>
 </div>
 </div>
