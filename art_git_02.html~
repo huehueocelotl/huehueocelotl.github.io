@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-06 Sun 11:57 -->
+<!-- 2020-09-06 Sun 12:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -75,14 +75,14 @@ for the JavaScript code in this tag.
 <p>
 If you are an ordinary computer user and you find yourself asking this question, it is very likely that you are suspecting that you are not using your personal computer in its full capacity.
 A  popular saying when discussing about technology reads: <i>nowadays personal computers and laptops as powerful and even more than the computers used to send the man to the moon</i>.
-But it is not rare to find people with different jobs struggling to create a report in a monthly basis of their job's results. Even more, I strongly believe that there are so many bad
+But it is not rare to find people with different jobs struggling to create a monthly report of their results. Even more, I strongly believe that there are so many bad
 decisions taken every day on a basis of a poorly done copy and paste.
 </p>
 
 <p>
 If you take a look at your computer and your favourite operating system, you can notice that it is the computer the one giving commands to users. The users are overwhelmed with messages like
 <i>click here</i>, or <i>i will save this file somewhere you don't have to ask where</i> or the annoying <i>click on X to close but I won't close but minimise the window</i>. Yes, believe it or not, even wen we try to 
-tell our computer to close a window, it is very likely that the computer refuses and treat you as a fool.
+tell our computer to close a window, it is very likely that the computer refuses and treats you as a fool.
 </p>
 
 <p>
@@ -201,7 +201,7 @@ to find a needle in a haystack then you will be ready for the next section.
 <tr>
 <td class="org-left">cat</td>
 <td class="org-left">concatenate</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">cat file.txt</td>
 </tr>
 
 <tr>
@@ -219,7 +219,7 @@ to find a needle in a haystack then you will be ready for the next section.
 <tr>
 <td class="org-left">wc</td>
 <td class="org-left">a word counter (or lines or characters&#x2026;)</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">wc -lwc file</td>
 </tr>
 
 <tr>
@@ -231,31 +231,31 @@ to find a needle in a haystack then you will be ready for the next section.
 <tr>
 <td class="org-left">&gt;</td>
 <td class="org-left">apend in the last line</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">"new text" &gt; file.txt</td>
 </tr>
 
 <tr>
 <td class="org-left">&gt;&gt;</td>
 <td class="org-left">apend in the a new line</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">"new line text" &gt;&gt; file.txt</td>
 </tr>
 
 <tr>
 <td class="org-left">sed</td>
 <td class="org-left">powerful search and change</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">sed 's/old/new/g' file.txt</td>
 </tr>
 
 <tr>
 <td class="org-left">tail</td>
 <td class="org-left">output the last part of the file</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">tail file.txt</td>
 </tr>
 
 <tr>
 <td class="org-left">head</td>
 <td class="org-left">output the first part of the file</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">head file.txt</td>
 </tr>
 
 <tr>
