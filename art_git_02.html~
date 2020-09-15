@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-13 Sun 02:16 -->
+<!-- 2020-09-14 Mon 21:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -105,9 +105,9 @@ At the end of the journey, you will have recovered enough freedom that you will 
 <div class="outline-text-2" id="text-orge615565">
 <p>
 This is a quick list of the commands you should be 100% comfortable with. We summarised them in a table with a small description. Once
-you are able to understand where is your working directory, how to create files and folders, what are the permissions and once you have used the magical grep 
-to find a needle in a haystack then you will be ready for the next section.
+you are able to understand where is your working directory, how to create files and folders and how to change the permissions of a file, you can jump in to the following sections.
 </p>
+
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -142,6 +142,12 @@ to find a needle in a haystack then you will be ready for the next section.
 <td class="org-left">cd</td>
 <td class="org-left">change of (current) directory</td>
 <td class="org-left">cd ../</td>
+</tr>
+
+<tr>
+<td class="org-left">chmod</td>
+<td class="org-left">change permissions</td>
+<td class="org-left">chmod 777 file</td>
 </tr>
 
 <tr>
@@ -212,7 +218,7 @@ to find a needle in a haystack then you will be ready for the next section.
 
 <tr>
 <td class="org-left">C-a</td>
-<td class="org-left">Ctrl + a    like in emacs go to the begining of the line</td>
+<td class="org-left">Ctrl + a    like in emacs go to the beginning of the line</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
@@ -230,13 +236,13 @@ to find a needle in a haystack then you will be ready for the next section.
 
 <tr>
 <td class="org-left">&gt;</td>
-<td class="org-left">apend in the last line</td>
+<td class="org-left">append in the last line</td>
 <td class="org-left">"new text" &gt; file.txt</td>
 </tr>
 
 <tr>
 <td class="org-left">&gt;&gt;</td>
-<td class="org-left">apend in the a new line</td>
+<td class="org-left">append in the a new line</td>
 <td class="org-left">"new line text" &gt;&gt; file.txt</td>
 </tr>
 
@@ -317,7 +323,7 @@ them.
 <div class="outline-text-2" id="text-orgbc96428">
 <p>
 This is where the fun begins. Its name stands from Globally search for a Regular Expression and Print matching lines, and it is one
-of the oldest command-line utilities.
+of the oldest command-line utilities. With grep you will be able to find a needle in a haystack.
 </p>
 
 <p>
@@ -678,7 +684,7 @@ Please learn linux and the linux terminal in any linux distribution.
 <div class="outline-text-2" id="text-orgc4a93f8">
 <p>
 Awk is a whole program language for data extraction and reporting. The triplet grep, sed and awk is 
-a classic one in UNIX-like operator systems.
+very useful and they are really popular in UNIX-like operator systems.
 </p>
 
 <p>
