@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-26 Mon 11:53 -->
+<!-- 2020-10-26 Mon 11:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Example of a Monte Carlo Integration in R</title>
@@ -103,9 +103,9 @@ an approximation to the correct value and the error can also be estimated.
 <p>
 You can read more about this technique in the Wikipedia page <a href="https://en.wikipedia.org/wiki/Monte_Carlo_integration">here</a>.
 </p>
-<div id="outline-container-org78514da" class="outline-2">
-<h2 id="org78514da">MC integration in R</h2>
-<div class="outline-text-2" id="text-org78514da">
+<div id="outline-container-org41edf48" class="outline-2">
+<h2 id="org41edf48">Simple example in R</h2>
+<div class="outline-text-2" id="text-org41edf48">
 <p>
 To compute the integral 
 </p>
@@ -145,7 +145,7 @@ print(mean(fx) * (b-a))
 </div>
 
 <pre class="example">
-6.32058992785583
+6.41723813270291
 </pre>
 
 
@@ -169,7 +169,7 @@ print(mean(fx) * (b-a))
 </div>
 
 <pre class="example">
-1.75747018466601
+1.73868970640827
 </pre>
 
 
