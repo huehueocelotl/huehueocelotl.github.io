@@ -300,7 +300,7 @@ footer p {
     font-family: monospace;
     overflow: auto;
     margin: 1.2em;
-    background-color:#dddddd ;
+    background-color:green; /* #dddddd ; */
   }
   pre.src {
     position: relative;
