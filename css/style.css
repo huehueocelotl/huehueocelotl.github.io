@@ -294,6 +294,7 @@ footer p {
   /* #postamble p, #preamble p { font-size: 90%; margin: .2em; text-align: center;} */
   p.verse { margin-left: 3%; }
   pre {
+    color: white;
     border: 1px solid #ccc;
     box-shadow: 3px 3px 3px #eee;
     padding: 8pt;
