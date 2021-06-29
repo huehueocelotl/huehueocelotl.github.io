@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-26 Mon 11:34 -->
+<!-- 2021-06-29 Tue 19:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Causas Peculiares de Muerte por Homicidos en México</title>
+<title>Principales Causas de Muerte en México</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Huehueocelotl" />
 <link rel="stylesheet"
@@ -63,15 +63,16 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Causas Peculiares de Muerte por Homicidos en México</h1>
+<h1 class="title">Principales Causas de Muerte en México</h1>
 <div class="post-details"> 
 <div class="post-author">Posted by: Huehueocelotl</div> 
 <div class="post-date"><time>[2020-10-25 Sun]</time> </div> 
 <a href=index.html> <b style="color:#FF9900">Home</b> </a> 
 </div>
 
+
 <p>
-¿Te has preguntado cuáles son los registros de muertes por homicidio en México más inusuales?
+¿Te has preguntado las principales causas de muerte de los Mexicanos?
 </p>
 
 <p>
@@ -87,6 +88,47 @@ hallazgos.
 <p>
 Recuerda que este es un trabajo en curso, por lo que te pedimos paciencia para leer la versión final.
 </p>
+
+<div id="outline-container-org479f3bf" class="outline-2">
+<h2 id="org479f3bf">Tasa de mortalidad por rangos de edad y diez principales causas</h2>
+<div class="outline-text-2" id="text-org479f3bf">
+<head>
+       <meta charset="utf-8">
+       <style>
+           table {
+               border-collapse: collapse;
+               border: 2px black solid;
+               font: 12px sans-serif;
+           }
+
+           td {
+               border: 1px black solid;
+               padding: 5px;
+           }
+       </style>
+   </head>
+       <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+       <script src="d3.min.js?v=3.2.8"></script>
+
+       <script type="text/javascript"charset="utf-8">
+           d3.text("test_CSV01.csv", function(data) {
+               var parsedCSV = d3.csv.parseRows(data);
+
+               var container = d3.select("body")
+                   .append("table")
+
+                   .selectAll("tr")
+                       .data(parsedCSV).enter()
+                       .append("tr")
+
+                   .selectAll("td")
+                       .data(function(d) { return d; }).enter()
+                       .append("td")
+                       .text(function(d) { return d; });
+           });
+       </script>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author"> © Huehueocelotl </p>
