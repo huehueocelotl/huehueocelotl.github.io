@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-06-29 Tue 19:17 -->
+<!-- 2021-07-03 Sat 17:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The world of Regular Expressions</title>
@@ -92,6 +92,83 @@ Join Huehueocelotl in this <b>regex</b> experience.
 
 <div id="outline-container-org82a1f44" class="outline-2">
 <h2 id="org82a1f44">The basics</h2>
+<div class="outline-text-2" id="text-org82a1f44">
+<p>
+Get a file to practice:
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-bash">wget -O textfile.txt https://www.gutenberg.org/files/2000/2000-0.txt
+</pre>
+</div>
+
+<p>
+Here a list of twelve characters, "meta-characters", that have a special meaning:
+</p>
+
+<ol class="org-ol">
+<li><code>\</code> , the backslash</li>
+
+<li><code>^</code>, the hat (or wedge) sign.</li>
+
+<li><code>$</code>, the dollar sign.</li>
+
+<li><code>.</code>, the period (dot).</li>
+
+<li><code>|</code>, the pipe or vertical line symbol.</li>
+
+<li><code>?</code>, the question mark.</li>
+
+<li><code>*</code>, the star (asterisk).</li>
+
+<li><code>+</code>, the plus sign.</li>
+
+<li><code>( )</code>, the opening and closing parenthesis.</li>
+
+<li><code>{ }</code>, the opening and closing curly brackets.</li>
+
+<li><code>[ ]</code>, the opening and closing brackets.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org3270821" class="outline-2">
+<h2 id="org3270821">Exact matching</h2>
+<div class="outline-text-2" id="text-org3270821">
+<div class="org-src-container">
+<pre class="src src-shell">grep <span style="color: #95e454;">"En un lugar de la Mancha"</span> textfile.txt
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">En un lugar de la Mancha</td>
+<td class="org-left">de cuyo nombre no quiero acordarme</td>
+<td class="org-left">no ha mucho</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Note that this is case sensitive!
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">grep <span style="color: #95e454;">"en un lugar de la Mancha"</span> textfile.txt
+</pre>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
