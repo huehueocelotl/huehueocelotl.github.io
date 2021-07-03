@@ -37,7 +37,7 @@ body {
     /* color:    #f5dfc8; */
     /* color: #dddddd; */
     font-family: "Deja Vu Sans", Sans-Serif;
-    font-size: 100%;
+    font-size: 120%;
     line-height: 1.5em;
     margin: 20px auto; /* "auto" for centering */
     padding: 0;
@@ -321,7 +321,7 @@ footer p {
   }
   pre.src:hover:before { display: inline;}
   pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
+  pre.src-bash:before  { content: 'bash'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
   pre.src-R:before     { content: 'R'; }
   pre.src-perl:before  { content: 'Perl'; }
