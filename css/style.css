@@ -309,6 +309,7 @@ footer p {
     padding-top: 1.2em;
   }
   pre.src:before {
+    color: blue;
     display: none;
     position: absolute;
     background-color: white;
