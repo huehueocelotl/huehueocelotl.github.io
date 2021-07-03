@@ -310,6 +310,7 @@ footer p {
   }
   pre.src:before {
     color: blue;
+    font-weight: bold;
     display: none;
     position: absolute;
     background-color: white;
