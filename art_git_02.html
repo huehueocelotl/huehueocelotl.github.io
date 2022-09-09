@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-15 Tue 19:56 -->
+<!-- 2022-09-09 Fri 20:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programming in the Linux Terminal (aka Bash)</title>
@@ -499,10 +499,10 @@ the EOF signal by typing ctl-d.
 <div class="org-src-container">
 <pre class="src src-bash">cat &gt; sed_file.txt
 Huehueocelotl is a fantastic website. In huehueocelotl we use linux.
-Huehueocelotl has Mexican roots and its name means the <span style="color: #e67128;">"Wise Old Jaguar"</span>.
+Huehueocelotl has Mexican roots and its name means the <span style="color: #deb887;">"Wise Old Jaguar"</span>.
 
 We use UNIX-like operators systems and because Linux is not Unix we use Linux.
-Please learn linux and the linux terminal<span style="color: #ffad29; font-weight: bold;"> in</span> any linux distribution.
+Please learn linux and the linux terminal<span style="color: #00bfff;"> in</span> any linux distribution.
 </pre>
 </div>
 </div>
@@ -517,7 +517,7 @@ It will search for a text pattern  in  the file and replace it with another:
 
 
 <div class="org-src-container">
-<pre class="src src-bash">sed <span style="color: #e67128;">'s/linux/Huehueocelotl/'</span> sed_file.txt
+<pre class="src src-bash">sed <span style="color: #deb887;">'s/linux/Huehueocelotl/'</span> sed_file.txt
 </pre>
 </div>
 
@@ -541,7 +541,7 @@ Two things to notice quickly:
 
 
 <div class="org-src-container">
-<pre class="src src-bash">sed <span style="color: #e67128;">'s/Linux/Huehueocelotl/'</span> sed_file.txt
+<pre class="src src-bash">sed <span style="color: #deb887;">'s/Linux/Huehueocelotl/'</span> sed_file.txt
 </pre>
 </div>
 
@@ -558,7 +558,7 @@ Please learn linux and the linux terminal in any linux distribution.
 The option <i>I</i> at the very end makes sed to ignore cases. This trick seems to work in GNU sed but not in BDS.
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">sed <span style="color: #e67128;">'s/linux/huehueocelotl/I'</span> sed_file.txt
+<pre class="src src-bash">sed <span style="color: #deb887;">'s/linux/huehueocelotl/I'</span> sed_file.txt
 </pre>
 </div>
 
@@ -575,7 +575,7 @@ Please learn huehueocelotl and the linux terminal in any linux distribution.
 If we want the change to be done in all occurrences in the file we use the option <i>global</i>.
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">sed <span style="color: #e67128;">'s/linux/huehueocelotl/g'</span> sed_file.txt
+<pre class="src src-bash">sed <span style="color: #deb887;">'s/linux/huehueocelotl/g'</span> sed_file.txt
 </pre>
 </div>
 
@@ -594,7 +594,7 @@ Please learn huehueocelotl and the huehueocelotl terminal in any huehueocelotl d
 We can also specify to perform the changes only on the second occurrence of the pattern in each line:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">sed <span style="color: #e67128;">'s/linux/Huehueocelotl/2'</span> sed_file.txt
+<pre class="src src-bash">sed <span style="color: #deb887;">'s/linux/Huehueocelotl/2'</span> sed_file.txt
 </pre>
 </div>
 
@@ -613,7 +613,7 @@ Sed can also change all occurrences of a patter from the n-th occurrence in each
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">sed <span style="color: #e67128;">'s/linux/Huehueocelotl/2gI'</span> sed_file.txt
+<pre class="src src-bash">sed <span style="color: #deb887;">'s/linux/Huehueocelotl/2gI'</span> sed_file.txt
 </pre>
 </div>
 
@@ -631,7 +631,7 @@ Please learn linux and the Huehueocelotl terminal in any Huehueocelotl distribut
 You can also be very specific and change a string in just one line
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">sed <span style="color: #e67128;">'2 s/e/E/g'</span> sed_file.txt
+<pre class="src src-bash">sed <span style="color: #deb887;">'2 s/e/E/g'</span> sed_file.txt
 </pre>
 </div>
 
@@ -649,7 +649,7 @@ Please learn linux and the linux terminal in any linux distribution.
 With sed you can also delete specific lines, 
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">sed <span style="color: #e67128;">'2d'</span> sed_file.txt
+<pre class="src src-bash">sed <span style="color: #deb887;">'2d'</span> sed_file.txt
 </pre>
 </div>
 
@@ -665,7 +665,7 @@ Please learn linux and the linux terminal in any linux distribution.
 and lines mathcing specific patterns too
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">sed <span style="color: #e67128;">'/Huehueocelotl/d'</span> sed_file.txt
+<pre class="src src-bash">sed <span style="color: #deb887;">'/Huehueocelotl/d'</span> sed_file.txt
 </pre>
 </div>
 
@@ -704,7 +704,7 @@ Three,5,6,7
 We can print the first column (field) specifying the field separator -F
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">awk -F<span style="color: #e67128;">","</span>  <span style="color: #e67128;">'{print $1,$3}'</span> awk_file.txt
+<pre class="src src-bash">awk -F<span style="color: #deb887;">","</span>  <span style="color: #deb887;">'{print $1,$3}'</span> awk_file.txt
 </pre>
 </div>
 
@@ -721,7 +721,7 @@ columns.. In this example we
 use NR to create a field with the row number, the first and last columns
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">awk -F<span style="color: #e67128;">","</span>  <span style="color: #e67128;">'{print NR,$1,$NF}'</span> awk_file.txt
+<pre class="src src-bash">awk -F<span style="color: #deb887;">","</span>  <span style="color: #deb887;">'{print NR,$1,$NF}'</span> awk_file.txt
 </pre>
 </div>
 
@@ -736,7 +736,7 @@ use NR to create a field with the row number, the first and last columns
 Print the second row of last result
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">awk -F<span style="color: #e67128;">","</span>  <span style="color: #e67128;">'NR==2 {print  NR,$1,$NF}'</span> awk_file.txt
+<pre class="src src-bash">awk -F<span style="color: #deb887;">","</span>  <span style="color: #deb887;">'NR==2 {print  NR,$1,$NF}'</span> awk_file.txt
 </pre>
 </div>
 
@@ -749,7 +749,7 @@ Print the second row of last result
 Print the first and the second rows of the same result, it would be
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">awk -F<span style="color: #e67128;">","</span>  <span style="color: #e67128;">'NR==1 {print  NR,$1,$NF} ; NR==3 {print  NR,$1,$NF}'</span> awk_file.txt
+<pre class="src src-bash">awk -F<span style="color: #deb887;">","</span>  <span style="color: #deb887;">'NR==1 {print  NR,$1,$NF} ; NR==3 {print  NR,$1,$NF}'</span> awk_file.txt
 </pre>
 </div>
 
@@ -764,7 +764,7 @@ Print the first and the second rows of the same result, it would be
 To change separator or delimiter from "," to ":". Note the use of dummy assignment <code>$1=$1</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">awk -F<span style="color: #e67128;">","</span>  <span style="color: #e67128;">'$1=$1'</span> <span style="color: #dbdb95;">OFS</span>=<span style="color: #e67128;">":"</span> awk_file.txt
+<pre class="src src-bash">awk -F<span style="color: #deb887;">","</span>  <span style="color: #deb887;">'$1=$1'</span> <span style="color: #4eee94;">OFS</span>=<span style="color: #deb887;">":"</span> awk_file.txt
 </pre>
 </div>
 
@@ -775,13 +775,27 @@ Three:5:6:7
 </pre>
 
 
+<p>
+A useful modification is the following:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">awk -F<span style="color: #deb887;">","</span> <span style="color: #deb887;">'NR&gt;1 {$1=$1 ; print  $0} '</span> <span style="color: #4eee94;">OFS</span>=<span style="color: #deb887;">"::"</span> awk_file.txt 
+</pre>
+</div>
+
+<pre class="example">
+Two::3::4::5
+Three::5::6::7
+</pre>
+
 
 
 <p>
 Print an extra column with the result of a logical statement
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">awk -F<span style="color: #e67128;">","</span> <span style="color: #e67128;">'{print $0,$2==5}'</span> <span style="color: #dbdb95;">OFS</span>=<span style="color: #e67128;">","</span> awk_file.txt
+<pre class="src src-bash">awk -F<span style="color: #deb887;">","</span> <span style="color: #deb887;">'{print $0,$2==5}'</span> <span style="color: #4eee94;">OFS</span>=<span style="color: #deb887;">","</span> awk_file.txt
 </pre>
 </div>
 
@@ -797,7 +811,7 @@ Three,5,6,7,1
 Row filters
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">awk -F<span style="color: #e67128;">","</span> <span style="color: #e67128;">'$2==5 || $4==4'</span> <span style="color: #dbdb95;">OFS</span>=<span style="color: #e67128;">","</span> awk_file.txt
+<pre class="src src-bash">awk -F<span style="color: #deb887;">","</span> <span style="color: #deb887;">'$2==5 || $4==4'</span> <span style="color: #4eee94;">OFS</span>=<span style="color: #deb887;">","</span> awk_file.txt
 </pre>
 </div>
 
@@ -811,7 +825,7 @@ Three,5,6,7
 Row filter with patterns
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">awk -F<span style="color: #e67128;">","</span> <span style="color: #e67128;">'$1 ~ /[oO]/'</span> <span style="color: #dbdb95;">OFS</span>=<span style="color: #e67128;">","</span> awk_file.txt
+<pre class="src src-bash">awk -F<span style="color: #deb887;">","</span> <span style="color: #deb887;">'$1 ~ /[oO]/'</span> <span style="color: #4eee94;">OFS</span>=<span style="color: #deb887;">","</span> awk_file.txt
 </pre>
 </div>
 
@@ -825,7 +839,7 @@ Two,3,4,5
 Frequency table using unique function
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">awk -F<span style="color: #e67128;">","</span> <span style="color: #e67128;">'{print $0,$2==5}'</span> <span style="color: #dbdb95;">OFS</span>=<span style="color: #e67128;">","</span> awk_file.txt | awk -F<span style="color: #e67128;">","</span> <span style="color: #e67128;">'{print $NF}'</span> | uniq -c
+<pre class="src src-bash">awk -F<span style="color: #deb887;">","</span> <span style="color: #deb887;">'{print $0,$2==5}'</span> <span style="color: #4eee94;">OFS</span>=<span style="color: #deb887;">","</span> awk_file.txt | awk -F<span style="color: #deb887;">","</span> <span style="color: #deb887;">'{print $NF}'</span> | uniq -c
 </pre>
 </div>
 
@@ -839,7 +853,7 @@ Frequency table using unique function
 Sum the values of a column with a row filter
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">awk  <span style="color: #e67128;">'BEGIN {FS = ","} ; $1 ~ /[oO]/ {sum+=$3} END {print sum}'</span> awk_file.txt
+<pre class="src src-bash">awk  <span style="color: #deb887;">'BEGIN {FS = ","} ; $1 ~ /[oO]/ {sum+=$3} END {print sum}'</span> awk_file.txt
 </pre>
 </div>
 
@@ -852,7 +866,7 @@ Sum the values of a column with a row filter
 Add a header
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">awk -F<span style="color: #e67128;">","</span> <span style="color: #e67128;">'BEGIN {print "Col1"",""Col2"",""Col3"",""Col4"} 1'</span>  awk_file.txt 
+<pre class="src src-bash">awk -F<span style="color: #deb887;">","</span> <span style="color: #deb887;">'BEGIN {print "Col1"",""Col2"",""Col3"",""Col4"} 1'</span>  awk_file.txt 
 </pre>
 </div>
 
@@ -871,7 +885,7 @@ Three,5,6,7
  <p class="email"><a href="mailto:Huehueocelotl@gmail.com">Huehueocelotl@gmail.com</a></p>
 
 <p class="validation"><a href="https://www.gnu.org/licenses/gpl-3.0.en.html">Licence</a></p>
-<p class="creator"><small>Generated by <a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.1 (<a href="https://orgmode.org">Org</a> mode 9.3.6)</small></p>
+<p class="creator"><small>Generated by <a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3.6)</small></p>
 </div>
 </body>
 </html>
