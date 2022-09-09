@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-07-03 Sat 17:31 -->
+<!-- 2021-07-03 Sat 17:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The world of Regular Expressions</title>
@@ -98,10 +98,9 @@ Get a file to practice:
 </p>
 
 
-<div class="org-src-container">
-<pre class="src src-bash">wget -O textfile.txt https://www.gutenberg.org/files/2000/2000-0.txt
+<pre class="example">
+wget -O textfile.txt https://www.gutenberg.org/files/2000/2000-0.txt
 </pre>
-</div>
 
 <p>
 Here a list of twelve characters, "meta-characters", that have a special meaning:
@@ -137,7 +136,7 @@ Here a list of twelve characters, "meta-characters", that have a special meaning
 <h2 id="org3270821">Exact matching</h2>
 <div class="outline-text-2" id="text-org3270821">
 <div class="org-src-container">
-<pre class="src src-shell">grep <span style="color: #95e454;">"En un lugar de la Mancha"</span> textfile.txt
+<pre class="src src-bash">grep <span style="color: #95e454;">"En un lugar de la Mancha"</span> textfile.txt
 </pre>
 </div>
 
@@ -165,7 +164,7 @@ Note that this is case sensitive!
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell">grep <span style="color: #95e454;">"en un lugar de la Mancha"</span> textfile.txt
+<pre class="src src-bash">grep <span style="color: #95e454;">"en un lugar de la Mancha"</span> textfile.txt
 </pre>
 </div>
 </div>

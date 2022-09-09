@@ -6,7 +6,7 @@
 <!-- 2022-09-09 Fri 12:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The World of Regular Expressions</title>
+<title>Git: Commit using different accounts</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Huehueocelotl" />
 <link rel="stylesheet"
@@ -63,7 +63,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">The World of Regular Expressions</h1>
+<h1 class="title">Git: Commit using different accounts</h1>
 <div class="post-details"> 
 <div class="post-author">Posted by: Huehueocelotl</div> 
 <div class="post-date"><time></time> </div> 
@@ -71,104 +71,96 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgd38e093" class="outline-2">
-<h2 id="orgd38e093">What are regular expressions?</h2>
-<div class="outline-text-2" id="text-orgd38e093">
+<div id="outline-container-orga5db813" class="outline-2">
+<h2 id="orga5db813">The problem</h2>
+<div class="outline-text-2" id="text-orga5db813">
 <p>
-A regular expression, or <b>regex</b> in short, is defined as a sequence of characters whose main purpose is to specify a search pattern.
-Immediately after this definition, one can sense the importance of <b>regex</b> in data mining, specially when dealing with text.
+If you have different Git-Hub accounts, say, <code>GitUser01</code> and <code>GitUser02</code>. The local repository <code>LocalRepoU1</code> is created in the account first account and 
+the <code>LocalRepoU2</code>. 
 </p>
 
-<p>
-If you master regular expressions then you master the search and replace and moreover, you can truly exploit tools like grep, sed and AWK (don't forget to 
-take a look at our previous article <b><a href="https://huehueocelotl.github.io/art_git_02.html">here</a></b>).
-</p>
-
-<p>
-Join Huehueocelotl in this <b>regex</b> experience.
-</p>
+<dl class="org-dl">
+<dt>Problem</dt><dd>You make a change in <code>LocalRepoU2</code>, but in the history of commits, it says that the change was made by <code>GitUser01</code>.</dd>
+<dt>Expected behaviour</dt><dd>Any change in <code>LocalRepoU1</code> should be made by <code>GitUser01</code> and any change in <code>LocalRepoU2</code> should be made by <code>GitUser02</code>.</dd>
+</dl>
 </div>
 </div>
 
-<div id="outline-container-org82a1f44" class="outline-2">
-<h2 id="org82a1f44">The basics</h2>
-<div class="outline-text-2" id="text-org82a1f44">
+<div id="outline-container-org3c5373e" class="outline-2">
+<h2 id="org3c5373e">What is going on?</h2>
+<div class="outline-text-2" id="text-org3c5373e">
 <p>
-Get a file to practice:
+The global configuration in you machine uses the first user you registered, say GitUser01.
 </p>
 
+<p>
+To check your global configuration put
+</p>
 
 <pre class="example">
-wget -O textfile.txt https://www.gutenberg.org/files/2000/2000-0.txt
+git config --global --list
 </pre>
+
+<pre class="example">
+user.name=GitUser01
+user.email=user.01@foomail.com    
+core.editor=emacs                 
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgde58faf" class="outline-2">
+<h2 id="orgde58faf">How to fix it?</h2>
+<div class="outline-text-2" id="text-orgde58faf">
+<p>
+To check the user in the local repository <code>~/Gits/LocalRepoU2.io</code>, in the terminal you type
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git config user.name ; git config user.email
+</pre>
+</div>
+
+<pre class="example">
+GitUser01
+user.01@foomail.com    
+</pre>
+
 
 <p>
-Here a list of twelve characters, "meta-characters", that have a special meaning:
+To change the user and email for the local repository <code>~/Gits/LocalRepoU2.io</code>, in the terminal you type
 </p>
-
-<ol class="org-ol">
-<li><code>\</code> the backslash</li>
-
-<li><code>^</code> the hat (or wedge) sign.</li>
-
-<li><code>$</code> the dollar sign.</li>
-
-<li><code>.</code> the period (dot).</li>
-
-<li><code>|</code> the pipe or vertical line symbol.</li>
-
-<li><code>?</code> the question mark.</li>
-
-<li><code>*</code> the star (asterisk).</li>
-
-<li><code>+</code> the plus sign.</li>
-
-<li><code>( )</code> the opening and closing parenthesis.</li>
-
-<li><code>{ }</code> the opening and closing curly brackets.</li>
-
-<li><code>[ ]</code> the opening and closing brackets.</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-org3270821" class="outline-2">
-<h2 id="org3270821">Exact matching</h2>
-<div class="outline-text-2" id="text-org3270821">
-<ul class="org-ul">
-<li>Exact matching</li>
-</ul>
-
 <div class="org-src-container">
-<pre class="src src-bash">grep <span style="color: #deb887;">"En un lugar de la Mancha"</span> textfile.txt
+<pre class="src src-shell">git config user.name <span style="color: #deb887;">"GitUser02"</span>
+git config user.email <span style="color: #deb887;">"user.02@foomail2.com"</span>
 </pre>
 </div>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
+<p>
+Check all is well configured before making the next commit:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git config user.name ; git config user.email
+</pre>
+</div>
 
-<colgroup>
-<col  class="org-left" />
+<pre class="example">
+GitUser02
+user.02@foomail2.com    
+</pre>
+</div>
+</div>
 
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">En un lugar de la Mancha</td>
-<td class="org-left">de cuyo nombre no quiero acordarme</td>
-<td class="org-left">no ha mucho</td>
-</tr>
-</tbody>
-</table>
-
-<ul class="org-ul">
-<li>Note that this is case sensitive!</li>
-</ul>
+<div id="outline-container-org563b0a1" class="outline-2">
+<h2 id="org563b0a1">Check the config file.</h2>
+<div class="outline-text-2" id="text-org563b0a1">
+<p>
+Finally, notice that every local repository has a hidden folder <code>./git</code>, there you can find 
+the <code>config</code>, wich contains some more info.
+</p>
 
 <div class="org-src-container">
-<pre class="src src-bash">grep <span style="color: #deb887;">"en un lugar de la Mancha"</span> textfile.txt
+<pre class="src src-shell">cat .git/config
 </pre>
 </div>
 </div>
