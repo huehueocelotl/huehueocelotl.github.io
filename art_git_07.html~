@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-09 Fri 12:47 -->
+<!-- 2022-09-09 Fri 20:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git: Commit using different accounts</title>
@@ -75,7 +75,7 @@ for the JavaScript code in this tag.
 <h2 id="orga5db813">The problem</h2>
 <div class="outline-text-2" id="text-orga5db813">
 <p>
-If you have different Git-Hub accounts, say, <code>GitUser01</code> and <code>GitUser02</code>. The local repository <code>LocalRepoU1</code> is created in the account first account and 
+Suppose that you have different Git-Hub accounts, say, <code>GitUser01</code> and <code>GitUser02</code>. The local repository <code>LocalRepoU1</code> is created in the account first account and 
 the <code>LocalRepoU2</code>. 
 </p>
 
