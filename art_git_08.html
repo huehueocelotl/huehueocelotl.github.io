@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-06-25 Tue 16:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Principal Component Analysis - Report</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Huehueocelotl" />
+<link rel="stylesheet"
+                  href="./css/style.css" type="text/css"/>
+	 <script type="text/javascript" async
+	 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async>
+	 </script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Principal Component Analysis - Report</h1>
+<div class="post-details"> 
+<div class="post-author">Posted by: Huehueocelotl</div> 
+<div class="post-date"><time></time> </div> 
+<a href=index.html> <b style="color:#FF9900">Home</b> </a> 
+</div>
+
+
+<div id="outline-container-org6338840" class="outline-2">
+<h2 id="org6338840">The Data</h2>
+<div class="outline-text-2" id="text-org6338840">
+<p>
+In this report we will perform the PCA of the following data set:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">head(USArrests)
+</pre>
+</div>
+
+<pre class="example">
+           Murder Assault UrbanPop Rape
+Alabama      13.2     236       58 21.2
+Alaska       10.0     263       48 44.5
+Arizona       8.1     294       80 31.0
+Arkansas      8.8     190       50 19.5
+California    9.0     276       91 40.6
+Colorado      7.9     204       78 38.7
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">summary(USArrests)
+</pre>
+</div>
+
+<pre class="example">
+    Murder          Assault         UrbanPop          Rape      
+Min.   : 0.800   Min.   : 45.0   Min.   :32.00   Min.   : 7.30  
+1st Qu.: 4.075   1st Qu.:109.0   1st Qu.:54.50   1st Qu.:15.07  
+Median : 7.250   Median :159.0   Median :66.00   Median :20.10  
+Mean   : 7.788   Mean   :170.8   Mean   :65.54   Mean   :21.23  
+3rd Qu.:11.250   3rd Qu.:249.0   3rd Qu.:77.75   3rd Qu.:26.18  
+Max.   :17.400   Max.   :337.0   Max.   :91.00   Max.   :46.00
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgdfae2be" class="outline-2">
+<h2 id="orgdfae2be">PCA - Matrix of variable loadings</h2>
+<div class="outline-text-2" id="text-orgdfae2be">
+<p>
+Here we present the rotation, i.e., the matrix of variable loadings, which is a matrix whose columns
+    contain the eigenvectors. 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">MYPCA1 <span style="color: #9933FF;">&lt;-</span> prcomp(USArrests, scale. =<span style="color: #660000;">TRUE</span>)
+MYPCA1
+</pre>
+</div>
+
+<pre class="example">
+
+Standard deviations (1, .., p=4):
+[1] 1.5748783 0.9948694 0.5971291 0.4164494
+
+Rotation (n x k) = (4 x 4):
+                PC1        PC2        PC3         PC4
+Murder   -0.5358995 -0.4181809  0.3412327  0.64922780
+Assault  -0.5831836 -0.1879856  0.2681484 -0.74340748
+UrbanPop -0.2781909  0.8728062  0.3780158  0.13387773
+Rape     -0.5434321  0.1673186 -0.8177779  0.08902432
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">biplot(MYPCA1, scale=0)
+</pre>
+</div>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="F1.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgee8b8b3" class="outline-2">
+<h2 id="orgee8b8b3">PCA - Plot of Variances</h2>
+<div class="outline-text-2" id="text-orgee8b8b3">
+<div class="org-src-container">
+<pre class="src src-R">plot(MYPCA1, main =<span style="color: #006600;">"Plot of Variances"</span>, col=<span style="color: #006600;">"#FFBF00"</span>)
+</pre>
+</div>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="F2.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org0c4f18e" class="outline-2">
+<h2 id="org0c4f18e">PCA - Importance of Components</h2>
+<div class="outline-text-2" id="text-org0c4f18e">
+<p>
+Proportion of Variance must be read as: the principal componenet PCi explains the p% of the total variance in the data set
+</p>
+<div class="org-src-container">
+<pre class="src src-R">XX  <span style="color: #9933FF;">&lt;-</span> summary(MYPCA1)
+MYPCA1$sdev^2 / sum(MYPCA1$sdev^2) <span style="color: #5180B3;">#</span><span style="color: #5180B3;">Compare with Proportion of variance</span>
+XX
+</pre>
+</div>
+
+<pre class="example">
+
+[1] 0.62006039 0.24744129 0.08914080 0.04335752
+
+Importance of components:
+                          PC1    PC2     PC3     PC4
+Standard deviation     1.5749 0.9949 0.59713 0.41645
+Proportion of Variance 0.6201 0.2474 0.08914 0.04336
+Cumulative Proportion  0.6201 0.8675 0.95664 1.00000
+</pre>
+
+
+
+<p>
+The scree plot 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">YY <span style="color: #9933FF;">&lt;-</span> XX$importance[2,]
+barplot(YY, ylim = c(0,1), col=<span style="color: #006600;">"#FFBF00"</span>,
+main = <span style="color: #006600;">"Scree Plot"</span>,
+xlab = <span style="color: #006600;">"Component"</span>,
+ylab = <span style="color: #006600;">"Percentage of explained variance"</span>)
+</pre>
+</div>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="F3.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org46f5b50" class="outline-2">
+<h2 id="org46f5b50">PCA - Table of Principal Components</h2>
+<div class="outline-text-2" id="text-org46f5b50">
+<div class="org-src-container">
+<pre class="src src-R">MYPCA1$x[,1:3]
+</pre>
+</div>
+
+<pre class="example">
+                       PC1         PC2         PC3
+Alabama        -0.97566045 -1.12200121  0.43980366
+Alaska         -1.93053788 -1.06242692 -2.01950027
+Arizona        -1.74544285  0.73845954 -0.05423025
+Arkansas        0.13999894 -1.10854226 -0.11342217
+California     -2.49861285  1.52742672 -0.59254100
+Colorado       -1.49934074  0.97762966 -1.08400162
+Connecticut     1.34499236  1.07798362  0.63679250
+Delaware       -0.04722981  0.32208890  0.71141032
+Florida        -2.98275967 -0.03883425  0.57103206
+Georgia        -1.62280742 -1.26608838  0.33901818
+Hawaii          0.90348448  1.55467609 -0.05027151
+Idaho           1.62331903 -0.20885253 -0.25719021
+Illinois       -1.36505197  0.67498834  0.67068647
+Indiana         0.50038122  0.15003926 -0.22576277
+Iowa            2.23099579  0.10300828 -0.16291036
+Kansas          0.78887206  0.26744941 -0.02529648
+Kentucky        0.74331256 -0.94880748  0.02808429
+Louisiana      -1.54909076 -0.86230011  0.77560598
+Maine           2.37274014 -0.37260865  0.06502225
+Maryland       -1.74564663 -0.42335704  0.15566968
+Massachusetts   0.48128007  1.45967706  0.60337172
+Michigan       -2.08725025  0.15383500 -0.38100046
+Minnesota       1.67566951  0.62590670 -0.15153200
+Mississippi    -0.98647919 -2.36973712  0.73336290
+Missouri       -0.68978426  0.26070794 -0.37365033
+Montana         1.17353751 -0.53147851 -0.24440796
+Nebraska        1.25291625  0.19200440 -0.17380930
+Nevada         -2.84550542  0.76780502 -1.15168793
+New Hampshire   2.35995585  0.01790055 -0.03648498
+New Jersey     -0.17974128  1.43493745  0.75677041
+New Mexico     -1.96012351 -0.14141308 -0.18184598
+New York       -1.66566662  0.81491072  0.63661186
+North Carolina -1.11208808 -2.20561081  0.85489245
+North Dakota    2.96215223 -0.59309738 -0.29824930
+Ohio            0.22369436  0.73477837  0.03082616
+Oklahoma        0.30864928  0.28496113  0.01515592
+Oregon         -0.05852787  0.53596999 -0.93038718
+Pennsylvania    0.87948680  0.56536050  0.39660218
+Rhode Island    0.85509072  1.47698328  1.35617705
+South Carolina -1.30744986 -1.91397297  0.29751723
+South Dakota    1.96779669 -0.81506822 -0.38538073
+Tennessee      -0.98969377 -0.85160534 -0.18619262
+Texas          -1.34151838  0.40833518  0.48712332
+Utah            0.54503180  1.45671524 -0.29077592
+Vermont         2.77325613 -1.38819435 -0.83280797
+Virginia        0.09536670 -0.19772785 -0.01159482
+Washington      0.21472339  0.96037394 -0.61859067
+West Virginia   2.08739306 -1.41052627 -0.10372163
+Wisconsin       2.05881199  0.60512507  0.13746933
+Wyoming         0.62310061 -0.31778662  0.23824049
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author"> © Huehueocelotl </p>
+
+ <p class="email"><a href="mailto:Huehueocelotl@gmail.com">Huehueocelotl@gmail.com</a></p>
+
+<p class="validation"><a href="https://www.gnu.org/licenses/gpl-3.0.en.html">Licence</a></p>
+<p class="creator"><small>Generated by <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.3.6)</small></p>
+</div>
+</body>
+</html>
