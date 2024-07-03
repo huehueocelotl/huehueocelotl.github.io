@@ -1,4 +1,7 @@
 /*This stye css file is a Frankenstein of many sources. */
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<style>
 
 
 a {
@@ -36,7 +39,8 @@ body {
     /* color: #f8e9d9; */
     /* color:    #f5dfc8; */
     /* color: #dddddd; */
-    font-family: "Deja Vu Sans", Sans-Serif;
+    /* font-family: "Deja Vu Sans", Sans-Serif; */
+    font-family: "Sofia", Sans-Serif;
     font-size: 120%;
     line-height: 1.5em;
     margin: 20px auto; /* "auto" for centering */
