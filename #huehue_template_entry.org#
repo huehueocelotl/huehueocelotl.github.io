@@ -1,0 +1,24 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:nil
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Template for Huehue Entry
+#+DATE: 
+#+AUTHOR: Huehueocelotl
+#+EMAIL: Huehueocelotl@gmail.com
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://huehueocelotl.github.io/css/style.css" />
+#+options: timestamp:nil title:t toc:nil todo:t |:t
+
+#+begin_export html
+<div class="post-details"> 
+<div class="post-author">Posted by: Huehueocelotl</div> 
+<div class="post-date"><time></time> </div> 
+<a href=index.html> <b style="color:#FF9900">Home</b> </a> 
+</div>
+#+end_export
+
+* Section
+This is a test
+* Bye bye
+Bye.
