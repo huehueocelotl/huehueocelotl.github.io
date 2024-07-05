@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Huehueocelotl</title>
+<title>Example of a Monte Carlo Integration in R</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Huehueocelotl" />
 <style type="text/css">
@@ -239,69 +239,139 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Huehueocelotl</h1>
-
-
-<div id="outline-container-org7d9b09a" class="outline-2">
-<h2 id="org7d9b09a">WELCOME!</h2>
-<div class="outline-text-2" id="text-org7d9b09a">
-<p>
-<b>Huehueocelotl</b> is an <b>old wise jaguar</b> ready to share his thoughts and tricks with you. 
-</p>
-
-<p>
-This place is a hidden gem in the internet, where freedom is what we value the most. 
-</p>
-
-<p>
-We want to be free from computers telling you what you can and can't do, where to click, or what app
-to install. 
-</p>
-
-<p>
-We build this site from a Unix-like operating system and we try to use
-and understand their powerful tools to keep a minimalist style of
-coding and problem solving. We like programming, data sciences and caffeine.
-We are continuously posting tips and tricks we think may be helpful for someone
-walking a similar path.
-</p>
-</div>
+<h1 class="title">Example of a Monte Carlo Integration in R</h1>
+<div class="post-details"> 
+<div class="post-author">Posted by: Huehueocelotl</div> 
+<div class="post-date"><time>[2020-10-26 Mon]</time> </div> 
+<a href=index.html> <b style="color:#FF9900">Home</b> </a> 
 </div>
 
 
-<div id="outline-container-org3f81ab9" class="outline-2">
-<h2 id="org3f81ab9">Archive</h2>
-<div class="outline-text-2" id="text-org3f81ab9">
 <p>
-2024-07-05 &ensp;&ensp;<a href="./art_git_08.html">Principal Component Analysis - Report</a> <br />
-2024-07-05 &ensp;&ensp;<a href="./art_git_07.html">Git: Commit using different accounts</a> <br />
-2024-07-05 &ensp;&ensp;<a href="./art_git_05.html">Python: Classes in classes</a> <br />
-2024-07-05 &ensp;&ensp;<a href="./art_git_03.html">Example of a Monte Carlo Integration in R</a> <br />
-2024-07-05 &ensp;&ensp;<a href="./art_git_02.html">The Linux Terminal</a> <br />
-2020-08-04 &ensp;&ensp;<a href="./art_git_01.html">Our Github work flow for collaboration</a> <br />
+Monte Carlo method for numerical integration is a good technique to approximate 
+definite integrals in a non-determinstic approach, which means, the method produces
+different outcomes every time it is implemented. Nevertheless this outcome is 
+an approximation to the correct value and the error can also be estimated.
 </p>
-</div>
-</div>
 
+<p>
+You can read more about this technique in the Wikipedia page <a href="https://en.wikipedia.org/wiki/Monte_Carlo_integration">here</a>.
+</p>
+<div id="outline-container-org73d933f" class="outline-2">
+<h2 id="org73d933f">MC integration in R</h2>
+<div class="outline-text-2" id="text-org73d933f">
+<p>
+To compute the integral 
+</p>
+\begin{equation}
+I = \int_a^b f(x) dx,
+\end{equation}
+<p>
+using the Monte Carlo method, we will need:
+</p>
 
-
-<div id="outline-container-org2f99f23" class="outline-2">
-<h2 id="org2f99f23">En español y en México</h2>
-<div class="outline-text-2" id="text-org2f99f23">
 <ul class="org-ul">
-<li>2020
-<ul class="org-ul">
-<li><a href="./art_jbc_01.html">Causas Peculiares de Muerte por Homicidos en México</a></li>
-</ul></li>
+<li>The length \(V\) of the interval \([a,b]\), i.e., \(V = b-a\).</li>
+<li>A sample of size \(n\) with uniform distribution in \([a,b]\), namely \(x = (x_1,x_2,...,x_n)\), with \(x_i\in [a,b]\) for all \(i = 1,2,\ldots,n\).</li>
+<li>The corresponding values of the function \(f(x) = (f(x_1),\ldots, f(x_n))\).</li>
 </ul>
+
+<p>
+With these ingredients then the approximation is the following:
+</p>
+\begin{equation}
+I \approx \frac{1}{n}\sum_{i=1}^n f(x_i) \, V.
+\end{equation}
+
+
+<p>
+<b>Example 1</b>. Compute the value of \(\int_{2}^{3} x^2 dx\).
+For this example we can easily compute the integral \(I = \frac{19}{3} = 6.33\).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">a  <span style="color: #9933FF;">&lt;-</span> 2
+b  <span style="color: #9933FF;">&lt;-</span> 3
+x  <span style="color: #9933FF;">&lt;-</span> runif(100,a,b)  <span style="color: #5180B3;"># </span><span style="color: #5180B3;">sample of size n form (a,b) with uniform distribution</span>
+fx <span style="color: #9933FF;">&lt;-</span> x^2             <span style="color: #5180B3;"># </span><span style="color: #5180B3;">Definition of the functon to be integrated</span>
+print(mean(fx) * (b-a))
+</pre>
+</div>
+
+<pre class="example">
+6.38835608088314
+</pre>
+
+
+
+<p>
+<b>Example 2</b> Compute the value of  \(I = \int_{-\infty}^{\infty} e^{-x^2} dx\). One can use a polar
+coordinate change of variable in two dimensions  to get the value of this integral \(I = \sqrt{\pi} \approx 1.7724\).
+</p>
+
+<p>
+Lets see if we can get close to this value with the Monte Carlo method
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">a  <span style="color: #9933FF;">&lt;-</span> -10000
+b  <span style="color: #9933FF;">&lt;-</span> 10000
+x  <span style="color: #9933FF;">&lt;-</span> runif(10000000,a,b)  <span style="color: #5180B3;"># </span><span style="color: #5180B3;">sample of size n form (a,b) with uniform distribution</span>
+fx <span style="color: #9933FF;">&lt;-</span> exp(-x^2)             <span style="color: #5180B3;"># </span><span style="color: #5180B3;">Definition of the functon to be integrated</span>
+print(mean(fx) * (b-a))
+</pre>
+</div>
+
+<pre class="example">
+1.79027888555264
+</pre>
+
+
+<p>
+Note that here we used a sample of 10 millions in the very wide interval  of \((-10000,10000)\).
+</p>
+
+<p>
+Now we are left with the following questions
+</p>
+<ul class="org-ul">
+<li>How accurate are this results?</li>
+<li>How can we estimate our errors?</li>
+<li>Can we use stratified sampling rather than just uniform distribution?</li>
+</ul>
+
+<p>
+See you  next time!
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2019-10-25 Fri 00:00</p>
 <p class="author">Author: Huehueocelotl</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
