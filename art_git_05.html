@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Huehueocelotl</title>
+<title>Python: Classes in classes</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Huehueocelotl" />
 <style type="text/css">
@@ -242,66 +242,94 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Huehueocelotl</h1>
-
-
-<div id="outline-container-orge007b35" class="outline-2">
-<h2 id="orge007b35">WELCOME!</h2>
-<div class="outline-text-2" id="text-orge007b35">
-<p>
-<b>Huehueocelotl</b> is an <b>old wise jaguar</b> ready to share his thoughts and tricks with you. 
-</p>
-
-<p>
-This place is a hidden gem in the internet, where freedom is what we value the most. 
-</p>
-
-<p>
-We want to be free from computers telling you what you can and can't do, where to click, or what app
-to install. 
-</p>
-
-<p>
-We build this site from a Unix-like operating system and we try to use
-and understand their powerful tools to keep a minimalist style of
-coding and problem solving. We like programming, data sciences and caffeine.
-We are continuously posting tips and tricks we think may be helpful for someone
-walking a similar path.
-</p>
-</div>
+<h1 class="title">Python: Classes in classes</h1>
+<div class="post-details"> 
+<div class="post-author">Posted by: Huehueocelotl</div> 
+<div class="post-date"><time>[2021-02-20 Sat]</time> </div> 
+<a href=index.html> <b style="color:#FF9900">Home</b> </a> 
 </div>
 
 
-<div id="outline-container-org00ca8ee" class="outline-2">
-<h2 id="org00ca8ee">Archive</h2>
-<div class="outline-text-2" id="text-org00ca8ee">
+<div id="outline-container-org2af2d60" class="outline-2">
+<h2 id="org2af2d60">What is a class in python?</h2>
+<div class="outline-text-2" id="text-org2af2d60">
 <p>
-2024-07-05 &ensp;&ensp;<a href="./art_git_08.html">Principal Component Analysis - Report</a> <br />
-2024-07-05 &ensp;&ensp;<a href="./art_git_07.html">Git: Commit using different accounts</a> <br />
-2024-07-05 &ensp;&ensp;<a href="./art_git_05.html">Python: Classes in classes</a> <br />
-2020-10-26 &ensp;&ensp;<a href="./art_git_03.html">Example of a Monte Carlo Integration in R</a> <br />
-2020-08-16 &ensp;&ensp;<a href="./art_git_02.html">The Linux Terminal</a> <br />
-2020-08-04 &ensp;&ensp;<a href="./art_git_01.html">Our Github work flow for collaboration</a> <br />
+In object oriented programming languages, one way to represent real things and real situations
+is by mean of the so called classes. 
 </p>
-</div>
-</div>
 
-
-
-<div id="outline-container-orgb138e90" class="outline-2">
-<h2 id="orgb138e90">En español y en México</h2>
-<div class="outline-text-2" id="text-orgb138e90">
+<p>
+Roughly speaking the classes contain:
+</p>
 <ul class="org-ul">
-<li>2020
-<ul class="org-ul">
-<li><a href="./art_jbc_01.html">Causas Peculiares de Muerte por Homicidos en México</a></li>
-</ul></li>
+<li>Objects.</li>
+<li>Properties and behaviour of these objects.</li>
+<li>And the possibility to create more objects.</li>
 </ul>
+
+<p>
+By creating an <b>instance</b> it meant the process of creating a new object within a class.
+</p>
+
+<ul class="org-ul">
+<li>One can define actions that can be taken whit the instances</li>
+<li>One can write a class to extend properties already defined in another existing class.</li>
+<li>The classes can be stored in Modules.</li>
+<li>One can also import classes to a Module from other programmers!</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgede2aba" class="outline-2">
+<h2 id="orgede2aba">How to create a class?</h2>
+<div class="outline-text-2" id="text-orgede2aba">
+<p>
+Lets jump into a working example. The class will be myclassroom
+and each instance Pupil will store a name and an age. Every pupil will have the ability to 
+say their name
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">class</span> <span style="color: #660000;">MyClassroom</span>:
+   <span style="color: #666633;">""" An example of a Class"""</span>
+   <span style="color: #0000C8;">def</span> <span style="color: #6600FF;">__init__</span>(<span style="color: #0000C8;">self</span>, name, age):
+       <span style="color: #0000C8;">self</span>.name = name
+       <span style="color: #0000C8;">self</span>.<span style="color: #000000;">age</span> = age
+
+   <span style="color: #0000C8;">def</span> <span style="color: #6600FF;">say_yourname</span>(<span style="color: #0000C8;">self</span>):
+       <span style="color: #0000C8;">print</span>(f<span style="color: #006600;">'My name is </span>{<span style="color: #0000C8;">self</span>.name}<span style="color: #006600;"> and I am in this classroom'</span>)
+
+<span style="color: #000000;">pupil_1</span> = MyClassroom(<span style="color: #006600;">'Huehueocelotl'</span>,1000)
+
+<span style="color: #0000C8;">print</span>(f<span style="color: #006600;">'The age of pupil_1 is </span>{pupil_1.age}<span style="color: #006600;"> years old.'</span>)
+
+pupil_1.say_yourname()
+</pre>
+</div>
+
+<pre class="example">
+The age of pupil_1 is 1000 years old.
+My name is Huehueocelotl and I am in this classroom
+</pre>
+
+
+
+
+
+<p>
+As you can see we could access an attribute of our pupul<sub>1</sub> using the dot notation.
+Since every pupil in the classroom has the capacity to say their own name,
+we only had to call this by writing <code>pupil_1.say_yourname()</code>.
+</p>
+
+<p>
+Easy, init?
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2019-10-25 Fri 00:00</p>
 <p class="author">Author: Huehueocelotl</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
