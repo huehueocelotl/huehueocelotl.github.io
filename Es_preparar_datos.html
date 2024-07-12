@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Huehueocelotl</title>
+<title>Data wrangling: Preparando datos para analizar</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Huehueocelotl" />
 <style type="text/css">
@@ -242,58 +242,131 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Huehueocelotl</h1>
+<h1 class="title">Data wrangling: Preparando datos para analizar</h1>
+<div class="post-details"> 
+<div class="post-author">Posted by: Huehueocelotl</div> 
+<div class="post-date"><time> [2024-07-12 Fri]</time> </div> 
+<a href=index.html> <b style="color:#FF9900">Home</b> </a> 
+</div>
 
 
-<div id="outline-container-org06399ee" class="outline-2">
-<h2 id="org06399ee">WELCOME!</h2>
-<div class="outline-text-2" id="text-org06399ee">
+<div id="outline-container-org1bf3794" class="outline-2">
+<h2 id="org1bf3794">Objetivo</h2>
+<div class="outline-text-2" id="text-org1bf3794">
 <p>
-<b>Huehueocelotl</b> is an <b>old wise jaguar</b> ready to share his thoughts and tricks with you. 
-</p>
-
-<p>
-This place is a hidden gem in the internet, where freedom is what we value the most. 
-</p>
-
-<p>
-We want to be free from computers telling you what you can and can't do, where to click, or what app
-to install. 
-</p>
-
-<p>
-We build this site from a Unix-like operating system and we try to use
-and understand their powerful tools to keep a minimalist style of
-coding and problem solving. We like programming, data sciences and caffeine.
-We are continuously posting tips and tricks we think may be helpful for someone
-walking a similar path.
+El objetivo es ver como descargar datos abiertos para crear un dataframe, y en dado caso que la información sea muy grande, crear una base de datos de sql para poder analizarla con mayor comodidad.
+Utilizaremos R para preparar la información.
 </p>
 </div>
 </div>
 
-
-<div id="outline-container-org937bff2" class="outline-2">
-<h2 id="org937bff2">Archive</h2>
-<div class="outline-text-2" id="text-org937bff2">
+<div id="outline-container-org2e0d393" class="outline-2">
+<h2 id="org2e0d393">Primer paso</h2>
+<div class="outline-text-2" id="text-org2e0d393">
 <p>
-2024-06-25 &ensp;&ensp;<a href="./art_git_08.html">Principal Component Analysis - Report</a> <br />
-2022-09-09 &ensp;&ensp;<a href="./art_git_07.html">Git: Commit using different accounts</a> <br />
-2021-02-20 &ensp;&ensp;<a href="./art_git_05.html">Python: Classes in classes</a> <br />
-2020-10-26 &ensp;&ensp;<a href="./art_git_03.html">Example of a Monte Carlo Integration in R</a> <br />
-2020-08-16 &ensp;&ensp;<a href="./art_git_02.html">The Linux Terminal</a> <br />
-2020-08-04 &ensp;&ensp;<a href="./art_git_01.html">Our Github work flow for collaboration</a> <br />
+Ingresaremos a esta página <a href="https://www.gob.mx/salud/documentos/datos-abiertos-152127">https://www.gob.mx/salud/documentos/datos-abiertos-152127</a> y descargaremos, para este ejemplo, los datos de Bases de Datos de Enfermedades Transmitidas por Vectores (Dengue).
+</p>
+
+
+<div class="figure">
+<p><img src="./images/DW1.png" alt="DW1.png" width="800px" />
+</p>
+</div>
+
+<p>
+Ahora descargaremos los Datos Abiertos de 2024.
 </p>
 </div>
 </div>
 
+<div id="outline-container-org232f5f3" class="outline-2">
+<h2 id="org232f5f3">Abrir la Base desde RStudio</h2>
+<div class="outline-text-2" id="text-org232f5f3">
+<p>
+Importaremos los datos que descargamos creando una dataframe.
+</p>
+
+<pre class="example">
+dengue_2024 &lt;- read.csv('dengue_abierto.csv')
+</pre>
+
+<p>
+Hay datos que son fechas, pero al importarlos los considera cadenas.
+</p>
 
 
-<div id="outline-container-org4ecb1af" class="outline-2">
-<h2 id="org4ecb1af">Archivo</h2>
+<div class="figure">
+<p><img src="./images/DWtypeof.png" alt="DWtypeof.png" width="800px" />
+</p>
+</div>
+
+<p>
+Entonces todas las columnas que sean fechas las reasignaremos usando la función as.Date().
+</p>
+
+<pre class="example">
+dengue_2024$FECHA_ACTUALIZACION &lt;- as.Date(dengue_2024$FECHA_ACTUALIZACION)
+</pre>
+
+
+<div class="figure">
+<p><img src="./images/DWdate.png" alt="DWdate.png" width="800px" />
+</p>
+</div>
+
+<p>
+Muchas veces para hacer análisis por municipios abarcando varios estados se necesita
+crear una variable que concatene la clave de la entidad y del municipio, pero estas
+claves fueron importadas como número, entonces las haremos cadena y completando el
+número de dígitos, dos dígitos para entidad y tres para muniipio.
+</p>
+
+
+<div class="figure">
+<p><img src="./images/DWent.png" alt="DWent.png" width="800px" />
+</p>
+</div>
+
+<pre class="example">
+dengue_2024$ENTIDAD_RES &lt;- ifelse(nchar(dengue_2024$ENTIDAD_RES) == 1, paste('0', dengue_2024$ENTIDAD_RES, sep = ''), dengue_2024$ENTIDAD_RES)
+</pre>
+
+
+<div class="figure">
+<p><img src="./images/DWent2.png" alt="DWent2.png" width="800px" />
+</p>
+</div>
+
+<p>
+Ahora ya podemos guardar el dataframe para seguir trabajando sin tener que preparar la información otra vez.
+</p>
+<pre class="example">
+save(dengue_2024, file = 'dengue.RDATA')
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1b60e95" class="outline-2">
+<h2 id="org1b60e95">Guardar como base de datos SQL</h2>
+<div class="outline-text-2" id="text-org1b60e95">
+<p>
+Algunas veces la base será muy grande por tener millones de registros, por lo cual conviene
+guardar la información como una base de datos, y así solo consultar la información que se va a utilizar.
+</p>
+
+<pre class="example">
+require("RSQLite")
+# Set up database
+drv &lt;- dbDriver("SQLite")
+archivo &lt;- "dengue.db"
+con &lt;- dbConnect(drv, dbname = "dengue.db")
+dbWriteTable(con, "dengue_2024", as.data.frame(dengue_2024))
+dbDisconnect(con)
+</pre>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2019-10-25 Fri 00:00</p>
 <p class="author">Author: Huehueocelotl</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
