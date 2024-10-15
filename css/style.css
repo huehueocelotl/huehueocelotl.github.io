@@ -12,7 +12,7 @@ body {
     /* font-family: "Deja Vu Sans", Sans-Serif; */
     /* font-family: "Sofia", Sans-Serif; */
     /* font-family: "Assistant", Sans-Serif; */
-    font-family: system-ui;
+    font-family: font-family: 'Grandstander'; /* system-ui; */
     font-size: 120%;
     line-height: 1.5em;
     margin: 20px auto; /* "auto" for centering */
