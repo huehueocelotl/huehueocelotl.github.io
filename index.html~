@@ -193,7 +193,6 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="https://huehueocelotl.github.io/css/style.css" />
-<meta name="viewport" content="initial-scale=1">
 <link href=' http://fonts.googleapis.com/css?family=Grandstander' rel='stylesheet' type='text/css'>
 <style> #content {background:#FF9900; padding-top: 10px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px} </style>
 <style> div.outline-2 { background:#DEFFFF; color:#525252; max-width: 65%; margin: 20px auto; color: ; font-family: 'Grandstander'; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 0px; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px} </style>
@@ -251,9 +250,9 @@ for the JavaScript code in this tag.
 <h1 class="title">Huehueocelotl</h1>
 
 
-<div id="outline-container-org138d707" class="outline-2">
-<h2 id="org138d707">¡Bienvenido!</h2>
-<div class="outline-text-2" id="text-org138d707">
+<div id="outline-container-org25909b2" class="outline-2">
+<h2 id="org25909b2">¡Bienvenido!</h2>
+<div class="outline-text-2" id="text-org25909b2">
 <p>
 <b>Huehueocelotl</b> 
 </p>
@@ -272,17 +271,17 @@ programación y ciencia de datos.
 </div>
 
 
-<div id="outline-container-org3ac444d" class="outline-2">
-<h2 id="org3ac444d"><a href="./Huehueocelotl_Programacion.html">Programación</a></h2>
+<div id="outline-container-org29185e2" class="outline-2">
+<h2 id="org29185e2"><a href="./Huehueocelotl_Programacion.html">Programación</a></h2>
 </div>
-<div id="outline-container-org3ed2055" class="outline-2">
-<h2 id="org3ed2055"><a href="./Huehueocelotl_Matematicas.html">Matemáticas</a></h2>
+<div id="outline-container-orge631fed" class="outline-2">
+<h2 id="orge631fed"><a href="./Huehueocelotl_Matematicas.html">Matemáticas</a></h2>
 </div>
 
 
-<div id="outline-container-org77c84b6" class="outline-2">
-<h2 id="org77c84b6">Clases particulares online</h2>
-<div class="outline-text-2" id="text-org77c84b6">
+<div id="outline-container-orgf3901e4" class="outline-2">
+<h2 id="orgf3901e4">Clases particulares online</h2>
+<div class="outline-text-2" id="text-orgf3901e4">
 <p>
 Si estás buscando un tutor para mejorar y reforzar tus conocimientos en  matemáticas,
 o si tienes dificultades con alguna materia de nivel medio superior, licenciatura o ingeniería relacionada con las ciencias exactas
