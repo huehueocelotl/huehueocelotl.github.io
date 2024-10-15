@@ -70,7 +70,7 @@ h2 {
 .title {
 		background-color: #222222;
 		/* border-radius: 10px 10px; */
-		font-family: system-ui;
+		font-family: 'Grandstander'; /* system-ui;*/
 		padding: 40px 40px;
 		color: #FF9900;
 }

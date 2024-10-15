@@ -1,0 +1,1539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2024-10-15 Tue 13:59 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Curso de Introducción a Python</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="@@html:&lt;br&gt;@@ Daniel Ballesteros Chávez,@@html:&lt;br&gt;@@ Jorge F. Becerril Cejudo @@html:&lt;br&gt;@@ Karla J. Melo Rascon  @@html:&lt;br&gt;@@" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link href=' http://fonts.googleapis.com/css?family=Grandstander' rel='stylesheet' type='text/css'>
+<style>  body { background:#F5F5F7 ; max-width: 768px; margin: 20px auto; color: ; font-family: 'Grandstander';} </style>
+<style> :root {--col0: #1b263b; --col1: #edf2f4; --col2: #03C988; --col3: #ef233c; --col4: #d90429; --col5: #173f5f;} </style>
+<style> h2 { background: var(--col2) ; color: var(--col0);  font-weight: bold; display: block; padding: 10px 20px;  } </style>
+<style> .thm {background-color: #BFF2FF; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .thm:before {content: "Theorem: "; font-weight: bold}</style>
+<style> .mydef {background-color: #A2EEB2; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .mydef:before {content: "Definition: "; font-weight: bold}</style>
+<style> .prop {background-color:  #FFAE33; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .prop:before {content: "Proposition: "; font-weight: bold}</style>
+<style> .xmpl {background-color: #DBEDDC; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .xmpl:before {content: "Example: "; font-weight: bold}</style>
+<style> .warn {background-color: #FFA500; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .warn:before {content: "Important remark: "; font-weight: bold}</style>
+<style>  th {background-color: #f55fc3;} tr:nth-child(odd) {background-color: #e2e2e2;}  table tr:hover {background-color: #d0c6e5;} </style>
+<style>  p {text-align: justify;} </style>
+<style>  pre {border: 1px solid #ccc; box-shadow: 3px 3px 3px #eee; padding: 8pt; font-family: monospace; overflow: auto; margin: 1.2em; border-radius: 10px;}</style>
+<style>code {background-color: #ccc}</style>
+
+<script type="text/javascript" src="https://orgmode.org/org-info.js">
+/**
+ *
+ * @source: https://orgmode.org/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in https://orgmode.org/org-info.js.
+ *
+ * Copyright (C) 2012-2020 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in https://orgmode.org/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "0");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Curso de Introducción a Python</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org24cf81a">Introducción</a></li>
+<li><a href="#orgd3b64cf">Obtener python</a></li>
+<li><a href="#org5a67a9e">Editor de texto y sintaxis</a></li>
+<li><a href="#org80624c7">Tipos de datos</a></li>
+<li><a href="#org376aec3">Funciones</a>
+<ul>
+<li><a href="#org2b3fb22">La suma de números</a></li>
+<li><a href="#org756579a">La suma de números usando <code>*args</code></a></li>
+<li><a href="#orgbf3cf2b">La suma de números usando <code>**kwargs</code></a></li>
+<li><a href="#orgf08a1a5">La suma de números usando <code>lambda</code></a></li>
+</ul>
+</li>
+<li><a href="#orgb10a01b">Condicionales</a></li>
+<li><a href="#org17c6b4b">Bucle for</a></li>
+<li><a href="#orge2491de">Bucle while</a></li>
+<li><a href="#org0d8794c">Listas y Tuplas</a>
+<ul>
+<li><a href="#org36a14a7">Listas</a></li>
+<li><a href="#orgbb97c4d">Tuplas</a></li>
+</ul>
+</li>
+<li><a href="#orgcb6f785">Diccionarios</a></li>
+<li><a href="#orgcbd9f45">Sentencia match-case</a></li>
+<li><a href="#org1aafbc0">Usando if, elif, else</a></li>
+<li><a href="#org85bbd85">Usando diccionarios</a></li>
+<li><a href="#org20ad9d0">Conjuntos</a></li>
+<li><a href="#org27102ca">Listas por comprensión</a></li>
+<li><a href="#orge10ee78">Clases</a>
+<ul>
+<li><a href="#org4abf18a">Ejemplo de una clase</a></li>
+<li><a href="#org4a71c3d">Manejando la clase.</a></li>
+</ul>
+</li>
+<li><a href="#org5877824">Módulos</a></li>
+</ul>
+</div>
+</div>
+<br><br><br>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+<p>
+<a href="./index.html">Home</a>
+</p>
+<div id="outline-container-org24cf81a" class="outline-2">
+<h2 id="org24cf81a">Introducción</h2>
+<div class="outline-text-2" id="text-org24cf81a">
+<p>
+Estas notas son empleadas como material didáctico para un curso introdcutorio de programación en Python.
+</p>
+
+<p>
+Su contenido está tomado principalmente de las siguentes fuentes:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://docs.python.org/3/">Python Documentation</a></li>
+<li><a href="https://es.wikipedia.org/wiki/Python">es.wiki/Python</a></li>
+</ul>
+
+<p>
+Python es un lenguaje de alto nivel de programación interpretado y tiene la característica de ser un código muy fácil de leer. Se trata de un lenguaje de programación multiparadigma, ya que soporta parcialmente la orientación a objetos, programación imperativa y la llamada programación funcional. Es un lenguaje interpretado, dinámico y que corre en varios sistemas operativos.
+</p>
+
+<p>
+Administrado por Python Software Foundation, posee una licencia de código abierto, denominada Python Software Foundation License. Python se clasifica constantemente como uno de los lenguajes de programación más populares para
+</p>
+
+<p>
+Análisis de datos
+Desarollo de software
+Modelos de Machine Learning
+Modelos de Redes Neuronales
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd3b64cf" class="outline-2">
+<h2 id="orgd3b64cf">Obtener python</h2>
+<div class="outline-text-2" id="text-orgd3b64cf">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">print</span>(<span style="color: #006600;">"Hola Mundo!"</span>)
+</pre>
+</div>
+
+<pre class="example">
+Hola Mundo!
+</pre>
+
+
+
+<ul class="org-ul">
+<li>Si cuentas con una cuenta gmail puedes utilizar de manera gratuita Google Colaborative (colab).</li>
+<li>Desde la página <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a> puedes hacer la descarga a cualquier sistema operativo.</li>
+<li>Instala la version minimalista llamada <a href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda</a> para cualquier sistema operativo.</li>
+<li>Si cuentas con Linux/Debian  puedes simplemente hacer <code>sudo apt install python3</code> desde la terminal.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5a67a9e" class="outline-2">
+<h2 id="org5a67a9e">Editor de texto y sintaxis</h2>
+<div class="outline-text-2" id="text-org5a67a9e">
+<dl class="org-dl">
+<dt>Operadores Lógicos</dt><dd><code>not</code>, <code>or</code>,  <code>and</code> (en correspondencia con <code>!</code>, <code>||</code> y <code>&amp;&amp;</code> de otros lenguajes)</dd>
+<dt>Sangría o Indentación</dt><dd>El contenido de los bloques de código será delimitado mediante espacio tabuladores.</dd>
+<dt>Multi-línea</dt><dd>Para indicar que una instrucción continua en el siguente renglón usamos <code>\</code> (diagonal invertida).</dd>
+<dt>Comentarios 1</dt><dd>Para indicar un comentario dentro del código éstos se escriben entre tres apóstrofos de apertura y tres de cierre <code>'''comentario aquí'''</code>.</dd>
+<dt>Comentarios 2</dt><dd>Alternativamente se utiliza el símbolo <code>#</code>, que se extiende hasta el final de la línea.</dd>
+<dt>Variables</dt><dd>Los nombres de las varibales pueden contener números pero siempre comienzan con una letra. La asignación de su valor se hace mediante el símbolo <code>=</code>, y esta se hace de manera dinámica, es decir, sin necesitad de especificar a priori su tipo.</dd>
+<dt>Nombres reservados</dt><dd>Existen palabras reservadas en python las cuales no pueden usarse para nombrar nuevas variables. A continuación una lista de ellas.</dd>
+</dl>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">and</td>
+<td class="org-left">continue</td>
+<td class="org-left">finally</td>
+</tr>
+
+<tr>
+<td class="org-left">as</td>
+<td class="org-left">def</td>
+<td class="org-left">for</td>
+</tr>
+
+<tr>
+<td class="org-left">assert</td>
+<td class="org-left">del</td>
+<td class="org-left">from</td>
+</tr>
+
+<tr>
+<td class="org-left">async</td>
+<td class="org-left">elif</td>
+<td class="org-left">global</td>
+</tr>
+
+<tr>
+<td class="org-left">await</td>
+<td class="org-left">else</td>
+<td class="org-left">if</td>
+</tr>
+
+<tr>
+<td class="org-left">break</td>
+<td class="org-left">except</td>
+<td class="org-left">import</td>
+</tr>
+
+<tr>
+<td class="org-left">class</td>
+<td class="org-left">False</td>
+<td class="org-left">in</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org80624c7" class="outline-2">
+<h2 id="org80624c7">Tipos de datos</h2>
+<div class="outline-text-2" id="text-org80624c7">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Tipo</th>
+<th scope="col" class="org-left">Clase</th>
+<th scope="col" class="org-left">Notas</th>
+<th scope="col" class="org-left">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">str</td>
+<td class="org-left">Cadena en determinado formato de codificación (UTF-8 por defecto)</td>
+<td class="org-left">Inmutable</td>
+<td class="org-left">'Cadena'</td>
+</tr>
+
+<tr>
+<td class="org-left">bytes</td>
+<td class="org-left">Vector o array de bytes</td>
+<td class="org-left">Inmutable</td>
+<td class="org-left">b'Cadena'</td>
+</tr>
+
+<tr>
+<td class="org-left">list</td>
+<td class="org-left">Secuencia</td>
+<td class="org-left">Mutable, puede contener objetos de diversos tipos</td>
+<td class="org-left">[2.0, 'Cadena', True]</td>
+</tr>
+
+<tr>
+<td class="org-left">tuple</td>
+<td class="org-left">Secuencia</td>
+<td class="org-left">Inmutable, puede contener objetos de diversos tipos</td>
+<td class="org-left">(2.0, 'Cadena', True)</td>
+</tr>
+
+<tr>
+<td class="org-left">set</td>
+<td class="org-left">Conjunto</td>
+<td class="org-left">Mutable, sin orden, no contiene duplicados</td>
+<td class="org-left">{2.0, 'Cadena', True}</td>
+</tr>
+
+<tr>
+<td class="org-left">frozenset</td>
+<td class="org-left">Conjunto</td>
+<td class="org-left">Inmutable, sin orden, no contiene duplicados</td>
+<td class="org-left">frozenset([4.0, 'Cadena', True])</td>
+</tr>
+
+<tr>
+<td class="org-left">dict</td>
+<td class="org-left">Diccionario</td>
+<td class="org-left">Grupo de pares clave:valor</td>
+<td class="org-left">{'key1': 1.0, 'key2': False}</td>
+</tr>
+
+<tr>
+<td class="org-left">int</td>
+<td class="org-left">Número entero</td>
+<td class="org-left">Precisión arbitraria</td>
+<td class="org-left">52</td>
+</tr>
+
+<tr>
+<td class="org-left">float</td>
+<td class="org-left">Número decimal</td>
+<td class="org-left">Coma flotante de doble precisión</td>
+<td class="org-left">3.1416</td>
+</tr>
+
+<tr>
+<td class="org-left">complex</td>
+<td class="org-left">Número complejo</td>
+<td class="org-left">Parte real y parte imaginaria j.</td>
+<td class="org-left">(2.5 + 4j)</td>
+</tr>
+
+<tr>
+<td class="org-left">bool</td>
+<td class="org-left">Booleano</td>
+<td class="org-left">Valor booleano (verdadero o falso)</td>
+<td class="org-left">True o False</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Nota:<br />
+Mutable: si su contenido (o dicho valor) puede cambiarse en tiempo de ejecución.<br />
+Inmutable: si su contenido (o dicho valor) no puede cambiarse en tiempo de ejecución<br />
+</p>
+
+<p>
+Enteros
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">print</span>(4)
+<span style="color: #0000C8;">print</span>(<span style="color: #0000C8;">type</span>(4))
+</pre>
+</div>
+
+<p>
+Float
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">print</span>(4/7.5)
+<span style="color: #0000C8;">print</span>(<span style="color: #0000C8;">type</span>(4/7.5))
+</pre>
+</div>
+
+<p>
+Booleanos
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">print</span>(<span style="color: #9933FF;">True</span>)
+<span style="color: #0000C8;">print</span>(<span style="color: #0000C8;">type</span>(<span style="color: #9933FF;">True</span>))
+</pre>
+</div>
+
+<p>
+Complejos
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">print</span>(4+5j)
+<span style="color: #0000C8;">print</span>(<span style="color: #0000C8;">type</span>(4+5j))
+</pre>
+</div>
+
+<p>
+Cadenas
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">print</span>(<span style="color: #006600;">"Hola"</span>)
+<span style="color: #0000C8;">print</span>(<span style="color: #0000C8;">type</span>(<span style="color: #006600;">"Hola"</span>))
+</pre>
+</div>
+
+<p>
+Listas
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">print</span>([1,2,3,4,5])
+<span style="color: #0000C8;">print</span>(<span style="color: #0000C8;">type</span>([1,2,3,4,5]))
+</pre>
+</div>
+
+<p>
+Diccionarios
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">print</span>({<span style="color: #006600;">"a"</span>: 1, <span style="color: #006600;">"b"</span>: 2})
+<span style="color: #0000C8;">print</span>(<span style="color: #0000C8;">type</span>({<span style="color: #006600;">"a"</span>: 1, <span style="color: #006600;">"b"</span>: 2}))
+</pre>
+</div>
+
+<p>
+Tuplas
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">print</span>((<span style="color: #006600;">"A"</span>,<span style="color: #9933FF;">True</span>,7))
+<span style="color: #0000C8;">print</span>(<span style="color: #0000C8;">type</span>((<span style="color: #006600;">"A"</span>,<span style="color: #9933FF;">True</span>,7)))
+</pre>
+</div>
+
+<p>
+Conjuntos
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">print</span>(<span style="color: #0000C8;">set</span>([1,2,3,4,5,4,3,2,1]))
+<span style="color: #0000C8;">print</span>(<span style="color: #0000C8;">type</span>(<span style="color: #0000C8;">set</span>([1,2,3,4,5,4,3,2,1])))
+</pre>
+</div>
+
+<p>
+Fuciones asociadas a cada clase
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">print</span>(<span style="color: #0000C8;">dir</span>(<span style="color: #0000C8;">type</span>(<span style="color: #0000C8;">int</span>)))
+<span style="color: #0000C8;">print</span>(<span style="color: #0000C8;">dir</span>(<span style="color: #0000C8;">type</span>(<span style="color: #0000C8;">list</span>)))
+</pre>
+</div>
+
+<pre class="example">
+['__abstractmethods__', '__annotations__', '__base__', '__bases__', '__basicsize__', '__call__', '__class__', '__delattr__', '__dict__', '__dictoffset__', '__dir__', '__doc__', '__eq__', '__flags__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__instancecheck__', '__itemsize__', '__le__', '__lt__', '__module__', '__mro__', '__name__', '__ne__', '__new__', '__or__', '__prepare__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__ror__', '__setattr__', '__sizeof__', '__str__', '__subclasscheck__', '__subclasses__', '__subclasshook__', '__text_signature__', '__weakrefoffset__', 'mro']
+['__abstractmethods__', '__annotations__', '__base__', '__bases__', '__basicsize__', '__call__', '__class__', '__delattr__', '__dict__', '__dictoffset__', '__dir__', '__doc__', '__eq__', '__flags__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__instancecheck__', '__itemsize__', '__le__', '__lt__', '__module__', '__mro__', '__name__', '__ne__', '__new__', '__or__', '__prepare__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__ror__', '__setattr__', '__sizeof__', '__str__', '__subclasscheck__', '__subclasses__', '__subclasshook__', '__text_signature__', '__weakrefoffset__', 'mro']
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org376aec3" class="outline-2">
+<h2 id="org376aec3">Funciones</h2>
+<div class="outline-text-2" id="text-org376aec3">
+<p>
+En python las funciones de sefinen con la palabra clave <code>def</code>, y en algunas ocaciones es común encontrarlas en la forma de <code>lambda</code> (como en el lenguaje Lisp).
+El varlor devuelto por la función es indicado con la instrucción <code>return</code>.
+El parámetro <code>*args</code> admite una tupla como argumentos de la función, mientras que el parámetro <code>**kwargs</code> admite un diccionario como argumentos.
+</p>
+
+<p>
+A continuación algunos ejemplos clásicos.
+</p>
+</div>
+<div id="outline-container-org2b3fb22" class="outline-3">
+<h3 id="org2b3fb22">La suma de números</h3>
+<div class="outline-text-3" id="text-org2b3fb22">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">def</span> <span style="color: #6600FF;">suma</span>(x, y=5):
+    <span style="color: #0000C8;">return</span> x + y  
+<span style="color: #0000C8;">print</span>(suma(6), <span style="color: #006600;">"-- por defecto, el valor de y es 5"</span>)
+<span style="color: #0000C8;">print</span>(suma(6,4))
+</pre>
+</div>
+
+<pre class="example">
+11 -- por defecto, el valor de y es 5
+10
+</pre>
+</div>
+</div>
+<div id="outline-container-org756579a" class="outline-3">
+<h3 id="org756579a">La suma de números usando <code>*args</code></h3>
+<div class="outline-text-3" id="text-org756579a">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">def</span> <span style="color: #6600FF;">suma</span>(*args):
+    <span style="color: #000000;">resultado</span> = 0
+    <span style="color: #0000C8;">for</span> num <span style="color: #0000C8;">in</span> <span style="color: #000000;">args</span>:
+        resultado = (resultado + num)
+    <span style="color: #0000C8;">return</span> resultado
+
+<span style="color: #0000C8;">print</span>(suma(1,2,4,7))
+</pre>
+</div>
+
+<pre class="example">
+14
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgbf3cf2b" class="outline-3">
+<h3 id="orgbf3cf2b">La suma de números usando <code>**kwargs</code></h3>
+<div class="outline-text-3" id="text-orgbf3cf2b">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">def</span> <span style="color: #6600FF;">suma</span>(**kwargs):
+    <span style="color: #000000;">resultado</span> = 0
+    <span style="color: #0000C8;">for</span> llave, valor <span style="color: #0000C8;">in</span> kwargs.items():
+        <span style="color: #000000;">resultado</span> = (resultado + valor)
+    <span style="color: #0000C8;">return</span> resultado
+
+<span style="color: #0000C8;">print</span>(suma(x=1,y=2,z=4,variable4=7))
+</pre>
+</div>
+
+<pre class="example">
+14
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf08a1a5" class="outline-3">
+<h3 id="orgf08a1a5">La suma de números usando <code>lambda</code></h3>
+<div class="outline-text-3" id="text-orgf08a1a5">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #000000;">suma</span> = <span style="color: #0000C8;">lambda</span> <span style="color: #000000;">x</span>, <span style="color: #000000;">y</span>=2: x + y
+
+<span style="color: #0000C8;">print</span>(suma(4))
+<span style="color: #0000C8;">print</span>(suma(4,6))
+</pre>
+</div>
+
+<pre class="example">
+6
+10
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb10a01b" class="outline-2">
+<h2 id="orgb10a01b">Condicionales</h2>
+<div class="outline-text-2" id="text-orgb10a01b">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #000000;">Nombre</span> = <span style="color: #006600;">"Usuario"</span>
+<span style="color: #0000C8;">if</span> Nombre == <span style="color: #006600;">"Usuarioo"</span>:
+    <span style="color: #0000C8;">print</span>(<span style="color: #006600;">"El usuario es Usuario"</span>)
+<span style="color: #0000C8;">else</span>:
+    <span style="color: #0000C8;">print</span>(<span style="color: #006600;">"No eres el usuario que esperaba"</span>)
+</pre>
+</div>
+
+<pre class="example">
+No eres el usuario que esperaba
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #000000;">Nombre</span> = <span style="color: #006600;">"Usuarioi"</span>
+<span style="color: #0000C8;">if</span> Nombre == <span style="color: #006600;">"UsuarioP"</span>:
+    <span style="color: #0000C8;">print</span>(<span style="color: #006600;">"La &#250;ltima letra es una \"P\""</span>)
+<span style="color: #0000C8;">elif</span> Nombre == <span style="color: #006600;">"Usuarioi"</span>:
+    <span style="color: #0000C8;">print</span>(<span style="color: #006600;">"La &#250;ltima letra es una \"i\""</span>)
+<span style="color: #0000C8;">else</span>:
+    <span style="color: #0000C8;">print</span>(<span style="color: #006600;">"El usuario es Usuario"</span>)
+</pre>
+</div>
+
+<pre class="example">
+La última letra es una "i"
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org17c6b4b" class="outline-2">
+<h2 id="org17c6b4b">Bucle for</h2>
+<div class="outline-text-2" id="text-org17c6b4b">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #000000;">lista</span> = [<span style="color: #006600;">"A"</span>, <span style="color: #006600;">"B"</span>, <span style="color: #006600;">"a"</span>, <span style="color: #006600;">"b"</span>, <span style="color: #006600;">"c"</span>, <span style="color: #006600;">"d"</span>]
+<span style="color: #0000C8;">for</span> i <span style="color: #0000C8;">in</span> lista:
+    <span style="color: #0000C8;">print</span>(i)
+</pre>
+</div>
+
+<pre class="example">
+A
+B
+a
+b
+c
+d
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #000000;">cadena</span> = <span style="color: #006600;">"Usuario"</span>
+<span style="color: #0000C8;">for</span> i <span style="color: #0000C8;">in</span> cadena:
+    <span style="color: #0000C8;">print</span>(i)
+</pre>
+</div>
+
+<pre class="example">
+U
+s
+u
+a
+r
+i
+o
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orge2491de" class="outline-2">
+<h2 id="orge2491de">Bucle while</h2>
+<div class="outline-text-2" id="text-orge2491de">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #000000;">i</span> = 0
+<span style="color: #0000C8;">while</span>  i &lt; 10:
+    <span style="color: #0000C8;">print</span>(<span style="color: #006600;">"Indice n&#250;mero"</span>, i)
+    <span style="color: #000000;">i</span> += 1 
+</pre>
+</div>
+
+<pre class="example">
+Indice número 0
+Indice número 1
+Indice número 2
+Indice número 3
+Indice número 4
+Indice número 5
+Indice número 6
+Indice número 7
+Indice número 8
+Indice número 9
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0d8794c" class="outline-2">
+<h2 id="org0d8794c">Listas y Tuplas</h2>
+<div class="outline-text-2" id="text-org0d8794c">
+</div>
+<div id="outline-container-org36a14a7" class="outline-3">
+<h3 id="org36a14a7">Listas</h3>
+<div class="outline-text-3" id="text-org36a14a7">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #000000;">lista</span> = [<span style="color: #006600;">"abc"</span>, 522, 3/2]
+<span style="color: #0000C8;">print</span>(lista)
+<span style="color: #5180B3;"># </span><span style="color: #5180B3;">Acceder a un elemento por su &#237;ndice</span>
+<span style="color: #0000C8;">print</span>(lista[0])
+</pre>
+</div>
+
+<pre class="example">
+['abc', 522, 1.5]
+abc
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Acceder a un elemento usando un &#237;ndice negativo</span>
+<span style="color: #0000C8;">print</span>(lista[-1])
+</pre>
+</div>
+
+<pre class="example">
+1.5
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">A&#241;adir un elemento al final de la lista</span>
+lista.append(<span style="color: #9933FF;">True</span>)  
+<span style="color: #0000C8;">print</span>(lista)
+</pre>
+</div>
+
+<pre class="example">
+['abc', 522, 1.5, True]
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Borra un elemento de la lista usando un &#237;ndice (en este caso: True)</span>
+<span style="color: #0000C8;">del</span> lista[3]
+<span style="color: #0000C8;">print</span>(lista)  
+</pre>
+</div>
+
+<pre class="example">
+['abc', 522, 1.5]
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Re-asignar el valor del primer elemento de la lista</span>
+<span style="color: #000000;">lista</span>[0] = <span style="color: #006600;">"guitarra"</span>  
+<span style="color: #0000C8;">print</span>(lista)
+</pre>
+</div>
+
+<pre class="example">
+['guitarra', 522, 1.5]
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Mostrar los elementos de la lista del &#237;ndice "0" al "2" (sin incluir este &#250;ltimo)</span>
+<span style="color: #0000C8;">print</span>(lista[0:2] )
+</pre>
+</div>
+
+<pre class="example">
+['guitarra', 522]
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Es posible anidar listas</span>
+<span style="color: #000000;">lista_anidada</span> = [lista, [<span style="color: #9933FF;">True</span>, 42]] 
+<span style="color: #0000C8;">print</span>(lista_anidada)
+
+<span style="color: #5180B3;"># </span><span style="color: #5180B3;">Acceder a un elemento de una lista dentro de otra lista (del segundo elemento, mostrar el primer elemento)</span>
+<span style="color: #0000C8;">print</span>(lista_anidada[1][0])
+</pre>
+</div>
+
+<pre class="example">
+[['guitarra', 522, 1.5], [True, 42]]
+True
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgbb97c4d" class="outline-3">
+<h3 id="orgbb97c4d">Tuplas</h3>
+<div class="outline-text-3" id="text-orgbb97c4d">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #000000;">tupla</span> = (<span style="color: #006600;">"abc"</span>, 522, 3/2)
+<span style="color: #5180B3;"># </span><span style="color: #5180B3;">Acceder a un elemento por su &#237;ndice</span>
+<span style="color: #0000C8;">print</span>(tupla[0])
+</pre>
+</div>
+
+<pre class="example">
+abc
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Acceder a un elemento usando un &#237;ndice negativo</span>
+<span style="color: #0000C8;">print</span>(tupla[-1])
+</pre>
+</div>
+
+<pre class="example">
+1.5
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">No es posible borrar (ni a&#241;adir) un elemento en una tupla, lo que provocar&#225; una excepci&#243;n</span>
+<span style="color: #0000C8;">del</span> tupla[0]  
+</pre>
+</div>
+
+<pre class="example">
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File "/tmp/babel-ig8N8b/python-VxBVuo", line 2, in &lt;module&gt;
+    del tupla[0]  
+        ~~~~~^^^
+TypeError: 'tuple' object doesn't support item deletion
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Tampoco es posible re-asignar el valor de un elemento en una tupla, lo que tambi&#233;n provocar&#225; una excepci&#243;n</span>
+<span style="color: #000000;">tupla</span>[0] = <span style="color: #006600;">"guitarra"</span> 
+</pre>
+</div>
+
+<pre class="example">
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File "/tmp/babel-ig8N8b/python-OFomB4", line 2, in &lt;module&gt;
+    tupla[0] = "guitarra" 
+    ~~~~~^^^
+TypeError: 'tuple' object does not support item assignment
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Tambi&#233;n es posible anidar tuplas</span>
+<span style="color: #000000;">tupla_anidada</span> = (tupla, (<span style="color: #9933FF;">True</span>, 3.1415))  
+<span style="color: #0000C8;">print</span>(tupla_anidada)
+</pre>
+</div>
+
+<pre class="example">
+(('abc', 522, 1.5), (True, 3.1415))
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Esto tambi&#233;n es una tupla, aunque es recomendable ponerla entre par&#233;ntesis (recuerde que requiere, al menos, una coma)</span>
+1, 2, 3, <span style="color: #006600;">"abc"</span>
+</pre>
+</div>
+
+<pre class="example">
+1 2 3 abc
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcb6f785" class="outline-2">
+<h2 id="orgcb6f785">Diccionarios</h2>
+<div class="outline-text-2" id="text-orgcb6f785">
+<ul class="org-ul">
+<li>Para declarar un diccionario se usan las llaves {}. Contienen elementos separados por comas, donde cada elemento está formado por un par clave:valor (el símbolo : separa la clave de su valor correspondiente).</li>
+<li>Los diccionarios son mutables, es decir, se puede cambiar el contenido de un valor en tiempo de ejecución.</li>
+<li>En cambio, las claves de un diccionario deben ser inmutables. Esto quiere decir, por ejemplo, que no podremos usar ni listas ni diccionarios como claves.</li>
+<li>El valor asociado a una clave puede ser de cualquier tipo de dato, incluso un diccionario.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Diccionario que tiene diferentes valores por cada clave, incluso una lista</span>
+<span style="color: #000000;">diccionario</span> = {<span style="color: #006600;">"cadena"</span>: <span style="color: #006600;">"abc"</span>, <span style="color: #006600;">"numero"</span>: 452, <span style="color: #006600;">"lista"</span>: [<span style="color: #9933FF;">True</span>, 42]}  
+<span style="color: #0000C8;">print</span>(diccionario[<span style="color: #006600;">"numero"</span>])
+</pre>
+</div>
+
+<pre class="example">
+452
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Acceder a un elemento de una lista dentro de un valor (del valor de la clave "lista", mostrar el primer elemento)</span>
+ diccionario[<span style="color: #006600;">"lista"</span>][0]  
+</pre>
+</div>
+
+<pre class="example">
+True
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Re-asignar el valor de una clave</span>
+<span style="color: #000000;">diccionario</span>[<span style="color: #006600;">"cadena"</span>] = <span style="color: #006600;">"xyz"</span>  
+<span style="color: #0000C8;">print</span>(diccionario[<span style="color: #006600;">"cadena"</span>])
+</pre>
+</div>
+
+<pre class="example">
+xyz
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Insertar un nuevo elemento clave:valor</span>
+diccionario[<span style="color: #006600;">"decimal"</span>] = 3.1415927  
+<span style="color: #0000C8;">print</span>(diccionario[<span style="color: #006600;">"decimal"</span>])
+</pre>
+</div>
+
+<pre class="example">
+3.1415927
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Tambi&#233;n es posible que un valor sea un diccionario</span>
+<span style="color: #000000;">diccionario_mixto</span> = {<span style="color: #006600;">"tupla"</span>: (<span style="color: #9933FF;">True</span>, 3.1415), <span style="color: #006600;">"diccionario"</span>: diccionario}  
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Acceder a un elemento dentro de una lista, que se encuentra dentro de un diccionario</span>
+<span style="color: #0000C8;">print</span>(diccionario_mixto[<span style="color: #006600;">"diccionario"</span>][<span style="color: #006600;">"lista"</span>][1]  )
+</pre>
+</div>
+
+<pre class="example">
+42
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">S&#237; es posible que una clave sea una tupla, pues es inmutable</span>
+<span style="color: #000000;">diccionario</span> = {(<span style="color: #006600;">"abc"</span>,): 42}  
+<span style="color: #0000C8;">print</span>(diccionario)
+</pre>
+</div>
+
+<pre class="example">
+{('abc',): 42}
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">No es posible que una clave sea una lista, pues es mutable, lo que provocar&#225; una excepci&#243;n</span>
+<span style="color: #000000;">diccionario</span> = {[<span style="color: #006600;">"abc"</span>]: 42}  
+</pre>
+</div>
+
+<pre class="example">
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File "/tmp/babel-ig8N8b/python-JCTu1E", line 2, in &lt;module&gt;
+    diccionario = {["abc"]: 42}  
+                  ^^^^^^^^^^^^^
+TypeError: unhashable type: 'list'
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgcbd9f45" class="outline-2">
+<h2 id="orgcbd9f45">Sentencia match-case</h2>
+<div class="outline-text-2" id="text-orgcbd9f45">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #000000;">x</span> = 10
+<span style="color: #000000;">y</span> = 30
+
+match (x,y):
+        case (10 ,40):  <span style="color: #5180B3;"># </span><span style="color: #5180B3;">los atributos "x" e "y" tienen el valor specificado</span>
+                <span style="color: #0000C8;">print</span>(<span style="color: #006600;">"Coordenada 10, 40"</span>)
+        case (10 ,30):  <span style="color: #5180B3;"># </span><span style="color: #5180B3;">los atributos "x" e "y" tienen el valor specificado</span>
+                <span style="color: #0000C8;">print</span>(<span style="color: #006600;">"Coordenada 10, 30"</span>)
+        case _:  <span style="color: #5180B3;"># </span><span style="color: #5180B3;">ninguna condici&#243;n cumplida (default)</span>
+                <span style="color: #0000C8;">print</span>(<span style="color: #006600;">"La opci&#243;n no fue encontrada"</span>)
+</pre>
+</div>
+
+<pre class="example">
+Coordenada 10, 30
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1aafbc0" class="outline-2">
+<h2 id="org1aafbc0">Usando if, elif, else</h2>
+<div class="outline-text-2" id="text-org1aafbc0">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">def</span> <span style="color: #6600FF;">calculadora</span>(operacion, a, b):
+    <span style="color: #0000C8;">if</span> operacion == <span style="color: #006600;">'sum'</span>:
+        <span style="color: #0000C8;">return</span> a + b
+    <span style="color: #0000C8;">elif</span> operacion == <span style="color: #006600;">'rest'</span>:
+        <span style="color: #0000C8;">return</span> a - b
+    <span style="color: #0000C8;">elif</span> operacion == <span style="color: #006600;">'mult'</span>:
+       <span style="color: #0000C8;">return</span> a * b
+    <span style="color: #0000C8;">elif</span> operacion == <span style="color: #006600;">'div'</span>:
+       <span style="color: #0000C8;">return</span> a / b
+    <span style="color: #0000C8;">else</span>:
+        <span style="color: #0000C8;">return</span> <span style="color: #9933FF;">None</span>
+
+<span style="color: #0000C8;">print</span>(calculadora(<span style="color: #006600;">'sum'</span>,3,7))
+</pre>
+</div>
+
+<pre class="example">
+10
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org85bbd85" class="outline-2">
+<h2 id="org85bbd85">Usando diccionarios</h2>
+<div class="outline-text-2" id="text-org85bbd85">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">def</span> <span style="color: #6600FF;">calculo</span>(operacion, a, b):
+    <span style="color: #0000C8;">return</span> {
+        <span style="color: #006600;">'sum'</span>: <span style="color: #0000C8;">lambda</span>: a + b,
+        <span style="color: #006600;">'rest'</span>: <span style="color: #0000C8;">lambda</span>: a - b,
+        <span style="color: #006600;">'mult'</span>: <span style="color: #0000C8;">lambda</span>: a * b,
+        <span style="color: #006600;">'div'</span>: <span style="color: #0000C8;">lambda</span>: a/b
+    }.get(operacion, <span style="color: #0000C8;">lambda</span>: <span style="color: #9933FF;">None</span>)()
+
+<span style="color: #0000C8;">print</span>(calculo(<span style="color: #006600;">'div'</span>,3,4))
+</pre>
+</div>
+
+<pre class="example">
+0.75
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org20ad9d0" class="outline-2">
+<h2 id="org20ad9d0">Conjuntos</h2>
+<div class="outline-text-2" id="text-org20ad9d0">
+<ul class="org-ul">
+<li>Los conjuntos se construyen mediante la expresión set(items), donde items es cualquier objeto iterable, como listas o tuplas.</li>
+<li>Los conjuntos no mantienen el orden ni contienen elementos duplicados.</li>
+<li>Se suelen utilizar para eliminar duplicados de una secuencia, o para operaciones matemáticas como intersección, unión, diferencia y diferencia simétrica.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #000000;">conjunto_inmutable</span> = <span style="color: #0000C8;">frozenset</span>([<span style="color: #006600;">"a"</span>, <span style="color: #006600;">"b"</span>, <span style="color: #006600;">"a"</span>])  <span style="color: #5180B3;"># </span><span style="color: #5180B3;">Se utiliza una lista como objeto iterable</span>
+<span style="color: #0000C8;">print</span>(conjunto_inmutable)
+</pre>
+</div>
+
+<pre class="example">
+frozenset({'a', 'b'})
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Primer conjunto mutable</span>
+<span style="color: #000000;">conjunto1</span> = <span style="color: #0000C8;">set</span>([<span style="color: #006600;">"a"</span>, <span style="color: #006600;">"b"</span>, <span style="color: #006600;">"a"</span>])  
+<span style="color: #0000C8;">print</span>(conjunto1)
+</pre>
+</div>
+
+<pre class="example">
+{'a', 'b'}
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Segundo conjunto mutable</span>
+<span style="color: #000000;">conjunto2</span> = <span style="color: #0000C8;">set</span>([<span style="color: #006600;">"a"</span>, <span style="color: #006600;">"b"</span>, <span style="color: #006600;">"c"</span>, <span style="color: #006600;">"d"</span>])  
+<span style="color: #0000C8;">print</span>(conjunto2)
+</pre>
+</div>
+
+<pre class="example">
+{'d', 'a', 'c', 'b'}
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Intersecci&#243;n</span>
+conjunto1 &amp; conjunto2  
+</pre>
+</div>
+
+<pre class="example">
+{'a', 'b'}
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Uni&#243;n</span>
+<span style="color: #0000C8;">print</span>(conjunto1 | conjunto2  )
+</pre>
+</div>
+
+<pre class="example">
+{'c', 'a', 'd', 'b'}
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Diferencia (1)</span>
+conjunto1 - conjunto2  
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Diferencia (2)</span>
+<span style="color: #0000C8;">print</span>(conjunto2 - conjunto1 )
+</pre>
+</div>
+
+<pre class="example">
+{'c', 'd'}
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">Diferencia sim&#233;trica</span>
+<span style="color: #0000C8;">print</span>(conjunto1 ^ conjunto2  )
+</pre>
+</div>
+
+<pre class="example">
+{'d', 'c'}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org27102ca" class="outline-2">
+<h2 id="org27102ca">Listas por comprensión</h2>
+<div class="outline-text-2" id="text-org27102ca">
+<p>
+En python existe una manera más reducida para definir listas. 
+</p>
+
+<p>
+Mediante la función <code>range()</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5180B3;"># </span><span style="color: #5180B3;">La siguente funci&#243;n crea una lista desde 0 hasta (n-1) </span>
+<span style="color: #000000;">x</span>= <span style="color: #0000C8;">range</span>(5)
+<span style="color: #0000C8;">print</span>(x)
+<span style="color: #0000C8;">for</span> i <span style="color: #0000C8;">in</span> x:
+    <span style="color: #0000C8;">print</span>(i)
+</pre>
+</div>
+
+<pre class="example">
+range(0, 5)
+0
+1
+2
+3
+4
+</pre>
+
+
+<p>
+Mediante el uso de los corchetes  <code>[]</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">print</span>([i*(i+1) <span style="color: #0000C8;">for</span> i <span style="color: #0000C8;">in</span> <span style="color: #0000C8;">range</span>(5)])
+</pre>
+</div>
+
+<pre class="example">
+[0, 2, 6, 12, 20]
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #000000;">lista</span> = [(i, i + 2) <span style="color: #0000C8;">for</span> i <span style="color: #0000C8;">in</span> <span style="color: #0000C8;">range</span>(5)]
+<span style="color: #0000C8;">print</span>(lista)
+</pre>
+</div>
+
+<pre class="example">
+[(0, 2), (1, 3), (2, 4), (3, 5), (4, 6)]
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orge10ee78" class="outline-2">
+<h2 id="orge10ee78">Clases</h2>
+<div class="outline-text-2" id="text-orge10ee78">
+<p>
+Las clases se definen con la palabra clave <code>class</code>, seguida del nombre
+de la clase y, si hereda de otras clases, los nombres de estas.  En
+una clase, un método equivale a una función, y un atributo equivale a
+una variable, por ejemplo, <code>_init_</code> es un método especial que se
+ejecuta al instanciar la clase y que se usa generalmente para
+inicializar atributos y ejecutar otros métodos necesarios.
+Los métodos al ser funciones deben tener al menos un parámetro que puede ser <code>self</code>.
+Los atributos que se desee que sean accesibles desde fuera de la clase se deben declarar usando <code>self</code> delante del nombre.
+</p>
+</div>
+
+
+<div id="outline-container-org4abf18a" class="outline-3">
+<h3 id="org4abf18a">Ejemplo de una clase</h3>
+<div class="outline-text-3" id="text-org4abf18a">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">class</span> <span style="color: #660000;">Persona</span>():
+    <span style="color: #0000C8;">def</span> <span style="color: #6600FF;">__init__</span>(<span style="color: #0000C8;">self</span>, nombre, edad):
+        <span style="color: #0000C8;">self</span>.<span style="color: #000000;">nombre</span> = nombre  <span style="color: #5180B3;"># </span><span style="color: #5180B3;">Un atributo llamado nombre</span>
+        <span style="color: #0000C8;">self</span>.<span style="color: #000000;">edad</span> = edad  <span style="color: #5180B3;"># </span><span style="color: #5180B3;">Otro atributo llamado edad</span>
+    <span style="color: #0000C8;">def</span> <span style="color: #6600FF;">mostrar_edad</span>(<span style="color: #0000C8;">self</span>):  <span style="color: #5180B3;"># </span><span style="color: #5180B3;">Es necesario que, al menos, tenga un par&#225;metro, generalmente self</span>
+        <span style="color: #0000C8;">print</span>(<span style="color: #0000C8;">self</span>.edad)     <span style="color: #5180B3;"># </span><span style="color: #5180B3;">mostrando un atributo</span>
+    <span style="color: #0000C8;">def</span> <span style="color: #6600FF;">modificar_edad</span>(<span style="color: #0000C8;">self</span>, edad):  <span style="color: #5180B3;"># </span><span style="color: #5180B3;">Modificando edad</span>
+        <span style="color: #0000C8;">if</span> 0 &gt; edad &lt; 150:    <span style="color: #5180B3;"># </span><span style="color: #5180B3;">Se hace una validaci&#243;n con un condicional</span>
+            <span style="color: #0000C8;">return</span> <span style="color: #9933FF;">False</span>
+        <span style="color: #0000C8;">else</span>:                 <span style="color: #5180B3;"># </span><span style="color: #5180B3;">Si est&#225; en el rango 0-150, entonces se modifica la variable</span>
+            <span style="color: #0000C8;">self</span>.<span style="color: #000000;">edad</span> = edad  <span style="color: #5180B3;"># </span><span style="color: #5180B3;">Se modifica la edad</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4a71c3d" class="outline-3">
+<h3 id="org4a71c3d">Manejando la clase.</h3>
+<div class="outline-text-3" id="text-org4a71c3d">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #000000;">p</span> = Persona(<span style="color: #006600;">'Daniel'</span>, 29)
+<span style="color: #0000C8;">print</span>(p.nombre)
+</pre>
+</div>
+
+<pre class="example">
+Daniel
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-python">p.<span style="color: #000000;">nombre</span> = <span style="color: #006600;">"Danilo"</span>
+<span style="color: #0000C8;">print</span>(p.nombre)
+</pre>
+</div>
+
+<pre class="example">
+Danilo
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-python">p.mostrar_edad()
+p.modificar_edad(41)
+p.mostrar_edad()
+</pre>
+</div>
+
+<pre class="example">
+29
+41
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5877824" class="outline-2">
+<h2 id="org5877824">Módulos</h2>
+<div class="outline-text-2" id="text-org5877824">
+<p>
+Existen muchas propiedades que se pueden agregar al lenguaje
+importando módulos (también llamados paquetes). Estos son conjuntos de
+funciones y clases diseñadas para realizar tareas usualmente especiíficas dentro de Python
+</p>
+
+<ul class="org-ul">
+<li><code>os</code> :El módulo os provee funciones para interactuar con el sistema operativo</li>
+<li><code>shutil</code> : Para tareas de administración de archivos.</li>
+<li><code>glob</code> : Provee una función para crear listas de archivos a partir de búsquedas con comodines en carpetas.</li>
+<li><code>math</code> : Permite acceder a las funciones de matemática de punto flotante</li>
+<li><code>random</code> : Para realizar selecciones al azar</li>
+<li><code>statistics</code> : se utiliza para estadística básica, por ejemplo: media, mediana, varianza, etc.</li>
+<li><code>datetime</code> : Para el manejo de fechas y hora.</li>
+<li><code>numpy</code> :  NumPy o también conocido como Numerical Python, ideal para trabajar con arreglos (arrays) en lugar de listas.</li>
+<li><code>pandas</code> : Para el análisis, limpieza y manipulación de grandes tablas con datos.</li>
+</ul>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #0000C8;">import</span> statistics <span style="color: #0000C8;">as</span> stat
+<span style="color: #000000;">datos</span> = [4.75, 3.55, 1.25, 0.5, 0.35, 1.85, 5.5]
+<span style="color: #0000C8;">print</span>(stat.mean(datos))
+<span style="color: #0000C8;">print</span>(stat.median(datos))
+<span style="color: #0000C8;">print</span>(stat.variance(datos))
+</pre>
+</div>
+
+<pre class="example">
+2.5357142857142856
+1.85
+4.293928571428571
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: <br> Daniel Ballesteros Chávez,<br> Jorge F. Becerril Cejudo <br> Karla J. Melo Rascon  <br> (<a href="mailto:huehueocelotl@gmail.com">huehueocelotl@gmail.com</a>)</p>
+<p class="date">Date: 2024-10-13 Sun 00:00</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.3.6)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
