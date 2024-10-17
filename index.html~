@@ -194,6 +194,9 @@
 </style>
 <link href=' http://fonts.googleapis.com/css?family=Grandstander' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="https://huehueocelotl.github.io/css/style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <style> #content {background:#FF9900; padding-top: 10px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px} </style>
 <style> div.outline-2 { background:#DEFFFF; color:#525252; max-width: 65%; margin: 20px auto; color: ; font-family: 'Grandstander'; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 0px; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px} </style>
 <style> div.outline-2:hover { background:#92ffff;}
@@ -249,44 +252,43 @@ for the JavaScript code in this tag.
 <div id="content">
 <h1 class="title">Huehueocelotl</h1>
 
-<div id="outline-container-org8e143b0" class="outline-2">
-<h2 id="org8e143b0">¡Bienvenido!</h2>
-<div class="outline-text-2" id="text-org8e143b0">
+<div id="outline-container-org9984105" class="outline-2">
+<h2 id="org9984105">¡Bienvenido!</h2>
+<div class="outline-text-2" id="text-org9984105">
 <p>
 <b>Huehueocelotl</b> 
 </p>
 
 <p>
-Recursos académicos de Matemáticas y Programación en Línea.
+Recursos académicos de Matemáticas y Programación.
 </p>
 
 <p>
-En huehueocelotl tenemos pasión por la educación libre,
+En huehueocelotl (en náhuatl: jaguar-viejo/jaguar-sabio) tenemos pasión por la educación,
 y en este blog compartimos varios recursos didácticos 
-y de diversos temas relacionados con las matemáticas y la 
+de diversos temas relacionados con las matemáticas y la 
 programación y ciencia de datos.
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-orgf1aa19d" class="outline-2">
-<h2 id="orgf1aa19d"><a href="./Huehueocelotl_Programacion.html">Programación</a></h2>
+
+<div id="outline-container-org6bae783" class="outline-2">
+<h2 id="org6bae783"><a href="./Huehueocelotl_Programacion.html">Programación</a></h2>
 </div>
-<div id="outline-container-org8a2377d" class="outline-2">
-<h2 id="org8a2377d"><a href="./Huehueocelotl_Matematicas.html">Matemáticas</a></h2>
+<div id="outline-container-org40018d1" class="outline-2">
+<h2 id="org40018d1"><a href="./Huehueocelotl_Matematicas.html">Matemáticas</a></h2>
 </div>
 
 
-<div id="outline-container-org56117c8" class="outline-2">
-<h2 id="org56117c8">Clases particulares online</h2>
-<div class="outline-text-2" id="text-org56117c8">
+<div id="outline-container-orga896788" class="outline-2">
+<h2 id="orga896788">Asesorás Online</h2>
+<div class="outline-text-2" id="text-orga896788">
 <p>
-Si estás buscando un tutor para mejorar y reforzar tus conocimientos en  matemáticas,
-o si tienes dificultades con alguna materia de nivel medio superior, licenciatura o ingeniería relacionada con las ciencias exactas
-y necesitas ayuda, contáctanos.
+Si necesitas ayuda con algunos temas de matemáticas y/o programación para tu escuela o trabajo, ¡escríbenos!
+Te pondremos en contacto con uno de nuestros colaboradores
 </p>
-
 
 <p><a href="mailto:huehueocelotl@gmail.com">huehueocelotl@gmail.com</a></p>
 </div>
