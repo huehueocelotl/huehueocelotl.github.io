@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2024-10-22 Tue 15:30 -->
+<!-- 2024-10-22 Tue 17:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(Primer) Curso de Cálculo 1</title>
@@ -200,13 +200,13 @@
 <style> :root {--col0: #1b263b; --col1: #edf2f4; --col2: #03C988; --col3: #ef233c; --col4: #d90429; --col5: #173f5f;} </style>
 <style> h2 { background: var(--col2) ; color: var(--col0);  font-weight: bold; display: block; padding: 10px 20px;  } </style>
 <style> .thm {background-color: #BFF2FF; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
-<style> .thm:before {content: "Theorem: "; font-weight: bold}</style>
+<style> .thm:before {content: "Teorema: "; font-weight: bold}</style>
 <style> .mydef {background-color: #A2EEB2; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
-<style> .mydef:before {content: "Definition: "; font-weight: bold}</style>
+<style> .mydef:before {content: "Definición: "; font-weight: bold}</style>
 <style> .prop {background-color:  #FFAE33; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
 <style> .prop:before {content: "Proposition: "; font-weight: bold}</style>
 <style> .xmpl {background-color: #DBEDDC; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
-<style> .xmpl:before {content: "Example: "; font-weight: bold}</style>
+<style> .xmpl:before {content: "Ejemplo: "; font-weight: bold}</style>
 <style> .warn {background-color: #FFA500; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
 <style> .warn:before {content: "Important remark: "; font-weight: bold}</style>
 <style>  th {background-color: #f55fc3;} tr:nth-child(odd) {background-color: #e2e2e2;}  table tr:hover {background-color: #d0c6e5;} </style>
@@ -361,21 +361,25 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgcd4f454">Introducción</a></li>
-<li><a href="#org56d7a34">Los números reales</a>
+<li><a href="#org76b722f">Introducción</a></li>
+<li><a href="#orgce39be7">Los números reales</a>
 <ul>
-<li><a href="#orgc0b096e">Intervalos</a></li>
+<li><a href="#org83d0312">Intervalos</a></li>
 </ul>
 </li>
-<li><a href="#org62efccc">Funciones</a>
+<li><a href="#org84663ed">Funciones</a>
 <ul>
-<li><a href="#orgf950d1a">Dominio, Codominio y Rango</a></li>
+<li><a href="#org0165ed8">Dominio, Codominio y Rango</a></li>
 </ul>
 </li>
-<li><a href="#org0920a33">Sucesiones de números reales</a></li>
-<li><a href="#org5159fa0">Límite y continuidad de funciones</a></li>
-<li><a href="#org9dd4aef">Derivada</a></li>
-<li><a href="#orgd236faf">Aplicaciones de la Derivada</a></li>
+<li><a href="#org68ca45b">Sucesiones de números reales</a></li>
+<li><a href="#org20b6e48">Límite y continuidad de funciones</a></li>
+<li><a href="#org922ef06">Derivada</a></li>
+<li><a href="#orgffcea91">Aplicaciones de la Derivada</a>
+<ul>
+<li><a href="#orgd6823f8">Cálculo de máximos y mínimos relativos con el criterio de la primera derivada</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -386,9 +390,9 @@ for the JavaScript code in this tag.
 <a href="./index.html">Home</a>
 </p>
 
-<div id="outline-container-orgcd4f454" class="outline-2">
-<h2 id="orgcd4f454">Introducción</h2>
-<div class="outline-text-2" id="text-orgcd4f454">
+<div id="outline-container-org76b722f" class="outline-2">
+<h2 id="org76b722f">Introducción</h2>
+<div class="outline-text-2" id="text-org76b722f">
 <p>
 La mayoría del contenido está basado en la siguiente literatura
 </p>
@@ -400,9 +404,9 @@ La mayoría del contenido está basado en la siguiente literatura
 </div>
 </div>
 
-<div id="outline-container-org56d7a34" class="outline-2">
-<h2 id="org56d7a34">Los números reales</h2>
-<div class="outline-text-2" id="text-org56d7a34">
+<div id="outline-container-orgce39be7" class="outline-2">
+<h2 id="orgce39be7">Los números reales</h2>
+<div class="outline-text-2" id="text-orgce39be7">
 <p>
 Es posible dar una construcción formal de los números reales, sin embargo, ésto sale del
 propósito de estas notas.
@@ -426,9 +430,9 @@ recta. Éstos números pueden ser de dos tipos:
 </div>
 </div>
 
-<div id="outline-container-orgc0b096e" class="outline-3">
-<h3 id="orgc0b096e">Intervalos</h3>
-<div class="outline-text-3" id="text-orgc0b096e">
+<div id="outline-container-org83d0312" class="outline-3">
+<h3 id="org83d0312">Intervalos</h3>
+<div class="outline-text-3" id="text-org83d0312">
 <p>
 Los intervales son subconjuntos especiales de \(\mathbb{R}\):
 </p>
@@ -453,9 +457,9 @@ Considere \(-\infty < a \leq b < \infty\). Se definen los siguentes intervalos
 </div>
 </div>
 
-<div id="outline-container-org62efccc" class="outline-2">
-<h2 id="org62efccc">Funciones</h2>
-<div class="outline-text-2" id="text-org62efccc">
+<div id="outline-container-org84663ed" class="outline-2">
+<h2 id="org84663ed">Funciones</h2>
+<div class="outline-text-2" id="text-org84663ed">
 <div class="mydef">
 <p>
 Una función \(f\) de número reales, denotado por \(f: \mathbb{R} \to \mathbb{R}\),
@@ -489,9 +493,9 @@ R(x) = \left\{ \begin{array}{ccc}
 </div>
 </div>
 
-<div id="outline-container-orgf950d1a" class="outline-3">
-<h3 id="orgf950d1a">Dominio, Codominio y Rango</h3>
-<div class="outline-text-3" id="text-orgf950d1a">
+<div id="outline-container-org0165ed8" class="outline-3">
+<h3 id="org0165ed8">Dominio, Codominio y Rango</h3>
+<div class="outline-text-3" id="text-org0165ed8">
 <div class="mydef">
 <p>
 Si \(A\subset \mathbb{R}\) y \(f:A\to \mathbb{R}\) satisface la definición de función para
@@ -512,20 +516,147 @@ Nótese que \(f(A) \subset \mathbb{R}\) y no siempre \(f(A) = \mathbb{R}\).
 </div>
 </div>
 
-<div id="outline-container-org0920a33" class="outline-2">
-<h2 id="org0920a33">Sucesiones de números reales</h2>
+<div id="outline-container-org68ca45b" class="outline-2">
+<h2 id="org68ca45b">Sucesiones de números reales</h2>
+<div class="outline-text-2" id="text-org68ca45b">
+<div class="mydef">
+<p>
+Una sucesión de números reales \(x_1, x_2, \ldots, x_{n}, \ldots\), suele denotarse por
+\(\{x_{i}\}_{i\in \mathbb{N}}\) y se define como los valores de una función \(f:\mathbb{N} \to \mathbb{R}\),
+en donde \(x_{k} = f(k)\), para cada \(k\in \mathbb{N}\).
+</p>
+
 </div>
 
-<div id="outline-container-org5159fa0" class="outline-2">
-<h2 id="org5159fa0">Límite y continuidad de funciones</h2>
+
+<div class="mydef">
+<p>
+Una sucesión de números reales \(x_1, x_2, \ldots, x_{n}, \ldots\) converge a un lítmie \(L\in \mathbb{R}\) si se cumple que
+</p>
+\begin{equation}
+\forall \epsilon >0 \,\exists N_{0}\in \mathbb{N}: k \geq N_{0} \implies |x_{k} - L| < \epsilon
+\end{equation}
+
+<p>
+Cuando la sucesión no converge, entonces decimos que es divergente.
+</p>
+
+</div>
+</div>
 </div>
 
-<div id="outline-container-org9dd4aef" class="outline-2">
-<h2 id="org9dd4aef">Derivada</h2>
+
+<div id="outline-container-org20b6e48" class="outline-2">
+<h2 id="org20b6e48">Límite y continuidad de funciones</h2>
+<div class="outline-text-2" id="text-org20b6e48">
+<div class="mydef">
+<p>
+El valor de una función \(f:A\to \mathbb{R}\) converge a un lítmie \(L\in \mathbb{R}\) cuando \(x\) tiende al valor \(a\in A\) si se cumple que
+</p>
+\begin{equation}
+\forall \epsilon >0 \, \exists \delta >0: |x - a| < \delta \implies |f(x) - L| < \epsilon
+\end{equation}
+
 </div>
 
-<div id="outline-container-orgd236faf" class="outline-2">
-<h2 id="orgd236faf">Aplicaciones de la Derivada</h2>
+<p>
+Esto permite definir la noción de continuidad puntual
+</p>
+<div class="mydef">
+<p>
+La función \(f:A\to \mathbb{R}\) es continua en \(a\in A\) si se cumple que
+</p>
+\begin{equation}
+\forall \epsilon >0 \, \exists \delta >0: |x - a| < \delta \implies |f(x) - f(a)| < \epsilon,
+\end{equation}
+<p>
+en otras palabras, \(f\) es continua en \(a\) si el valor de la función converge al límite \(f(a)\) cuando \(x\) tiende a \(a\).
+</p>
+
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org922ef06" class="outline-2">
+<h2 id="org922ef06">Derivada</h2>
+<div class="outline-text-2" id="text-org922ef06">
+<div class="mydef">
+<p>
+Considere un intervalo abierto \(A = (a,b)\), donde \(-\infty \leq a < b \leq \infty\) y una función \(f:A \to \mathbb{R}\).
+Decimos que \(f\) es differenciable en \(a \in A\) si el siguente límite existe
+</p>
+\begin{equation}
+\lim_{x\to a} \frac{f(x) - f(a)}{x-a}.
+\end{equation}
+<p>
+En caso de existir, el límite anterior se denota por \(f'(a)\), o \(\frac{df(a)}{dx}\) y se le llama la derivada de \(f\) en \(a\in A\).
+</p>
+
+<p>
+En caso de que \(f\) sea differenciable en todos los puntos de \(A\), decimos que \(f\) es diferenciable en \(A\).
+</p>
+
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgffcea91" class="outline-2">
+<h2 id="orgffcea91">Aplicaciones de la Derivada</h2>
+<div class="outline-text-2" id="text-orgffcea91">
+<p>
+En todos estos resultados, se asume que \(A\) es un intervalo abierto de \(\mathbb{R}\).
+</p>
+
+<div class="thm">
+<p>
+Si \(f:A \to \mathbb{R}\) es differenciable en \(a\in A\), entonces \(f\) es continua en \(a\).
+</p>
+
+</div>
+
+
+<div class="thm">
+<p>
+Si \(f:A \to \mathbb{R}\) es differenciable en \(A\) y \(f'(x) =0\) para todo \(x\in A\), entonces \(f\) es una función constante.
+</p>
+
+</div>
+
+
+<div class="thm">
+<p>
+Si \(f:A \to \mathbb{R}\) es dos veces differenciable en \(A\) y \(f''(x) >0\), entonces \(f\) es convexa.
+</p>
+
+</div>
+
+
+<div class="thm">
+<p>
+Si \(f:A \to \mathbb{R}\) es dos veces differenciable en \(A\) y \(f''(x) < 0\), entonces \(f\) es cóncava.
+</p>
+
+</div>
+</div>
+
+
+<div id="outline-container-orgd6823f8" class="outline-3">
+<h3 id="orgd6823f8">Cálculo de máximos y mínimos relativos con el criterio de la primera derivada</h3>
+<div class="outline-text-3" id="text-orgd6823f8">
+<ul class="org-ul">
+<li>Criterio de la Primer derivada:
+<ul class="org-ul">
+<li>Encontrar los valores críticos de \(y = f(x)\) resolviendo la ecuación \(f'(x) =0\).</li>
+<li>Analizar el signo de \(f'(x)\) un valor antes y otro después de cada valor crítico sin omitir alguno de ellos:</li>
+<li>Si la derivada de \(y= f(x)\) cambia de signo \(+\)  a signo \(-\), se trata de un máximo</li>
+<li>Si la derivada de \(y= f(x)\) cambia de signo \(-\)  a signo \(+\), se trata de un mínimo</li>
+<li>Si no hay cambio de signo, no es ni máximo ni mínimo.</li>
+</ul></li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
