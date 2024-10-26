@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2024-10-26 Sat 21:33 -->
+<!-- 2024-10-26 Sat 22:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ejemplos de Ecuaciones Differenciales Ordinarias</title>
@@ -363,12 +363,13 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org243f48f">Introducción</a>
+<li><a href="#orgb4ab77e">Introducción</a>
 <ul>
-<li><a href="#org53e2e1d">Ecuaciones de primer orden de Variables Separables</a></li>
+<li><a href="#org8253973">Ecuaciones de primer orden de Variables Separables</a></li>
 </ul>
 </li>
-<li><a href="#org529b634">Ecuacione de la forma  \(y'=f(ax + by + c)\).</a></li>
+<li><a href="#org5171031">Ecuaciones de la forma  \(y'=f(ax + by + c)\).</a></li>
+<li><a href="#orgcef78a4">Ecuaciones homogéneas de primer orden de la forma \(y'=f(y/x)\).</a></li>
 </ul>
 </div>
 </div>
@@ -379,9 +380,9 @@ for the JavaScript code in this tag.
 <a href="./index.html">Home</a>
 </p>
 
-<div id="outline-container-org243f48f" class="outline-2">
-<h2 id="org243f48f">Introducción</h2>
-<div class="outline-text-2" id="text-org243f48f">
+<div id="outline-container-orgb4ab77e" class="outline-2">
+<h2 id="orgb4ab77e">Introducción</h2>
+<div class="outline-text-2" id="text-orgb4ab77e">
 <p>
 El contenido de estas notas está La mayoría está basado en la siguiente literatura
 </p>
@@ -392,9 +393,9 @@ El contenido de estas notas está La mayoría está basado en la siguiente liter
 </ul>
 </div>
 
-<div id="outline-container-org53e2e1d" class="outline-3">
-<h3 id="org53e2e1d">Ecuaciones de primer orden de Variables Separables</h3>
-<div class="outline-text-3" id="text-org53e2e1d">
+<div id="outline-container-org8253973" class="outline-3">
+<h3 id="org8253973">Ecuaciones de primer orden de Variables Separables</h3>
+<div class="outline-text-3" id="text-org8253973">
 <p>
 Una ecuación de  primer orden de variables separables es de la forma
 </p>
@@ -413,7 +414,7 @@ M(x)N(y) dx  + P(x)Q(y) dy = 0.
 \end{equation}
 
 <p>
-La solución a la equación puede obtenerse mediante integración
+La solución a la ecuación puede obtenerse mediante integración
 </p>
 \begin{equation}
 \int\frac{dy}{g(y)} = \int f(x)dx + C,
@@ -428,9 +429,9 @@ o también
 </div>
 </div>
 
-<div id="outline-container-org529b634" class="outline-2">
-<h2 id="org529b634">Ecuacione de la forma  \(y'=f(ax + by + c)\).</h2>
-<div class="outline-text-2" id="text-org529b634">
+<div id="outline-container-org5171031" class="outline-2">
+<h2 id="org5171031">Ecuaciones de la forma  \(y'=f(ax + by + c)\).</h2>
+<div class="outline-text-2" id="text-org5171031">
 <p>
 Una equación diferencial de la forma
 </p>
@@ -443,6 +444,25 @@ donde ahora \(u\) es la nueva función a encontrar mediante la siguiente identid
 </p>
 \begin{equation}
 x = \int\frac{du}{a + bf(u)} + C.
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-orgcef78a4" class="outline-2">
+<h2 id="orgcef78a4">Ecuaciones homogéneas de primer orden de la forma \(y'=f(y/x)\).</h2>
+<div class="outline-text-2" id="text-orgcef78a4">
+<p>
+Considere ahora una ecuación diferencial de la forma
+</p>
+\begin{equation}
+y' = f\left( \frac{y}{x}\right).
+\end{equation}
+<p>
+Estas de pueden reducir a una ecuación de variables separadas \(y'=f(x)g(y)\), mediante el cambio de variable \(u =y/x\),
+donde ahora \(u\) es la nueva función y su solución puede encontrarse por medio de la identidad
+</p>
+\begin{equation}
+\frac{dx}{x} = \frac{du}{f(u) - u}.
 \end{equation}
 </div>
 </div>
