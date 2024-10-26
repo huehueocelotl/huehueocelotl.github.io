@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2024-10-22 Tue 17:20 -->
+<!-- 2024-10-26 Sat 11:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(Primer) Curso de Cálculo 1</title>
@@ -204,7 +204,9 @@
 <style> .mydef {background-color: #A2EEB2; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
 <style> .mydef:before {content: "Definición: "; font-weight: bold}</style>
 <style> .prop {background-color:  #FFAE33; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
-<style> .prop:before {content: "Proposition: "; font-weight: bold}</style>
+<style> .prop:before {content: "Proposición: "; font-weight: bold}</style>
+<style> .lemm {background-color:  #FFAE33; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .lemm:before {content: "Lema: "; font-weight: bold}</style>
 <style> .xmpl {background-color: #DBEDDC; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
 <style> .xmpl:before {content: "Ejemplo: "; font-weight: bold}</style>
 <style> .warn {background-color: #FFA500; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
@@ -361,23 +363,23 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org76b722f">Introducción</a></li>
-<li><a href="#orgce39be7">Los números reales</a>
+<li><a href="#org31639e4">Introducción</a></li>
+<li><a href="#org53ab736">Los números reales</a>
 <ul>
-<li><a href="#org83d0312">Intervalos</a></li>
+<li><a href="#org9296086">Intervalos</a></li>
 </ul>
 </li>
-<li><a href="#org84663ed">Funciones</a>
+<li><a href="#orgb599717">Funciones</a>
 <ul>
-<li><a href="#org0165ed8">Dominio, Codominio y Rango</a></li>
+<li><a href="#org6bf280a">Dominio, Codominio y Rango</a></li>
 </ul>
 </li>
-<li><a href="#org68ca45b">Sucesiones de números reales</a></li>
-<li><a href="#org20b6e48">Límite y continuidad de funciones</a></li>
-<li><a href="#org922ef06">Derivada</a></li>
-<li><a href="#orgffcea91">Aplicaciones de la Derivada</a>
+<li><a href="#orgddeb7a9">Sucesiones de números reales</a></li>
+<li><a href="#org8715edf">Límite y continuidad de funciones</a></li>
+<li><a href="#org73e2f3d">Derivada</a></li>
+<li><a href="#orgb79145e">Aplicaciones de la Derivada</a>
 <ul>
-<li><a href="#orgd6823f8">Cálculo de máximos y mínimos relativos con el criterio de la primera derivada</a></li>
+<li><a href="#org4e192fc">Cálculo de máximos y mínimos relativos con el criterio de la primera derivada</a></li>
 </ul>
 </li>
 </ul>
@@ -390,23 +392,23 @@ for the JavaScript code in this tag.
 <a href="./index.html">Home</a>
 </p>
 
-<div id="outline-container-org76b722f" class="outline-2">
-<h2 id="org76b722f">Introducción</h2>
-<div class="outline-text-2" id="text-org76b722f">
+<div id="outline-container-org31639e4" class="outline-2">
+<h2 id="org31639e4">Introducción</h2>
+<div class="outline-text-2" id="text-org31639e4">
 <p>
 La mayoría del contenido está basado en la siguiente literatura
 </p>
 
 <ul class="org-ul">
-<li>M. Spivcak, <i>Calculus</i>.</li>
+<li>M. Spivak, <i>Calculus</i>.</li>
 <li>B. Demidovich, <i>Problems In Mathematical Analysis</i></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgce39be7" class="outline-2">
-<h2 id="orgce39be7">Los números reales</h2>
-<div class="outline-text-2" id="text-orgce39be7">
+<div id="outline-container-org53ab736" class="outline-2">
+<h2 id="org53ab736">Los números reales</h2>
+<div class="outline-text-2" id="text-org53ab736">
 <p>
 Es posible dar una construcción formal de los números reales, sin embargo, ésto sale del
 propósito de estas notas.
@@ -418,8 +420,8 @@ La siguente definición intuitiva será más que suficiente:
 
 <div class="mydef">
 <p>
-Los números reales \(\mathbb{R}\) es el conujunto de todos los números
-cuya longitud y dirección con respecto al origen \(0\), pueden repersentarse dentro de una línea
+Los números reales \(\mathbb{R}\) es el conjunto de todos los números
+cuya longitud y dirección con respecto al origen \(0\), pueden representarse dentro de una línea
 recta. Éstos números pueden ser de dos tipos:
 </p>
 <ul class="org-ul">
@@ -428,11 +430,85 @@ recta. Éstos números pueden ser de dos tipos:
 </ul>
 
 </div>
+
+<p>
+A continuación, daremos una prueba de que el número \(\sqrt{2} \notin \mathbb{Q}\), es decir, 
+no puede representarse mediante una fracción.
+</p>
+
+<p>
+Primero daremos un resultado preliminar.
+</p>
+
+<div class="lemm">
+<p>
+Considere \(n\in \mathbb{Z}\). Si \(n^2\)  es un número par, entonces  \(n\)  también es un número par.
+</p>
+
+</div>
+<div class="proof">
+<p>
+Demostraremos la contraposiiva, es decir, supondremos que \(n\) es impar, y concluiremos que \(n^2\) is impar.
+En efecto, si \(n\) es impar, puede escribirse como \(n = 2k +1\) para algún entero \(k\in \mathbb{Z}\).
+De este modo, tenemos
+</p>
+\begin{equation}
+n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1 = 2l + 1.
+\end{equation}
+<p>
+Esto último demuestra que \(n^2\) es un número impar.
+</p>
+
 </div>
 
-<div id="outline-container-org83d0312" class="outline-3">
-<h3 id="org83d0312">Intervalos</h3>
-<div class="outline-text-3" id="text-org83d0312">
+<p>
+Usaremos el lema anterior para dar una prueba de que \(\sqrt{2}\) no es un número racional.
+</p>
+
+<div class="thm">
+<p>
+\(\sqrt{2}\notin \mathbb{Q}\).
+</p>
+
+</div>
+<div class="proof">
+<p>
+La prueba va por contradicción.
+Supongamos que \(\sqrt{2}\) es un número raciona. Entonces existen \(p,q\in \mathbb{Z}\) con \(q\neq 0\) tales que
+</p>
+\begin{equation}
+\sqrt{2}  = \frac{p}{q}.
+\end{equation}
+<p>
+Después de simplificar la fracción si es necesario, podemos asumir que \(p\) y \(q\) <b>no tienen factores en común</b>.
+</p>
+
+<p>
+Ahora, tomando a segunda potencia tenemos
+</p>
+\begin{equation}
+2  = \frac{p^2}{q^2} \implies p^2 = 2q^2,
+\end{equation}
+<p>
+es decir, \(p^2\) es un número par. <b>Usando el lema anterior</b> podemos concluir que \(p\) es un número par,
+digamos \(p = 2k\) para algún entero \(k\). Reescribimos entonces la última identidad
+</p>
+
+\begin{equation}
+4k^2 = p^2 = 2q^2 \implies q^2 = 2k^2,
+\end{equation}
+<p>
+lo cual indica que \(q^2\) es un número par. <b>Usando el lema anterior</b> podemos concluir que \(q\) es un número par,
+Esto entra en contradicción con el hecho de que \(p\) y \(q\) <b>no tienen factores en común</b>.
+Por lo tanto \(\sqrt{2}\) no puede escribirse como una fracción: \(\sqrt{2}\notin\mathbb{Q}\).
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-org9296086" class="outline-3">
+<h3 id="org9296086">Intervalos</h3>
+<div class="outline-text-3" id="text-org9296086">
 <p>
 Los intervales son subconjuntos especiales de \(\mathbb{R}\):
 </p>
@@ -457,9 +533,9 @@ Considere \(-\infty < a \leq b < \infty\). Se definen los siguentes intervalos
 </div>
 </div>
 
-<div id="outline-container-org84663ed" class="outline-2">
-<h2 id="org84663ed">Funciones</h2>
-<div class="outline-text-2" id="text-org84663ed">
+<div id="outline-container-orgb599717" class="outline-2">
+<h2 id="orgb599717">Funciones</h2>
+<div class="outline-text-2" id="text-orgb599717">
 <div class="mydef">
 <p>
 Una función \(f\) de número reales, denotado por \(f: \mathbb{R} \to \mathbb{R}\),
@@ -493,9 +569,9 @@ R(x) = \left\{ \begin{array}{ccc}
 </div>
 </div>
 
-<div id="outline-container-org0165ed8" class="outline-3">
-<h3 id="org0165ed8">Dominio, Codominio y Rango</h3>
-<div class="outline-text-3" id="text-org0165ed8">
+<div id="outline-container-org6bf280a" class="outline-3">
+<h3 id="org6bf280a">Dominio, Codominio y Rango</h3>
+<div class="outline-text-3" id="text-org6bf280a">
 <div class="mydef">
 <p>
 Si \(A\subset \mathbb{R}\) y \(f:A\to \mathbb{R}\) satisface la definición de función para
@@ -516,9 +592,9 @@ Nótese que \(f(A) \subset \mathbb{R}\) y no siempre \(f(A) = \mathbb{R}\).
 </div>
 </div>
 
-<div id="outline-container-org68ca45b" class="outline-2">
-<h2 id="org68ca45b">Sucesiones de números reales</h2>
-<div class="outline-text-2" id="text-org68ca45b">
+<div id="outline-container-orgddeb7a9" class="outline-2">
+<h2 id="orgddeb7a9">Sucesiones de números reales</h2>
+<div class="outline-text-2" id="text-orgddeb7a9">
 <div class="mydef">
 <p>
 Una sucesión de números reales \(x_1, x_2, \ldots, x_{n}, \ldots\), suele denotarse por
@@ -546,9 +622,9 @@ Cuando la sucesión no converge, entonces decimos que es divergente.
 </div>
 
 
-<div id="outline-container-org20b6e48" class="outline-2">
-<h2 id="org20b6e48">Límite y continuidad de funciones</h2>
-<div class="outline-text-2" id="text-org20b6e48">
+<div id="outline-container-org8715edf" class="outline-2">
+<h2 id="org8715edf">Límite y continuidad de funciones</h2>
+<div class="outline-text-2" id="text-org8715edf">
 <div class="mydef">
 <p>
 El valor de una función \(f:A\to \mathbb{R}\) converge a un lítmie \(L\in \mathbb{R}\) cuando \(x\) tiende al valor \(a\in A\) si se cumple que
@@ -578,9 +654,9 @@ en otras palabras, \(f\) es continua en \(a\) si el valor de la función converg
 </div>
 
 
-<div id="outline-container-org922ef06" class="outline-2">
-<h2 id="org922ef06">Derivada</h2>
-<div class="outline-text-2" id="text-org922ef06">
+<div id="outline-container-org73e2f3d" class="outline-2">
+<h2 id="org73e2f3d">Derivada</h2>
+<div class="outline-text-2" id="text-org73e2f3d">
 <div class="mydef">
 <p>
 Considere un intervalo abierto \(A = (a,b)\), donde \(-\infty \leq a < b \leq \infty\) y una función \(f:A \to \mathbb{R}\).
@@ -602,9 +678,9 @@ En caso de que \(f\) sea differenciable en todos los puntos de \(A\), decimos qu
 </div>
 
 
-<div id="outline-container-orgffcea91" class="outline-2">
-<h2 id="orgffcea91">Aplicaciones de la Derivada</h2>
-<div class="outline-text-2" id="text-orgffcea91">
+<div id="outline-container-orgb79145e" class="outline-2">
+<h2 id="orgb79145e">Aplicaciones de la Derivada</h2>
+<div class="outline-text-2" id="text-orgb79145e">
 <p>
 En todos estos resultados, se asume que \(A\) es un intervalo abierto de \(\mathbb{R}\).
 </p>
@@ -642,9 +718,9 @@ Si \(f:A \to \mathbb{R}\) es dos veces differenciable en \(A\) y \(f''(x) < 0\),
 </div>
 
 
-<div id="outline-container-orgd6823f8" class="outline-3">
-<h3 id="orgd6823f8">Cálculo de máximos y mínimos relativos con el criterio de la primera derivada</h3>
-<div class="outline-text-3" id="text-orgd6823f8">
+<div id="outline-container-org4e192fc" class="outline-3">
+<h3 id="org4e192fc">Cálculo de máximos y mínimos relativos con el criterio de la primera derivada</h3>
+<div class="outline-text-3" id="text-org4e192fc">
 <ul class="org-ul">
 <li>Criterio de la Primer derivada:
 <ul class="org-ul">
