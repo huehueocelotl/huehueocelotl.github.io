@@ -1,4 +1,10 @@
 /*This stye css file is a Frankenstein of many sources. */
+
+@media screen and (max-width: 480px) {
+  /* CSS styles for mobile devices */
+}
+
+
 body {
     background: #DEFFFF;
     color: #525252;
