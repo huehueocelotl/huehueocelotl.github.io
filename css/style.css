@@ -1,7 +1,9 @@
 /*This stye css file is a Frankenstein of many sources. */
 
 @media screen and (max-width: 480px) {
-  /* CSS styles for mobile devices */
+    .body {
+	width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
 }
 
 
