@@ -1,12 +1,5 @@
 /*This stye css file is a Frankenstein of many sources. */
 
-@media screen and (max-width: 480px) {
-    .body {
-	width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
-    }
-}
-
-
 body {
     background: #DEFFFF;
     color: #525252;
@@ -26,7 +19,18 @@ body {
     padding: 0;
     max-width: 65%;
 }
-
+@media screen and (max-width: 330px){
+  html{
+      width: 330px;
+      overflow: auto;
+  }
+}
+@media screen and (max-height: 400px){
+  html{
+      height: 400px;
+      overflow: auto;
+  }
+}
 
 
 a {
