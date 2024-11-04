@@ -1,0 +1,3478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2024-11-04 Mon 23:11 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Guia para iniciar en Linux</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="@@html:&lt;br&gt;@@ Daniel Ballesteros Chávez,@@html:&lt;br&gt;@@ Jorge F. Becerril Cejudo @@html:&lt;br&gt;@@ Karla J. Melo Rascon  @@html:&lt;br&gt;@@" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>  body { background:#F5F5F7 ; max-width: 768px; margin: 20px auto; color: ; font-family: 'Grandstander';} </style>
+<style> :root {--col0: #1b263b; --col1: #edf2f4; --col2: #03C988; --col3: #ef233c; --col4: #d90429; --col5: #173f5f;} </style>
+<style> h2 { background: var(--col2) ; color: var(--col0);  font-weight: bold; display: block; padding: 10px 20px;  } </style>
+<style> .thm {background-color: #BFF2FF; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .thm:before {content: "Theorem: "; font-weight: bold}</style>
+<style> .mydef {background-color: #A2EEB2; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .mydef:before {content: "Definition: "; font-weight: bold}</style>
+<style> .prop {background-color:  #FFAE33; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .prop:before {content: "Proposition: "; font-weight: bold}</style>
+<style> .xmpl {background-color: #DBEDDC; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .xmpl:before {content: "Example: "; font-weight: bold}</style>
+<style> .warn {background-color: #FFA500; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .warn:before {content: "Important remark: "; font-weight: bold}</style>
+<style>  th {background-color: #f55fc3;} tr:nth-child(odd) {background-color: #e2e2e2;}  table tr:hover {background-color: #d0c6e5;} </style>
+<style>  p {text-align: justify;} </style>
+<style>  pre {border: 1px solid #ccc; box-shadow: 3px 3px 3px #eee; padding: 8pt; font-family: monospace; overflow: auto; margin: 1.2em; border-radius: 10px;}</style>
+<style>code {background-color: #ccc}</style>
+
+<script type="text/javascript" src="https://orgmode.org/org-info.js">
+/**
+ *
+ * @source: https://orgmode.org/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in https://orgmode.org/org-info.js.
+ *
+ * Copyright (C) 2012-2020 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in https://orgmode.org/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "0");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Guia para iniciar en Linux</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2234ff1">Manual para instalar linux</a>
+<ul>
+<li><a href="#org0af0c80">Objetivo</a></li>
+<li><a href="#orgd76ab6a">Antecedentes</a></li>
+<li><a href="#org3bc628c">Práctica</a>
+<ul>
+<li><a href="#org120145c">Crea un instalador con una memoria USB</a></li>
+<li><a href="#org4c00aa4">Iniciar el instalador desde el arranque de la computadora</a></li>
+<li><a href="#org0a8f0e2">Proceder con la instalación de tu nuevo sistema operativo</a></li>
+</ul>
+</li>
+<li><a href="#orged47e27">Conclusiones</a></li>
+</ul>
+</li>
+<li><a href="#orgf2d5f84">Conociendo Linux/Debian</a>
+<ul>
+<li><a href="#orgbe2fb30">Objetivo</a></li>
+<li><a href="#org4c1712b">Antecedentes</a></li>
+<li><a href="#org427de9f">Práctica</a>
+<ul>
+<li><a href="#org162c182">Explorador de archivos de Gnome</a></li>
+<li><a href="#org33b5bea">Instalar un nuevo programa (usando software)</a></li>
+<li><a href="#orgd319c28">Mi primer editor de texto para programar</a></li>
+<li><a href="#org7756e01">Crear un archivo de texto</a></li>
+</ul>
+</li>
+<li><a href="#org0c06f35">Conlusiones</a></li>
+</ul>
+</li>
+<li><a href="#org56a7a63">Programas compatibles y alternativos</a>
+<ul>
+<li><a href="#orge41767d">Objetivo</a></li>
+<li><a href="#org0defc53">Antecedentes</a></li>
+<li><a href="#org5e9c972">Práctica</a>
+<ul>
+<li><a href="#orga71f1c1">Firefox - Un nevagador de internet</a></li>
+<li><a href="#orgb4ea1fe">Libreoffice - La version libre de programas de oficina</a></li>
+<li><a href="#org0dc9634">Gimp</a></li>
+<li><a href="#org6b9ca4a">Evince</a></li>
+</ul>
+</li>
+<li><a href="#orgb212600">Conclusiones</a></li>
+</ul>
+</li>
+<li><a href="#orgd510b2e">Conociendo la Terminal</a>
+<ul>
+<li><a href="#org65953e1">Objetivo</a></li>
+<li><a href="#orgcbba953">Antecedentes</a></li>
+<li><a href="#org82c08e6">Práctica</a>
+<ul>
+<li><a href="#orgc1b4182">Movimiento entre directorios</a></li>
+<li><a href="#org277a98c">Obteniendo información</a></li>
+</ul>
+</li>
+<li><a href="#org890ae5e">Conclusiones</a></li>
+</ul>
+</li>
+<li><a href="#org1723182">Archivos, ejecutables y permisos</a>
+<ul>
+<li><a href="#org43406e7">Objetivo</a></li>
+<li><a href="#org939066b">Antecedentes</a></li>
+<li><a href="#org9c5a63b">Práctica</a>
+<ul>
+<li><a href="#org0a1b3c2">Chmod para archivos</a></li>
+<li><a href="#org9ee2d53">Chmod para carpetas</a></li>
+<li><a href="#org5c36e97">Crear un archivo ejecutable</a></li>
+</ul>
+</li>
+<li><a href="#org7feb48c">Conclusiones</a></li>
+</ul>
+</li>
+<li><a href="#org37d6bd8">Configurarndo APT</a>
+<ul>
+<li><a href="#org2f7f556">Objetivo</a></li>
+<li><a href="#org0bf8bcf">Antecedentes</a></li>
+<li><a href="#orge4977fb">Práctica</a>
+<ul>
+<li><a href="#org29e1cfc">Localizar el archivo <code>sources.list</code></a></li>
+<li><a href="#org17b4e2a">Abre el archivo sources.list</a></li>
+<li><a href="#org9f64432">Edita el archivo</a></li>
+<li><a href="#org00d6214">Actualizar</a></li>
+<li><a href="#org3496fda">Más información</a></li>
+</ul>
+</li>
+<li><a href="#org151cdff">Conclusiones</a></li>
+</ul>
+</li>
+<li><a href="#org6775407">Una introducción a grep</a>
+<ul>
+<li><a href="#org742a147">Objetivo</a></li>
+<li><a href="#org03e0d3c">Antecedentes</a></li>
+<li><a href="#org6f1db25">Práctica</a>
+<ul>
+<li><a href="#org421cb59">Wildcards</a></li>
+</ul>
+</li>
+<li><a href="#orgc78b4f0">Conclusiones</a></li>
+</ul>
+</li>
+<li><a href="#org755ba5c">Primer programa en C</a>
+<ul>
+<li><a href="#orgdc1bbaa">Objetivo</a></li>
+<li><a href="#org72637a7">Antecedentes</a></li>
+<li><a href="#orgd692919">Práctica</a>
+<ul>
+<li><a href="#org7b04fb3">Hola Mundo</a></li>
+<li><a href="#org1ca04b8">Convertir escalas de temperatura</a></li>
+<li><a href="#org13c7757">Descripción linea a línea del código:</a></li>
+</ul>
+</li>
+<li><a href="#org35221ec">Conclusiones</a></li>
+</ul>
+</li>
+<li><a href="#orgc1f9e5e">Primer programa en Python</a>
+<ul>
+<li><a href="#org80af306">Objetivo</a></li>
+<li><a href="#org1ced148">Antecedentes</a></li>
+<li><a href="#orgdb08d56">Práctica</a></li>
+<li><a href="#org2a457ec">Conclusiones</a></li>
+</ul>
+</li>
+<li><a href="#orgd93484a">Primer programa en Javascript</a>
+<ul>
+<li><a href="#orgdabbd31">Objetivo</a></li>
+<li><a href="#org41f8a20">Antecedentes</a></li>
+<li><a href="#orgeffd01d">Práctica</a>
+<ul>
+<li><a href="#org6454269">Instalando Node</a></li>
+<li><a href="#org962de06">Creando nuestro proyecto</a></li>
+</ul>
+</li>
+<li><a href="#orga5cbba9">Conclusiones</a></li>
+</ul>
+</li>
+<li><a href="#orgcc76034">Primer programa en R</a>
+<ul>
+<li><a href="#org7bfd7ac">Objetivo</a></li>
+<li><a href="#org417b1d7">Antecedentes</a></li>
+<li><a href="#orgff5f141">Práctica</a>
+<ul>
+<li><a href="#orga760623">Instalar R en debian</a></li>
+<li><a href="#org6786669">Leer/Cargar/Guardar una tabla en .csv</a></li>
+<li><a href="#org22eae3c">Gráficos en R</a></li>
+</ul>
+</li>
+<li><a href="#org4c46433">Conclusiones</a></li>
+</ul>
+</li>
+<li><a href="#org2ce6916">Mi primer programa en BASH</a>
+<ul>
+<li><a href="#org9908070">Objetivo</a></li>
+<li><a href="#org2d42f76">Antecedentes</a></li>
+<li><a href="#org772813c">Práctica</a></li>
+<li><a href="#org4a4b3f8">Conclusiones</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<br><br><br>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+<p>
+<a href="./index.html">Home</a>
+</p>
+
+<div id="outline-container-org2234ff1" class="outline-2">
+<h2 id="org2234ff1">Manual para instalar linux</h2>
+<div class="outline-text-2" id="text-org2234ff1">
+</div>
+<div id="outline-container-org0af0c80" class="outline-3">
+<h3 id="org0af0c80">Objetivo</h3>
+<div class="outline-text-3" id="text-org0af0c80">
+<p>
+Instalar un sistema operativo de tipo Linux/Debian en tu computadora. 
+Con este sistema operativo tendrás acceso a diversas aplicaciones y programas que serán de gran utilidad para la programación en diversos lenguajes.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd76ab6a" class="outline-3">
+<h3 id="orgd76ab6a">Antecedentes</h3>
+<div class="outline-text-3" id="text-orgd76ab6a">
+<p>
+Se le llama sistema operativo a un conjunto de programas sencillos y otras utilidades con el objetivo de hacer de una computadora una herramienta funcional.
+Existen varios sistemas operativos, entre los más usados se encuentran:
+</p>
+
+<ul class="org-ul">
+<li>Windows</li>
+<li>MacOS</li>
+<li>Linux</li>
+</ul>
+
+<p>
+La familia de sistemas operativos del tipo Linux consiste de varias <i>distribuciones</i>. Entre ellas hay muchas similitudes y algunas diferencias sutiles y otras no tanto.
+</p>
+
+<p>
+Para esta práctica hemos elegido la distribución Debian de Linux ya que es muy conocida por su estabilidad y su gran documentación en la red. 
+</p>
+
+<p>
+Otra de las ventajas que tienen los sistemas Linux es que son sistemas libres (de pago, de uso, de distribución y de modificación), por lo que no será necesario pagar ningún tipo de licencia para su uso. 
+</p>
+
+<p>
+Alguna de las desventajas de usar esta distribución es que los programas tardan un poco más en poder actualizarse a las versiones más recientes.
+</p>
+
+<p>
+Puedes encontrar más información sobre Linux/Debian en los siguentes enlaces:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://www.debian.org/">https://www.debian.org/</a></li>
+<li><a href="https://wiki.debian.org/es/DebianIntroduction">https://wiki.debian.org/es/DebianIntroduction</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3bc628c" class="outline-3">
+<h3 id="org3bc628c">Práctica</h3>
+<div class="outline-text-3" id="text-org3bc628c">
+<p>
+<b>Instalar de manera exitosa el sitema operativo Linux/Debian</b>
+</p>
+
+<p>
+Necesitarás de una memoria USB que puedas utilizar y borrar completamente.
+</p>
+
+<p>
+Procedimiento:
+</p>
+</div>
+
+<div id="outline-container-org120145c" class="outline-4">
+<h4 id="org120145c">Crea un instalador con una memoria USB</h4>
+<div class="outline-text-4" id="text-org120145c">
+<p>
+Desde una computadora con sistema operativo Windows, puedes ayudarte de los  siguentes pasos:
+</p>
+
+<ol class="org-ol">
+<li>Ingresa a  <a href="https://www.debian.org/download">https://www.debian.org/download</a></li>
+<li>Haz click en "download the .iso file" <font color="orange">/debian-12.1.0-amd64-netinst.iso/</font>.</li>
+<li>Si estás usando una computadora con Windows, descarga el programa Win32 Disk Imager.</li>
+<li>Usando Win32 Disk Imager, crea un instalador en la memoria USB con el archivo <font color="orange">/debian-12.1.0-amd64-netinst.iso/</font>.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org4c00aa4" class="outline-4">
+<h4 id="org4c00aa4">Iniciar el instalador desde el arranque de la computadora</h4>
+<div class="outline-text-4" id="text-org4c00aa4">
+<p>
+Para iniciar la instalación ahora debes
+</p>
+
+<ol class="org-ol">
+<li>Apagar tu computadora.</li>
+<li>Insertar la memoria USB.</li>
+<li>Encender la coputadora.</li>
+</ol>
+
+<p>
+Si tu instalador USB fue creado exitosamente, verás el menú de instalación del sistema.
+</p>
+
+<p>
+¿Qué hacer si no pasa nada diferente?
+</p>
+
+<p>
+En este caso se tiene que forzar a la computadora el acceso al BIOS. 
+Generalmente se puede acceder al BIOS 
+presionando alguna de las teclas F2 o F11 justo al encender tu computdora. 
+Una vez dentro del BIOS, habilita la opción de arranque desde USB.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0a8f0e2" class="outline-4">
+<h4 id="org0a8f0e2">Proceder con la instalación de tu nuevo sistema operativo</h4>
+<div class="outline-text-4" id="text-org0a8f0e2">
+<p>
+Una vez que tienes el menú de instalación, sigue paso a paso las instrucciones. 
+Toma en cuenta lo siguiente:
+</p>
+
+<ul class="org-ul">
+<li>Asegura de tener respaldada la información de manera externa, pues es probable que tengas que formatear todo el disco duro de tu computadora.</li>
+<li>Asegura que tienes una buena conexión a internet.</li>
+<li>Si no tienes experiencia con particiones, usa la recomendada por defecto.</li>
+<li>Recuerda de manera particular tu nombre y contraseña de administrador (super user's name &amp; password).</li>
+<li>Existen diferentes entornos de escritorios para Linux/Debian. Nosotros estaremos mostrando principalmente <b>Gnome</b>.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orged47e27" class="outline-3">
+<h3 id="orged47e27">Conclusiones</h3>
+<div class="outline-text-3" id="text-orged47e27">
+<p>
+¡Felicidades!
+</p>
+
+<p>
+Ahora tines un sistema operativo libre funcionando en tu computadora.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf2d5f84" class="outline-2">
+<h2 id="orgf2d5f84">Conociendo Linux/Debian</h2>
+<div class="outline-text-2" id="text-orgf2d5f84">
+</div>
+<div id="outline-container-orgbe2fb30" class="outline-3">
+<h3 id="orgbe2fb30">Objetivo</h3>
+<div class="outline-text-3" id="text-orgbe2fb30">
+<p>
+Conocer algunos programas para trabajar en Linux/Debian.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4c1712b" class="outline-3">
+<h3 id="org4c1712b">Antecedentes</h3>
+<div class="outline-text-3" id="text-org4c1712b">
+<p>
+Una vez que tienes un nuevo sistema operativo con un entorno de escritorio gráfico,
+puedes abrir algunos programas que te ayudarán a administrar tu computadora.
+</p>
+
+<p>
+En esta práctica nos concentraremos en tres tareas muy importantes:
+</p>
+
+<ul class="org-ul">
+<li>El explorador de archivos y carpetas</li>
+<li>Instalador gráfico de software</li>
+<li>Un editor de texto</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org427de9f" class="outline-3">
+<h3 id="org427de9f">Práctica</h3>
+<div class="outline-text-3" id="text-org427de9f">
+</div>
+<div id="outline-container-org162c182" class="outline-4">
+<h4 id="org162c182">Explorador de archivos de Gnome</h4>
+<div class="outline-text-4" id="text-org162c182">
+<p>
+Si instalaste el entordno de escritorio <font color="orange">GNOME</font>, <b>Files</b> es el nombre del explorador de archivos y carpetas por predeterminado aunque también 
+es conocido como <b>Nautilus</b>.
+Este programa te permitirá accesar y organizar tus archivos y su uso es muy intuitivo.
+</p>
+
+
+<p>
+<b>Crear una carpeta de trabajo</b>
+</p>
+
+<p>
+Realiza los siguientes pasos:
+</p>
+
+<ol class="org-ol">
+<li>Localiza la carpeta <font color="orange">home</font>.</li>
+<li>Localiza la carpeta <font color="orange">Documents</font>.</li>
+<li>Dentro de la carpeta <font color="orange">Documents</font>, crea una nueva carpeta llamada <font color="orange">Practicas</font>.</li>
+</ol>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_nautilus_info.png" alt="img_nautilus_info.png" width="500px" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org33b5bea" class="outline-4">
+<h4 id="org33b5bea">Instalar un nuevo programa (usando software)</h4>
+<div class="outline-text-4" id="text-org33b5bea">
+<p>
+El programa <font color="orange">Software</font> te permite encontrar e instalar/desinstalar programas en Linux/Debian.
+Lo hace de manera segura e intuitiva presentando iconos grandes y descripciones útiles de las distintas apps o los paquetes a instalar.
+</p>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_software_info.png" alt="img_software_info.png" width="500px" />
+</p>
+</div>
+
+
+
+<p>
+Instala el programa <font color="orange">Notes</font> para GNOME.
+</p>
+
+<ul class="org-ul">
+<li>Abre el programa Software.</li>
+<li>Busca la aplicación Notes a instalar</li>
+<li>Introduce tu constraseña de administrador y procede con la instalación.</li>
+</ul>
+
+
+
+<div class="figure">
+<p><img src="./imagenes/img_software_grafical.png" alt="img_software_grafical.png" width="500px" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_authentication_required.png" alt="img_authentication_required.png" width="300px" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd319c28" class="outline-4">
+<h4 id="orgd319c28">Mi primer editor de texto para programar</h4>
+<div class="outline-text-4" id="text-orgd319c28">
+<p>
+Le herramienta principal para un programador es sin lugar a dudas un editor de texto plano y sencillo. 
+Recuerda que nuesto objetivo será escribir programas y no obras literarias, por lo que nuestro editor de texto 
+no debe enfocarse en cambiar la fuente y estilo de un párrafo.
+</p>
+
+<p>
+Al contrario, necesitamos de una herramienta que nos permita escribir instrucciones de manera clara y sencilla. Para este fin 
+hay una infinidad de opciones, hay muchos editores de texto para propósitos específicos y existen otros editores de texto 
+que se pueden usar para escribir todo tipo de programas en diferentes lenguajes.
+</p>
+
+<ul class="org-ul">
+<li><font color="red">gedit</font> es el editor de texto mas sencillo de usar dentro del entorno GNOME. (Fácil)</li>
+<li><font color="red">eclipse</font> es un editor popular dentro de la categoria de IDEs (integrated development environment) y está disponible para usar en Linux. (Medio)</li>
+<li><font color="red">vim</font> es un editor gratis y de libre uso, altamente configurable y disponible en casi cualquier sistema tipo UNIX. (Difícil)</li>
+<li><font color="red">emacs</font> es un editor altamente configurable, free/libre y junto con vim, usada y preferida por varias generaciones de programadores. (Difícil)</li>
+</ul>
+
+<p>
+En esta práctica usaremos <font color="red">gedit</font>, pero te invitamos a que no te pierdas la oportunidad de aprender al menos uno de los editores entre 
+<font color="red">emacs</font> y <font color="red">vim</font>.
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-org7756e01" class="outline-4">
+<h4 id="org7756e01">Crear un archivo de texto</h4>
+<div class="outline-text-4" id="text-org7756e01">
+<ul class="org-ul">
+<li>Abre el editor <font color="red">gedit</font>.</li>
+<li>Introduce el texto: "Este es mi primer archivo de texto en Linux/Debian".</li>
+<li>Guarda el archivo dentro de la carpeta <font color="orange">Practicas</font> con el nombre <font color="red">mi_texto.txt</font>.</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_gedit_icon.png" alt="img_gedit_icon.png" width="500px" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0c06f35" class="outline-3">
+<h3 id="org0c06f35">Conlusiones</h3>
+<div class="outline-text-3" id="text-org0c06f35">
+<p>
+Este ha sido solo una primera vista a tu nuevo sistema operativo Linux/Debian.
+En adelante estaremos escribiendo programas dentro de Linux/Debian y es importante llevar un orden y ciertas reglas para escribir los archivos.
+Las siguientes son recomendaciones que a lo largo de la experiencia hemos encontrado útiles y no son para nada reglas establecidas, pero 
+han evitado muchos dolores de cabeza
+</p>
+
+<ul class="org-ul">
+<li>El nombre de un archivo o carpeta nunca inicia con un número.</li>
+<li>El nombre de un archivo o carpeta nunca lleva caracteres especiales ni acentos.</li>
+<li>El nombre de un archivo o carpeta no lleva espacios en blanco, es mejor usar el guión bajo: _.</li>
+</ul>
+
+<p>
+Es importante tomar en cuenta que el sistema Linux/Debian es sensible a mayúsculas (case sensitive) es decir, el nombre del archivo <b>File</b> es distinto del archivo <b>file</b>.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org56a7a63" class="outline-2">
+<h2 id="org56a7a63">Programas compatibles y alternativos</h2>
+<div class="outline-text-2" id="text-org56a7a63">
+</div>
+<div id="outline-container-orge41767d" class="outline-3">
+<h3 id="orge41767d">Objetivo</h3>
+<div class="outline-text-3" id="text-orge41767d">
+<p>
+Conocer los programas disponibles para Linux/Debian que permitirán realizar diversas actividades llamadas de oficina.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0defc53" class="outline-3">
+<h3 id="org0defc53">Antecedentes</h3>
+<div class="outline-text-3" id="text-org0defc53">
+<p>
+Después de instalar un sistema operativo como Linux/Debian podemos inmediatamente comenzar a
+</p>
+<ul class="org-ul">
+<li>Navegar por el internet.</li>
+<li>Escribir reportes con texto en distintos formatos.</li>
+<li>Realizar operaciones en una hoja de cálculo.</li>
+<li>Ver imágenes y posiblemente editar imágenes.</li>
+<li>Abrir archivos tipo pdf.</li>
+</ul>
+
+<p>
+Es posible que podamos realizar estas tareas con programas que ya conocemos, por ejemplo, para Linux se ecuentran
+disponibles navegadores como Firefox. Por otro lado, no todos los programas son compatibles para Linux. Ésto a propiciado
+que la comunidad de programadores de software libre desarrolle programas alternativos a los programas propietarios estándar.
+</p>
+
+<p>
+En esta sección haremos una descripción de los siguetes programas dispoinible para Linux/Debian usando el entorno GNOME.
+</p>
+
+<ul class="org-ul">
+<li>Firefox</li>
+<li>Libreoffice</li>
+<li>Gimp</li>
+<li>Document viewer</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5e9c972" class="outline-3">
+<h3 id="org5e9c972">Práctica</h3>
+<div class="outline-text-3" id="text-org5e9c972">
+<p>
+Asegurate de poder localizar y en su caso, instalar los siguentes programas.
+</p>
+</div>
+
+<div id="outline-container-orga71f1c1" class="outline-4">
+<h4 id="orga71f1c1">Firefox - Un nevagador de internet</h4>
+<div class="outline-text-4" id="text-orga71f1c1">
+<p>
+<font color="blue">Firefox</font> es un navegador my popular de internet y su uso es muy intuitivo.
+</p>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_firefox_info.png" alt="img_firefox_info.png" width="500px" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb4ea1fe" class="outline-4">
+<h4 id="orgb4ea1fe">Libreoffice - La version libre de programas de oficina</h4>
+<div class="outline-text-4" id="text-orgb4ea1fe">
+<p>
+No es lo mismo que Office, pero es una excelente alternativa de licencia libre y te permitirá realizar
+las tareas de oficina más comunes.
+</p>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_libreoffice_all.png" alt="img_libreoffice_all.png" width="500px" />
+</p>
+</div>
+</div>
+
+
+<ul class="org-ul">
+<li><a id="org42766f1"></a>Wirter - Crear documentos de texto (.odt)<br />
+<div class="outline-text-5" id="text-org42766f1">
+<p>
+Así luce <code>Write</code>, en donde puedes crear documentos para oficina de la manera usual
+</p>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_odt.png" alt="img_odt.png" width="500px" />
+</p>
+</div>
+</div>
+</li>
+
+
+<li><a id="org32bb496"></a>Calc - Crear hojas de cálculo (.ods)<br />
+<div class="outline-text-5" id="text-org32bb496">
+<p>
+Para acer tablas y hojas de cálculo, libre office ha desarrollado esta
+gran alternativa
+</p>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_calc.png" alt="img_calc.png" width="500px" />
+</p>
+</div>
+</div>
+</li>
+
+<li><a id="orgb0af513"></a>Impress - Crear presentaciones (.odp)<br />
+<div class="outline-text-5" id="text-orgb0af513">
+<p>
+<code>Impress</code> es una gran herramienta libre para crear presentaciones
+</p>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_impress.png" alt="img_impress.png" width="500px" />
+</p>
+</div>
+</div>
+</li>
+
+
+<li><a id="org47c767d"></a>Draw - Una alternativa para Corel (.odg)<br />
+<div class="outline-text-5" id="text-org47c767d">
+<p>
+<code>Draw</code> es un editor de gráficos vectoriales desarrollado por LibreOffice y es ampliamente
+utilizado en la creación de diagramas eléctricos, diseño de logotipos y más.
+</p>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_draw.png" alt="img_draw.png" width="500px" />
+</p>
+</div>
+</div>
+</li>
+
+
+<li><a id="org4ae1f5d"></a>Base - Un manejador de Base de datos con interfaz gráfica<br />
+<div class="outline-text-5" id="text-org4ae1f5d">
+<p>
+Para gestionar y administrar bases de datos relacionales,
+LibreOffice pone a nuestro alcance <code>Base</code>, reconocido por su capacidad multiplataforma
+y su amigable interfaz gráfica.
+</p>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_base.png" alt="img_base.png" width="500px" />
+</p>
+</div>
+</div>
+</li>
+</ul>
+</div>
+
+
+
+<div id="outline-container-org0dc9634" class="outline-4">
+<h4 id="org0dc9634">Gimp</h4>
+<div class="outline-text-4" id="text-org0dc9634">
+<p>
+   Gimp es un Programa de Manipulación de Imágenes de GNU (Gimp por sus siglas en ingés). Puede usarse para
+retocar fotos o para creación de imágenes en general.
+</p>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_gimp_info.png" alt="img_gimp_info.png" width="500px" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org6b9ca4a" class="outline-4">
+<h4 id="org6b9ca4a">Evince</h4>
+<div class="outline-text-4" id="text-org6b9ca4a">
+<p>
+Evince ( también conocido como DocumentViewer) es un programa muy útil que te permitirá leer, agregar comentarios y anotaciones a tus  archivos de tipo pdf y similares
+</p>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_evince_info.png" alt="img_evince_info.png" width="500px" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgb212600" class="outline-3">
+<h3 id="orgb212600">Conclusiones</h3>
+<div class="outline-text-3" id="text-orgb212600">
+<p>
+Es verdad, pasar de un sistema operativo a otro no es cambio tan sencillo, especialmente
+si estás acostumbrado a ciertos programas que no se encuentran disponibles en Linux por ejemplo.
+</p>
+
+<p>
+Sin embargo la noticia no es tan mala. Linux se ha desarrollado muchísimo todo este tiempo,
+y los programas de oficina compatibles con Linux son verdaderamente competitivos. Es importante también 
+aclarar que, el verdadero poder de un sistema operativo Linux tiene que ver mucho más con 
+la programación, administración de servidores y mantenimiento de bases de datos.
+</p>
+
+<p>
+Programas como <code>grep</code>, <code>awk</code>, <code>vim</code>, <code>emacs</code>, <code>crontab</code>,  entre muchos otros dentro de la familia de los
+llamados tipo UNIX, son muy poderosos para la automatización de procesos, inclusive para
+muchas tareas de oficina. 
+</p>
+
+<p>
+Te invitamos a seguir conociendo estas y más herramientas.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd510b2e" class="outline-2">
+<h2 id="orgd510b2e">Conociendo la Terminal</h2>
+<div class="outline-text-2" id="text-orgd510b2e">
+</div>
+<div id="outline-container-org65953e1" class="outline-3">
+<h3 id="org65953e1">Objetivo</h3>
+<div class="outline-text-3" id="text-org65953e1">
+<p>
+Conocer y usar algunos comandos básicos de la terminal de linux.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcbba953" class="outline-3">
+<h3 id="orgcbba953">Antecedentes</h3>
+<div class="outline-text-3" id="text-orgcbba953">
+<p>
+La terminal es la herramienta que caracteriza a todos los sistemas operativos de tipo UNIX, entre los que se cuentan los sistemas Linux.
+Tiene múltiples nombres: Terminal/Shell/Consola/Línea de comandos.
+Para hacerlo aún más confuso, existen varios tipos de Terminales: Bash/Z shell/Korn shell/C shell/Zsh.
+Cada una de estas terminales tienen características específicas y no son totalmente compatible una con otra.
+En Linux/Debian, la terminal predeterminada es GNU Bash (the Bourne Again SHell).
+En el entorno GNOME el programa <font color="orange"> Terminal</font> es un emulador que da accesso al entorno Bash que se usa para usar y correr programas disponibles en tu sistema.
+</p>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_bash_info.png" alt="img_bash_info.png" width="500px" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org82c08e6" class="outline-3">
+<h3 id="org82c08e6">Práctica</h3>
+<div class="outline-text-3" id="text-org82c08e6">
+<p>
+A continuación daremos nuestros primeros pasos usando la terminal. 
+Cabe resaltar que la terminal es una herramienta de una inmensa utilidad y tomará mucho tiempo para poder usarla efectiva y eficientemente.
+Sin embargo, un comienzo es todo lo que necesitamos para poco a poco ir dominando esta poderosa herramienta que tenemos frente a nosotros.
+Con ella, tenemos acceso a los programas de nuesta computadora, y podemos dar instrucciones directas a nuestro sistema para realizar ciertas acciones.
+En esta práctica nos concentraremos en comandos para movernos dentro del sistema de archivos de nuestro ordenador.
+</p>
+
+<p>
+¡Abre tu terminal y pongamos en acción los siguentes comandos!
+</p>
+</div>
+
+<div id="outline-container-orgc1b4182" class="outline-4">
+<h4 id="orgc1b4182">Movimiento entre directorios</h4>
+<div class="outline-text-4" id="text-orgc1b4182">
+<p>
+La primera pregunta que haremos en la terminal es <font color="blue"> ¿En dónde estamos?</font>
+</p>
+
+<ul class="org-ul">
+<li><code>pwd</code> : Print working directory - muestra el directorio de trabajo actual</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #0000C8;">pwd</span>
+</pre>
+</div>
+
+<pre class="example">
+/home/username
+</pre>
+
+<ul class="org-ul">
+<li><code>ls</code>: List information - <font color="blue">Enlista el contenido</font> del directorio de trabajo</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-shell">ls -l 
+</pre>
+</div>
+
+<pre class="example">
+| total      | 4424 |          |          |         |     |    |       |                       |
+| drwxr-xr-x |    2 | username | username |    4096 | Sep | 26 |  2022 | bin                   |
+| drwxr-xr-x |    2 | username | username |    4096 | Sep | 22 |  2018 | Desktop               |
+| drwxr-xr-x |   33 | username | username |    4096 | Sep |  9 | 11:15 | Documents             |
+| drwxr-xr-x |   63 | username | username |   86016 | Sep | 14 | 20:28 | Downloads             |
+| -rw-r--r-- |    1 | username | username | 4325012 | Nov |  7 |  2022 | Firefox_wallpaper.png |
+| drwxr-xr-x |    5 | username | username |    4096 | Jan |  4 |  2023 | Mail                  |
+| -rw------- |    1 | username | username |    9017 | Jun | 14 |  2021 | mbox                  |
+| drwxr-xr-x |   13 | username | username |    4096 | Feb | 19 |  2023 | Music                 |
+| drwxr-xr-x |   27 | username | username |   36864 | Aug |  7 | 18:17 | Pictures              |
+| drwxr-xr-x |    2 | username | username |    4096 | Sep | 22 |  2018 | Public                |
+| drwxr-xr-x |    2 | username | username |    4096 | Sep | 22 |  2018 | Templates             |
+| drwxr-xr-x |    3 | username | username |    4096 | Sep | 13 |  2022 | Videos                |
+</pre>
+
+<ul class="org-ul">
+<li><code>cd</code> : Change Directory - <font color="blue">Cambia de directorio</font> de trabajo</li>
+</ul>
+
+
+<pre class="example">
+cd Documents/Practicas/
+</pre>
+
+
+<p>
+Si quieres moverte al directorio inmediato superior, que en este caso es <font color="orange">Documents</font>, entonces el comando
+</p>
+<pre class="example">
+cd ..
+</pre>
+
+
+<p>
+y puedes comprobar que estás en el directorio deseado:
+</p>
+
+<pre class="example">
+pwd
+</pre>
+<pre class="example">
+/home/username/Documents/
+</pre>
+
+<p>
+También puedes especificar el directorio dando toda la ruta, por ejemplo, para acceder nuevamente al directorio <font color="orange">Practicas</font>
+puedes escribir 
+</p>
+
+<pre class="example">
+cd /home/username/Documents/Practicas/
+</pre>
+
+<p>
+¿Recuerda que en la práctica anterior, creamos el archivo <font color="red">mi_texto.txt</font>?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">ls -l /home/username/Documents/Practicas/
+</pre>
+</div>
+
+<pre class="example">
+| -rw-r--r-- | 1 | username | username | 51 | Sep | 17 | 19:18 | mi_texto.txt |
+</pre>
+
+<ul class="org-ul">
+<li><code>cat</code> : Concatenate files - <font color="blue">Muestra el contenido de un archivo de texto</font> en la salida standard (es decir, en la terminal)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-shell">cat mi_texto.txt
+</pre>
+</div>
+
+<pre class="example">
+: Este es mi primer archivo de texto en Linux/Debian
+</pre>
+
+<p>
+Una vez que te sientas cómodo navgando dentro de tus directorios y archivos dentro de la terminal puedes experimentar con los siguientes comandos
+</p>
+<ul class="org-ul">
+<li><code>pwd</code> : Print working directory - muestra el directorio de trabajo actual</li>
+<li><code>ls</code>: List information - Enlista el contenido del directorio de trabajo</li>
+<li><code>cd</code> : Change Directory - Cambia el directorio de trabajo</li>
+<li><code>cat</code> : Concatenate files - Muestra el contenido de un archivo de texto en la salida standard (es decir, en la terminal)</li>
+<li><code>mkdir</code>: Make a directory - Crear un nuevo directorio</li>
+<li><code>rm</code>: Remove a file - Borrar un archivo dentro del directorio de trabajo</li>
+<li><code>rm -r</code>: Remove a directory - Borrar un directorio/folder y su contenido dentro del directorio de trabajo</li>
+</ul>
+
+<p>
+<font color="green">Cuidado al borrar archivos y directorios usando la terminal</font>. ¡No hay manera de recuperarlos!
+</p>
+</div>
+</div>
+
+<div id="outline-container-org277a98c" class="outline-4">
+<h4 id="org277a98c">Obteniendo información</h4>
+<div class="outline-text-4" id="text-org277a98c">
+<p>
+Con estos comandos pdorás conocer mejor tanto el hardware como el software de tu computadora.
+Ingresa cada uno de los comandos y observa las salidas en la misma terminal.
+</p>
+
+<ul class="org-ul">
+<li><code>lsb_release</code>: Obtener la version del sistema operativo</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-shell">lsb_release -a
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><code>lsusb</code>: Enlista los dispositivos USB disponibles</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-shell">lsusb
+</pre>
+</div>
+
+
+<ul class="org-ul">
+<li><code>lspci</code> : Muestra una lista de dispositivos conectados al sistema.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-shell">lspci
+</pre>
+</div>
+
+
+<ul class="org-ul">
+<li><code>cat /proc/cpuinfo</code> : El contenido del archivo <font color="red">cpuinfo</font> muestra el tipo de procesador corriendo en el sistema así como el número de CPUs presentes.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-shell">cat /proc/cpuinfo
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><code>cat /proc/meminfo</code> : El contenido del archivo <font color="red">meminfo</font> reporta la cantidad de memoria disponible y la cantidad dememoria utilizada en el sistema en tiempo real.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-shell">cat /proc/meminfo
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org890ae5e" class="outline-3">
+<h3 id="org890ae5e">Conclusiones</h3>
+<div class="outline-text-3" id="text-org890ae5e">
+<p>
+Al término de ésta práctica, habrás tenido tus primeras experiencias usando la Terminal de Linux.
+Considera esto como sólo el inicio, una pequeña probada de esta herramienta, ya que pronto usarás esta herramienta con mayor eficiencia.
+Las posibilidades de dar instrucciones específicas a tu computadora son enormes, ahora que conoces una herramienta que te permite una interacción 
+mucho más directa con el contenido de tu computadora y de sus programas.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org1723182" class="outline-2">
+<h2 id="org1723182">Archivos, ejecutables y permisos</h2>
+<div class="outline-text-2" id="text-org1723182">
+</div>
+<div id="outline-container-org43406e7" class="outline-3">
+<h3 id="org43406e7">Objetivo</h3>
+<div class="outline-text-3" id="text-org43406e7">
+<p>
+Conocer la differencia entre un archivo de texto, un programa y un ejecutable.
+Leer de manera detallada la salida de el comando ls -l
+Conocer los tipos de permisos en Linux.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org939066b" class="outline-3">
+<h3 id="org939066b">Antecedentes</h3>
+<div class="outline-text-3" id="text-org939066b">
+<p>
+De los tipos de archivos más básicos se encuentran los archivos de texto. En ellos podemos 
+ingresar información para que otro ser humano pueda leer su contenido. Pero también es posible
+ingresar texto con instrucciones para nuestra computadora, generalmetne en un lenguaje en específico,
+para lo cual necesitaremos o de un intérprete, es decir, un programa que ejecute de manera secuencial las
+instrucciones escritas en el archivo, o es posible que necesitemos de un compilador, el cual se encargará de crear
+un archivo el cual ejecuta todas las instrucciones que se especificaron. Un folder es también un archivo de texto el cual está apuntando a cierta parte reservada de la memoria.
+</p>
+
+<p>
+Es decir, debemos saber distinguir entre folders, archivos de texto y archivos ejecutables.
+Cada uno de estos tipos de archivos y directorios tienes asignado derechos de acceso para tres conjuntos de usuarios:
+</p>
+<ol class="org-ol">
+<li>Propiatario (owner)</li>
+<li>Miembros del grupo propietario del archivo</li>
+<li>Para cualquier usuario</li>
+</ol>
+
+<p>
+En esta práctica explicaremos con mayor detalle el uso de los comandos <code>ls</code> y <code>chmod</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9c5a63b" class="outline-3">
+<h3 id="org9c5a63b">Práctica</h3>
+<div class="outline-text-3" id="text-org9c5a63b">
+</div>
+<div id="outline-container-org0a1b3c2" class="outline-4">
+<h4 id="org0a1b3c2">Chmod para archivos</h4>
+<div class="outline-text-4" id="text-org0a1b3c2">
+<p>
+Para esta práctica nos ubicaremos en la carpeta <font color="oragne">Practicas</font> en donde
+hemos creado el archivo de texto <font color="red">mi_texto.txt</font>
+</p>
+
+<pre class="example">
+cd /home/username/Documents/Practicas/
+ls -l 
+</pre>
+
+<pre class="example">
+-rw-r--r--  1  username  username  51  Sep  17  19:18  mi_texto.txt 
+</pre>
+
+<p>
+A continuación explicamos <font color="blue">¿Cómo leer "-rw-r--r--" ?</font>
+</p>
+
+<p>
+De izquierda a derecha tenemos que:
+</p>
+
+<ul class="org-ul">
+<li>El primer caracter "-" indica el tipo de archivo, en este caso
+indica que se trata de un arvhivo regular.  Cuando se trata de un
+directorio, el primer caracter que aparece es la letra "d".</li>
+<li>Los siguientes tres caracteres: "rw-" nos indica los
+<font color="blue">permisos para el propietario</font> del archivo, la letra
+"r" indica permiso de lectura (read), la letra "w" indica el permiso
+de escritura (write), y la última letra "x" indica el permiso de
+ejecución y que en este caso no está autorizado "-".</li>
+<li>Los siguientes tres caracteres: "rw-" nos indica los
+<font color="blue">permisos para el grupo</font> de usuarios propietarios del archivo, 
+entonces la terna "r&#x2013;" debe leerse como que el grupo de usuarios si tiene permisos de 
+lectura pero no tiene permiso ni de escritura ni de ejecución.</li>
+<li>Los últimos tres caracteres nos indica los   <font color="blue">permisos para todos</font> los usuarios,
+en este caso la terna "r&#x2013;" indica que sólo se tienen permisos de lectura y/o ejecución.</li>
+</ul>
+
+<p>
+Conversión a binario
+</p>
+
+<p>
+Puedes completar la siguente lista para cubir con todas las opciones
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Literal</th>
+<th scope="col" class="org-right">Binario</th>
+<th scope="col" class="org-right">Decimal</th>
+<th scope="col" class="org-left">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">rwx</td>
+<td class="org-right">111</td>
+<td class="org-right">7</td>
+<td class="org-left">Sin restricciones</td>
+</tr>
+
+<tr>
+<td class="org-left">rw-</td>
+<td class="org-right">110</td>
+<td class="org-right">6</td>
+<td class="org-left">Permiso para leer y escribir, pero no ejecutar</td>
+</tr>
+
+<tr>
+<td class="org-left">r-x</td>
+<td class="org-right">101</td>
+<td class="org-right">5</td>
+<td class="org-left">Permiso para leer y ejecutar pero no para escribir</td>
+</tr>
+
+<tr>
+<td class="org-left">r--</td>
+<td class="org-right">100</td>
+<td class="org-right">4</td>
+<td class="org-left">Sólo con permiso para leer</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Por ejemplo si escribimos en la terminal
+</p>
+<pre class="example">
+cd /home/username/Documents/Practicas/
+chmod 642 mi_texto.txt
+ls -l
+</pre>
+
+<pre class="example">
+: total 4
+: -rw-r---w- 1 username username 51 Sep 17 19:18 mi_texto.txt
+</pre>
+
+<p>
+En este caso debemos leer el permiso 642 de la siguente manera:
+</p>
+<ul class="org-ul">
+<li>6 indica los permisos <code>rw-</code> para el propietario del archivo.</li>
+<li>4 indica los permisos <code>r--</code> para miembros del grupo propietario del archivo.</li>
+<li>2 indical los permisos <code>-w-</code> para todos los demás usuarios.</li>
+</ul>
+
+<p>
+Describe la siguiente salida
+</p>
+<pre class="example">
+chmod 644 mi_texto.txt
+ls -l
+</pre>
+
+<pre class="example">
+: total 4
+: -rw-r--r-- 1 username username 51 Sep 17 19:18 mi_texto.txt
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org9ee2d53" class="outline-4">
+<h4 id="org9ee2d53">Chmod para carpetas</h4>
+<div class="outline-text-4" id="text-org9ee2d53">
+<p>
+El comando <code>chmod</code> puede usarse en carpetas y tenemos los siguientes atributos
+</p>
+<ul class="org-ul">
+<li><b>r</b> - permite que el contenido de la carpeta puesa ser enlistado (si el permiso <b>x</b> está activado).</li>
+<li><b>w</b> - permite que el dentro de la carpeta se puedan crear, eliminar o renombrar archivos (si el permiso <b>x</b> está activado).</li>
+<li><b>x</b> - Permite el acceso a la carpeta, por ejemplo al ejecutar <code>cd dir</code>.</li>
+</ul>
+
+<p>
+Con esta información, realiza las siguentes intrcucciones dentro de la carpeta <font color="blue">Practicas</font>.
+</p>
+
+<ol class="org-ol">
+<li>Crea un nevo directiorio en la carpeta <font color="blue"> temp_dir</font></li>
+<li>Cambia los permisos con <code>chmod</code> a 666</li>
+<li>Intenta ingresar a la carpeta <code>cd temp_dir</code></li>
+<li>Usa <code>ls -l</code> para entender el mensaje de error</li>
+<li>Cambia los permisos con <code>chmod</code> a 755</li>
+</ol>
+
+<pre class="example">
+mkdir temp_dir
+</pre>
+
+<pre class="example">
+ls -l /home/username/Documents/Practicas/
+</pre>
+
+<pre class="example">
+total       8                                                     
+-rw-r--r--  1  username  username    51  Sep  17  19:18  mi_texto.txt 
+drwxr-xr-x  2  username  username  4096  Sep  24  19:17  temp_dir     
+</pre>
+
+<pre class="example">
+chmod 666 temp_dir
+cd temp_dir
+</pre>
+
+<pre class="example">
+bash: cd: temp_dir/: Permission denied
+</pre>
+
+
+<pre class="example">
+ls -l /home/username/Documents/Practicas/
+</pre>
+
+<pre class="example">
+total       8                                                     
+-rw-r--r--  1  username  username    51  Sep  17  19:18  mi_texto.txt 
+drw-rw-rw-  2  username  username  4096  Sep  24  19:17  temp_dir     
+</pre>
+
+<pre class="example">
+chmod 755 temp_dir
+</pre>
+
+<pre class="example">
+total       8                                                     
+-rw-r--r--  1  username  username    51  Sep  17  19:18  mi_texto.txt 
+drwxr-xr-x  2  username  username  4096  Sep  24  19:17  temp_dir     
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org5c36e97" class="outline-4">
+<h4 id="org5c36e97">Crear un archivo ejecutable</h4>
+<div class="outline-text-4" id="text-org5c36e97">
+<p>
+Hemos hablado de archivos con permiso de ejecución, éstos no son otra cosa mas que programas con 
+instrucciones para <code>bash</code>. Por ejemplo vamos a crear el archivo <code>mi_prgrama.prog</code>
+y lo haremos desde la terminal.
+</p>
+
+<ul class="org-ul">
+<li>Primero aprenderemos un poco del programa <code>echo</code></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #0000C8;">echo</span> <span style="color: #006600;">"este es un texto"</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Ahora usaremos el símbolo <code>&gt;</code> para re-direccionar la salida hacia un archivo de texto</li>
+</ul>
+<pre class="example">
+echo "ls -l" &gt; mi_programa.prog
+</pre>
+
+<ul class="org-ul">
+<li>Cambia los permisos del archivo para que todos los usuarios puedan ejecutarlo como un programa</li>
+</ul>
+<pre class="example">
+chmod 777 mi_programa.prog
+</pre>
+
+<ul class="org-ul">
+<li>Para ejecutar el programa simplemente escribe <code>./mi_programa.prog</code></li>
+</ul>
+
+<pre class="example">
+./mi_programa.prog
+</pre>
+
+<p>
+Observa que el resultado será el mismo que si usas el comando <code>ls -l</code>, pues esa es la instrucción dentro del archivo.
+</p>
+
+<ul class="org-ul">
+<li>Borra el archivo</li>
+</ul>
+<pre class="example">
+rm mi_programa.prog
+</pre>
+
+<p>
+Más adelante haremos muchos más programas tanto para la terminal como en otro tipo de lenguajes.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7feb48c" class="outline-3">
+<h3 id="org7feb48c">Conclusiones</h3>
+<div class="outline-text-3" id="text-org7feb48c">
+<p>
+Terminaremos esta sección con las siguentes sugerencias.
+Usualmente los Folders de archivos llevan los permisos <code>755</code>. 
+Por lo tanto, para establecer el permiso <code>755</code> a todos los folders dentro de la carpeta <code>Practicas</code>
+hacemos
+</p>
+<pre class="example">
+find /home/username/Practicas -type d -exec chmod 755 {} \;
+</pre>
+
+<p>
+Por otro lado, para cambiar el permiso de todos los archivos dentro de una carpeta, 
+escribimos
+</p>
+<pre class="example">
+find /opt/lampp/htdocs -type f -exec chmod 644 {} \;
+</pre>
+
+<p>
+Y nunca está de mas echarle un vistazo al manual
+</p>
+<pre class="example">
+man chmod
+</pre>
+
+<p>
+Recuerda siempre tener cuidado con el comando <code>rm -r</code>, para remover/eliminar archivos y folders.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org37d6bd8" class="outline-2">
+<h2 id="org37d6bd8">Configurarndo APT</h2>
+<div class="outline-text-2" id="text-org37d6bd8">
+</div>
+<div id="outline-container-org2f7f556" class="outline-3">
+<h3 id="org2f7f556">Objetivo</h3>
+<div class="outline-text-3" id="text-org2f7f556">
+<p>
+Configurar y utilizar apt para hacer actualizaciones de paquetes.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0bf8bcf" class="outline-3">
+<h3 id="org0bf8bcf">Antecedentes</h3>
+<div class="outline-text-3" id="text-org0bf8bcf">
+<p>
+Como ya lo deberías ir sospechando, no todos los programas para Windows corren en Linux/Debian.
+Sin embargo hay programas como el navegafor <font color="blue">firefox</font> que se encuentra disponible en la mayoria de los sistemas operativos.
+</p>
+
+<p>
+La filosifía es la siguente: la colección de programas que puedes instalar en Linux/Debian, se encuentran en los llamados <font color="blue">repositorios</font> oficiales de Debian.
+Esto tiene muchas ventajas pues el software disponible es seguro.
+La desventaja es que debes mantener actualizada tu configuración a los repositorios.
+</p>
+
+<p>
+La configuración se encuentra en un archivo llamado <code>souces.list</code>, que sólo puede ser modificado por el administrador del sistema (es decir el super user que configuraste durante la instalación).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge4977fb" class="outline-3">
+<h3 id="orge4977fb">Práctica</h3>
+<div class="outline-text-3" id="text-orge4977fb">
+<p>
+Para ésta práctica, ingresaremos como super usuario:
+</p>
+
+<pre class="example">
+su
+Password: 
+</pre>
+
+<p>
+Si ha sido exitosa la operación, el símbolo <code>$</code> cambiará por <code>#</code>.
+</p>
+</div>
+
+<div id="outline-container-org29e1cfc" class="outline-4">
+<h4 id="org29e1cfc">Localizar el archivo <code>sources.list</code></h4>
+<div class="outline-text-4" id="text-org29e1cfc">
+<p>
+(Como administrador) Ingresar al directorio <code>/etc/apt/</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #0000C8;">cd</span> /etc/apt/
+ls -l
+</pre>
+</div>
+
+<p>
+Si el archivo no existe, no te preocupes. Puedes crearlo siguiendo los mismos pasos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org17b4e2a" class="outline-4">
+<h4 id="org17b4e2a">Abre el archivo sources.list</h4>
+<div class="outline-text-4" id="text-org17b4e2a">
+<p>
+Para abrir el archivo (o crearlo en caso de que no exista) usando <font color="red">gedit</font> como super usuario (administrador), simplemente
+escribimos
+</p>
+
+<pre class="example">
+gedit sources.list
+</pre>
+
+<p>
+Esto abrirá un archivo de texto.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9f64432" class="outline-4">
+<h4 id="org9f64432">Edita el archivo</h4>
+<div class="outline-text-4" id="text-org9f64432">
+<p>
+¿Qué debe decir el archivo?
+</p>
+
+<p>
+El siguente es un ejemplo del contenido del archivo <code>sources.list</code> para Linux/Debian 12/Bookworm (stable).
+</p>
+<pre class="example">
+deb http://deb.debian.org/debian bookworm main
+deb-src http://deb.debian.org/debian bookworm main
+
+deb http://deb.debian.org/debian-security/ bookworm-security main
+deb-src http://deb.debian.org/debian-security/ bookworm-security main
+
+deb http://deb.debian.org/debian bookworm-updates main
+deb-src http://deb.debian.org/debian bookworm-updates main
+</pre>
+
+<p>
+Si te preguntas, ¿cómo saber qué version de Linux/Debian tengo instalado?
+Puedes ingresar el siguente comando
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">lsb_release -a
+</pre>
+</div>
+
+<pre class="example">
+Distributor ID:	Debian
+Description:	Debian GNU/Linux 12 (bookworm)
+Release:	12
+Codename:	bookworm
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org00d6214" class="outline-4">
+<h4 id="org00d6214">Actualizar</h4>
+<div class="outline-text-4" id="text-org00d6214">
+<p>
+Ahora estas listo para correr dos de las instrucciones más comunes para mantener 
+tus paquetes actualizados con las nuevas mejoras:
+</p>
+
+<p>
+Simplemente corre los siguientes comandos como super usuario (administrador)
+</p>
+
+<pre class="example">
+apt update
+apt upgrade
+</pre>
+
+
+<p>
+Una vez que hayas editado correctamente el archivo, guarda los cambios desde gedit.
+Para salir del modo super user (o administrador) simplemente escribe en la terminal
+</p>
+
+<pre class="example">
+exit
+</pre>
+
+<p>
+Notarás que el prompt regresa al símbolo <code>$</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3496fda" class="outline-4">
+<h4 id="org3496fda">Más información</h4>
+<div class="outline-text-4" id="text-org3496fda">
+<p>
+En el siguente enlace podemos encontrár más información sobre la 
+configuración del arhivo <code>sources.list</code>.
+</p>
+
+<p>
+<a href="https://wiki.debian.org/SourcesList">https://wiki.debian.org/SourcesList</a>
+</p>
+
+<p>
+Entre la información relevante encontramos
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">main</th>
+<th scope="col" class="org-left">cosiste de  paquetes del tipo DFSG-compliant. Estos son paquetes considerados paquetes Debian propiamente.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">contrib</td>
+<td class="org-left">contiene paqueted del tipoi DFSG-compliant, pero con dependencias posiblemente fuera de main.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">non-free</td>
+<td class="org-left">contiene software que no satisface las condiciones para ser de tipo DFSG.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org151cdff" class="outline-3">
+<h3 id="org151cdff">Conclusiones</h3>
+<div class="outline-text-3" id="text-org151cdff">
+<p>
+Este fue solo una probadita de <code>apt</code>. Sin lugar a duda usarás este comando muy a menudo.
+La documentación es muy completa y ahroa puedes darte un paseo por las opciones
+más comunos de apt:
+</p>
+
+
+<ul class="org-ul">
+<li><code>apt -list</code>  list packages based on package names/enlista los paquetes en base a su nombre</li>
+<li><code>apt -search</code> search in package descriptions/busca las descripciones de un paquete</li>
+<li><code>apt -show</code> show package details/muestra los detalles de un paquete</li>
+<li><code>apt -install</code> install packages/instala paquetes</li>
+<li><code>apt -reinstall</code> reinstall packages/reinstala paquetes</li>
+<li><code>apt -remove</code> remove packages/elimina paquetes</li>
+<li><code>apt -autoremove</code> automatically remove all unused packages/automaticamente elimina todos los paquetes que no se usan</li>
+<li><code>apt -update</code> update list of available packages/actualiza la lista de paquetes disponibles</li>
+<li><code>apt -upgrade</code> upgrade the system by installing/upgrading packages/actualiza el sistema instalando nuevas versiones</li>
+<li><code>apt -full-upgrade</code> upgrade the system by removing/installing/upgrading packages / actualiza el sistema operativo</li>
+<li><code>apt -edit-sources</code> edit the source information file / edita el archivo de información de fuentes</li>
+<li><code>apt -satisfy</code> satisfy dependency strings / satisfacer dependencias de un paquete</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org6775407" class="outline-2">
+<h2 id="org6775407">Una introducción a grep</h2>
+<div class="outline-text-2" id="text-org6775407">
+</div>
+<div id="outline-container-org742a147" class="outline-3">
+<h3 id="org742a147">Objetivo</h3>
+<div class="outline-text-3" id="text-org742a147">
+<p>
+Conocer una de las aplicaciones más utilizadas por programadores en sistemas de tipo Unix.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org03e0d3c" class="outline-3">
+<h3 id="org03e0d3c">Antecedentes</h3>
+<div class="outline-text-3" id="text-org03e0d3c">
+<p>
+grep es un programa que puede utilizarse en la terminal y que se especializa en encontrar patrones de texto.
+En programación, los patrones de texto o cadenas alfa-numéricas son llamads <font color="orange"> expresiones regulares</font>
+( o <font color="orange"> regular expressions</font> )
+</p>
+
+<p>
+Este programa es uno de los más antiguos en el mundo de la programación y
+tiene muchísimas aplicaciones en la acutalidad. El programa <code>grep</code> consta de reglas de busqueda de texto sencillas,
+con las cuales pueden construirse nuevas reglas de búsqueda increíblemente complejas. En la llamada
+<i>mineria de textos</i>, grep es insuperable.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6f1db25" class="outline-3">
+<h3 id="org6f1db25">Práctica</h3>
+<div class="outline-text-3" id="text-org6f1db25">
+<p>
+Los siguentes comandos los aplicaremos en nuestra carpeta destinada a las prácticas <font color="blue">/Documents/Practicas</font>.
+</p>
+
+<p>
+Primero crearemos un archivo de texto (desde la terminal o desde un editor de texto) y posteriormente usaremos este archivo para
+ilustrar con ejemplos algunos de los comandos básicos de grep.
+</p>
+
+<ul class="org-ul">
+<li>Creamos el archivo de texto <code>grep_archivo.txt</code>, en esta ocación
+desde la termina. Al final de la entrada presionamos <code>Ctrl+d</code>
+indicando el final del archivo (EOF).</li>
+</ul>
+<pre class="example">
+cat &gt; grep_archivo.txt
+Este es nuestra primer línea de texto
+Aqui escribo nuestra segunda para la prueba de grep
+A continuacion encontrarás la tercer línea de texto.
+
+Este es el inicio de un nuevo párrafo. ¿Será la fila 4 o la fila 5?
+Al final de esta linea presionaré ctrl + d
+</pre>
+
+<p>
+Si todo a salido bien, puedes ver el contenido del archivo con el comando
+</p>
+<pre class="example">
+cat grep_archivo.txt
+</pre>
+
+<ul class="org-ul">
+<li>Usar <code>grep</code> para localizar un <i>patrón</i> en nuestro archivo</li>
+</ul>
+
+<pre class="example">
+grep texto grep_archivo.txt
+</pre>
+
+<pre class="example">
+Este es nuestra primer línea de texto
+A continuacion encontrarás la tercer línea de texto.
+</pre>
+
+
+<p>
+Como podrás observar, grep arroja como resultado las lineas dentro de <code>grep_texto.txt</code> en donde ha localizado la ocurrencia de la palabra <code>texto</code>.
+</p>
+
+<ul class="org-ul">
+<li>Usar <code>grep -n</code> para localizar un <i>patrón</i> en nuestro archivo y mostrar el número de fila del achivo en la cual ocurre.</li>
+</ul>
+
+<pre class="example">
+grep -n texto grep_archivo.txt
+</pre>
+
+<pre class="example">
+1:Este es nuestra primer línea de texto
+3:A continuacion encontrarás la tercer línea de texto.
+</pre>
+
+
+<ul class="org-ul">
+<li>usar <code>grep -c</code> Para contar el número de lineas en donde aparece un <i>patrón</i></li>
+</ul>
+
+<pre class="example">
+grep -c texto grep_archivo.txt
+</pre>
+
+<pre class="example">
+2
+</pre>
+
+
+<ul class="org-ul">
+<li>usar <code>grep -v</code> Para mostrar las líneas del archivo en donde NO aparece el <i>patrón</i></li>
+</ul>
+<pre class="example">
+grep -v texto grep_archivo.txt
+</pre>
+
+<pre class="example">
+Aqui escribo nuestra segunda para la prueba de grep
+
+Este es el inicio de un nuevo párrafo. ¿Será la fila 4 o la fila 5?
+Al final de esta linea presionaré ctrl + d
+</pre>
+
+
+<p>
+Debes notar  que puedes combinar las distintas opciones que descrito, por ejemplo
+</p>
+
+<pre class="example">
+grep -vn texto grep_archivo.txt
+</pre>
+
+<ul class="org-ul">
+<li>usar <code>grep -i</code> para que se ignore la diferencia entre mayúsculas y minúsculas</li>
+</ul>
+
+<p>
+Compara las salidas de 
+</p>
+
+<pre class="example">
+grep Es grep_archivo.txt
+</pre>
+
+<pre class="example">
+grep -i Es grep_archivo.txt
+</pre>
+
+<ul class="org-ul">
+<li>Usar <code>grep -x</code> para buscar por un patron de manera exacta</li>
+</ul>
+
+<pre class="example">
+grep -x  "A continuacion encontrarás la tercer línea de texto."  grep_archivo.txt
+</pre>
+
+<pre class="example">
+A continuacion encontrarás la tercer línea de texto.
+</pre>
+</div>
+
+<div id="outline-container-org421cb59" class="outline-4">
+<h4 id="org421cb59">Wildcards</h4>
+<div class="outline-text-4" id="text-org421cb59">
+<p>
+Una de las características que hacen a grep una aplicación muy útil, es el uso de <i>comodines</i> o <i>wildcards</i>
+</p>
+
+<ul class="org-ul">
+<li>Reemplazemos el archivo <font color="red">grep_archivo.txt</font> con el siguiente texto</li>
+</ul>
+<pre class="example">
+cat &gt; grep_archivo.txt
+user_1rjdeb0,rmp_dd2023,uss1901
+user_2fedpj0,rmp_aa2023,uss1901
+user_3rjdeb0,rmp_ff2023,uss1901
+user_1ubrjs0,rmp_hh2023,uss1901
+user_5rjdeb0,rmp_ll2023,uss1901
+</pre>
+<p>
+recuerda que al final presionamos CTRL+ d para indicar el fin del archivo
+</p>
+
+<ul class="org-ul">
+<li>usa el comodín ".*" para econtrar todo lo que contiene un patron</li>
+</ul>
+<p>
+En este ejemplo queremos usar grep para encontrar "user<sub>1rjdeb0</sub>" y "user<sub>1ubrjs0</sub>". Pare esto usamos el siguiente comando
+</p>
+<pre class="example">
+grep -no "user.*1.*0," grep_archivo.txt
+</pre>
+
+<pre class="example">
+1:user_1rjdeb0,
+4:user_1ubrjs0,
+</pre>
+
+
+<p>
+¿Cómo leer esta expresión?
+</p>
+
+<p>
+Buca cualquier cadena de texto que comience con <font color="red">user</font> seguido de cualesquiera caracteres <font color="red"> .*</font> hasta encontrar un <font color="red">1</font>,
+seguido de cualesquiera caracteres <font color="red"> .*</font> hasta encontrar un <font color="red">0</font> y una coma ",".
+</p>
+
+<p>
+Desde luego hay muchas otras maneras más eficientes de realizar esta búsqueda y lo cual requere un conocimiento más amplo de grep.
+</p>
+
+<ul class="org-ul">
+<li>Buscar achivos que contengan:</li>
+</ul>
+
+<p>
+Para buscar dentro de la carpeta de trabajo, todos los archivos de texto que contengan algún patrón, simplemente podemos usar
+</p>
+<pre class="example">
+grep -ln user_ *
+</pre>
+
+<pre class="example">
+grep_archivo.txt
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc78b4f0" class="outline-3">
+<h3 id="orgc78b4f0">Conclusiones</h3>
+<div class="outline-text-3" id="text-orgc78b4f0">
+<p>
+Esta fue solo una breve introducción a <code>grep</code>. Puedes encontrar más información
+sobre esta importante herramienta 
+</p>
+
+<ul class="org-ul">
+<li>Usando el comando <code>man grep</code> dentro de la línea de comandos.</li>
+<li>Documentación GNU: <a href="https://www.gnu.org/software/grep/manual/grep.html">https://www.gnu.org/software/grep/manual/grep.html</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org755ba5c" class="outline-2">
+<h2 id="org755ba5c">Primer programa en C</h2>
+<div class="outline-text-2" id="text-org755ba5c">
+</div>
+<div id="outline-container-orgdc1bbaa" class="outline-3">
+<h3 id="orgdc1bbaa">Objetivo</h3>
+<div class="outline-text-3" id="text-orgdc1bbaa">
+<p>
+Tener los primeros ejemplos funcionales de un código escrito en el lenguaje <code>C</code>. 
+Escribir las instrucciones de compilación en un <code>Makefile</code> y 
+correr el programa compilado desde la Terminal
+</p>
+</div>
+</div>
+
+<div id="outline-container-org72637a7" class="outline-3">
+<h3 id="org72637a7">Antecedentes</h3>
+<div class="outline-text-3" id="text-org72637a7">
+<p>
+Este es uno de los lenguajes de programación más populares desde su aparición en 1972.
+Muchas de las aplicaciones en sistemas UNIX han sido desarrollados en C.
+Entre sus puntos fuertes se encuentra la eficiencia del código. 
+</p>
+
+<p>
+La referencia clásica para aprender a programar en este lenguale es el libro
+llamado <i>The C programming Language</i> en su segunda edición y escrito por
+Brian W. Kernighan y  Dennis M. Ritchie (usualmente aberviado como K&amp;R)
+</p>
+
+<p>
+C es un lenguaje de programación que ayuda a entender varios conceptos fundamentales de programación
+y al mismo tiempo es uno de los lenguajes más difíciles de aprender.
+</p>
+
+<p>
+En este tutorial usaremos los siguientes elementos:
+</p>
+
+<ul class="org-ul">
+<li>Librería <code>#include &lt;sdio.h&gt;</code>. En C existen varias librerías las cuales conforman la llamada <i>librería estándard</i> de C. Entre estas se encuentra la librería <code>stdio.h</code>.
+Cada librería contiene a su vez una colección de funciones pre-determinadas. Al nombre de las librerías (en este caso <code>stdio.h</code>) también se le conocen como <i>header</i>, 
+En particular, las funciones de <i>input</i> and <i>output</i> se incluyen en <code>&lt;stio.h&gt;</code>.</li>
+<li>La función <code>printf</code> es una de varias funcoines dentro de <code>&lt;stdio.h&gt;</code>.</li>
+<li>Tipos de variables <code>int,float, char</code>. En C es necesario especificar el típo de variable que se va a utilizar, y dependiendo de ello, se asigna una porción de la memoria para su uso.
+<code>int</code> corresponde a variables de tipo entero. <code>float</code> corresponde a variables reales (con su respectiva limitante de memoria). <code>char</code> corresponde a variables de tipo caracter, con las
+cuales es posible definir cadenas (strings).</li>
+<li>El programa principal <code>int main()</code>. Esto define a la función principal del programa. Dentro de esta función se describen las variables que se van a utilizar, las condicionales lógicas que 
+se deben seguir, y los loops básicos <i>for</i>, <i>while</i>, <i>if</i>, &#x2026; , etc.</li>
+</ul>
+
+<p>
+Para crear un programa en C debemos seguir los siguientes pasos
+</p>
+<ol class="org-ol">
+<li>Escribir las instrucciones en un archivo de texto <code>programa.c</code>. Para esto necesitaos un editor de texto.</li>
+<li>Compilar el archivo <code>programa.c</code>. En Linux el compilador por defecto es GCC. El compilador puede contener muchas instrucciones, es por eso recomendable 
+usar el compilador junto con un archivo <code>Makefile</code>. Este archivo Makefile es un archivo de texto con las opciones que quieren proporcionarse al compilador.</li>
+<li>Ejecutar el archivo complilado <code>./programa</code>.</li>
+</ol>
+
+<p>
+En los siguientes ejemplos ilustramos precisamente estos pasos.
+Los programas que describiremos son muy sencillos y el objetivo principal es que tengas un punto de partida para que puedas comenzar a programar en C usando Debian/Linux.
+</p>
+
+
+<p>
+Para conocer más sobre la programación en C te recomendamos ampliamente leer el K&amp;R. 
+En línea es también una gran cantidad de recursos que te van a ayudar a programar en este maravilloso lenguaje.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd692919" class="outline-3">
+<h3 id="orgd692919">Práctica</h3>
+<div class="outline-text-3" id="text-orgd692919">
+</div>
+<div id="outline-container-org7b04fb3" class="outline-4">
+<h4 id="org7b04fb3">Hola Mundo</h4>
+<div class="outline-text-4" id="text-org7b04fb3">
+<ul class="org-ul">
+<li>Desde tu editor de texto favorito crea un archivo de texto que llevará el nombre de <font color="red">hola.c</font></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_holac_text.png" alt="img_holac_text.png" width="500px" />
+</p>
+</div>
+
+
+<ul class="org-ul">
+<li>Antes de compilar el archivo, vamos a crear un <code>Makefile</code> con las instrucciones de compilación. 
+Esto te ayudaráen el futuro, cuando trabajes con proyectos más complejos.</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_makefile_text.png" alt="img_makefile_text.png" width="500px" />
+</p>
+</div>
+
+
+<ul class="org-ul">
+<li>Compila tu programa (usando Makefile)</li>
+</ul>
+
+<pre class="example">
+make hola
+</pre>
+
+<p>
+Nota que basta con escribir <code>hola</code> y no es necesario escribir <code>hola.c</code>.
+</p>
+
+<ul class="org-ul">
+<li><b>Opcional</b>: Compila tu programa (sin usar el Makefile)</li>
+</ul>
+
+<p>
+Es posible compilar el programa en <code>C</code> sin pasar por el <code>Makefile</code>, para esto es necesario escribir todas las
+opciones en el proceso
+</p>
+
+<pre class="example">
+gcc -pipe -O2 -Wall hola.c -o hola -lm
+</pre>
+
+
+<ul class="org-ul">
+<li>Correr tu programa</li>
+</ul>
+<p>
+Para correr el programa compilado, escribimos desde la terminal lo siguiente:
+</p>
+
+<pre class="example">
+./hola
+</pre>
+
+<pre class="example">
+: Hola!
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1ca04b8" class="outline-4">
+<h4 id="org1ca04b8">Convertir escalas de temperatura</h4>
+<div class="outline-text-4" id="text-org1ca04b8">
+<p>
+A continuación haremos un programa clásico en C, que consiste en hacer una tabla de equivalencia de valores 
+de temperatura en grados Fahrenheit (F)  y grados Celsius (C).
+</p>
+
+<p>
+Para esto es necesario saber que si se conoce la temperatura en grados \(F\) entonces
+la regla de conversión es
+</p>
+\begin{equation}
+C = \frac{5}{9}(F - 32).
+\end{equation}
+
+
+<div class="figure">
+<p><img src="./imagenes/img_temperatura_C.png" alt="img_temperatura_C.png" width="500px" />
+</p>
+</div>
+
+<ol class="org-ol">
+<li>Dentro de la misma carpeta del <code>Makefile</code>, guarda el programa <code>temperatura.c</code>.</li>
+<li>Compila el programa usando make.</li>
+<li>Ejecuta el programa dentro de la terminal usando el comando <code>./temperatura</code>.</li>
+</ol>
+
+<p>
+Si todo ha salido bien, dentro de la terminal debes obtener algo similar a
+</p>
+
+<pre class="example">
+cd /home/username/Documents/Practicas
+./temperatura
+</pre>
+
+<pre class="example">
+Tabla de equivalencia F,C
+   0	-17.78
+  20	 -6.67
+  40	  4.44
+  60	 15.56
+  80	 26.67
+ 100	 37.78
+ 120	 48.89
+ 140	 60.00
+ 160	 71.11
+ 180	 82.22
+ 200	 93.33
+ 220	104.44
+ 240	115.56
+ 260	126.67
+ 280	137.78
+ 300	148.89
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org13c7757" class="outline-4">
+<h4 id="org13c7757">Descripción linea a línea del código:</h4>
+<div class="outline-text-4" id="text-org13c7757">
+</div>
+<ul class="org-ul">
+<li><a id="org1dabe2b"></a><code>int main(){}</code><br />
+<div class="outline-text-5" id="text-org1dabe2b">
+<p>
+Ésta es una función especial dentro de C. Es dentro de ésta función que tu programa será ejecutado llamando otras funciones para llevar a cabo las instrucciones deseadas.
+</p>
+<dl class="org-dl">
+<dt><code>float, int</code></dt><dd></dd>
+</dl>
+<p>
+En C es necesario declarar el tipo de variables que el programa utilizará, con tal de reservar la porción de memoria correcta.
+En nuestro caso, <code>int</code> indica variables de tipo entero y  <code>float</code> indica variables de tipo <i>flotante</i> (valores con punto decimal).
+</p>
+
+<p>
+Después de declarar el tipo de variable el nombre de la variable puede darse enseguida, en nuestro caso, hemos definido las variables <code>fhar</code> y <code>celsius</code> como variables de tipo <i>flotante</i>,
+y las variables <code>inferior</code>, <code>superior</code> e <code>incremento</code> como variables de tipo entero.
+</p>
+
+<p>
+Desde luego hay otros tipos de variables que pueden declararse dependiendo de las necesidades. El tamaño y rango en la siguente
+tabla varía dependiendo del tipo del hardware y el tipo de compilador.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Identificador</th>
+<th scope="col" class="org-left">Tipo</th>
+<th scope="col" class="org-left">Formato</th>
+<th scope="col" class="org-right">Tamaño en bits</th>
+<th scope="col" class="org-left">Intervalo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">char</td>
+<td class="org-left">Carácter</td>
+<td class="org-left">%c</td>
+<td class="org-right">8</td>
+<td class="org-left">0  a  255</td>
+</tr>
+
+<tr>
+<td class="org-left">int</td>
+<td class="org-left">Entero con signo</td>
+<td class="org-left">%d</td>
+<td class="org-right">16</td>
+<td class="org-left">-32 768  a  32 767</td>
+</tr>
+
+<tr>
+<td class="org-left">float</td>
+<td class="org-left">Flotante simple(aprox. 6 dígitos de precisión)</td>
+<td class="org-left">%f</td>
+<td class="org-right">32</td>
+<td class="org-left">3.4E-38  a  3.4E+38</td>
+</tr>
+
+<tr>
+<td class="org-left">double</td>
+<td class="org-left">Flotante doble</td>
+<td class="org-left">%lf</td>
+<td class="org-right">64</td>
+<td class="org-left">1.7E-308  a  1.7E+308</td>
+</tr>
+
+<tr>
+<td class="org-left">void</td>
+<td class="org-left">vacío</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0</td>
+<td class="org-left">sin valor</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+<li><a id="org64a8586"></a><code>inferior = 0</code><br />
+<div class="outline-text-5" id="text-org64a8586">
+<p>
+Esta parte se conoce como la <i>inicialización de las variables</i>. Aquí hemos asignado un valor inicial a cada una de las variables declaradas.
+</p>
+</div>
+</li>
+
+<li><a id="org7b51bf4"></a><code>printf("Tabla de equivalencia F, C\n")</code><br />
+<div class="outline-text-5" id="text-org7b51bf4">
+<p>
+La función <code>printf</code> está definida dentro de la librería <code>stdio.h</code>. En este caso, la instrucción es que dentro de la salida estándard (la terminal)
+se muestren el mensaje "Tabla de equivalencia F, C". Al final "\n" es una instrucción para indicar a printf que debe continuar 
+en una nueva línea. En la siguente tabla se encuentran algunas instrucciones similaries.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Código</th>
+<th scope="col" class="org-left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">'\n'</td>
+<td class="org-left">nueva línea</td>
+</tr>
+
+<tr>
+<td class="org-left">'\r'</td>
+<td class="org-left">retorno de carro</td>
+</tr>
+
+<tr>
+<td class="org-left">'\f'</td>
+<td class="org-left">nueva página (form feed)</td>
+</tr>
+
+<tr>
+<td class="org-left">'\t'</td>
+<td class="org-left">tabulador horizontal</td>
+</tr>
+
+<tr>
+<td class="org-left">'\b'</td>
+<td class="org-left">retroceso (backspace)</td>
+</tr>
+
+<tr>
+<td class="org-left">'\''</td>
+<td class="org-left">comilla simple</td>
+</tr>
+
+<tr>
+<td class="org-left">'\"'</td>
+<td class="org-left">comillas</td>
+</tr>
+
+<tr>
+<td class="org-left">'\\ '</td>
+<td class="org-left">barra invertida</td>
+</tr>
+
+<tr>
+<td class="org-left">'\? '</td>
+<td class="org-left">interrogación</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+<li><a id="orgde10e84"></a><code>while(fahr &lt;= superior){}</code><br />
+<div class="outline-text-5" id="text-orgde10e84">
+<p>
+Este es unejemplo de un bucle en C y tiene la siguente estructura:
+</p>
+<blockquote>
+<p>
+while (expression){
+sentence
+}
+</p>
+</blockquote>
+
+
+<p>
+En nuestro caso, mientras se verifica que el valor de la variable <code>fahr</code> sea menor o igual al valor de la variable <code>superior</code>,
+entonces el compilaor procede a  realizar las instrucciones especificatas dentro de las llaves <code>{}</code>.
+</p>
+
+<p>
+Existen además otros tipos de bucles en C:
+</p>
+<ul class="org-ul">
+<li>la sentencia condicional <code>if</code>.</li>
+<li>el bucle <code>while</code>.</li>
+<li>el bucle <code>do - while</code></li>
+<li>el bucle <code>for</code></li>
+<li>las sentencias condicionale <code>break</code>,  <code>continue</code>.</li>
+<li>la selección de casos <code>switch</code>.</li>
+</ul>
+
+<p>
+Algunas senteincias de comparación son
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&lt;</td>
+<td class="org-left">menor que</td>
+</tr>
+
+<tr>
+<td class="org-left">&gt;</td>
+<td class="org-left">mayor que</td>
+</tr>
+
+<tr>
+<td class="org-left">&lt;=</td>
+<td class="org-left">menor o igual que</td>
+</tr>
+
+<tr>
+<td class="org-left">&gt;=</td>
+<td class="org-left">mayor o igual que</td>
+</tr>
+
+<tr>
+<td class="org-left">==</td>
+<td class="org-left">igual que</td>
+</tr>
+
+<tr>
+<td class="org-left">!=</td>
+<td class="org-left">distinto de</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+También es posible usar los opeardores lógicos OR: <code>||</code>,  AND: <code>&amp;&amp;</code> and NOT: <code>!</code>.
+</p>
+</div>
+</li>
+
+<li><a id="org29acb6f"></a><code>celsius = (5.0/9.0) * (fahr - 32.0);</code><br />
+<div class="outline-text-5" id="text-org29acb6f">
+<p>
+En esta línea, estamos usando operadores aritméticos para convertir grados F en grados C. 
+A continuación en la tabla se muestran más de estos opeardores:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">+</td>
+<td class="org-left">operador de suma</td>
+</tr>
+
+<tr>
+<td class="org-left">-</td>
+<td class="org-left">operador de resta</td>
+</tr>
+
+<tr>
+<td class="org-left">'*'</td>
+<td class="org-left">multiplicación</td>
+</tr>
+
+<tr>
+<td class="org-left">'/'</td>
+<td class="org-left">división entera</td>
+</tr>
+
+<tr>
+<td class="org-left">'%'</td>
+<td class="org-left">residuo de la división (operador módulo)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+<li><a id="orgd67380b"></a><code>printf("%4.0f\t%6.2f\n", fahr, celsius);</code><br />
+<div class="outline-text-5" id="text-orgd67380b">
+<p>
+Nuevamente nos encontramos con la función <code>printf</code>, pero en esta ocasión usamos más argumentos.
+<code>printf</code> acepta un especificador de formato, el cual toma la forma <code>%[flags][width][.prec][h|lL] type.</code>
+Como la variable <code>fahr</code> es de tipo flotante, debemos ingresar en <code>printf</code>  el tipo de variable a imprimir en
+la forma <code>%type</code>, que en este caso sería <code>%f</code> para el tipo flotante. Sin embargo, al escrbibir
+<code>%4.0f</code>, estamos indicando que queremos imprimir el valor de una variable de tipo flotante con longitud de 4 espacios y 
+0 espacios para decimales. Al escriibir <code>\t</code> indicamos que queremos un espacio de tipo tabular.
+<code>%6.2f</code> indica que queremos imprimer el valor de una variable de tipo flotante con longitud de 6 espacios, y 2 espacios después del punto decimal.
+Finalmente <code>\n</code> indica una nueva linea. Los valores de <code>%f</code> serán tomados de las variables <code>fahr</code> y <code>celsius</code>, en ese orden.
+</p>
+</div>
+</li>
+
+<li><a id="org3b1e1cf"></a><code>fahr = fahr + incremento</code><br />
+<div class="outline-text-5" id="text-org3b1e1cf">
+<p>
+Aquí lo que hacemos es reemplazar el valor de la variable <code>fahr</code> al sumar el valor de <code>incremento</code>. 
+Antes de continuar, el compilador regresará a la expresión a verificar dentro del bucle <code>while</code>.
+Si el valor de  <code>fhar &lt;= superior</code> es verdadero, se ejecutarán nuevamente las instrucciones, de lo contrario,
+el compilador saldrá del bucle
+</p>
+</div>
+</li>
+
+<li><a id="orga5424a4"></a><code>return 0;</code><br />
+<div class="outline-text-5" id="text-orga5424a4">
+<p>
+En C y en muchos otros programas, <code>return 0;</code> indica que el programa se ha ejecutado de manera correcta.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org35221ec" class="outline-3">
+<h3 id="org35221ec">Conclusiones</h3>
+<div class="outline-text-3" id="text-org35221ec">
+<p>
+C es un gran lenguaje de programación para iniciar, pero paradójicamente,
+es un lenguaje muy difícil de usar en un nivel intermedio. Sin embargo, C es 
+la introducción a otros lenguajes y paradigmas de programación de más alto nivel.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc1f9e5e" class="outline-2">
+<h2 id="orgc1f9e5e">Primer programa en Python</h2>
+<div class="outline-text-2" id="text-orgc1f9e5e">
+</div>
+<div id="outline-container-org80af306" class="outline-3">
+<h3 id="org80af306">Objetivo</h3>
+<div class="outline-text-3" id="text-org80af306">
+<p>
+Tener los primeros ejemplos funcionales de un código escrito en el lenguaje <code>python</code> y poder correr el programa compilado desde la Terminal
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1ced148" class="outline-3">
+<h3 id="org1ced148">Antecedentes</h3>
+<div class="outline-text-3" id="text-org1ced148">
+<p>
+Python es un lenguaje que no necesita compilación, sino un <i>intérprete</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdb08d56" class="outline-3">
+<h3 id="orgdb08d56">Práctica</h3>
+<div class="outline-text-3" id="text-orgdb08d56">
+<ul class="org-ul">
+<li>Desde tu editor de texto favorito crea un archivo de texto que llevará el nombre de <font color="red">hola.py</font></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_holapy_text.png" alt="img_holapy_text.png" width="500px" />
+</p>
+</div>
+
+
+<ul class="org-ul">
+<li>Guardalo en la carpeta <font color="orange"> Documents/Practicas</font>.</li>
+
+<li>Abre tu terminal y usa el comando <code>cd</code> para ingresar al folder <font color="orange"> Documents/Practicas</font>.</li>
+
+<li>Da a tu archivo permisos de ejecución.</li>
+</ul>
+
+<pre class="example">
+chmod 777 hola.py
+</pre>
+
+<ul class="org-ul">
+<li>Ejecuta tu programa en la línea de comandos usando <code>python3</code></li>
+</ul>
+
+<pre class="example">
+python3 hola.py
+</pre>
+
+<ul class="org-ul">
+<li>Ejecuta tu programa en la línea de comandos como un archivo ejecutable</li>
+</ul>
+
+<pre class="example">
+./hola.py
+</pre>
+
+
+<p>
+En ambos casos como resultado de la ejecución debes ver en tu terminal el mensaje
+</p>
+<pre class="example">
+Hola!!!!
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org2a457ec" class="outline-3">
+<h3 id="org2a457ec">Conclusiones</h3>
+<div class="outline-text-3" id="text-org2a457ec">
+<p>
+Python es uno de los leguajes de programación más populares en la acutalidad.
+Tener la posibilidad de escribir y correr programas en python en tu ordenador
+es sin lugar a dudas una gran ventaja.
+</p>
+
+<p>
+Te invitamos a seguir aprendiendo más sobre este lenguaje de programación, cuya
+comunidad está constantemente desarrollando paqueterías para implementar modelos
+novedosos de Inteligencia Artificial y Redes Neuronales, entre otros.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd93484a" class="outline-2">
+<h2 id="orgd93484a">Primer programa en Javascript</h2>
+<div class="outline-text-2" id="text-orgd93484a">
+</div>
+<div id="outline-container-orgdabbd31" class="outline-3">
+<h3 id="orgdabbd31">Objetivo</h3>
+<div class="outline-text-3" id="text-orgdabbd31">
+<p>
+Instalar node y crear un script en javascript para mandar un mensaje desde un servidor al navegador y viceversa para visualizarlo en el navegador (cliente) y la terminal (servidor).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org41f8a20" class="outline-3">
+<h3 id="org41f8a20">Antecedentes</h3>
+<div class="outline-text-3" id="text-org41f8a20">
+<p>
+JavaScript es un lenguaje de programación interpretado.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgeffd01d" class="outline-3">
+<h3 id="orgeffd01d">Práctica</h3>
+<div class="outline-text-3" id="text-orgeffd01d">
+</div>
+<div id="outline-container-org6454269" class="outline-4">
+<h4 id="org6454269">Instalando Node</h4>
+<div class="outline-text-4" id="text-org6454269">
+<div class="org-src-container">
+<pre class="src src-shell">sudo apt install nodejs
+</pre>
+</div>
+
+<p>
+Verificamos la versión de node y de npm.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">node -v
+npm -v
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org962de06" class="outline-4">
+<h4 id="org962de06">Creando nuestro proyecto</h4>
+<div class="outline-text-4" id="text-org962de06">
+<p>
+Creamos una carpeta donde tendremos nuestro proyecto de js.
+</p>
+
+<pre class="example">
+mkdir proyecto
+cd proyecto
+</pre>
+
+<p>
+Creamos nuestro proyecto.
+</p>
+
+<pre class="example">
+npm init -y
+</pre>
+
+<p>
+Instalamos la librería express en nuestro proyecto
+</p>
+
+<pre class="example">
+npm i express
+</pre>
+
+<p>
+Creamos una carpeta donde se alojará la página del cliente y creamos nuestro archivo proyecto.js
+</p>
+
+<pre class="example">
+mkdir public
+cat &gt; proyecto.js
+
+const express = require('express');
+const bodyParser = require('body-parser')
+
+const app = express();
+const jsonParser = bodyParser.json();
+
+app.use(express.static('public'));
+app.listen(3000, () =&gt; console.log('escuchando'));
+
+app.get('/apiGet', (request, response) =&gt; {
+    async function main() {
+        try {
+            let mensaje = '¡¡¡Hola mundo!!!';
+            response.json(mensaje);
+        } catch (err) {
+            throw err;
+        }
+    }
+    main();
+});
+
+app.post('/apiPost', jsonParser, (request, response) =&gt; {
+    let data = request.body;
+    console.log(JSON.stringify(data.respuesta));
+});
+</pre>
+
+<p>
+guardamos con Ctrl + D, y ejecutamos nuestro servidor.
+</p>
+
+<pre class="example">
+node proyecto.js
+</pre>
+
+<p>
+todavía no podemos ver la interacción con el cliente, damos Ctrl + C, para cerrar el servidor y vamos a crear nuestra página html en la carpeta del cliente.
+</p>
+
+<pre class="example">
+cd public
+</pre>
+
+<p>
+Creamos el archivo html (cliente).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">cat &gt; index.html
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Ejemplo&lt;/title&gt;
+    &lt;link <span style="color: #000000;">rel</span>=<span style="color: #006600;">"stylesheet"</span> <span style="color: #000000;">type</span>=<span style="color: #006600;">"text/css"</span> <span style="color: #000000;">href</span>=<span style="color: #006600;">"./index.css"</span>&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script <span style="color: #000000;">type</span>=<span style="color: #006600;">"module"</span> src = <span style="color: #006600;">"./index.js"</span>&gt;&lt;/script&gt;
+    &lt;h1 <span style="color: #000000;">id</span>=<span style="color: #006600;">"mensaje"</span>&gt;&lt;/h1&gt;
+    &lt;div <span style="color: #000000;">id</span>=<span style="color: #006600;">'contenedor'</span>&gt;
+        &lt;button <span style="color: #000000;">id</span>=<span style="color: #006600;">'boton'</span>&gt;Bot&#243;n&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+</pre>
+</div>
+<p>
+Guardamos con Ctrl + D.
+Creamos el archivo css (cliente).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">cat &gt; index.css
+
+<span style="color: #5180B3;">#</span><span style="color: #5180B3;">mensaje {</span>
+    font-size: 42px;
+    text-align: center;
+    color: <span style="color: #5180B3;">#</span><span style="color: #5180B3;">a2d9ce;</span>
+}
+<span style="color: #5180B3;">#</span><span style="color: #5180B3;">contenedor {</span>
+    text-align: center;
+}
+<span style="color: #5180B3;">#</span><span style="color: #5180B3;">boton {</span>
+    margin: auto;
+}
+</pre>
+</div>
+<p>
+Guardamos con Ctrl + D.
+CReamos el archivo js (cliente).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">cat &gt; index.js
+
+
+const holaCliente = async() =&gt; {
+
+    const api = <span style="color: #ff00ff;">`/apiGet`</span>;
+    const response = await fetch(api);
+    const m = await response.json();
+    console.log(m);
+
+    document.getElementById(<span style="color: #006600;">'mensaje'</span>).innerHTML = m;
+
+};
+
+<span style="color: #6600FF;">holaCliente</span>();
+
+<span style="color: #6600FF;">document.getElementById</span>(<span style="color: #006600;">'boton'</span>).onclick = <span style="color: #0000C8;">function</span> <span style="color: #6600FF;">enviar</span>() {
+    const main = async() =&gt; {
+        <span style="color: #0000C8;">let</span> data = {<span style="color: #006600;">'respuesta'</span>: <span style="color: #006600;">'&#161;Hola Servidor!'</span>};
+        const options = {
+            method: <span style="color: #006600;">'POST'</span>,
+            headers: {
+                <span style="color: #006600;">'Content-Type'</span>: <span style="color: #006600;">'application/json'</span>
+            },
+            body: JSON.stringify(data)
+        };
+        console.log(data);
+        const response = await fetch(<span style="color: #ff00ff;">`/apiPost`</span>, options);
+
+    }
+    main();
+};
+
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_terminal_holaservidor.png" alt="img_terminal_holaservidor.png" width="500px" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_holajs.png" alt="img_holajs.png" width="500px" />
+</p>
+</div>
+
+
+
+<div class="figure">
+<p><img src="./imagenes/img_holaservidor.png" alt="img_holaservidor.png" width="500px" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga5cbba9" class="outline-3">
+<h3 id="orga5cbba9">Conclusiones</h3>
+<div class="outline-text-3" id="text-orga5cbba9">
+<p>
+Hoy en día no hay front end que no requiera de la ayuda de Java-script.
+Si lo que te gusta es la interacción del navegador, con bases de datos,
+diseños dinámicos en html, etc, Java-script espera por ti.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcc76034" class="outline-2">
+<h2 id="orgcc76034">Primer programa en R</h2>
+<div class="outline-text-2" id="text-orgcc76034">
+</div>
+<div id="outline-container-org7bfd7ac" class="outline-3">
+<h3 id="org7bfd7ac">Objetivo</h3>
+<div class="outline-text-3" id="text-org7bfd7ac">
+<p>
+Brindar una primera introducción al lenguaje estadístico R.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org417b1d7" class="outline-3">
+<h3 id="org417b1d7">Antecedentes</h3>
+<div class="outline-text-3" id="text-org417b1d7">
+<p>
+R es sin lugar a duda la primera opción para quienes se interesan en el 
+análisis estadístico. 
+</p>
+
+<p>
+Es un lenguaje de programación de código abierto. Su estilo de programación es de tipo scripting (secuecial) y contiene de inicio 
+paquetes y funciones para realizar tanto estadísitica descriptiva, como estadística inferencial.
+</p>
+
+<p>
+Otra de las virtudes de R es su gran capacidad para producir imágenes a partir de datos, con una gran calidad y varias opciones de
+personalización.
+</p>
+
+<p>
+La <i>página oficial</i> del proyecto se llama <b>The Comprehensive R Archive Network</b> y puedes acceder a ella
+en éste link <a href="https://cran.r-project.org/">https://cran.r-project.org/</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgff5f141" class="outline-3">
+<h3 id="orgff5f141">Práctica</h3>
+<div class="outline-text-3" id="text-orgff5f141">
+</div>
+<div id="outline-container-orga760623" class="outline-4">
+<h4 id="orga760623">Instalar R en debian</h4>
+<div class="outline-text-4" id="text-orga760623">
+<p>
+Para instalar el intérprete de R en tu sistema operativo Linux/Debian
+</p>
+<ol class="org-ol">
+<li>abre una terminal</li>
+<li>accede como administrador o <b>super user</b>.</li>
+<li>procede a escribir</li>
+</ol>
+<pre class="example">
+apt update
+apt install r-base 
+</pre>
+
+<p>
+Si todo ha salido bien, puedes salir del modo <b>super user</b> y escribir el siguiente comando:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">R --version
+</pre>
+</div>
+
+<pre class="example">
+R version 4.2.2 Patched (2022-11-10 r83330) -- "Innocent and Trusting"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+https://www.gnu.org/licenses/.
+</pre>
+
+<p>
+<b>Nota</b>. Toma en cuenta que la versión puede variar, ya que R se actualiza de manera regular.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6786669" class="outline-4">
+<h4 id="org6786669">Leer/Cargar/Guardar una tabla en .csv</h4>
+<div class="outline-text-4" id="text-org6786669">
+<ul class="org-ul">
+<li>Desde tu editor de texto favorito crea un archivo de texto que llevará el nombre de <font color="red">datos.csv</font></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_datoscsv.png" alt="img_datoscsv.png" width="500px" />
+</p>
+</div>
+
+
+<ul class="org-ul">
+<li>Ahora vamos a leer este archivo, como una tabla desde <code>R</code>.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-R">df <span style="color: #9933FF;">&lt;-</span> read.csv(<span style="color: #006600;">"datos.csv"</span>)
+df
+</pre>
+</div>
+
+<pre class="example">
+
+  Nombre      ID  Value
+1 Daniel ID00102  43.55
+2  Jorge ID00533 744.27
+3 Miguel ID00368  18.21
+</pre>
+
+
+<ul class="org-ul">
+<li>Para seleccionar la columna <code>ID</code> podemos hacerlo de dos maneras,</li>
+</ul>
+<p>
+la primera es mediante la notación <code>df$ID</code> y la otra alternativa es
+indicando el número de columna <code>df[2]</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">df$ID
+</pre>
+</div>
+
+<pre class="example">
+[1] "ID00102" "ID00533" "ID00368"
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">df[2]
+</pre>
+</div>
+
+<p>
+Podemos seleccionar multiples columnas
+</p>
+<div class="org-src-container">
+<pre class="src src-R">df[c(1,3)]
+</pre>
+</div>
+
+<pre class="example">
+  Nombre  Value
+1 Daniel  43.55
+2  Jorge 744.27
+3 Miguel  18.21
+</pre>
+
+
+<p>
+También podemos seleccinar filas y columnas
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">df[c(1,3),c(1,2)]
+</pre>
+</div>
+
+<pre class="example">
+  Nombre Value
+1 Daniel 43.55
+3 Miguel 18.21
+</pre>
+
+
+<p>
+O por ejemplo, indicar las filas y todas las columnas
+</p>
+<div class="org-src-container">
+<pre class="src src-R">df[c(1,3),]
+</pre>
+</div>
+
+<pre class="example">
+  Nombre      ID Value
+1 Daniel ID00102 43.55
+3 Miguel ID00368 18.21
+</pre>
+
+
+<p>
+Para obtener estadísticas descriptivas de una variable (o columna) usamos 
+el comando <code>summary</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-R">summary(df)
+</pre>
+</div>
+
+<pre class="example">
+   Nombre               ID                Value       
+Length:3           Length:3           Min.   : 18.21  
+Class :character   Class :character   1st Qu.: 30.88  
+Mode  :character   Mode  :character   Median : 43.55  
+                                      Mean   :268.68  
+                                      3rd Qu.:393.91  
+                                      Max.   :744.27
+</pre>
+
+
+
+
+<p>
+Para agregar una nueva columna a nuestra tabla, simplemente hacemos
+</p>
+<div class="org-src-container">
+<pre class="src src-R">df$NewValue <span style="color: #9933FF;">&lt;-</span> (df$Value - min(df$Value))/(max(df$Value) - min(df$Value))
+df
+</pre>
+</div>
+
+<pre class="example">
+
+  Nombre      ID  Value  NewValue
+1 Daniel ID00102  43.55 0.0349007
+2  Jorge ID00533 744.27 1.0000000
+3 Miguel ID00368  18.21 0.0000000
+</pre>
+
+
+<p>
+Podemos ahora guardar nuestra nueva tabla como
+</p>
+<pre class="example">
+write.csv(df,"datos_modificado.csv")
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org22eae3c" class="outline-4">
+<h4 id="org22eae3c">Gráficos en R</h4>
+<div class="outline-text-4" id="text-org22eae3c">
+<ul class="org-ul">
+<li>Gráfico de tipo <code>Box Plot</code>.</li>
+</ul>
+
+<p>
+Este es un gráfico muy utilizado que resume las estadisticas descriptivas de una variable:
+</p>
+
+<pre class="example">
+boxplot(df$Value, main="Título del gráfico", col="cyan")
+</pre>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_Rboxplot.png" alt="img_Rboxplot.png" width="500px" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Gráfico de funciones matemáticas</li>
+</ul>
+
+<p>
+Supongamos que queremos hacer la gráfica de la funcion
+</p>
+\begin{equation}
+f(x) = 3\sin\left(\frac{x}{3}\right).
+\end{equation}
+
+<p>
+Para esto, definiremos una sucesión de puntos <code>x</code>
+con valores desde \(x = -3\) hasta \(x = 3\). 
+</p>
+
+
+<pre class="example">
+x &lt;- seq(-3,3,by=0.01)
+plot(x, 3*sin(x/3), main="Gráfica de una función", type ="l", col = "red")
+</pre>
+
+
+<div class="figure">
+<p><img src="./imagenes/img_Rfunction.png" alt="img_Rfunction.png" width="500px" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Para guardar el gráfico como una imagen debmos usar las funciones <code>png()</code> y <code>dev.off()</code></li>
+</ul>
+<pre class="example">
+x &lt;- seq(-3,3,by=0.01)
+png("grafico1.png")
+plot(x, 3*sin(x/3), main="Gráfica de una función", type ="l", col = "red")
+dev.off()
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4c46433" class="outline-3">
+<h3 id="org4c46433">Conclusiones</h3>
+<div class="outline-text-3" id="text-org4c46433">
+<p>
+<code>R</code> es un lenguaje/programa estadístico muy versátil. Es de los más utilizados en el
+mundo académico y científico por ser  riguroso en la revisión de se sus paquetes/funciones.
+</p>
+
+<p>
+Mucha más información sobre estadística usando <code>R</code> puede encotrarse en el siguente
+link
+</p>
+
+<p>
+<a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf</a>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org2ce6916" class="outline-2">
+<h2 id="org2ce6916">Mi primer programa en BASH</h2>
+<div class="outline-text-2" id="text-org2ce6916">
+</div>
+<div id="outline-container-org9908070" class="outline-3">
+<h3 id="org9908070">Objetivo</h3>
+<div class="outline-text-3" id="text-org9908070">
+<p>
+En esta sección, aprenderemos a programar en BASH, usando diversas herramientas
+dispoinibles en nuestro sistema operativo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2d42f76" class="outline-3">
+<h3 id="org2d42f76">Antecedentes</h3>
+<div class="outline-text-3" id="text-org2d42f76">
+<p>
+<code>Bash</code> es muy probabliemente el programa que tu sistema operativo Linux llama la <code>Termial</code>.
+Es una interfaz en donde el usurario escribe línear de comando las cuales son 
+interpretadas y ejecutadas por una o varios programas dentro del sistema operativo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org772813c" class="outline-3">
+<h3 id="org772813c">Práctica</h3>
+<div class="outline-text-3" id="text-org772813c">
+<p>
+En esta práctiva, vamos a generar un programa que utiliza diversas herramientas dentro de
+nuestro sistema operativo.
+</p>
+
+<p>
+Suponemos que el usuario tiene instalado en sus systema operativo alguna
+versión funcional de <code>R</code> y de Libre office.
+</p>
+
+<p>
+también vamos a necesitar el programa <code>temperatura</code> que se 
+programó anteriormente, dando la tabla de quivalencias de
+temperaturas.
+</p>
+
+<pre class="example">
+#!/bin/bash
+echo "Este es nuesto primer programa escrito en  BASH,"
+echo "al final se genera una imagen png con una gráfica."
+./temperatura | awk  ' NR&gt;2 {print last} {last=$1","$2}'  &gt; mytemp.csv
+
+Rscript -e '
+df  &lt;- read.csv("mytemp.csv",header=FALSE)
+df
+
+png("grafica_01.png")
+plot(df,type="l")
+dev.off()
+'
+</pre>
+
+<p>
+El programa anterior ilustra muy bien, cómo mediante un script en BASH, 
+hemos utilizado 
+</p>
+<ol class="org-ol">
+<li>Un programa escrito en C.</li>
+<li>Un programa en bash llamado <code>awk</code> para procesar una salida,</li>
+<li>Un script escrito en el lenguaje <code>R</code>.</li>
+</ol>
+
+<p>
+Las posibilidades ahora se muestran enormes!
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4a4b3f8" class="outline-3">
+<h3 id="org4a4b3f8">Conclusiones</h3>
+<div class="outline-text-3" id="text-org4a4b3f8">
+<p>
+Ya estás equipado con las habilidades básicas para disfrutar
+de un sistema operativo funcional, que te permitirá escribir
+programas y resolver problemas de la vida profesional diaria de una manera
+más eficiente.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Fecha: 2024-11-04 Mon 00:00</p>
+<p class="author">Autor: <br> Daniel Ballesteros Chávez,<br> Jorge F. Becerril Cejudo <br> Karla J. Melo Rascon  <br></p>
+<p class="date">Created: 2024-11-04 Mon 23:11</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
