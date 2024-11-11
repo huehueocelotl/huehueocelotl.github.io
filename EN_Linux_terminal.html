@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2024-10-16 Wed 16:31 -->
+<!-- 2024-11-11 Mon 21:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Utilities of the Linux Terminal (aka Bash)</title>
@@ -339,16 +339,16 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6765cfe">Why to bother with the terminal?</a></li>
-<li><a href="#org0a4cc3f">The VERY Basics</a></li>
-<li><a href="#org91150c2">TAR: Compress and eXtract and view List tarball.</a></li>
-<li><a href="#orge4e67b9">grep</a></li>
-<li><a href="#org0abe625">Sed</a>
+<li><a href="#org00809d6">Why to bother with the terminal?</a></li>
+<li><a href="#orgbb04927">The VERY Basics</a></li>
+<li><a href="#orge2da949">TAR: Compress and eXtract and view List tarball.</a></li>
+<li><a href="#orgfa11c65">grep</a></li>
+<li><a href="#org52e7faa">Sed</a>
 <ul>
-<li><a href="#org504739a">Search and replace</a></li>
+<li><a href="#orgc3e1ee8">Search and replace</a></li>
 </ul>
 </li>
-<li><a href="#org2cdf76c">awk</a></li>
+<li><a href="#org98152ea">awk</a></li>
 </ul>
 </div>
 </div>
@@ -358,12 +358,12 @@ for the JavaScript code in this tag.
 <p>
 <a href="./index.html">Home</a>
 </p>
-<div id="outline-container-org6765cfe" class="outline-2">
-<h2 id="org6765cfe">Why to bother with the terminal?</h2>
-<div class="outline-text-2" id="text-org6765cfe">
+<div id="outline-container-org00809d6" class="outline-2">
+<h2 id="org00809d6">Why to bother with the terminal?</h2>
+<div class="outline-text-2" id="text-org00809d6">
 <p>
 If you are an ordinary computer user and you find yourself asking this question, it is very likely that you are suspecting that you are not using your personal computer in its full capacity.
-A  popular saying when discussing about technology reads: <i>nowadays personal computers and laptops as powerful and even more than the computers used to send the man to the moon</i>.
+A  popular saying when discussing about technology reads: <i>nowadays, personal computers and laptops are as powerful (much more) as the computers used to send the man to the moon</i>.
 But it is not rare to find people with different jobs struggling to create a monthly report of their results. Even more, I strongly believe that there are so many bad
 decisions taken every day on a basis of a poorly done copy and paste.
 </p>
@@ -389,9 +389,9 @@ At the end of the journey, you will have recovered enough freedom that you will 
 </p>
 </div>
 </div>
-<div id="outline-container-org0a4cc3f" class="outline-2">
-<h2 id="org0a4cc3f">The VERY Basics</h2>
-<div class="outline-text-2" id="text-org0a4cc3f">
+<div id="outline-container-orgbb04927" class="outline-2">
+<h2 id="orgbb04927">The VERY Basics</h2>
+<div class="outline-text-2" id="text-orgbb04927">
 <p>
 This is a quick list of the commands you should be 100% comfortable with. We summarised them in a table with a small description. Once
 you are able to understand where is your working directory, how to create files and folders and how to change the permissions of a file, you can jump in to the following sections.
@@ -586,9 +586,9 @@ you are able to understand where is your working directory, how to create files 
 </table>
 </div>
 </div>
-<div id="outline-container-org91150c2" class="outline-2">
-<h2 id="org91150c2">TAR: Compress and eXtract and view List tarball.</h2>
-<div class="outline-text-2" id="text-org91150c2">
+<div id="outline-container-orge2da949" class="outline-2">
+<h2 id="orge2da949">TAR: Compress and eXtract and view List tarball.</h2>
+<div class="outline-text-2" id="text-orge2da949">
 <p>
   The <b>tar</b> command is according to the manual <i>an archiving</i> utility. It is used to store several files in a single file and to manipulate
 them. 
@@ -606,9 +606,9 @@ them.
 </div>
 </div>
 
-<div id="outline-container-orge4e67b9" class="outline-2">
-<h2 id="orge4e67b9">grep</h2>
-<div class="outline-text-2" id="text-orge4e67b9">
+<div id="outline-container-orgfa11c65" class="outline-2">
+<h2 id="orgfa11c65">grep</h2>
+<div class="outline-text-2" id="text-orgfa11c65">
 <p>
 This is where the fun begins. Its name stands from Globally search for a Regular Expression and Print matching lines, and it is one
 of the oldest command-line utilities. With grep you will be able to find a needle in a haystack.
@@ -768,9 +768,9 @@ You can use <i>grep -lr</i> to print the file names of files containing a word i
 </div>
 </div>
 
-<div id="outline-container-org0abe625" class="outline-2">
-<h2 id="org0abe625">Sed</h2>
-<div class="outline-text-2" id="text-org0abe625">
+<div id="outline-container-org52e7faa" class="outline-2">
+<h2 id="org52e7faa">Sed</h2>
+<div class="outline-text-2" id="text-org52e7faa">
 <p>
 This is a Stream Editor. What? Yes, you can modify a text file on the fly! No need to waste you time
 by opening a text editor to  click search and replace or things like that anymore.
@@ -792,9 +792,9 @@ Please learn linux and the linux terminal<span style="color: #0000C8;"> in</span
 </div>
 </div>
 
-<div id="outline-container-org504739a" class="outline-3">
-<h3 id="org504739a">Search and replace</h3>
-<div class="outline-text-3" id="text-org504739a">
+<div id="outline-container-orgc3e1ee8" class="outline-3">
+<h3 id="orgc3e1ee8">Search and replace</h3>
+<div class="outline-text-3" id="text-orgc3e1ee8">
 <p>
 This examples illustrates the basic usage of the sed command.  
 It will search for a text pattern  in  the file and replace it with another:
@@ -963,9 +963,9 @@ Please learn linux and the linux terminal in any linux distribution.
 </div>
 </div>
 
-<div id="outline-container-org2cdf76c" class="outline-2">
-<h2 id="org2cdf76c">awk</h2>
-<div class="outline-text-2" id="text-org2cdf76c">
+<div id="outline-container-org98152ea" class="outline-2">
+<h2 id="org98152ea">awk</h2>
+<div class="outline-text-2" id="text-org98152ea">
 <p>
 Awk is a whole program language for data extraction and reporting. The triplet grep, sed and awk is 
 very useful and they are really popular in UNIX-like operator systems.
