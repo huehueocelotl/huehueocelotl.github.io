@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2024-10-28 Mon 08:17 -->
+<!-- 2024-11-16 Sat 13:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(Primer) Curso de Cálculo 1</title>
@@ -363,25 +363,25 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org72807d5">Introducción</a></li>
-<li><a href="#orga108320">Los números reales</a>
+<li><a href="#org3525ba0">Introducción</a></li>
+<li><a href="#org868787e">Los números reales</a>
 <ul>
-<li><a href="#orgcb0a96a">Intervalos</a></li>
+<li><a href="#orga1769a3">Intervalos</a></li>
 </ul>
 </li>
-<li><a href="#org9ae1638">Funciones</a>
+<li><a href="#org120162b">Funciones</a></li>
+<li><a href="#org038d63a">Dominio, Codominio y Rango</a></li>
+<li><a href="#orgba13888">Funciones inyectivas, suprayectivas y biyectivas</a></li>
+<li><a href="#org06ff876">Sucesiones de números reales</a></li>
+<li><a href="#org2ba3f73">Propiedades de sucesiones convergentes</a></li>
+<li><a href="#org3d3ae6d">Límite y continuidad de funciones</a></li>
+<li><a href="#org5659823">Composición de funciones</a></li>
+<li><a href="#org1b89bee">Propiedades de funciones continuas</a></li>
+<li><a href="#org691c190">Derivada</a></li>
+<li><a href="#org6edfcbd">Aplicaciones de la Derivada</a>
 <ul>
-<li><a href="#orgeca7fd5">Dominio, Codominio y Rango</a></li>
-</ul>
-</li>
-<li><a href="#org73ca2d1">Sucesiones de números reales</a></li>
-<li><a href="#org39a822d">Propiedades de sucesiones convergentes</a></li>
-<li><a href="#org45dfff9">Límite y continuidad de funciones</a></li>
-<li><a href="#org497bd5f">Derivada</a></li>
-<li><a href="#org1c35a46">Aplicaciones de la Derivada</a>
-<ul>
-<li><a href="#org2cb5088">Cálculo de máximos y mínimos relativos con el criterio de la primera derivada</a></li>
-<li><a href="#org0207004">Cálculo de máximos y mínimos relativos con el criterio de la segunda derivada</a></li>
+<li><a href="#org604cbb3">Cálculo de máximos y mínimos relativos con el criterio de la primera derivada</a></li>
+<li><a href="#org4216c68">Cálculo de máximos y mínimos relativos con el criterio de la segunda derivada</a></li>
 </ul>
 </li>
 </ul>
@@ -394,9 +394,9 @@ for the JavaScript code in this tag.
 <a href="./index.html">Home</a>
 </p>
 
-<div id="outline-container-org72807d5" class="outline-2">
-<h2 id="org72807d5">Introducción</h2>
-<div class="outline-text-2" id="text-org72807d5">
+<div id="outline-container-org3525ba0" class="outline-2">
+<h2 id="org3525ba0">Introducción</h2>
+<div class="outline-text-2" id="text-org3525ba0">
 <p>
 La mayoría del contenido está basado en la siguiente literatura
 </p>
@@ -408,9 +408,9 @@ La mayoría del contenido está basado en la siguiente literatura
 </div>
 </div>
 
-<div id="outline-container-orga108320" class="outline-2">
-<h2 id="orga108320">Los números reales</h2>
-<div class="outline-text-2" id="text-orga108320">
+<div id="outline-container-org868787e" class="outline-2">
+<h2 id="org868787e">Los números reales</h2>
+<div class="outline-text-2" id="text-org868787e">
 <p>
 Es posible dar una construcción formal de los números reales, sin embargo, ésto sale del
 propósito de estas notas.
@@ -508,9 +508,9 @@ Por lo tanto \(\sqrt{2}\) no puede escribirse como una fracción: \(\sqrt{2}\not
 </div>
 </div>
 
-<div id="outline-container-orgcb0a96a" class="outline-3">
-<h3 id="orgcb0a96a">Intervalos</h3>
-<div class="outline-text-3" id="text-orgcb0a96a">
+<div id="outline-container-orga1769a3" class="outline-3">
+<h3 id="orga1769a3">Intervalos</h3>
+<div class="outline-text-3" id="text-orga1769a3">
 <p>
 Los intervalos son subconjuntos especiales de \(\mathbb{R}\):
 </p>
@@ -535,9 +535,9 @@ Considere \(-\infty < a \leq b < \infty\). Se definen los siguientes intervalos
 </div>
 </div>
 
-<div id="outline-container-org9ae1638" class="outline-2">
-<h2 id="org9ae1638">Funciones</h2>
-<div class="outline-text-2" id="text-org9ae1638">
+<div id="outline-container-org120162b" class="outline-2">
+<h2 id="org120162b">Funciones</h2>
+<div class="outline-text-2" id="text-org120162b">
 <div class="mydef">
 <p>
 Una función \(f\) de número reales, denotado por \(f: \mathbb{R} \to \mathbb{R}\),
@@ -573,10 +573,11 @@ R(x) = \left\{ \begin{array}{ccc}
 
 </div>
 </div>
+</div>
 
-<div id="outline-container-orgeca7fd5" class="outline-3">
-<h3 id="orgeca7fd5">Dominio, Codominio y Rango</h3>
-<div class="outline-text-3" id="text-orgeca7fd5">
+<div id="outline-container-org038d63a" class="outline-2">
+<h2 id="org038d63a">Dominio, Codominio y Rango</h2>
+<div class="outline-text-2" id="text-org038d63a">
 <div class="mydef">
 <p>
 Si \(A\subset \mathbb{R}\) y \(f:A\to \mathbb{R}\) satisface la definición de función para
@@ -595,11 +596,43 @@ Nótese que \(f(A) \subseteq \mathbb{R}\) pero no siempre se tiene \(f(A) = \mat
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgba13888" class="outline-2">
+<h2 id="orgba13888">Funciones inyectivas, suprayectivas y biyectivas</h2>
+<div class="outline-text-2" id="text-orgba13888">
+<div class="mydef">
+<p>
+Considere una función \(f:A\to B\) entre los conjuntos \(A,B\subset \mathbb{R}\).
+</p>
+<ul class="org-ul">
+<li>\(f\) se llama <b>inyectiva</b> si satisface que \(\forall x_1,x_2\in A: f(x_1) = f(x_2) \iff x_1 = x_2\).</li>
+<li>\(f\) se llama <b>suprayectiva</b> si satisface que \(\forall y\in B \, \exists x\in A : y = f(x)\).</li>
+<li>\(f\) se llama <b>biyectiva</b> si es tanto inyectiva como suprayectiva$.</li>
+</ul>
+
 </div>
 
-<div id="outline-container-org73ca2d1" class="outline-2">
-<h2 id="org73ca2d1">Sucesiones de números reales</h2>
-<div class="outline-text-2" id="text-org73ca2d1">
+<p>
+Si una función es biyectiva, es posible definir el concepto de función inversa.
+</p>
+
+<div class="mydef">
+<p>
+Si \(f:A\to B\) es una función biyectiva, entonces existe una función \(f^{-1}: B \to A\), llamada
+la función inversa de \(f\), y satisface las siguientes igualdades:
+</p>
+<ul class="org-ul">
+<li>\(\forall x\in A: f^{-1}(f(x)) = x\),</li>
+<li>\(\forall y\in B: f(f^{-1}(y)) = y\).</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org06ff876" class="outline-2">
+<h2 id="org06ff876">Sucesiones de números reales</h2>
+<div class="outline-text-2" id="text-org06ff876">
 <div class="mydef">
 <p>
 Una sucesión de números reales \(x_1, x_2, \ldots, x_{n}, \ldots\), suele denotarse por
@@ -628,9 +661,9 @@ Cuando la sucesión no converge, entonces decimos que es divergente.
 </div>
 </div>
 
-<div id="outline-container-org39a822d" class="outline-2">
-<h2 id="org39a822d">Propiedades de sucesiones convergentes</h2>
-<div class="outline-text-2" id="text-org39a822d">
+<div id="outline-container-org2ba3f73" class="outline-2">
+<h2 id="org2ba3f73">Propiedades de sucesiones convergentes</h2>
+<div class="outline-text-2" id="text-org2ba3f73">
 <p>
 A continuación enlistamos algunas de las propiedades básicas de las sucesiones convergentes.
 </p>
@@ -663,15 +696,16 @@ Si además, la sucesión es acotada, entonces podemos concluir que la sucesión 
 </div>
 </div>
 </div>
-<div id="outline-container-org45dfff9" class="outline-2">
-<h2 id="org45dfff9">Límite y continuidad de funciones</h2>
-<div class="outline-text-2" id="text-org45dfff9">
+
+<div id="outline-container-org3d3ae6d" class="outline-2">
+<h2 id="org3d3ae6d">Límite y continuidad de funciones</h2>
+<div class="outline-text-2" id="text-org3d3ae6d">
 <div class="mydef">
 <p>
 El valor de una función \(f:A\to \mathbb{R}\) converge a un lítmie \(L\in \mathbb{R}\) cuando \(x\) tiende al valor \(a\in A\) si se cumple que
 </p>
 \begin{equation}
-\forall \epsilon >0 \, \exists \delta >0: |x - a| < \delta \implies |f(x) - L| < \epsilon
+\forall \epsilon >0, \, \exists \delta >0,\, \forall x\in \mathbb{R}: |x - a| < \delta \implies |f(x) - L| < \epsilon
 \end{equation}
 
 </div>
@@ -684,7 +718,7 @@ Esto permite definir la noción de continuidad puntual
 La función \(f:A\to \mathbb{R}\) es continua en \(a\in A\) si se cumple que
 </p>
 \begin{equation}
-\forall \epsilon >0 \, \exists \delta >0: |x - a| < \delta \implies |f(x) - f(a)| < \epsilon,
+\forall \epsilon >0, \, \exists \delta >0, \, \forall x\in \mathbb{R}: |x - a| < \delta \implies |f(x) - f(a)| < \epsilon,
 \end{equation}
 <p>
 en otras palabras, \(f\) es continua en \(a\) si el valor de la función converge al límite \(f(a)\) cuando \(x\) tiende a \(a\).
@@ -695,13 +729,80 @@ en otras palabras, \(f\) es continua en \(a\) si el valor de la función converg
 </div>
 
 
-<div id="outline-container-org497bd5f" class="outline-2">
-<h2 id="org497bd5f">Derivada</h2>
-<div class="outline-text-2" id="text-org497bd5f">
+<div id="outline-container-org5659823" class="outline-2">
+<h2 id="org5659823">Composición de funciones</h2>
+<div class="outline-text-2" id="text-org5659823">
+<div class="mydef">
+<p>
+Supongamos que tenemos dos funciones \(f:A\to \mathbb{R}\) y \(g:B\to \mathbb{R}\).
+En caso de que \(f(A)\subseteq B\), es posible definir la composición de \(g\) con \(f\)
+como la función \(g\circ f: A\to \mathbb{R}\), definida por la identidad
+</p>
+\begin{equation}
+\forall x\in A,\quad (g\circ f) (x) = g(f(x)).
+\end{equation}
+
+</div>
+<p>
+<br />
+</p>
+<div class="xmpl">
+<p>
+Considera las funciones \(f(x) = 2x + 5\) y \(g(x) = \frac{x+1}{5}\). Entonces
+La composición de \(g\) con \(f\) está dada por
+</p>
+\begin{equation}
+(g\circ f)(x) = g(f(x))= \frac{f(x) + 1}{5}  = \frac{2x+5 + 1}{5} = \frac{2}{5}x + \frac{6}{5}.
+\end{equation}
+
+<p>
+Por otro lado, la composición de \(f\) con \(g\) nos da
+</p>
+\begin{equation}
+(f\circ g)(x) = f(g(x))= 2g(x) + 5 = 2\frac{x+1}{5} + 5 = \frac{2}{5}x + \frac{2}{5} + 5= \frac{2}{5}x + \frac{27}{5}.
+\end{equation}
+
+<p>
+Notice that in general \(g\circ f \neq f \circ g\).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1b89bee" class="outline-2">
+<h2 id="org1b89bee">Propiedades de funciones continuas</h2>
+<div class="outline-text-2" id="text-org1b89bee">
+<div class="prop">
+<p>
+Supongamos que \(a\in \mathbb{R}\) es una constante, y consideremos dos funciones \(f:\mathbb{R}\to \mathbb{R}\) y \(g:\mathbb{R}\to \mathbb{R}\).
+</p>
+<ul class="org-ul">
+<li>Si \(f\) es continua entonces la función \(af(x)\) es continua.</li>
+<li>Si \(f\) y \(g\) son continuas, entonces la suma \((f+g)(x) = f(x) + g(x)\), también es una función continua.</li>
+<li>Si \(f\) y \(g\) son continuas, entonces la diferencia \((f-g)(x) = f(x) - g(x)\), también es una función  continua.</li>
+<li>Si \(f\) y \(g\) son continuas, entonces el producto \((fg)(x) = f(x) g(x)\), también es una función  continua.</li>
+<li>Si \(f\) y \(g\) son continuas, entonces, siempre que \(g(x) \neq 0\), el cociente \((f/g)(x) = f(x)/g(x)\), también es una función continua.</li>
+<li>Si \(f\) y \(g\) son continuas, entonces la composición \((f\circ g)(x) = f(g(x))\), también es una función continua.</li>
+</ul>
+
+</div>
+
+<p>
+<b>Observación</b>. Las propiedades anteriores pueden reescribirse para funciones
+\(f:A\to B\) y \(g:C\to D\), siempre y cuando se tenga en cuenta el dominio apropiado para
+\(f \pm g\), \(fg\), \(f/g\) y \(f\circ g\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org691c190" class="outline-2">
+<h2 id="org691c190">Derivada</h2>
+<div class="outline-text-2" id="text-org691c190">
 <div class="mydef">
 <p>
 Considere un intervalo abierto \(A = (a,b)\), donde \(-\infty \leq a < b \leq \infty\) y una función \(f:A \to \mathbb{R}\).
-Decimos que \(f\) es differenciable en \(a \in A\) si el siguente límite existe
+Decimos que \(f\) es diferenciable en \(a \in A\) si el siguente límite existe
 </p>
 \begin{equation}
 \lim_{x\to a} \frac{f(x) - f(a)}{x-a}.
@@ -711,7 +812,7 @@ En caso de existir, el límite anterior se denota por \(f'(a)\), o \(\frac{df(a)
 </p>
 
 <p>
-En caso de que \(f\) sea differenciable en todos los puntos de \(A\), decimos que \(f\) es diferenciable en \(A\).
+En caso de que \(f\) sea diferenciable en todos los puntos de \(A\), decimos que \(f\) es diferenciable en \(A\).
 </p>
 
 </div>
@@ -719,16 +820,16 @@ En caso de que \(f\) sea differenciable en todos los puntos de \(A\), decimos qu
 </div>
 
 
-<div id="outline-container-org1c35a46" class="outline-2">
-<h2 id="org1c35a46">Aplicaciones de la Derivada</h2>
-<div class="outline-text-2" id="text-org1c35a46">
+<div id="outline-container-org6edfcbd" class="outline-2">
+<h2 id="org6edfcbd">Aplicaciones de la Derivada</h2>
+<div class="outline-text-2" id="text-org6edfcbd">
 <p>
 En todos estos resultados, se asume que \(A\) es un intervalo abierto de \(\mathbb{R}\).
 </p>
 
 <div class="thm">
 <p>
-Si \(f:A \to \mathbb{R}\) es differenciable en \(a\in A\), entonces \(f\) es continua en \(a\).
+Si \(f:A \to \mathbb{R}\) es diferenciable en \(a\in A\), entonces \(f\) es continua en \(a\).
 </p>
 
 </div>
@@ -738,7 +839,7 @@ Si \(f:A \to \mathbb{R}\) es differenciable en \(a\in A\), entonces \(f\) es con
 
 <div class="thm">
 <p>
-Si \(f:A \to \mathbb{R}\) es differenciable en \(A\) y \(f'(x) =0\) para todo \(x\in A\), entonces \(f\) es una función constante.
+Si \(f:A \to \mathbb{R}\) es diferenciable en \(A\) y \(f'(x) =0\) para todo \(x\in A\), entonces \(f\) es una función constante.
 </p>
 
 </div>
@@ -749,7 +850,7 @@ Si \(f:A \to \mathbb{R}\) es differenciable en \(A\) y \(f'(x) =0\) para todo \(
 
 <div class="thm">
 <p>
-Si \(f:A \to \mathbb{R}\) es dos veces differenciable en \(A\) y \(f''(x) >0\), entonces \(f\) es convexa.
+Si \(f:A \to \mathbb{R}\) es dos veces diferenciable en \(A\) y \(f''(x) >0\), entonces \(f\) es convexa.
 </p>
 
 </div>
@@ -759,16 +860,16 @@ Si \(f:A \to \mathbb{R}\) es dos veces differenciable en \(A\) y \(f''(x) >0\), 
 
 <div class="thm">
 <p>
-Si \(f:A \to \mathbb{R}\) es dos veces differenciable en \(A\) y \(f''(x) < 0\), entonces \(f\) es cóncava.
+Si \(f:A \to \mathbb{R}\) es dos veces diferenciable en \(A\) y \(f''(x) < 0\), entonces \(f\) es cóncava.
 </p>
 
 </div>
 </div>
 
 
-<div id="outline-container-org2cb5088" class="outline-3">
-<h3 id="org2cb5088">Cálculo de máximos y mínimos relativos con el criterio de la primera derivada</h3>
-<div class="outline-text-3" id="text-org2cb5088">
+<div id="outline-container-org604cbb3" class="outline-3">
+<h3 id="org604cbb3">Cálculo de máximos y mínimos relativos con el criterio de la primera derivada</h3>
+<div class="outline-text-3" id="text-org604cbb3">
 <ul class="org-ul">
 <li>Criterio de la primer derivada:
 <ul class="org-ul">
@@ -783,9 +884,9 @@ Si \(f:A \to \mathbb{R}\) es dos veces differenciable en \(A\) y \(f''(x) < 0\),
 </div>
 
 
-<div id="outline-container-org0207004" class="outline-3">
-<h3 id="org0207004">Cálculo de máximos y mínimos relativos con el criterio de la segunda derivada</h3>
-<div class="outline-text-3" id="text-org0207004">
+<div id="outline-container-org4216c68" class="outline-3">
+<h3 id="org4216c68">Cálculo de máximos y mínimos relativos con el criterio de la segunda derivada</h3>
+<div class="outline-text-3" id="text-org4216c68">
 <ul class="org-ul">
 <li>Criterio de la segunda derivada
 <ul class="org-ul">
