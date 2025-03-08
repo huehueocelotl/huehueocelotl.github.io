@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2025-03-08 Sat 17:41 -->
+<!-- 2025-03-08 Sat 18:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Método de Euler para <br>  EDOs de primer orden (en C)</title>
@@ -363,10 +363,10 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4feef62">Ecuaciones diferenciales y métodos numérico</a></li>
-<li><a href="#orgc1db3d6">El método de Euler</a></li>
-<li><a href="#orga24a008">Ejemplo en C</a></li>
-<li><a href="#org6586846">La solución analítica</a></li>
+<li><a href="#orgc48d3c4">Ecuaciones diferenciales y métodos numérico</a></li>
+<li><a href="#org4542a56">El método de Euler</a></li>
+<li><a href="#org1d16b2a">Ejemplo en C</a></li>
+<li><a href="#org62d91ee">La solución analítica</a></li>
 </ul>
 </div>
 </div>
@@ -378,9 +378,9 @@ for the JavaScript code in this tag.
 </p>
 
 
-<div id="outline-container-org4feef62" class="outline-2">
-<h2 id="org4feef62">Ecuaciones diferenciales y métodos numérico</h2>
-<div class="outline-text-2" id="text-org4feef62">
+<div id="outline-container-orgc48d3c4" class="outline-2">
+<h2 id="orgc48d3c4">Ecuaciones diferenciales y métodos numérico</h2>
+<div class="outline-text-2" id="text-orgc48d3c4">
 <p>
 En esta nota, vamos a describir el Método de Euler para aproximar una curva integral de una ecuación diferencial
 (o si se prefiere, la gráifica de una solución).
@@ -402,9 +402,9 @@ y(x_0) = y_0.
 </div>
 
 
-<div id="outline-container-orgc1db3d6" class="outline-2">
-<h2 id="orgc1db3d6">El método de Euler</h2>
-<div class="outline-text-2" id="text-orgc1db3d6">
+<div id="outline-container-org4542a56" class="outline-2">
+<h2 id="org4542a56">El método de Euler</h2>
+<div class="outline-text-2" id="text-org4542a56">
 <p>
 El método de Euler consiste en el siguiente algoritmo:
 </p>
@@ -426,22 +426,22 @@ y_{i+1} & = y_{i} + h\,f(x_{i},y_{i}) \\
 </div>
 
 
-<div id="outline-container-orga24a008" class="outline-2">
-<h2 id="orga24a008">Ejemplo en C</h2>
-<div class="outline-text-2" id="text-orga24a008">
+<div id="outline-container-org1d16b2a" class="outline-2">
+<h2 id="org1d16b2a">Ejemplo en C</h2>
+<div class="outline-text-2" id="text-org1d16b2a">
 <p>
 Consideremos la siguiente ecuación
 </p>
 \begin{equation}
-y' = \frac{xy^3}{3},
+\frac{dy}{dx} = \frac{xy^3}{3},
 \end{equation}
 <p>
 sujeta a la condición inicial \(y(0) = 2\).
 </p>
 
 <p>
-Implementaremos el Método de Euler en C.
-Notemos que usaremos el valor \(h = 0.1\).
+Implementaremos el Método de Euler en el lenguaje <code>C</code>, usando un valor de \(h = 0.1\), como una
+primera aproximación.
 </p>
 
 <pre class="example">
@@ -475,7 +475,7 @@ int main(){
 </pre>
 
 <p>
-Recuerda que para compilar y correer el programa solo hacemos
+Recuerda que para compilar y correr el programa solo hacemos
 </p>
 <pre class="example">
 make -k  huehue_euler -lm
@@ -695,9 +695,9 @@ Te proponemos ahora el siguiente ejercicio:
 </div>
 </div>
 
-<div id="outline-container-org6586846" class="outline-2">
-<h2 id="org6586846">La solución analítica</h2>
-<div class="outline-text-2" id="text-org6586846">
+<div id="outline-container-org62d91ee" class="outline-2">
+<h2 id="org62d91ee">La solución analítica</h2>
+<div class="outline-text-2" id="text-org62d91ee">
 <p>
 No siempre es posible resolver una ecuación diferencial en términos de funciones 
 conocidas. Sin embergo, nuestro ejemplo es un caso sencillo que puede
@@ -705,7 +705,7 @@ resolverse mediante la técnica de <i>separacióbn de variables</i>.
 </p>
 
 <p>
-Reescribimos nuestra ecuación diferencial usando la notación \(dy/dx\), es decir, tenemos
+Recuerda que  tenemos
 </p>
 \begin{equation}
 \frac{dy}{dx} = \frac{xy^3}{3},
@@ -720,10 +720,10 @@ separamos las variables y tenemos
 por lo que integrando en ambos lados tenemos
 </p>
 \begin{equation}
--\frac{1}{2y^2} = \frac{x^2}{6} + c,
+-\frac{1}{2y^2} = \frac{x^2}{6} + c.
 \end{equation}
 <p>
-usando la condición inicial \(y(0) = 2\) encontramos que la constante es
+Usando la condición inicial \(y(0) = 2\) encontramos que la constante es
 </p>
 \begin{equation}
 c = -\frac{1}{8},
@@ -757,8 +757,8 @@ x = \pm \frac{\sqrt{3}}{2} \approx 0.866
 \end{equation}
 
 <p>
-Si hacemos la gráfica de esta expresión para los valores de \(x\) iguales a
-veremos que se produce una asíntota vertical.
+Si hacemos la gráfica de esta expresión veremos que se produce una asíntota vertical cuando 
+nos aproximamos al punto singular.
 </p>
 
 
@@ -869,6 +869,10 @@ dROqcbLgVx41Wu7JpO5CMU4W7AggmDkQzBwIZg4EMweCmQPBzIFg5kAwcyCYORDMHAhmDgQzB4KZ
 A8HMgWDmQDBzIJg5EMyc/wclPTQUzlh9mwAAAABJRU5ErkJggg=="euler_a.png />
 </p>
 </div>
+
+<p>
+Ahora podemos analizar mejor los resultados obtenidos con ayuda de la computadora.
+</p>
 </div>
 </div>
 </div>
