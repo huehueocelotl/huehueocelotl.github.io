@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2025-03-08 Sat 17:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Método de Euler para <br>  EDOs de primer orden (en C)</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="@@html:&lt;br&gt;@@ Daniel Ballesteros Chávez,@@html:&lt;br&gt;@@ Jorge F. Becerril Cejudo @@html:&lt;br&gt;@@ Karla J. Melo Rascon  @@html:&lt;br&gt;@@" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>  body { background:#F5F5F7 ; max-width: 768px; margin: 20px auto; color: ; font-family: 'Grandstander';} </style>
+<style> :root {--col0: #1b263b; --col1: #edf2f4; --col2: #03C988; --col3: #ef233c; --col4: #d90429; --col5: #173f5f;} </style>
+<style> h2 { background: var(--col2) ; color: var(--col0);  font-weight: bold; display: block; padding: 10px 20px;  } </style>
+<style> .thm {background-color: #BFF2FF; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .thm:before {content: "Teorema: "; font-weight: bold}</style>
+<style> .mydef {background-color: #A2EEB2; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .mydef:before {content: "Definición: "; font-weight: bold}</style>
+<style> .prop {background-color:  #FFAE33; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .prop:before {content: "Proposición: "; font-weight: bold}</style>
+<style> .lemm {background-color:  #FFAE33; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .lemm:before {content: "Lema: "; font-weight: bold}</style>
+<style> .xmpl {background-color: #DBEDDC; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .xmpl:before {content: "Ejemplo: "; font-weight: bold}</style>
+<style> .warn {background-color: #FFA500; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .warn:before {content: "Important remark: "; font-weight: bold}</style>
+<style>  th {background-color: #f55fc3;} tr:nth-child(odd) {background-color: #e2e2e2;}  table tr:hover {background-color: #d0c6e5;} </style>
+<style>  p {text-align: justify;} </style>
+<style>  pre {border: 1px solid #ccc; box-shadow: 3px 3px 3px #eee; padding: 8pt; font-family: monospace; overflow: auto; margin: 1.2em; border-radius: 10px;}</style>
+<style>code {background-color: #ccc}</style>
+
+<script type="text/javascript" src="https://orgmode.org/org-info.js">
+/**
+ *
+ * @source: https://orgmode.org/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in https://orgmode.org/org-info.js.
+ *
+ * Copyright (C) 2012-2020 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in https://orgmode.org/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "0");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Método de Euler para <br>  EDOs de primer orden (en C)</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org4feef62">Ecuaciones diferenciales y métodos numérico</a></li>
+<li><a href="#orgc1db3d6">El método de Euler</a></li>
+<li><a href="#orga24a008">Ejemplo en C</a></li>
+<li><a href="#org6586846">La solución analítica</a></li>
+</ul>
+</div>
+</div>
+<br><br><br>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+<p>
+<a href="./index.html">Home</a>
+</p>
+
+
+<div id="outline-container-org4feef62" class="outline-2">
+<h2 id="org4feef62">Ecuaciones diferenciales y métodos numérico</h2>
+<div class="outline-text-2" id="text-org4feef62">
+<p>
+En esta nota, vamos a describir el Método de Euler para aproximar una curva integral de una ecuación diferencial
+(o si se prefiere, la gráifica de una solución).
+</p>
+
+<p>
+Así pues, estamos interesados en una ecuación diferencial en la forma
+</p>
+\begin{equation}
+\frac{dy}{dx} = f(x,y),
+\end{equation}
+<p>
+sujeta a la condición inicial
+</p>
+\begin{equation}
+y(x_0) = y_0.
+\end{equation}
+</div>
+</div>
+
+
+<div id="outline-container-orgc1db3d6" class="outline-2">
+<h2 id="orgc1db3d6">El método de Euler</h2>
+<div class="outline-text-2" id="text-orgc1db3d6">
+<p>
+El método de Euler consiste en el siguiente algoritmo:
+</p>
+
+<ol class="org-ol">
+<li>Definimos un valor \(h>0\) de preferencia pequeño, por ejemplo \(h =0.01\).</li>
+<li>Usando las condiciones iniciales, identificamos el punto inicial en plano: \(P_0 = (x_0,y_0)\).</li>
+<li><p>
+Aplicamos la siguenta relación recursiva para producir los puntos \(P_{i+1} = (x_{i+1}, y_{i+1})\):
+</p>
+\begin{equation}
+\begin{split}
+x_{i+1} & = x_{i} + h \\
+y_{i+1} & = y_{i} + h\,f(x_{i},y_{i}) \\
+\end{split}
+\end{equation}</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-orga24a008" class="outline-2">
+<h2 id="orga24a008">Ejemplo en C</h2>
+<div class="outline-text-2" id="text-orga24a008">
+<p>
+Consideremos la siguiente ecuación
+</p>
+\begin{equation}
+y' = \frac{xy^3}{3},
+\end{equation}
+<p>
+sujeta a la condición inicial \(y(0) = 2\).
+</p>
+
+<p>
+Implementaremos el Método de Euler en C.
+Notemos que usaremos el valor \(h = 0.1\).
+</p>
+
+<pre class="example">
+// filename: huehue_euler.c
+// Huehueocelotl - Método de Euler
+// 
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main(){
+
+  int i;
+  float x0, y0, fxy, h;
+
+  /* Aquí ponermos los valores inicales */
+  i=0;    /* Indice de iteración */
+  x0=0;   /* Valor inicial de la variable x */
+  y0=2;   /* Valor inicial de la variable y */
+  h=0.1;  /* Valor de h (step) */
+  
+/* para i = 1,2,...,10, Implementamos el Método */
+  while (i&lt;= 10){
+    printf("%d,%f,%f\n", i,x0,y0);
+    fxy = y0*y0*y0*x0/3);
+    x0 = x0+h;
+    y0 = y0 + h*fxy;
+    i++;
+  }
+  return 0;
+}
+</pre>
+
+<p>
+Recuerda que para compilar y correer el programa solo hacemos
+</p>
+<pre class="example">
+make -k  huehue_euler -lm
+./huehue_euler
+</pre>
+
+<p>
+Los resultados que obtenemos se presentan en la siguiente tabla:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">i</th>
+<th scope="col" class="org-right">x<sub>i</sub></th>
+<th scope="col" class="org-right">y<sub>i</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0.000000</td>
+<td class="org-right">2.000000</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0.100000</td>
+<td class="org-right">2.000000</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">0.200000</td>
+<td class="org-right">2.026667</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">0.300000</td>
+<td class="org-right">2.082162</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">0.400000</td>
+<td class="org-right">2.172432</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">0.500000</td>
+<td class="org-right">2.309135</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">0.600000</td>
+<td class="org-right">2.514344</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-right">0.700000</td>
+<td class="org-right">2.832253</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">0.800000</td>
+<td class="org-right">3.362372</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-right">0.900000</td>
+<td class="org-right">4.376065</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-right">1.000000</td>
+<td class="org-right">6.890107</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+de donde debemos leer \(y_i = y(x_{i})\).
+Hemos así, obtenido una aproximación  <i>numérica</i> de la solución a nuestra ecuación diferencial.
+Como toda aproximación, ésta viene con un error que depende del valor que hemos usado para
+\(h\). Entre menor sea el valor de \(h\) que usemos, mejor será nuestra aproximación.
+</p>
+
+<p>
+A continuación mostramos su gráfica:
+</p>
+
+
+<div class="figure">
+<p><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeAAAAHgCAMAAABKCk6nAAAC4lBMVEUAAAABAQECAgIDAwMEBAQH
+BwcICAgJCQkKCgoLCwsMDAwNDQ0ODg4PDw8QEBARERESEhITExMUFBQVFRUWFhYXFxcYGBgaGhob
+GxscHBwdHR0eHh4fHx8gICAhISEiIiIkJCQlJSUmJiYnJycoKCgpKSkqKiosLCwtLS0uLi4vLy8w
+MDAxMTEyMjIzMzM0NDQ1NTU2NjY3Nzc4ODg5OTk6Ojo7Ozs8PDw9PT0+Pj4/Pz9AQEBBQUFCQkJD
+Q0NERERFRUVGRkZHR0dISEhJSUlKSkpLS0tMTExNTU1OTk5PT09QUFBRUVFSUlJTU1NUVFRVVVVW
+VlZXV1dYWFhZWVlaWlpbW1tcXFxdXV1eXl5fX19gYGBhYWFiYmJjY2NkZGRlZWVmZmZnZ2doaGhp
+aWlqampra2tsbGxtbW1ubm5vb29wcHBxcXFzc3N0dHR1dXV2dnZ3d3d4eHh5eXl8fHx9fX1+fn5/
+f3+AgICBgYGCgoKDg4OEhISFhYWGhoaHh4eIiIiJiYmKioqLi4uMjIyNjY2Ojo6Pj4+QkJCRkZGS
+kpKTk5OUlJSVlZWWlpaXl5eYmJiZmZmampqbm5ucnJydnZ2enp6fn5+goKChoaGjo6OkpKSlpaWm
+pqanp6eoqKipqamqqqqrq6usrKytra2urq6vr6+wsLCxsbGysrKzs7O0tLS1tbW2tra3t7e4uLi5
+ubm6urq7u7u8vLy9vb2+vr6/v7/BwcHCwsLDw8PExMTFxcXGxsbHx8fIyMjJycnKysrLy8vMzMzN
+zc3Ozs7Pz8/Q0NDR0dHS0tLT09PU1NTV1dXW1tbX19fY2NjZ2dna2trb29vc3Nzd3d3e3t7f39/g
+4ODh4eHi4uLj4+Pk5OTl5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3u7u7v7+/w8PDx8fHy8vLz
+8/P09PT19fX29vb39/f4+Pj5+fn6+vr7+/v8/Pz9/f3+/v7///8LKbowAAASF0lEQVR4nO3deWAU
+5RnH8WgtVaposeLV1mpVqKhVCbkPTjk8iKEIosUGrQU8YjyI1mJjRQUFNYpa6kUESyJYNAg2EUVQ
+W+5KgwgEgpgEQgjknP+72bwk2Z3ZnXfmfWfnfZ/8Pn9gMjv77ku+GnPssxNnAGlxfm8AvIXAxCEw
+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
+cf8HEDYvImUbvZ0AAAAASUVORK5CYII="euler_m.png />
+</p>
+</div>
+
+<p>
+Te proponemos ahora el siguiente ejercicio:
+</p>
+<ul class="org-ul">
+<li>Modifica el código para obtener la aproximación a la solución usando un valor \(h = 0.001\), teniendo los valores desde \(x =0\) hasta \(x=1\).</li>
+<li>Compara la nueva tabla de valores con la anterior. ¿Qué estará pasando entre \(x=0.8\) y \(x=0.9\)?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6586846" class="outline-2">
+<h2 id="org6586846">La solución analítica</h2>
+<div class="outline-text-2" id="text-org6586846">
+<p>
+No siempre es posible resolver una ecuación diferencial en términos de funciones 
+conocidas. Sin embergo, nuestro ejemplo es un caso sencillo que puede
+resolverse mediante la técnica de <i>separacióbn de variables</i>.
+</p>
+
+<p>
+Reescribimos nuestra ecuación diferencial usando la notación \(dy/dx\), es decir, tenemos
+</p>
+\begin{equation}
+\frac{dy}{dx} = \frac{xy^3}{3},
+\end{equation}
+<p>
+separamos las variables y tenemos
+</p>
+\begin{equation}
+\frac{dy}{y^3} = \frac{x dx}{3},
+\end{equation}
+<p>
+por lo que integrando en ambos lados tenemos
+</p>
+\begin{equation}
+-\frac{1}{2y^2} = \frac{x^2}{6} + c,
+\end{equation}
+<p>
+usando la condición inicial \(y(0) = 2\) encontramos que la constante es
+</p>
+\begin{equation}
+c = -\frac{1}{8},
+\end{equation}
+<p>
+y por lo tanto, nuestra solución está dada por 
+</p>
+\begin{equation}
+-\frac{1}{2y^2} = \frac{x^2}{6} - \frac{1}{8} = \frac{4x^2 - 3}{24}
+\end{equation}
+<p>
+si resolvemos para \(y\) entonces
+</p>
+\begin{equation}
+\frac{12}{3- 4x^2} = y^2.
+\end{equation}
+
+<p>
+Si suponemos que \(x\) toma valore muy cercanos a \(0\), entonces podríamos tomar por, ejemplo, la raíz positiva y 
+tendríamos 
+</p>
+\begin{equation}
+y = \frac{2\sqrt{3}}{\sqrt{3- 4x^2}}.
+\end{equation}
+
+<p>
+Al analizar esta identitdad, vemos que \(y\) tiene una singularidad en
+</p>
+\begin{equation}
+x = \pm \frac{\sqrt{3}}{2} \approx 0.866
+\end{equation}
+
+<p>
+Si hacemos la gráfica de esta expresión para los valores de \(x\) iguales a
+veremos que se produce una asíntota vertical.
+</p>
+
+
+<div class="figure">
+<p><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeAAAAHgCAMAAABKCk6nAAAC31BMVEUAAAABAQECAgIDAwMEBAQH
+BwcICAgJCQkKCgoLCwsMDAwNDQ0ODg4PDw8QEBARERESEhITExMUFBQVFRUWFhYXFxcYGBgaGhob
+GxscHBwdHR0eHh4fHx8hISEiIiIkJCQlJSUmJiYnJycoKCgpKSkqKiosLCwtLS0uLi4vLy8wMDAx
+MTEyMjIzMzM0NDQ1NTU2NjY3Nzc4ODg5OTk6Ojo7Ozs8PDw9PT0+Pj4/Pz9AQEBBQUFCQkJDQ0NE
+RERFRUVGRkZHR0dISEhJSUlKSkpLS0tMTExNTU1OTk5PT09QUFBRUVFSUlJTU1NUVFRVVVVWVlZX
+V1dYWFhZWVlaWlpbW1tcXFxdXV1eXl5fX19gYGBhYWFiYmJjY2NkZGRlZWVmZmZnZ2doaGhpaWlq
+ampra2tsbGxtbW1ubm5vb29wcHBxcXFycnJzc3N0dHR1dXV2dnZ3d3d4eHh6enp8fHx9fX1+fn5/
+f3+AgICBgYGDg4OEhISFhYWHh4eIiIiJiYmKioqLi4uMjIyNjY2Ojo6Pj4+QkJCRkZGSkpKTk5OU
+lJSVlZWWlpaXl5eYmJiZmZmampqbm5ucnJydnZ2enp6fn5+goKChoaGioqKjo6OkpKSlpaWmpqan
+p6eoqKipqamqqqqrq6usrKytra2urq6vr6+wsLCxsbGysrKzs7O0tLS2tra3t7e4uLi5ubm6urq7
+u7u8vLy9vb2+vr6/v7/AwMDBwcHCwsLDw8PExMTFxcXGxsbHx8fIyMjJycnKysrLy8vMzMzNzc3O
+zs7Pz8/Q0NDR0dHS0tLT09PU1NTV1dXW1tbX19fY2NjZ2dna2trb29vc3Nzd3d3e3t7f39/g4ODh
+4eHi4uLj4+Pk5OTl5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3u7u7v7+/w8PDx8fHy8vLz8/P0
+9PT19fX29vb39/f4+Pj5+fn6+vr7+/v8/Pz9/f3+/v7////BmruKAAAT8ElEQVR4nO2djV9VdZ7H
+aVK33MZmzWzU3VZ3ptxR29IEDOXBVHxII8hN8yl6HHUrI0uG1nCdNrSsuWbrMrZm5PjA2DiiZEGK
+DeaoGJqREaE2CijyIHDh/AF7vZhwz73Avef38D18z+fd6yW3+8Pv58t96/V37zn3e8IMwJow6gaA
+WiCYORDMHAhmDgQzB4KZA8HMgWDmQDBzIJg5EMwcCGYOBDMHgpkDwcyBYOZAMHMgmDkQzBwIZg4E
+MweCmQPBzIFg5kAwcyCYORDMHAhmDgQzB4KZA8HMgWDmQDBzIJg5EMwcCGYOBDMHgpkDwcyBYOZA
+MHMgmDkQzBwIZg4EMweCmQPBzIFg5kAwcyCYORDMHAhmDgQzB4KZA8HMgWDmQDBzBASfywI2YHOj
+KsEfzHQBesK/ViZ4jfXfC6QxH4J5A8HMgWDmQDBzIJg5EMwcCGYOBDMHgpkDwcyBYLtwtExJWQi2
+Cwu/UFIWgu3C2AYlZSHYJjRHqakLwTbhWLKauhBsE37vUlMXgm3C4kI1dSHYJkRfVlMXgu1B8xhF
+hSHYHhQvUFQYgu3Be28rKgzB9uDZzxUVhmB7EFOvqDAE24IWVXssCLYHJ+apqixFcHVLgDshOAQ2
+KnuwhAXXLR/SM6zH4DS/YyEQHALPF6iqLCx47rT8yqbKfYnzzQsQHAKxtaoqCwvuW+f94h5kXoDg
+4FG3xxIXPHyr90vuCPMCBAfPyTnKSgsLLhg4NHFB0rABB80LEBw8m95QVlp8F+3OWbdi7R633/0Q
+HDwv7FNWWtbr4Kqd126W5XhZkmq9K6cRV6OstCzBn/W6dnN/upeIida7chgK91gK38lanGj99zqM
+ktnqassRXBHgKQaCgyZrlbrawoLj642v7w67fsJZ8wIEB82L+epqCwsOqzGiF5WeXvKgeQGCg2b8
+JXW1ZQju0+R5sdTPvADBQaNwjyVBcIkxosQwigebFyA4WE49orC4sOAxA3r3mWjk9VttXoDgYNn8
+usLiEnbR9cUHjP1b/e6G4GBZ+qnC4ngdTM+EaoXFIZieSJXFIZic0pkqq0MwOVteU1kdgsl5aa/K
+6hBMzqQLKqtDMDkq38eCYHrKHlZaHoKp2bZSaXkIpmZZrtLyEExNfJXS8hBMjdL3sSCYnHLFDxME
+E5O9Qm19CCYmdbfa+hBMzOQKtfUhmBjFeywIJuZsguIACKZlx6uKAyCYlrRdigMgmJap5xQHQDAt
+qvdYEEzLDzNUJ0AwKR8tV50AwaS8srPr7xEDgkl54G+qEyCYFOV7LAgm5dwDyiMgmJKdryiPgGBK
+ln+kPAKCKZlxRnkEBFOifo8FwZRUTFOfgTlZhOxKU5+BOVmEvLpDfQbmZBGScFp9BuZkEaJhj4U5
+WYRUTtEQgjlZdOzWMVEbc7LoWJGtIUTBxPevsrxM0vEE1K15qFxDiIKJ7391eYmeZL0rZxCuIwTv
+ZJFxYbKOFEmCA1w1BIK7IHeZjhRJgnv73wXBXbBym44UYcGLel0hrFcv8wIEd0FSmY4UYcG1yeFH
+zp694Szeiw4VLXssGU/R2+/cgafo0Lmo51WGjH+Dz9z/OASHzN6XtMRI2WS1vBngqgMQ3DmvbdES
+g9fBVMws1RIDwVRE6ImBYCIuabp2JwQT8elSPTkQTMTrm/XkQDARj5zSkwPBRIS36MmBYBpqJ2gK
+gmAa8l/UFATBNKzK0hQEwTTMLtEUBME0RGjaY0EwDbXjdSVBMAn7XtCVBMEkvLFJVxIEkzDnpK4k
+CCZB2x4Lgkmoj9MWBcEUFDyvLQqCKVizUVsUBFMw74S2KAimILJZWxQEE3A5Rl8WBBPw+bP6siCY
+gLff05cFwQQsKNaXBcEEaNxjQTABDRr3WBBMQOFijWEQrB/XBo1hEKyf5GMawyBYP5FujWFSBFcH
+OroJwR3QME5nmrDguuVDeob1GJzWYF6A4A74YqHONGHBc6flVzZV7kucb16A4A54J1NnmrDgvnXe
+L+5B5gUI7oAnjupMExY8vHWQcO4I8wIEd8B9TTrThAUXDByauCBp2ICD5gUIDkyj1j2WhF20O2fd
+irV7/Hf+EByYQ89ojVMwEPwqEByYd9drjVMwEPwwBoJ3xlOHtcYpeCfrBEb6d8Z9jVrjMBBcM+6x
+evMwEFwzh5/Sm4eB4JpZ/67ePAwE18wzh/TmYSC4Zsbq3WNhILhm3FGaAzEQXC9Hn9AciDM69JL5
+juZACNbLQr+DMoqBYL2Mvaw5EIK10qx7jwXBejmWrDsRgrWywaU7EYK1srhQdyIEayVa9x4LgrXS
+PEZ7JATrpHiB9kgI1sl7b2uPhGCdPPu59kgI1klMvfZICNZIi/49FgTr5MQ8/ZkQrJGNa/RnQrBG
+ni/QnwnBGomt1Z8JwfpoiSQIhWB9nJxDEArB+tj0BkEoBOvjhQCf4FIOBOsjroYgFIK1QbLHgmB9
+lMymSIVgbWStokiFYG28mE+RCsHaGH+JIjU4wf+RH/oQegg2QXCs0AhW8Et39n8iJ8QBbRDsy6kA
+n8DUQLBP0Sd/G9H30e2hnJAAwb5sfp0kNljBNdsfv+UXEX3WBV8Zgn1Z+ilJbHCCX4/9+9hVJYbx
+xW3BV4ZgXyZUk8QGJ3juH1q7a9oW+NsqArwJB8G+kLyPJeFlUny98fXdYddPwJSdzimdSZMrLDis
+xoheVHp6yYPmBQj2YctrNLkyBPfxvIBy9zMvQLAPL+2lyRUXXGKM8Gy/igebFyDYh0kXaHKFBY8Z
+0LvPRCOv32rzAgT7QPM+lpT3ouuLDxj7t/rdDcHtKUsiCsbEdz1sW0kUrGDie0G6l4iJ1rvix7Jc
+omAFhwu/y/EyfZq1jngSX0kULElwgCNNeIpuD9H7WBIEn50f5To4+PrIb80LENyO8oeokoUFT5qe
+Nfa2TaW/jjcvQHA7sldQJQsL7lNlfDzMMC7+g3kBgtuRupsqWVjwwGKjYo9hHPln8wIEt2NKBVWy
+sOA1tz7n+dX1S7/nIAhuRwRZsvguumi755ff/sHvfghu46zfsTZt4LRZHex4lSwagnWQtossGoI1
+0BR+kSwbgjWQQfKppFYgWD0VEZovhtUeCFZPst+hVI1AsHIOzaBMh2DlxH5FmQ7Bqtm0lDQeghVT
+N5LuJdIVIFgxyzbQ5kOwWr6LbqFtAILVkniAuAEIVkoewQhwXyBYJe6I09QtQLBK3qI63b0NCFZI
+5SjtV7LzA4IV8usd1B1AsEqOTaDuwIBglcQfp+7AgGCFbHmOuoMrQLAqGkYTfabfFwhWxfIQhsYp
+BIIV8X1k6PNbVQDBiniEZnKhHxCshn00s2X9gWAlNEeVUrdwFQhWwrv/Sd3Bj0CwCqpH67/UdwdA
+sAqe20LdwTUgWAEn7fAm9FUgWAFTjlB30AYEy2fXM9QdtEOK4OpAZw46VnDDveepW2iHsOC65UN6
+hvUYnNZgXnCs4JVvUXfQHmHBc6flVzZV7kucb15wquAfRod4gSm1CAvuW+f94h5kXnCq4Hl04xoC
+ISx4eOuk6NwR5gWHCj5osx9bWHDBwKGJC5KGDThoXnCm4Ja4U9Qt+CK+i3bnrFuxdo/b735nCt6w
+jLoDE5j4LpXa0QEuEUaKgonve1O8/Nt46111W5a+T92BGQXvZJ0r9PLwdGsddWdKxhF/WNQfTHyX
+yYy/UHfgBya+S2RPMnUH/mDiuzzc4WeoW/AHE9/lsZrmGt+dg4nv0iCdWNghmPgujSf/RN1BIDDx
+XRZF9nxZiDM6ZBF3grqDgECwJLJSqDsIDATLgXpiYYdAsBzS/pe6gw6AYCmUjbHHh0X9gWApPFxA
+3UFHQLAM8udQd9AhECyB5qhy6hY6BIIl4Eqn7qBjIFicKhtMLOwQCBZnUTZ1B50AwcJ8aaMPi/oD
+wcLEH6XuoDMgWJTti6k76BQIFuTLkVXULXQKBItRMPIkdQudA8FCbIv6G3ULXQDBIrw7vZa6ha6A
+YOu0pM611We9AwLBlnEn2/QkDh8g2Co1U35H3UIwQLBFKmL+SN1CUECwNb4ZlU/dQnBAsCWOhNvh
+iirBAMFW2B3+PXULwQLBFtgw3qbnyAYAgkMnI8E206C7BoJDpeX5hXY9RTYQEBwil5P+i7qFkIDg
+0KiKtd0cnc6B4JA4HfFn6hZCBIJD4djIQ9QthAoEh8D+SLtcDSl45AiuCDDAj5/grVHnqFsIHWHB
+8fXG13eHXT/hrHmBneB10+uoW7CAsOCwGiN6UenpJQ+aF5gJbkmdZ/+j+wGQIbiP5yd39zMv8BLc
+9FgqdQvWEBdcYowoMYziweYFVoJrJruoW7CIsOAxA3r3mWjk9VttXuAk+HzMDuoWrCJhF11ffMDY
+v9XvbkaCvxn1GXULlsHE9675y8jucnQ/AAomvv8p2cvQWOtd2Yqc7nN0PwAK3sm6VOJlrt8Lp+7J
+7+/vPkf3AyBBcOuHry6Y72byFJ0x244zZINHWPCRO667fZthXPb7ThaC3U93q6P7ARAWPHrJhY/7
+5zMVfDlpJXULoggLvumSYWz/ZSNLwcXRWdQtCCMs+F+vXIsx8WmGgssfm2yjK3lbRVjwRzfGVRhV
+99zFTfCl9HG51D3IQHwXXfZ+jWE0fuj3SbtuLbjBFZllu2tcWQJndASgOSvC1S2PDQYAgv3JCU+p
+pu5BGhBsZn9s8g/UPUgEgn35MvGhb6h7kAoEt6csefxfqXuQDAS3UZEStZe6B+lA8I/Upt/L5JWR
+DxDcSnPmPS43dRMqgGAvOWPSu+NJz0EAwR4+i0ux90RRASDYKEqcbd9ragjjeMGlyeMZHDPqGIcL
+Pp8y7lPqHtTiaME1nldG1D2oxsGCG11MXxn54FjB7vdHZTRQN6EBZwpu/uTpUWl8Dgl2hhMFF6VG
+Lsxj+K5kQBwnuCh1ZLJj7BpOE1yUOmpWNpeTcYLDQYKLUu+dld29P4diAacIPpUxbla2E3bNZhwh
++NuM2MlZNr4ErEr4C/4uI2ZyZoA5Xg6BueDvM6KnZDrjBW8HcBZ8PnPGtMxu/eltCbAVXJk5NSqj
+G44elA1PwVWZU8dmcDp93Tr8BJ/a9Oy48W/Z/aKg2mAl+GJeevyw+PQ8pufPWYKL4MbCjFnRU1Kz
+8a+uCQaC3UWZC8ePW5hZpCmve9HNBZdnp06LmJVRyP/MDKtIEVwd6PCbasEX8zIShnv+wbX9Nbhp
+ERZct3xIz7Aeg9P83shXKLixyDVrdFxqNrbKXSMseO60/Mqmyn2J880LagSf+2L9U/dFP/fBtyqK
+c0RYcN/W1yTuQeYFqYLrT+xe/5t5cWPvm7543WH8gxsCwoKHt06Kzh1hXpAiuLIw25WSEB0TNyvF
+lVN0SUJFpyEsuGDg0MQFScMGHDQviAiuL8nJTE+OCR+TsDA9q7DcQadQSUd8F+3OWbdi7R7/p00L
+ghvLC7PSFyaEh8ckp7pySpx18pQi9E98d1eeKTlamJuTtdG1Ov3llCcfS3ggJuLKf9GRcY8ue2fn
+MecenFeBgonv2xO8DInz+YYXYsaM83qMmZbw2BMpL6evcm3M2pVbeKTkTCX+qqpDwTtZjZVe1q3y
+ubfWcecz2gN1E98/WGOpISAXdRPfIdgWqJv4DsG2QN3Edwi2BeomvkOwLVA38R2CbYG6ie8QbAvU
+ndEBwbYAgpkDwcyBYOaoE7zzVzHtuelncrjxp3Lq3HyDnDo/6yWpTm9Jj9DNfX0e93/pfA6ngGAT
+UZLqLPtETp3jj8upI+0H++9tcur88FAo3w3BXQLBrUBwF0BwKxDcBRDcCgR7geAugeBWYiTV+U2e
+nDpfPSmnjrQfbNUf5dQ5lxTKd8sTLGvUTU2zpEKyzqKX9YPVyTr1MKSG5AkGtgSCmQPBzIFg5kAw
+cyCYORDMHAhmjgTBB0b0nVdnuiVW56Nf3RR+VEZDhlG7SEad8gk3j7Y+NKStzrYhP50iNGFzVbm5
+ZFeIC3YP3FI3dbnvLbE6ZTf++dKSOyQ05CG5V6ffG1ydlqH/1/Dyv4vXOf932VUPzrXckNG0u/dx
+U8kuERecM9Qw8of43hKr836cYVy4zvIFf9u3sT3cuuC2Oh/f5XlwvxOvU9DfMDbfbbkhY9adPY6b
+SnaJuOB1iYZR2dP3llidmgrPY3q7hIaMM3cesS64rc7a+Jn/NLVUvM6lW98rm+z3AYJQ6H/cVLJL
+xAWvWOD54x1W7XNLrI6H7f2tH1trK9Ry/46z1gW3+8HCPqxecq94HWNNWK9bzltuyLgmOIRHWlzw
+2iTPn6YeLT63xOoYF5J+kS+joTcfNwQEt9X53XDDOH1dpXCdvNu+bHh1uOWGjGuCQ3ikxQXv9nS8
+b7DvLbE6jSOfEhkH0Vbokd69bwjrvU+4zs5hHsE/sfrU1FYndY5hVP9E5K/wVcEhPNISdtE/z3Un
+phnGZ1U/3hKt8+Fdlz1IaMjzPwJ/g9vqNN66szllrHidnbccqk2zvAu9gldwSI+0hNfBhcMHzWsw
+jF47f7wlWufFsCv4zQSx0JCQ4HZ1Cob1nVgmoc6bt/eJLrbe0FXBIT3SeCeLORDMHAhmDgQzB4KZ
+A8HMgWDmQDBzIJg5EMwcCGYOBDMHgpkDwcyBYOZAMHMgmDkQzBwIZg4EMweCmQPBzHGy4P+JMppH
+7KDuQjFOFtwSsXHNDOomVONkwcbRQf/4PXUPqnG0YCNa4Cr13QRHC/5k6M8PU/egGicLbrgjb30E
+dROqcbLgVx41Wu7JpO5CMU4W7AggmDkQzBwIZg4EMweCmQPBzIFg5kAwcyCYORDMHAhmDgQzB4KZ
+A8HMgWDmQDBzIJg5EMyc/wclPTQUzlh9mwAAAABJRU5ErkJggg=="euler_a.png />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: <br> Daniel Ballesteros Chávez,<br> Jorge F. Becerril Cejudo <br> Karla J. Melo Rascon  <br> (<a href="mailto:huehueocelotl@gmail.com">huehueocelotl@gmail.com</a>)</p>
+<p class="date">Date: 2024-10-13 Sun 00:00</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.3.6)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
