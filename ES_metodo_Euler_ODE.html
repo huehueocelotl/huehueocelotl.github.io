@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2025-03-08 Sat 18:23 -->
+<!-- 2025-03-08 Sat 18:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Método de Euler para <br>  EDOs de primer orden (en C)</title>
@@ -363,10 +363,10 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf397e9f">Ecuaciones diferenciales y métodos numérico</a></li>
-<li><a href="#org29537ac">El método de Euler</a></li>
-<li><a href="#org4b14e12">Ejemplo en C</a></li>
-<li><a href="#org3a39036">La solución analítica</a></li>
+<li><a href="#org605fad6">Ecuaciones diferenciales y métodos numérico</a></li>
+<li><a href="#org682a1c4">El método de Euler</a></li>
+<li><a href="#org6f2f7d1">Ejemplo en C</a></li>
+<li><a href="#orgfd63ef6">La solución analítica</a></li>
 </ul>
 </div>
 </div>
@@ -378,9 +378,9 @@ for the JavaScript code in this tag.
 </p>
 
 
-<div id="outline-container-orgf397e9f" class="outline-2">
-<h2 id="orgf397e9f">Ecuaciones diferenciales y métodos numérico</h2>
-<div class="outline-text-2" id="text-orgf397e9f">
+<div id="outline-container-org605fad6" class="outline-2">
+<h2 id="org605fad6">Ecuaciones diferenciales y métodos numérico</h2>
+<div class="outline-text-2" id="text-org605fad6">
 <p>
 En esta nota, vamos a describir el Método de Euler para aproximar una curva integral de una ecuación diferencial
 (o si se prefiere, la gráifica de una solución).
@@ -402,9 +402,9 @@ y(x_0) = y_0.
 </div>
 
 
-<div id="outline-container-org29537ac" class="outline-2">
-<h2 id="org29537ac">El método de Euler</h2>
-<div class="outline-text-2" id="text-org29537ac">
+<div id="outline-container-org682a1c4" class="outline-2">
+<h2 id="org682a1c4">El método de Euler</h2>
+<div class="outline-text-2" id="text-org682a1c4">
 <p>
 El método de Euler consiste en el siguiente algoritmo:
 </p>
@@ -426,9 +426,9 @@ y_{i+1} & = y_{i} + h\,f(x_{i},y_{i}) \\
 </div>
 
 
-<div id="outline-container-org4b14e12" class="outline-2">
-<h2 id="org4b14e12">Ejemplo en C</h2>
-<div class="outline-text-2" id="text-org4b14e12">
+<div id="outline-container-org6f2f7d1" class="outline-2">
+<h2 id="org6f2f7d1">Ejemplo en C</h2>
+<div class="outline-text-2" id="text-org6f2f7d1">
 <p>
 Consideremos la siguiente ecuación
 </p>
@@ -695,13 +695,13 @@ Te proponemos ahora el siguiente ejercicio:
 </div>
 </div>
 
-<div id="outline-container-org3a39036" class="outline-2">
-<h2 id="org3a39036">La solución analítica</h2>
-<div class="outline-text-2" id="text-org3a39036">
+<div id="outline-container-orgfd63ef6" class="outline-2">
+<h2 id="orgfd63ef6">La solución analítica</h2>
+<div class="outline-text-2" id="text-orgfd63ef6">
 <p>
 No siempre es posible resolver una ecuación diferencial en términos de funciones 
 conocidas. Sin embergo, nuestro ejemplo es un caso sencillo que puede
-resolverse mediante la técnica de <i>separacióbn de variables</i>.
+resolverse mediante la técnica de <i>separación de variables</i>.
 </p>
 
 <p>
