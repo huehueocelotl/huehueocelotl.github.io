@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2025-04-04 Fri 17:09 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ejemplos para calcular la raíz cuadrada y la raíz cúbica</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="@@html:&lt;br&gt;@@ Daniel Ballesteros Chávez,@@html:&lt;br&gt;@@ Jorge F. Becerril Cejudo @@html:&lt;br&gt;@@ Karla J. Melo Rascon  @@html:&lt;br&gt;@@" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>  body { background:#F5F5F7 ; max-width: 768px; margin: 20px auto; color: ; font-family: 'Grandstander';} </style>
+<style> :root {--col0: #1b263b; --col1: #edf2f4; --col2: #03C988; --col3: #ef233c; --col4: #d90429; --col5: #173f5f;} </style>
+<style> h2 { background: var(--col2) ; color: var(--col0);  font-weight: bold; display: block; padding: 10px 20px;  } </style>
+<style> .thm {background-color: #BFF2FF; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .thm:before {content: "Teorema: "; font-weight: bold}</style>
+<style> .mydef {background-color: #A2EEB2; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .mydef:before {content: "Definición: "; font-weight: bold}</style>
+<style> .prop {background-color:  #FFAE33; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .prop:before {content: "Proposición: "; font-weight: bold}</style>
+<style> .lemm {background-color:  #FFAE33; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .lemm:before {content: "Lema: "; font-weight: bold}</style>
+<style> .xmpl {background-color: #DBEDDC; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .xmpl:before {content: "Ejemplo: "; font-weight: bold}</style>
+<style> .warn {background-color: #FFA500; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .warn:before {content: "Important remark: "; font-weight: bold}</style>
+<style>  th {background-color: #f55fc3;} tr:nth-child(odd) {background-color: #e2e2e2;}  table tr:hover {background-color: #d0c6e5;} </style>
+<style>  p {text-align: justify;} </style>
+<style>  pre {border: 1px solid #ccc; box-shadow: 3px 3px 3px #eee; padding: 8pt; font-family: monospace; overflow: auto; margin: 1.2em; border-radius: 10px;}</style>
+<style>code {background-color: #ccc}</style>
+
+<script type="text/javascript" src="https://orgmode.org/org-info.js">
+/**
+ *
+ * @source: https://orgmode.org/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in https://orgmode.org/org-info.js.
+ *
+ * Copyright (C) 2012-2020 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in https://orgmode.org/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "0");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Ejemplos para calcular la raíz cuadrada y la raíz cúbica</h1>
+<div id="table-of-contents">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgda925b4">Raíces cuadradas y cúbicas</a></li>
+<li><a href="#org4f310d8">Tabla de cuadrados y cubos</a></li>
+<li><a href="#orgf76b4f5">Raiz Cuadrada a mano</a></li>
+<li><a href="#org6fbea25">Raiz cúbica a mano</a></li>
+</ul>
+</div>
+</div>
+<br><br><br>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+<p>
+<a href="./index.html">Home</a>
+</p>
+
+
+<div id="outline-container-orgda925b4" class="outline-2">
+<h2 id="orgda925b4">Raíces cuadradas y cúbicas</h2>
+<div class="outline-text-2" id="text-orgda925b4">
+<p>
+En esta nota, simplemente escribiremos dos ejemplos resuleltos de algoritmos que pueden emplearse para
+el cálculo de las raíces cuadradas y las raíces cúbicas de números.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4f310d8" class="outline-2">
+<h2 id="org4f310d8">Tabla de cuadrados y cubos</h2>
+<div class="outline-text-2" id="text-org4f310d8">
+<p>
+En estos ejemplos, podemos apoyarnos en la siguiente tabla de potencias de los primeros
+veinte enteros positivos
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">N</th>
+<th scope="col" class="org-right">N<sup>2</sup></th>
+<th scope="col" class="org-right">N<sup>3</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">4</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">9</td>
+<td class="org-right">27</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">16</td>
+<td class="org-right">64</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">25</td>
+<td class="org-right">125</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">36</td>
+<td class="org-right">216</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-right">49</td>
+<td class="org-right">343</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">64</td>
+<td class="org-right">512</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-right">81</td>
+<td class="org-right">729</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-right">100</td>
+<td class="org-right">1000</td>
+</tr>
+
+<tr>
+<td class="org-right">11</td>
+<td class="org-right">121</td>
+<td class="org-right">1331</td>
+</tr>
+
+<tr>
+<td class="org-right">12</td>
+<td class="org-right">144</td>
+<td class="org-right">1728</td>
+</tr>
+
+<tr>
+<td class="org-right">13</td>
+<td class="org-right">169</td>
+<td class="org-right">2197</td>
+</tr>
+
+<tr>
+<td class="org-right">14</td>
+<td class="org-right">196</td>
+<td class="org-right">2744</td>
+</tr>
+
+<tr>
+<td class="org-right">15</td>
+<td class="org-right">225</td>
+<td class="org-right">3375</td>
+</tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-right">256</td>
+<td class="org-right">4096</td>
+</tr>
+
+<tr>
+<td class="org-right">17</td>
+<td class="org-right">289</td>
+<td class="org-right">4913</td>
+</tr>
+
+<tr>
+<td class="org-right">18</td>
+<td class="org-right">324</td>
+<td class="org-right">5832</td>
+</tr>
+
+<tr>
+<td class="org-right">19</td>
+<td class="org-right">361</td>
+<td class="org-right">6859</td>
+</tr>
+
+<tr>
+<td class="org-right">20</td>
+<td class="org-right">400</td>
+<td class="org-right">8000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-orgf76b4f5" class="outline-2">
+<h2 id="orgf76b4f5">Raiz Cuadrada a mano</h2>
+<div class="outline-text-2" id="text-orgf76b4f5">
+<p>
+El algoritmo se basa en el siguente binomio cuadrado
+\[
+(10 a + b)^2 = 100 a^2 + \left(10 (2a) + b\right) b,
+\]
+en donde asumiremos que \(a\) y \(b\) son enteros entre \(0\) y \(9\).
+</p>
+
+<p>
+A continuación un ejemplo resuelto: <br />
+</p>
+\begin{equation*}
+\begin{array}{r|l}
+\sqrt{10 \ 49 \ 76} & {\color{red}{3}} {\color{green}{2}}{\color{blue}{4}}\\
+ -9  \ \ \ \ \ \ \ \ \ \ &  \\
+\hline
+ 1 \  49 \ \ \ \ \  & {\color{red}{6}}{\color{green}{2}} \\
+ -1 \ 24 \ \ \ \ \ &  \\
+\hline
+\ \  \  \ 25  \ 76 &   {\color{green}{64}}{\color{blue}{4}} \\
+\ \  \  - 25  \ 76 &   \\
+\hline
+0 &   \\
+\end{array}
+\end{equation*}
+
+<p>
+Nota: Al multiplicar \(62 \times 2\) obtenemos el  \(124\) que aparece en el segundo bloque,
+y de manera similar \(644 \times 4 = 2576\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6fbea25" class="outline-2">
+<h2 id="org6fbea25">Raiz cúbica a mano</h2>
+<div class="outline-text-2" id="text-org6fbea25">
+<p>
+El algoritmo se basa en el siguente binomio al cubo
+\[
+(10 a + b)^3 = 10^3 a^3 + 300 a^2 b + 30 ab^2 + b^3,
+\]
+en donde asumiremos que \(a\) y \(b\) son enteros entre \(0\) y \(9\).
+</p>
+
+<p>
+A continuación un ejemplo resuelto: <br />
+</p>
+
+
+\begin{equation*}
+\begin{array}{r|l}
+\sqrt{12 \ 358 \ 435 \ .\ 328 } & {\color{red}{2}}{\color{green}{3}}{\color{blue}{1}}.{\color{orange}{2}}\\
+ - 8 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ &  \\
+\hline
+ 4 \  358 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ &  \\
+& \\
+& 
+\begin{array}{rrr}                             
+300 \times ({\color{red}{2}} )^2 \times (\, {\color{green}{3}} \,)\, = &  1200 \times (\, {\color{green}{3}} \,)  = & 3600 \\
+30 \times ({\color{red}{2}} ) \times (\, {\color{green}{3}} \,)^2  = &    60 \times (\, {\color{green}{9}} \,)  = & 540 \\
+ (\, {\color{green}{3}} \,)^3  = &   = &  27 \\
+& \mbox{suma} \,= & 4167 
+\end{array} 
+ \\
+ -4 \ 167 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ &  \\
+\hline
+0 \ 191 \  435 \ \ \ \ \ \ \ \ \ \  &    \\
+& \\
+& 
+\begin{array}{rrr}                             
+300 \times (23 )^2 \times (\, {\color{blue}{1}} \,) \, = &  158700 \times (\, {\color{blue}{1}} \,)  = & 158700 \\
+30 \times (23) \times (\, {\color{blue}{1}} \,)^2  = &    690 \times (\, {\color{blue}{1}} \,)  = & 690 \\
+ (\, {\color{blue}{1}} \,)^3  = &   = &  1 \\
+& \mbox{suma} \,= & 159391 
+\end{array} 
+ \\
+- 159 \ 391 \ \ \ \ \ \ \ \ \ \  &   \\
+\hline
+032 \ 044 \ \ \ \ 328    &   \\
+ &   \\
+& 
+\begin{array}{rrr}                             
+300 \times (231 )^2 \times (\, {\color{orange}{2}} \,) \, = &  16008300 \times (\, {\color{orange}{2}} \,)  = & 32016600 \\
+30 \times (231) \times (\, {\color{orange}{2}} \,)^2  = &    6930 \times (\, {\color{orange}{4}} \,)  = & 27720 \\
+ (\, {\color{orange}{2}} \,)^3  = &   = &  8 \\
+& \mbox{suma} \,= & 32044328 
+\end{array} 
+ \\
+ \ 32 \ 044 \ \ \ \ 328  &   \\
+\hline
+0 & \\
+\end{array}
+\end{equation*}
+
+<p>
+<br />
+<br />
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: <br> Daniel Ballesteros Chávez,<br> Jorge F. Becerril Cejudo <br> Karla J. Melo Rascon  <br> (<a href="mailto:huehueocelotl@gmail.com">huehueocelotl@gmail.com</a>)</p>
+<p class="date">Date: 2025-04-04 Fri 00:00</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.3.6)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
