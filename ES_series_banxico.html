@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
+<!-- 2025-07-21 pon 22:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Huehueocelotl</title>
-<meta name="author" content="Huehueocelotl" />
+<title>Dashboard minimalista - (datos de Banxico)</title>
+<meta name="author" content="@@html:&lt;br&gt;@@ Daniel Ballesteros Chávez,@@html:&lt;br&gt;@@ Jorge F. Becerril Cejudo @@html:&lt;br&gt;@@ Karla J. Melo Rascon  @@html:&lt;br&gt;@@" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -192,42 +193,132 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<link href=' http://fonts.googleapis.com/css?family=Grandstander' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="https://huehueocelotl.github.io/css/style.css" />
-<meta name="viewport" content="width=1024">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<style> #content {background:#FF9900; padding-top: 10px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px} </style>
-<style> div.outline-2 { background:#DEFFFF; color:#525252; max-width: 65%; margin: 20px auto; color: ; font-family: 'Grandstander'; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 0px; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px} </style>
-<style> div.outline-2:hover { background:#92ffff;}
-<style> div.outline-text-2 { background:#DEFFFF; color:#525252; max-width: 65%; margin: 20px auto; color: ; font-family: 'Grandstander'; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 0px; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px} </style>
+<style>  body { background:#F5F5F7 ; max-width: 768px; margin: 20px auto; color: ; font-family: 'Grandstander';} </style>
+<style> :root {--col0: #1b263b; --col1: #edf2f4; --col2: #03C988; --col3: #ef233c; --col4: #d90429; --col5: #173f5f;} </style>
+<style> h2 { background: var(--col2) ; color: var(--col0);  font-weight: bold; display: block; padding: 10px 20px;  } </style>
+<style> .thm {background-color: #BFF2FF; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .thm:before {content: "Theorem: "; font-weight: bold}</style>
+<style> .mydef {background-color: #A2EEB2; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .mydef:before {content: "Definition: "; font-weight: bold}</style>
+<style> .prop {background-color:  #FFAE33; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .prop:before {content: "Proposition: "; font-weight: bold}</style>
+<style> .xmpl {background-color: #DBEDDC; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .xmpl:before {content: "Example: "; font-weight: bold}</style>
+<style> .warn {background-color: #FFA500; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .warn:before {content: "Important remark: "; font-weight: bold}</style>
+<style>  th {background-color: #f55fc3;} tr:nth-child(odd) {background-color: #e2e2e2;}  table tr:hover {background-color: #d0c6e5;} </style>
+<style>  p {text-align: justify;} </style>
+<style>  pre {border: 1px solid #ccc; box-shadow: 3px 3px 3px #eee; padding: 8pt; font-family: monospace; overflow: auto; margin: 1.2em; border-radius: 10px;}</style>
+<style>code {background-color: #ccc}</style>
+<style>  .outline-2 {display: grid;  height: 80%;   grid-template-columns: 1fr 3fr;} </style>
+
+<script src="https://orgmode.org/org-info.js">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
+</script>
+
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "showall");
+org_html_manager.setup();  // activate after the parameters are set
+// @license-end
+</script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Huehueocelotl</h1>
+<h1 class="title">Dashboard minimalista - (datos de Banxico)</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf6df116">USD</a></li>
+<li><a href="#orgd057e99">EUR</a></li>
+<li><a href="#orgfa0e66a">YEN</a></li>
+<li><a href="#org4d240c0">PLN</a></li>
+<li><a href="#org2e82f32">Inflación IPC</a></li>
+<li><a href="#org3c7dccb">UDIS</a></li>
+<li><a href="#org128cffb">CETES</a></li>
+<li><a href="#orgda7bc38">PIB</a></li>
+</ul>
+</div>
+</div>
+<br><br><br>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
 <p>
 <a href="./index.html">Home</a>
 </p>
-<div id="outline-container-orge1f2a6c" class="outline-2">
-<h2 id="orge1f2a6c"><a href="./ES_Curso_python.html">Curso de Python (principiantes)</a></h2>
+<div id="outline-container-orgf6df116" class="outline-2">
+<h2 id="orgf6df116">USD</h2>
+<div class="outline-text-2" id="text-orgf6df116">
+<iframe src="https://www.banxico.org.mx/SieInternet/generaSerieGrafica.do?s=SF63528,CF372,1&l=es&versionSerie=LA-MAS-RECIENTE" width="80%" height="500"></iframe>
 </div>
-<div id="outline-container-orgc648ec4" class="outline-2">
-<h2 id="orgc648ec4"><a href="./ES_preparar_datos.html">Data wrangling: Preparando datos para analizar</a></h2>
 </div>
-<div id="outline-container-org6d93b91" class="outline-2">
-<h2 id="org6d93b91"><a href="./EN_Linux_terminal.html">Utilities of the Linux Terminal (aka Bash)</a></h2>
+<div id="outline-container-orgd057e99" class="outline-2">
+<h2 id="orgd057e99">EUR</h2>
+<div class="outline-text-2" id="text-orgd057e99">
+<iframe src="https://www.banxico.org.mx/SieInternet/generaSerieGrafica.do?s=SF57923,CF336,200&l=es&versionSerie=LA-MAS-RECIENTE" width="80%" height="500"></iframe>
 </div>
-<div id="outline-container-org943a1c9" class="outline-2">
-<h2 id="org943a1c9"><a href="./Manual_Booklet.html">Guia para iniciar en Linux</a></h2>
 </div>
-<div id="outline-container-orgbdfba7a" class="outline-2">
-<h2 id="orgbdfba7a"><a href="./ES_series_banxico.html">Dashboard Minimalista - Series de Banxico</a></h2>
+<div id="outline-container-orgfa0e66a" class="outline-2">
+<h2 id="orgfa0e66a">YEN</h2>
+<div class="outline-text-2" id="text-orgfa0e66a">
+<iframe src="https://www.banxico.org.mx/SieInternet/generaSerieGrafica.do?s=SF57841,CF336,122&l=es&versionSerie=LA-MAS-RECIENTE" width="80%" height="500"></iframe>
+</div>
+</div>
+<div id="outline-container-org4d240c0" class="outline-2">
+<h2 id="org4d240c0">PLN</h2>
+<div class="outline-text-2" id="text-org4d240c0">
+<iframe src="https://www.banxico.org.mx/SieInternet/generaSerieGrafica.do?s=SF57877,CF336,158&l=es&versionSerie=LA-MAS-RECIENTE" width="80%" height="500"></iframe>
+</div>
+</div>
+<div id="outline-container-org2e82f32" class="outline-2">
+<h2 id="org2e82f32">Inflación IPC</h2>
+<div class="outline-text-2" id="text-org2e82f32">
+<iframe src="https://www.banxico.org.mx/SieInternet/generaSerieGrafica.do?s=SP30578,CP151,4&l=es&versionSerie=LA-MAS-RECIENTE" width="80%" height="500"></iframe>
+</div>
+</div>
+<div id="outline-container-org3c7dccb" class="outline-2">
+<h2 id="org3c7dccb">UDIS</h2>
+<div class="outline-text-2" id="text-org3c7dccb">
+<iframe src="https://www.banxico.org.mx/SieInternet/generaSerieGrafica.do?s=SP68257,CP150,1&l=es&versionSerie=LA-MAS-RECIENTE" width="80%" height="500"></iframe>
+</div>
+</div>
+<div id="outline-container-org128cffb" class="outline-2">
+<h2 id="org128cffb">CETES</h2>
+<div class="outline-text-2" id="text-org128cffb">
+<p>
+<a href="https://www.banxico.org.mx/apps/dao-web/4/54/4/resultadosgubernamental.html">Resultados de la subasta acutalizada</a>
+</p>
+
+<p>
+CETES a 91 días
+</p>
+<iframe src="https://www.banxico.org.mx/SieInternet/generaSerieGrafica.do?s=SF43939,CF107,9&l=es&versionSerie=LA-MAS-RECIENTE" width="80%" height="500"></iframe>
+</div>
+</div>
+<div id="outline-container-orgda7bc38" class="outline-2">
+<h2 id="orgda7bc38">PIB</h2>
+<div class="outline-text-2" id="text-orgda7bc38">
+<iframe src="https://www.banxico.org.mx/SieInternet/generaSerieGrafica.do?s=SR16643,CR201,2&l=es&versionSerie=LA-MAS-RECIENTE" width="80%" height="500"></iframe>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2019-10-25 pią 00:00</p>
-<p class="author">Author: Huehueocelotl</p>
+<p class="date">Fecha: 2025-07-21 pon 00:00</p>
+<p class="author">Autor: <br> Daniel Ballesteros Chávez,<br> Jorge F. Becerril Cejudo <br> Karla J. Melo Rascon  <br></p>
+<p class="date">Created: 2025-07-21 pon 22:05</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
