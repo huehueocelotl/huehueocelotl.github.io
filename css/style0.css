@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('http://fonts.googleapis.com/css?family=Grandstander');
+
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: "Grandstander"; /* system-ui; */
+}
+
+body {
+    background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+block {
+  width: 18px;
+  height: 72px;
+  padding: 10px;
+  border: 5px solid black;
+  background:#FF9900;
+  margin: 0;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 900px;
+    margin-top: 80px;
+}
+
+.container > h1 {
+    font-size: 50px;
+    color: #2d2d2d;
+    text-shadow: #cccc 1px 1px;
+    margin-bottom: 20px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters > button {
+    font-size: 17px;
+    padding: 5px;
+    width: 90px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.filters > input, select {
+    padding: 5px;
+    width: 120px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: none;
+    outline: none;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.product img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-bottom: 10px;
+}
+
+
+
+div.outline-2 { background:#DEFFFF; color:#525252; max-width: 65%; margin: 20px auto; color: ; font-family: 'Grandstander'; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 0px; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px}
+div.outline-2:hover { background:#92ffff;}
+div.outline-text-2 { background:#DEFFFF; color:#525252; max-width: 65%; margin: 20px auto; color: ; font-family: 'Grandstander'; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 0px; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px}
