@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2025-08-14 czw 14:19 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fractales: El conjunto de Mandelbrot</title>
+<meta name="author" content="@@html:&lt;br&gt;@@ Daniel Ballesteros Chávez,@@html:&lt;br&gt;@@ Jorge F. Becerril Cejudo @@html:&lt;br&gt;@@ Karla J. Melo Rascon  @@html:&lt;br&gt;@@" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>  body { background:#F5F5F7 ; max-width: 768px; margin: 20px auto; color: ; font-family: 'Grandstander';} </style>
+<style> :root {--col0: #1b263b; --col1: #edf2f4; --col2: #03C988; --col3: #ef233c; --col4: #d90429; --col5: #173f5f;} </style>
+<style> h2 { background: var(--col2) ; color: var(--col0);  font-weight: bold; display: block; padding: 10px 20px;  } </style>
+<style> .thm {background-color: #BFF2FF; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .thm:before {content: "Teorema: "; font-weight: bold}</style>
+<style> .mydef {background-color: #A2EEB2; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .mydef:before {content: "Definición: "; font-weight: bold}</style>
+<style> .prop {background-color:  #FFAE33; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .prop:before {content: "Proposición: "; font-weight: bold}</style>
+<style> .lemm {background-color:  #FFAE33; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .lemm:before {content: "Lema: "; font-weight: bold}</style>
+<style> .xmpl {background-color: #DBEDDC; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .xmpl:before {content: "Ejemplo: "; font-weight: bold}</style>
+<style> .warn {background-color: #FFA500; padding: 10px 20px 10px 20px; box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1); border: 1px solid #404040; border-radius: 25px;}</style>
+<style> .warn:before {content: "Important remark: "; font-weight: bold}</style>
+<style>  th {background-color: #f55fc3;} tr:nth-child(odd) {background-color: #e2e2e2;}  table tr:hover {background-color: #d0c6e5;} </style>
+<style>  p {text-align: justify;} </style>
+<style>  pre {border: 1px solid #ccc; box-shadow: 3px 3px 3px #eee; padding: 8pt; font-family: monospace; overflow: auto; margin: 1.2em; border-radius: 10px;}</style>
+<style>code {background-color: #ccc}</style>
+
+<script src="https://orgmode.org/org-info.js">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
+</script>
+
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "0");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+// @license-end
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Fractales: El conjunto de Mandelbrot</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org1ea34c7">El fractal de Mandelbrot</a></li>
+<li><a href="#org8d085e0">Números complejos</a></li>
+<li><a href="#org073bdfc">Multiplicación de dos números complejos:</a></li>
+<li><a href="#org64b5ff7">Funciones complejas</a></li>
+<li><a href="#org32c223d">Iteración</a></li>
+<li><a href="#org519323c">El conjunto de Mandelbrot y algoritmo de escape</a></li>
+<li><a href="#org5654c8d">Aproximación:</a></li>
+</ul>
+</div>
+</div>
+<br><br><br>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+<p>
+<a href="./index.html">Home</a>
+</p>
+<div id="outline-container-org1ea34c7" class="outline-2">
+<h2 id="org1ea34c7">El fractal de Mandelbrot</h2>
+<div class="outline-text-2" id="text-org1ea34c7">
+
+<div id="org6ed90c8" class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mandelbrot_sequence_new.gif" alt="Mandelbrot_sequence_new.gif" />
+</p>
+<p><span class="figure-number">Figura 1: </span>Imagen tomada de Wikipedia.</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org8d085e0" class="outline-2">
+<h2 id="org8d085e0">Números complejos</h2>
+<div class="outline-text-2" id="text-org8d085e0">
+<p>
+Primero debemos saber lo siguiente de los números complejos:
+</p>
+<ul class="org-ul">
+<li>\(z\in \mathbb{C}\),  \(z = x + iy\), con \(x,y \in \mathbb{R}\) y \(i^2 = -1\).</li>
+<li>Su representación en el plano.</li>
+<li>El módulo y/o longitud y/o valor absoluto \(|z| = \sqrt{x^2 + y^2}\).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org073bdfc" class="outline-2">
+<h2 id="org073bdfc">Multiplicación de dos números complejos:</h2>
+<div class="outline-text-2" id="text-org073bdfc">
+<p>
+La regla general: si \(z = a + ib\) y \(w = x + iy\), entonces
+\[
+z w = (a + ib) ( x + iy) = (ax - by) + i(ay + bx).
+\]
+</p>
+
+<p>
+Ejemplos:
+</p>
+<ul class="org-ul">
+<li>\((3 +2i) (1 + i) =\)</li>
+<li>\((1 + i) ( 2 - i) =\)</li>
+<li>\((1 + i)^2 =\).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org64b5ff7" class="outline-2">
+<h2 id="org64b5ff7">Funciones complejas</h2>
+<div class="outline-text-2" id="text-org64b5ff7">
+<p>
+Para entender el fractal de Mandelbrot, es necesarion familiarizarse con
+la siguente función: para un número complejo \(c = a + ib\) fijo, definimos:
+\[
+f_{c}(z) = z^2 + c.
+\]
+</p>
+
+<p>
+Ejemplo: Tomando \(c = i\), calcular \(f_{c}(1)\) y \(f_{c}(1+i)\).
+</p>
+</div>
+</div>
+<div id="outline-container-org32c223d" class="outline-2">
+<h2 id="org32c223d">Iteración</h2>
+<div class="outline-text-2" id="text-org32c223d">
+<p>
+La iteración se refiere a repetir varias veces un proceso. En este caso, iniciando con 
+el valor \(c = 0\), procederemos a calcular \(f_{c}(0)\), \(f_{c}(f_{c}(0))\), \(f_{c}(f_{c}(f_{c}(0)))\),
+es decir, iteraremos la aplicación de la función \(f_{c}(z)\) evaluada en \(z =0\).
+</p>
+
+
+<p>
+Nota: Es más común usar las expresion \(f^{(3)}_{c}(0)\) para denotar la recurrencia \(f_{c}(f_{c}(f_{c}(0)))\) en estos casos, y
+de manera análoga definir \(f_{c}(0), f_{c}^{(2)}(0), f_{c}^{(3)}(0), f_{c}^{(4)}(0),\ldots\).
+</p>
+
+<p>
+Ejercicios:
+</p>
+
+<ul class="org-ul">
+<li>Para el valor \(c = 1\), calcular \(f_{c}(0), f_{c}^{(2)}(0), f_{c}^{(3)}(0), f_{c}^{(4)}(0),\ldots\).</li>
+<li>Para el valor \(c = -1\), calcular \(f_{c}(0), f_{c}^{(2)}(0), f_{c}^{(3)}(0), f_{c}^{(4)}(0),\ldots\).</li>
+<li>Para el valor \(c = 1+i\), calcular \(f_{c}(0), f_{c}^{(2)}(0), f_{c}^{(3)}(0), f_{c}^{(4)}(0),\ldots\).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org519323c" class="outline-2">
+<h2 id="org519323c">El conjunto de Mandelbrot y algoritmo de escape</h2>
+<div class="outline-text-2" id="text-org519323c">
+<p>
+Para cada \(c\in \mathbb{C}\) considere la sucesión: \(z_0 = 0\) y para todo natural \(n\) se define \(z_{n} := f_{c}^{(n)}(0)\).
+</p>
+
+
+<p>
+Si esta sucesión queda acotada, entonces se dice que \(c\) pertenece al conjunto de Mandelbrot, y si no, queda excluido
+</p>
+
+
+<p>
+A menudo se representa el conjunto mediante el algoritmo de tiempo de
+escape:
+</p>
+
+<p>
+Los colores de los puntos que no pertenecen al conjunto indican la velocidad con la que la sucesión correspondiente a dicho punto diverge (tiende al infinito, en módulo).
+</p>
+
+
+<div id="orgb63f0cb" class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Mandelbrot0.jpg" alt="Mandelbrot0.jpg" />
+</p>
+<p><span class="figure-number">Figura 2: </span>Imagen tomada de Wikipedia.</p>
+</div>
+
+<p>
+En la imagen de ejemplo, observamos que el rojo oscuro indica que al cabo de pocos
+cálculos se sabe que el punto no está en el conjunto mientras que el
+blanco informa de que se ha tardado mucho más en comprobarlo.
+</p>
+</div>
+</div>
+<div id="outline-container-org5654c8d" class="outline-2">
+<h2 id="org5654c8d">Aproximación:</h2>
+<div class="outline-text-2" id="text-org5654c8d">
+<p>
+Como no se puede calcular un sinfín de valores, es preciso poner un límite y
+decidir que si los \(K\) primeros términos de la sucesión están acotados
+entonces se considera que el punto pertenece al conjunto. Al aumentar
+el valor de \(K\) se mejora la precisión de la imagen.
+</p>
+
+<p>
+Teorema:<br />
+Se sabe que los puntos cuya distancia al origen es
+superior a 2, es decir, \(|z_{n}|^2 = x^2 + y^2 > 4\), <b>no pertenecen al conjunto</b>.
+Por lo tanto basta encontrar un solo término
+de la sucesión que verifique \(|z_{n}| > 2\)
+para estar seguro de que c no está en el conjunto.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: <br> Daniel Ballesteros Chávez,<br> Jorge F. Becerril Cejudo <br> Karla J. Melo Rascon  <br> (<a href="mailto:huehueocelotl@gmail.com">huehueocelotl@gmail.com</a>)</p>
+<p class="date">Date: 2025-08-14 czw 00:00</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.7.27)</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
